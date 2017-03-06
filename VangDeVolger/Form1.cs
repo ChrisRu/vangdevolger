@@ -59,8 +59,11 @@ namespace VangDeVolger
             _enemyX = pictureBox2.Location.X;
             _enemyY = pictureBox2.Location.Y;
 
-            if (!pictureBox1.Bounds.IntersectsWith(pictureBox2.Bounds)) { // raken de enemy en de player elkaar ?
-                if (!pictureBox2.Bounds.IntersectsWith(pictureBox3.Bounds)) // raakt de enemy een blok waar hij niet doorheen kan ?
+            // Check of de player en enemy elkaar raken
+            if (!pictureBox1.Bounds.IntersectsWith(pictureBox2.Bounds))
+            {
+                // Check of de enemy ee blok raakt
+                if (!pictureBox2.Bounds.IntersectsWith(pictureBox3.Bounds))
                 {
                     if (_enemyX < _playerX)
                     {
@@ -82,18 +85,21 @@ namespace VangDeVolger
                         _prevEnemyY = _enemyY;
                         _enemyY -= speed;
                     }
-                } // vind de korste weg langs het blok naar de speler
+                }
+                // Vind de korste weg langs het blok naar de speler
                 else
                 {
-                    if(_playerY < _enemyY) // omhoog erlangs
+                    // Omhoog erlangs
+                    if (_playerY < _enemyY)
                     {
-                            _enemyY -= speed;
+                        _enemyY -= speed;
                     }
-                    if (_playerY > _enemyY) // omlaag erlangs
-                    {               
-                            _enemyY += speed;
+                    // Omlaag erlangs
+                    if (_playerY > _enemyY)
+                    {
+                        _enemyY += speed;
                     }
-                    //  dit is kut.
+                    // dit is kutter dan kut.
                 }
             }
             else
@@ -113,8 +119,9 @@ namespace VangDeVolger
             _playerX = pictureBox1.Location.X;
             _playerY = pictureBox1.Location.Y;
 
-            if (!pictureBox1.Bounds.IntersectsWith(pictureBox3.Bounds)) //raakt de speler een blok waar hij niet doorheen kan ?
-            { // nope
+            // Check of de speler het blok raakt
+            if (!pictureBox1.Bounds.IntersectsWith(pictureBox3.Bounds))
+            {
                 if (e.KeyCode.Equals(Keys.Down))
                 {
                     _prevPlayerY = _playerY;
@@ -135,7 +142,7 @@ namespace VangDeVolger
                     _prevPlayerX = _playerX;
                     _playerX += speed;
                 }
-            } // yup
+            }
             else
             {
                 _playerX = _prevPlayerX;
@@ -147,6 +154,4 @@ namespace VangDeVolger
             pictureBox1.Location = new Point(_playerX, _playerY);
         }
     }
-
-       
 }
