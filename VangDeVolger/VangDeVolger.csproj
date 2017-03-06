@@ -81,9 +81,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\test.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\vogel-groen.png" />
   </ItemGroup>
   <ItemGroup>

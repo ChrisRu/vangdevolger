@@ -17,6 +17,15 @@ namespace VangDeVolger
             InitializeComponent();
         }
 
+        int enemy_x;
+        int enemy_y;
+
+        int player_x;
+        int player_y;
+
+        int prev_player_x;
+        int prev_player_y;
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("test 1");
@@ -26,5 +35,89 @@ namespace VangDeVolger
         {
             MessageBox.Show("test 2");
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+
+            player_x = pictureBox1.Location.X;
+            player_y = pictureBox1.Location.Y;
+
+            enemy_x = pictureBox2.Location.X;
+            enemy_y = pictureBox2.Location.Y;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            player_x = pictureBox1.Location.X;
+            player_y = pictureBox1.Location.Y;
+
+            enemy_x = pictureBox2.Location.X;
+            enemy_y = pictureBox2.Location.Y;
+
+            if (!pictureBox1.Bounds.IntersectsWith(pictureBox2.Bounds)) {
+                if (enemy_x < player_x)
+                {
+                    enemy_x += 2;
+                }
+                if (enemy_x > player_x)
+                {
+                    enemy_x -= 2;
+                }
+                if (enemy_y < player_y)
+                {
+                    enemy_y += 2;
+                }
+                if (enemy_y > player_y)
+                {
+                    enemy_y -= 2;
+                }
+            }
+            else
+            {
+                timer1.Stop();
+                MessageBox.Show("Game over!");
+            }
+            Point p = new Point(enemy_x, enemy_y);
+            pictureBox2.Location = p;
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            prev_player_x = player_x;
+            prev_player_y = player_y;
+
+            player_x = pictureBox1.Location.X;
+            player_y = pictureBox1.Location.Y;
+
+            if (!pictureBox1.Bounds.IntersectsWith(pictureBox3.Bounds))
+            {
+                if (e.KeyCode.Equals(Keys.Down))
+                {
+                    player_y = player_y + 3;
+                }
+                if (e.KeyCode.Equals(Keys.Up))
+                {
+                    player_y = player_y - 3;
+                }
+                if (e.KeyCode.Equals(Keys.Left))
+                {
+                    player_x = player_x - 3;
+                }
+                if (e.KeyCode.Equals(Keys.Right))
+                {
+                    player_x = player_x + 3;
+                }
+            }
+            else
+            {
+                player_x = prev_player_x;
+                player_y = prev_player_y;
+            }
+
+            pictureBox1.Location = new Point(player_x, player_y);
+        }
     }
+
+       
 }
