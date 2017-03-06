@@ -40,11 +40,9 @@ namespace VangDeVolger
         {
             timer1.Start();
 
-            player_x = pictureBox1.Location.X;
-            player_y = pictureBox1.Location.Y;
+            prev_player_x = pictureBox1.Location.X;
+            prev_player_y = pictureBox1.Location.Y;
 
-            enemy_x = pictureBox2.Location.X;
-            enemy_y = pictureBox2.Location.Y;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -84,9 +82,6 @@ namespace VangDeVolger
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            prev_player_x = player_x;
-            prev_player_y = player_y;
-
             player_x = pictureBox1.Location.X;
             player_y = pictureBox1.Location.Y;
 
@@ -94,18 +89,22 @@ namespace VangDeVolger
             {
                 if (e.KeyCode.Equals(Keys.Down))
                 {
+                    prev_player_y = player_y;
                     player_y = player_y + 3;
                 }
                 if (e.KeyCode.Equals(Keys.Up))
                 {
+                    prev_player_y = player_y;
                     player_y = player_y - 3;
                 }
                 if (e.KeyCode.Equals(Keys.Left))
                 {
+                    prev_player_x = player_x;
                     player_x = player_x - 3;
                 }
                 if (e.KeyCode.Equals(Keys.Right))
                 {
+                    prev_player_x = player_x;
                     player_x = player_x + 3;
                 }
             }
