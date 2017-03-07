@@ -35,14 +35,19 @@ namespace VangDeVolger
             Render();
         }
 
+        /// <summary>
+        /// Create the blocks on the grid
+        /// </summary>
         private void _createGrid()
         {
+            var tempGrid = new List<Block>();
             var random = new Random();
             for (var y = 0; y < this.Height; y += BlockSize)
             {
                 for (var x = 0; x < this.Width; x += BlockSize)
                 {
                     var chance = random.Next(100);
+                    Block block = null;
 
                     if (y == 0 && x == 0)
                     {
@@ -51,17 +56,63 @@ namespace VangDeVolger
 
                     if (chance <= 5)
                     {
-                        Blocks.Add(new BlockSolid(new Point(x, y)));
+                        block = new BlockSolid(new Point(x, y));
                     }
                     else if (chance <= 25)
                     {
-                        Blocks.Add(new BlockMoveable(new Point(x, y)));
+                        block = new BlockMoveable(new Point(x, y));
+                    }
+
+                    if (block != null)
+                    {
+                        tempGrid.Add(block);
                     }
                 }
             }
 
+            foreach (var block in tempGrid)
+            {
+                Blocks.Add(_setSiblingBlocks(block));
+            }
         }
 
+        /// <summary>
+        /// Checks around the block and adds sibling properties to the block
+        /// </summary>
+        /// <param name="block"></param>
+        /// <returns></returns>
+        private Block _setSiblingBlocks(Block block)
+        {
+            var x = block.Pb.Location.X;
+            var y = block.Pb.Location.Y;
+
+            var topSibling =
+                Blocks.FirstOrDefault(
+                    blocker => (blocker.Pb.Location.X == x && blocker.Pb.Location.Y == y - BlockSize));
+
+            var bottomSibling =
+                Blocks.FirstOrDefault(
+                    blocker => (blocker.Pb.Location.X == x && blocker.Pb.Location.Y == y + BlockSize));
+
+            var leftSibling =
+                Blocks.FirstOrDefault(
+                    blocker => (blocker.Pb.Location.X == x - BlockSize && blocker.Pb.Location.Y == y));
+
+            var rightSibling =
+                Blocks.FirstOrDefault(
+                    blocker => (blocker.Pb.Location.X == x + BlockSize && blocker.Pb.Location.Y == y));
+
+            block.SiblingTop = topSibling;
+            block.SiblingBottom = bottomSibling;
+            block.SiblingLeft = leftSibling;
+            block.SiblingRight = rightSibling;
+
+            return block;
+        }
+
+        /// <summary>
+        /// Add all elements to the Controls
+        /// </summary>
         public void Render()
         {
             foreach (var block in Blocks)
