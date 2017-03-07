@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -69,9 +70,22 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+
+        [DllImport("user32.dll")]
+        public static extern int GetKeyboardState(byte[] keystate);
+
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            _player.Move(Blocks, e);
+            byte[] keys = new byte[256];
+            GetKeyboardState(keys);
+
+            if ((keys[(int)Keys.Up] & keys[(int)Keys.Right] & 128) == 128)
+            {
+                MessageBox.Show("up right");
+            }
+
+                _player.Move(Blocks, e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 
