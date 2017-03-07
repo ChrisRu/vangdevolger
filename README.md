@@ -3,7 +3,7 @@ Vang de Volger is een spelletje waarbij de speler achtervolgt wordt door een vij
 Verder staan op het veld random blokken (ca. 5% of in te stellen) waar niet doorheen bewogen kan worden. Ook staan er dozen op het veld (ca 20% of in te stellen). Deze dozen kunnen door de speler geduwd worden, maar niet door de vijand. Ook kan een hele rij dozen in n keer geduwd worden.
 Het spel is afgelopen als de vijand de speler raakt (verloren) of als de vijand niet meer kan bewegen (gewonnen).
 
-Opdracht:
+## Opdracht:
 Schrijf een grafische C# desktopapplicatie waarin Vang de Volger gespeeld kan worden. Denk hierbij aan het volgende:
 * Naast het speelveld staan 2 knoppen: pauze/herstart en opnieuw (er wordt een nieuw veld gegenereerd). Eventueel is er een instellingen knop.
 * Je levert zowel de applicatie op (met duidelijke becommentarieerde code) als een systeemontwerp (klassendiagram)
