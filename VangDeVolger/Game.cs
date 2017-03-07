@@ -53,31 +53,7 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            Size direction;
-
-            if (e.KeyCode.Equals(Keys.Down))
-            {
-                direction = new Size(0, PlayerSpeed);
-            }
-            else if (e.KeyCode.Equals(Keys.Up))
-            {
-                direction = new Size(0, -PlayerSpeed);
-            }
-            else if (e.KeyCode.Equals(Keys.Left))
-            {
-                direction = new Size(-PlayerSpeed, 0);
-            }
-            else if (e.KeyCode.Equals(Keys.Right))
-            {
-                direction = new Size(PlayerSpeed, 0);
-            }
-            else
-            {
-                direction = new Size(0, 0);
-            }
-
-            _player.Pb.Location = Point.Add(_player.Pb.Location, direction);
-
+            _player.Move(e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 
