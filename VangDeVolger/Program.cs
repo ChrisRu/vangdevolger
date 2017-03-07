@@ -17,8 +17,6 @@ namespace VangDeVolger
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            Label label = new Label();
-            label.Text = "Vang de volger!";
         }
     }
 }

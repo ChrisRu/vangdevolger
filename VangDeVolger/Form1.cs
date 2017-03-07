@@ -29,16 +29,6 @@ namespace VangDeVolger
         private int _prevEnemyX;
         private int _prevEnemyY;
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("test 1");
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("test 2");
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Start();
