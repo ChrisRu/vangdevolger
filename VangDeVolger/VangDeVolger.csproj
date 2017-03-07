@@ -48,12 +48,14 @@
   <ItemGroup>
     <Compile Include="Bird.cs" />
     <Compile Include="Board.cs" />
+    <Compile Include="EnemyBird.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlayerBird.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
