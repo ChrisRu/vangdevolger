@@ -40,52 +40,35 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            Size direction;
+
             if (e.KeyCode.Equals(Keys.Down))
             {
-                _player.Pb.Location = Point.Add(_player.Pb.Location, new Size(0, _playerSpeed));
+                direction = new Size(0, _playerSpeed);
             }
-            if (e.KeyCode.Equals(Keys.Up))
+            else if (e.KeyCode.Equals(Keys.Up))
             {
-                _player.Pb.Location = Point.Add(_player.Pb.Location, new Size(0, -_playerSpeed));
+                direction = new Size(0, -_playerSpeed);
             }
-            if (e.KeyCode.Equals(Keys.Left))
+            else if (e.KeyCode.Equals(Keys.Left))
             {
-                _player.Pb.Location = Point.Add(_player.Pb.Location, new Size(-_playerSpeed, 0));
+                direction = new Size(-_playerSpeed, 0);
+            }
+            else if (e.KeyCode.Equals(Keys.Right))
+            {
+                direction = new Size(_playerSpeed, 0);
+            }
+            else
+            {
+                direction = new Size(0, 0);
+            }
 
-            }
-            if (e.KeyCode.Equals(Keys.Right))
-            {
-                _player.Pb.Location = Point.Add(_player.Pb.Location, new Size(_playerSpeed, 0));
-
-            }
+            _player.Pb.Location = Point.Add(_player.Pb.Location, direction);
 
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 
         /*
-
-        private int _enemyX;
-        private int _enemyY;
-
-        private int _playerX;
-        private int _playerY;
-
-        private int _prevPlayerX;
-        private int _prevPlayerY;
-
-        private int _prevEnemyX;
-        private int _prevEnemyY;
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            timer1.Start();
-
-            _prevPlayerX = pictureBox1.Location.X;
-            _prevPlayerY = pictureBox1.Location.Y;
-
-            _prevEnemyX = pictureBox2.Location.X;
-            _prevEnemyY = pictureBox2.Location.Y;
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -147,11 +130,6 @@ namespace VangDeVolger
             label1.Text = "Enemy: X: " + _enemyX + " Y: " + _enemyY;
             var p = new Point(_enemyX, _enemyY);
             pictureBox2.Location = p;
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            
         }
         */
     }
