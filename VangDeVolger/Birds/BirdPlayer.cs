@@ -31,7 +31,7 @@ namespace VangDeVolger.Birds
         /// </summary>
         /// <param name="blocks"></param>
         /// <param name="keys"></param>
-        internal override void Move(ref List<Block> blocks, byte[] keys)
+        internal override void Move(ref List<Block> blocks, KeyEventArgs e)
         {
             var direction = new Size(0, 0);
 
@@ -42,20 +42,20 @@ namespace VangDeVolger.Birds
                 return;
             }
 
-            if (keys[(int)Keys.Down] == 128)
+            if (e.KeyCode == Keys.Down)
             {
                 direction = new Size(0, PlayerSpeed);
             }
-            if (keys[(int)Keys.Up] == 128)
+            if (e.KeyCode == Keys.Up)
             {
                 direction = new Size(0, -PlayerSpeed);
             }
-            if (keys[(int)Keys.Left] == 128)
+            if (e.KeyCode == Keys.Left)
             {
                 _goingRight = false;
                 direction = new Size(-PlayerSpeed, 0);
             }
-            if (keys[(int)Keys.Right] == 128)
+            if (e.KeyCode == Keys.Right)
             {
                 _goingRight = true;
                 direction = new Size(PlayerSpeed, 0);

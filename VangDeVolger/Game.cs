@@ -27,6 +27,8 @@ namespace VangDeVolger
         {
             InitializeComponent();
 
+            this.KeyPreview = true;
+
             _player = new PlayerBird(new Point(50, 50), 3);
             
             Blocks.Add(new BlockSolid(new Point(180, 180)));
@@ -65,26 +67,14 @@ namespace VangDeVolger
 
         }
 
-        
-        /// <summary>
-        /// Get Keyboard State
-        /// </summary>
-        /// <param name="keystate"></param>
-        /// <returns></returns>
-        [DllImport("user32.dll")]
-        public static extern int GetKeyboardState(byte[] keystate);
-
         /// <summary>
         /// Use Player Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Game_KeyDown(object sender, KeyEventArgs e)
-        {
-            var keys = new byte[256];
-            GetKeyboardState(keys);
-
-            _player.Move(ref Blocks, keys);
+        {   
+            _player.Move(ref Blocks, e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 
