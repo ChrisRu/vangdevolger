@@ -7,6 +7,10 @@ namespace VangDeVolger.Blocks
     public abstract class Block
     {
         public PictureBox Pb;
+        public Block SiblingTop;
+        public Block SiblingBottom;
+        public Block SiblingLeft;
+        public Block SiblingRight;
 
         /// <summary>
         /// Initialize Block Class
