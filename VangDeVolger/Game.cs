@@ -15,6 +15,8 @@ namespace VangDeVolger
         private Bird _player;
         private const int PlayerSpeed = 3;
 
+        private List<Block> _blocks = new List<Block>();
+
         /// <summary>
         /// Initialize game
         /// </summary>
@@ -23,6 +25,20 @@ namespace VangDeVolger
             InitializeComponent();
 
             _player = new PlayerBird(new Point(50, 50), 3);
+            
+            _blocks.Add(new SolidBlock(new Point(80, 80)));
+            _blocks.Add(new SolidBlock(new Point(120, 30)));
+
+            Render();
+        }
+
+        public void Render()
+        {
+            foreach (var block in _blocks)
+            {
+                Controls.Add(block.Pb);
+            }
+
             Controls.Add(_player.Pb);
         }
 

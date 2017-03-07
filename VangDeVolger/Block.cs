@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace VangDeVolger
 {
-    internal abstract class Block
+    public abstract class Block
     {
         public PictureBox Pb;
 
@@ -24,6 +24,7 @@ namespace VangDeVolger
             {
                 Image = _image,
                 Size = new Size(30, 30),
+                SizeMode = PictureBoxSizeMode.Zoom,
                 Location = position
             };
         }
