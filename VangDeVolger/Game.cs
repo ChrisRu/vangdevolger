@@ -17,6 +17,7 @@ namespace VangDeVolger
     {
         private readonly Bird _player;
         private const int PlayerSpeed = 3;
+        public const int BlockSize = 32;
 
         public List<Block> Blocks = new List<Block>();
 
@@ -27,8 +28,6 @@ namespace VangDeVolger
         {
             InitializeComponent();
 
-            this.KeyPreview = true;
-
             _player = new PlayerBird(new Point(0, 0), 3);
 
             _createGrid();
@@ -37,18 +36,27 @@ namespace VangDeVolger
 
         private void _createGrid()
         {
-            var solidGrid = new int[,] { { 3, 1 }, { 4, 1 }, { 5, 1 }, { 5, 2 }, { 5, 3 }, { 5, 4 }, { 5, 5 }, { 5, 6 }, { 4, 6 }, { 3, 6 }, { 3, 5 } };
-
-            for (var i = 0; i < solidGrid.GetLength(0); i++)
+            var random = new Random();
+            for (var y = 0; y < this.Height; y += 32)
             {
-                Blocks.Add(new BlockSolid(new Point(solidGrid[i, 0] * 30, solidGrid[i, 1] * 30)));
-            }
+                for (var x = 0; x < this.Width; x += 32)
+                {
+                    var chance = random.Next(100);
 
-            var moveableGrid = new int[,] { { 1, 1 } };
+                    if (y == 0 && x == 0)
+                    {
+                        break;
+                    }
 
-            for (var i = 0; i < moveableGrid.GetLength(0); i++)
-            {
-                Blocks.Add(new BlockMoveable(new Point(moveableGrid[i, 0] * 30, moveableGrid[i, 1] * 30)));
+                    if (chance <= 5)
+                    {
+                        Blocks.Add(new BlockSolid(new Point(x, y)));
+                    }
+                    else if (chance <= 25)
+                    {
+                        Blocks.Add(new BlockMoveable(new Point(x, y)));
+                    }
+                }
             }
 
         }
