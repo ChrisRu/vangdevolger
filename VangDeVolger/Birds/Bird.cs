@@ -21,7 +21,7 @@ namespace VangDeVolger.Birds
             this.Pb = new PictureBox
             {
                 Location = position,
-                Size = new Size(30, 30),
+                Size = new Size(24, 24),
                 SizeMode = PictureBoxSizeMode.Zoom
             };
             PlayerSpeed = speed;

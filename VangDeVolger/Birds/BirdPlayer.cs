@@ -30,7 +30,7 @@ namespace VangDeVolger.Birds
         /// Move Bird
         /// </summary>
         /// <param name="blocks"></param>
-        /// <param name="keys"></param>
+        /// <param name="e"></param>
         internal override void Move(ref List<Block> blocks, KeyEventArgs e)
         {
             var direction = new Size(0, 0);
