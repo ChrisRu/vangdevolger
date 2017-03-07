@@ -7,8 +7,6 @@ namespace VangDeVolger.Blocks
     {
         public PictureBox Pb;
 
-        private readonly Image _image = VangDeVolger.Properties.Resources.rock;
-
         /// <summary>
         /// Initialize Block Class
         /// </summary>
@@ -17,7 +15,6 @@ namespace VangDeVolger.Blocks
         {
             this.Pb = new PictureBox
             {
-                Image = _image,
                 Size = new Size(30, 30),
                 SizeMode = PictureBoxSizeMode.Zoom,
                 Location = position

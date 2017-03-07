@@ -93,6 +93,16 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap solid {
+            get {
+                object obj = ResourceManager.GetObject("solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vogel_groen {
             get {
                 object obj = ResourceManager.GetObject("vogel_groen", resourceCulture);
