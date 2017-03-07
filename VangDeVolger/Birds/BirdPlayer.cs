@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using VangDeVolger.Blocks;
 
-namespace VangDeVolger
+namespace VangDeVolger.Birds
 {
     internal class PlayerBird : Bird
     {
@@ -28,13 +26,14 @@ namespace VangDeVolger
         /// <summary>
         /// Move Bird
         /// </summary>
-        /// <param name="Blocks"></param>
+        /// <param name="blocks"></param>
         /// <param name="e"></param>
-        internal override void Move(List<Block> Blocks, KeyEventArgs e)
+        internal override void Move(List<Block> blocks, KeyEventArgs e)
         {
             Size direction;
 
-            if (Blocks.Any(block => this.Pb.Bounds.IntersectsWith(block.Pb.Bounds)))
+            // Collision checking
+            if (blocks.Any(block => this.Pb.Bounds.IntersectsWith(block.Pb.Bounds)))
             {
                 this.Pb.Location = _previousPosition;
                 return;

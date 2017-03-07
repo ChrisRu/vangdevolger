@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VangDeVolger.Birds;
+using VangDeVolger.Blocks;
 
 namespace VangDeVolger
 {
@@ -26,8 +28,8 @@ namespace VangDeVolger
 
             _player = new PlayerBird(new Point(50, 50), 3);
             
-            Blocks.Add(new SolidBlock(new Point(180, 180)));
-            Blocks.Add(new SolidBlock(new Point(120, 130)));
+            Blocks.Add(new BlockSolid(new Point(180, 180)));
+            Blocks.Add(new BlockSolid(new Point(120, 130)));
 
             Render();
         }
