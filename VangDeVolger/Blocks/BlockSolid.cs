@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace VangDeVolger.Blocks
 {
@@ -9,6 +10,11 @@ namespace VangDeVolger.Blocks
         public BlockSolid(Point position) : base(position)
         {
             this.Pb.Image = _image;
+        }
+
+        internal override void Move(ref List<Block> blocks, Size size)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

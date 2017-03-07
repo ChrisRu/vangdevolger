@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace VangDeVolger.Blocks
@@ -20,5 +21,7 @@ namespace VangDeVolger.Blocks
                 Location = position
             };
         }
+
+        internal abstract void Move(ref List<Block> blocks, Size size);
     }
 }

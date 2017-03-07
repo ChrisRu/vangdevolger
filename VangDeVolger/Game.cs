@@ -37,11 +37,18 @@ namespace VangDeVolger
 
         private void _createGrid()
         {
-            var grid = new int[,] { { 3, 1 }, { 4, 1 }, { 5, 1 }, { 5, 2 }, { 5, 3 }, { 5, 4 }, { 5, 5 }, { 5, 6 }, { 4, 6 }, { 3, 6 }, { 3, 5 } };
+            var solidGrid = new int[,] { { 3, 1 }, { 4, 1 }, { 5, 1 }, { 5, 2 }, { 5, 3 }, { 5, 4 }, { 5, 5 }, { 5, 6 }, { 4, 6 }, { 3, 6 }, { 3, 5 } };
 
-            for (var i = 0; i < grid.GetLength(0); i++)
+            for (var i = 0; i < solidGrid.GetLength(0); i++)
             {
-                Blocks.Add(new BlockSolid(new Point(grid[i, 0] * 30, grid[i, 1] * 30)));
+                Blocks.Add(new BlockSolid(new Point(solidGrid[i, 0] * 30, solidGrid[i, 1] * 30)));
+            }
+
+            var moveableGrid = new int[,] { { 1, 1 } };
+
+            for (var i = 0; i < moveableGrid.GetLength(0); i++)
+            {
+                Blocks.Add(new BlockMoveable(new Point(moveableGrid[i, 0] * 30, moveableGrid[i, 1] * 30)));
             }
 
         }

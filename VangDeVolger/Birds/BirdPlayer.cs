@@ -36,10 +36,34 @@ namespace VangDeVolger.Birds
             var direction = new Size(0, 0);
 
             // Collision checking
-            if (blocks.Any(block => this.Pb.Bounds.IntersectsWith(block.Pb.Bounds)))
+            foreach (var block in blocks)
             {
-                this.Pb.Location = _previousPosition;
-                return;
+                if (!Pb.Bounds.IntersectsWith(block.Pb.Bounds)) continue;
+
+                if (block.GetType().Name == "BlockMoveable")
+                {
+                    if (e.KeyCode == Keys.Down)
+                    {
+                        block.Move(ref blocks, new Size(0, PlayerSpeed));
+                    }
+                    if (e.KeyCode == Keys.Up)
+                    {
+                        block.Move(ref blocks, new Size(0, -PlayerSpeed));
+                    }
+                    if (e.KeyCode == Keys.Right)
+                    {
+                        block.Move(ref blocks, new Size(PlayerSpeed, 0));
+                    }
+                    if (e.KeyCode == Keys.Left)
+                    {
+                        block.Move(ref blocks, new Size(-PlayerSpeed, 0));
+                    }
+                }
+                else
+                {
+                    this.Pb.Location = _previousPosition;
+                    return;
+                }
             }
 
             if (e.KeyCode == Keys.Down)
