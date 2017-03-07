@@ -28,7 +28,7 @@ namespace VangDeVolger.Birds
         /// </summary>
         /// <param name="blocks"></param>
         /// <param name="e"></param>
-        internal override void Move(List<Block> blocks, KeyEventArgs e)
+        internal override void Move(ref List<Block> blocks, KeyEventArgs e)
         {
             Size direction;
 

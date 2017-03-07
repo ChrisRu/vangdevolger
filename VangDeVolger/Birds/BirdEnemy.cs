@@ -21,7 +21,7 @@ namespace VangDeVolger.Birds
             this.Pb.Image = _image;
         }
 
-        internal override void Move(List<Block> blocks, KeyEventArgs keyEventArgs)
+        internal override void Move(ref List<Block> blocks, KeyEventArgs keyEventArgs)
         {
             throw new NotImplementedException();
         }
