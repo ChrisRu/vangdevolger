@@ -16,7 +16,7 @@ namespace VangDeVolger.Blocks
         {
             this.Pb = new PictureBox
             {
-                Size = new Size(30, 30),
+                Size = new Size(Game.BlockSize, Game.BlockSize),
                 SizeMode = PictureBoxSizeMode.Zoom,
                 Location = position
             };

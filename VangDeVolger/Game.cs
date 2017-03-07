@@ -16,8 +16,9 @@ namespace VangDeVolger
     public partial class Game : Form
     {
         private readonly Bird _player;
-        private const int PlayerSpeed = 3;
+        public const int PlayerSpeed = 3;
         public const int BlockSize = 32;
+        public const int BirdSize = 28;
 
         public List<Block> Blocks = new List<Block>();
 
@@ -37,9 +38,9 @@ namespace VangDeVolger
         private void _createGrid()
         {
             var random = new Random();
-            for (var y = 0; y < this.Height; y += 32)
+            for (var y = 0; y < this.Height; y += BlockSize)
             {
-                for (var x = 0; x < this.Width; x += 32)
+                for (var x = 0; x < this.Width; x += BlockSize)
                 {
                     var chance = random.Next(100);
 

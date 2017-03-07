@@ -44,19 +44,19 @@ namespace VangDeVolger.Birds
                 {
                     if (e.KeyCode == Keys.Down)
                     {
-                        block.Move(ref blocks, new Size(0, PlayerSpeed));
+                        block.Move(ref blocks, new Size(0, Game.PlayerSpeed));
                     }
                     if (e.KeyCode == Keys.Up)
                     {
-                        block.Move(ref blocks, new Size(0, -PlayerSpeed));
+                        block.Move(ref blocks, new Size(0, -Game.PlayerSpeed));
                     }
                     if (e.KeyCode == Keys.Right)
                     {
-                        block.Move(ref blocks, new Size(PlayerSpeed, 0));
+                        block.Move(ref blocks, new Size(Game.PlayerSpeed, 0));
                     }
                     if (e.KeyCode == Keys.Left)
                     {
-                        block.Move(ref blocks, new Size(-PlayerSpeed, 0));
+                        block.Move(ref blocks, new Size(-Game.PlayerSpeed, 0));
                     }
                 }
                 else
@@ -68,21 +68,21 @@ namespace VangDeVolger.Birds
 
             if (e.KeyCode == Keys.Down)
             {
-                direction = new Size(0, PlayerSpeed);
+                direction = new Size(0, Game.PlayerSpeed);
             }
             if (e.KeyCode == Keys.Up)
             {
-                direction = new Size(0, -PlayerSpeed);
+                direction = new Size(0, -Game.PlayerSpeed);
             }
             if (e.KeyCode == Keys.Left)
             {
                 _goingRight = false;
-                direction = new Size(-PlayerSpeed, 0);
+                direction = new Size(-Game.PlayerSpeed, 0);
             }
             if (e.KeyCode == Keys.Right)
             {
                 _goingRight = true;
-                direction = new Size(PlayerSpeed, 0);
+                direction = new Size(Game.PlayerSpeed, 0);
             }
 
             if(!_goingRight && !_facingDirection.Equals("left"))
