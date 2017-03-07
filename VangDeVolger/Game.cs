@@ -29,12 +29,21 @@ namespace VangDeVolger
 
             this.KeyPreview = true;
 
-            _player = new PlayerBird(new Point(50, 50), 3);
-            
-            Blocks.Add(new BlockSolid(new Point(180, 180)));
-            Blocks.Add(new BlockSolid(new Point(120, 130)));
+            _player = new PlayerBird(new Point(0, 0), 3);
 
+            _createGrid();
             Render();
+        }
+
+        private void _createGrid()
+        {
+            var grid = new int[,] { { 3, 1 }, { 4, 1 }, { 5, 1 }, { 5, 2 }, { 5, 3 }, { 5, 4 }, { 5, 5 }, { 5, 6 }, { 4, 6 }, { 3, 6 }, { 3, 5 } };
+
+            for (var i = 0; i < grid.GetLength(0); i++)
+            {
+                Blocks.Add(new BlockSolid(new Point(grid[i, 0] * 30, grid[i, 1] * 30)));
+            }
+
         }
 
         public void Render()
@@ -73,7 +82,7 @@ namespace VangDeVolger
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Game_KeyDown(object sender, KeyEventArgs e)
-        {   
+        {
             _player.Move(ref Blocks, e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
