@@ -65,39 +65,26 @@ namespace VangDeVolger
 
         }
 
+        
+        /// <summary>
+        /// Get Keyboard State
+        /// </summary>
+        /// <param name="keystate"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll")]
+        public static extern int GetKeyboardState(byte[] keystate);
+
         /// <summary>
         /// Use Player Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /// 
-
-        [DllImport("user32.dll")]
-        public static extern int GetKeyboardState(byte[] keystate);
-
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            byte[] keys = new byte[256];
+            var keys = new byte[256];
             GetKeyboardState(keys);
 
-            if ((keys[(int)Keys.Up] & keys[(int)Keys.Right] & 128) == 128)
-            {
-                MessageBox.Show("up right");
-            }
-            if ((keys[(int)Keys.Up] & keys[(int)Keys.Left] & 128) == 128)
-            {
-                MessageBox.Show("up left");
-            }
-            if ((keys[(int)Keys.Down] & keys[(int)Keys.Right] & 128) == 128)
-            {
-                MessageBox.Show("down right");
-            }
-            if ((keys[(int)Keys.Down] & keys[(int)Keys.Left] & 128) == 128)
-            {
-                MessageBox.Show("down left");
-            }
-
-            _player.Move(ref Blocks, e);
+            _player.Move(ref Blocks, keys);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 

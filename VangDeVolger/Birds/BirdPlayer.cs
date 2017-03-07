@@ -11,9 +11,8 @@ namespace VangDeVolger.Birds
         private readonly Image _image = VangDeVolger.Properties.Resources.vogel_groen;
         private readonly Image _imageActive = VangDeVolger.Properties.Resources.vogel_groen_active;
 
-        private string facing_direction = "left";
-        private bool going_right = false;
-        private bool going_left = true;
+        private string _facingDirection = "left";
+        private bool _goingRight = false;
 
         private Point _previousPosition;
 
@@ -31,10 +30,10 @@ namespace VangDeVolger.Birds
         /// Move Bird
         /// </summary>
         /// <param name="blocks"></param>
-        /// <param name="e"></param>
-        internal override void Move(ref List<Block> blocks, KeyEventArgs e)
+        /// <param name="keys"></param>
+        internal override void Move(ref List<Block> blocks, byte[] keys)
         {
-            Size direction;
+            var direction = new Size(0, 0);
 
             // Collision checking
             if (blocks.Any(block => this.Pb.Bounds.IntersectsWith(block.Pb.Bounds)))
@@ -43,41 +42,35 @@ namespace VangDeVolger.Birds
                 return;
             }
 
-            if (e.KeyCode.Equals(Keys.Down))
+            if (keys[(int)Keys.Down] == 128)
             {
                 direction = new Size(0, PlayerSpeed);
             }
-            else if (e.KeyCode.Equals(Keys.Up))
+            if (keys[(int)Keys.Up] == 128)
             {
                 direction = new Size(0, -PlayerSpeed);
             }
-            else if (e.KeyCode.Equals(Keys.Left))
+            if (keys[(int)Keys.Left] == 128)
             {
-                going_left = true;
-                going_right = false;
+                _goingRight = false;
                 direction = new Size(-PlayerSpeed, 0);
             }
-            else if (e.KeyCode.Equals(Keys.Right))
+            if (keys[(int)Keys.Right] == 128)
             {
-                going_left = false;
-                going_right = true;
+                _goingRight = true;
                 direction = new Size(PlayerSpeed, 0);
             }
-            else
-            {
-                direction = new Size(0, 0);
-            }
 
-            if(going_left && !facing_direction.Equals("left"))
+            if(!_goingRight && !_facingDirection.Equals("left"))
             {
                 this.Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                facing_direction = "left";
+                _facingDirection = "left";
                 this.Pb.Invalidate();
             }
-            if (going_right && !facing_direction.Equals("right"))
+            if (_goingRight && !_facingDirection.Equals("right"))
             {
                 this.Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                facing_direction = "right";
+                _facingDirection = "right";
                 this.Pb.Invalidate();
             }
 
