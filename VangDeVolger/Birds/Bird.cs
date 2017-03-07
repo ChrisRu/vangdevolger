@@ -27,6 +27,6 @@ namespace VangDeVolger.Birds
             PlayerSpeed = speed;
         }
 
-        internal abstract void Move(List<Block> Blocks, KeyEventArgs e);
+        internal abstract void Move(List<Block> blocks, KeyEventArgs e);
     }
 }

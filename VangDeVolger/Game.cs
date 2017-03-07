@@ -14,7 +14,7 @@ namespace VangDeVolger
 {
     public partial class Game : Form
     {
-        private Bird _player;
+        private readonly Bird _player;
         private const int PlayerSpeed = 3;
 
         public List<Block> Blocks = new List<Block>();
