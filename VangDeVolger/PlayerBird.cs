@@ -13,6 +13,8 @@ namespace VangDeVolger
         private readonly Image _image = VangDeVolger.Properties.Resources.vogel_groen;
         private readonly Image _imageActive = VangDeVolger.Properties.Resources.vogel_groen_active;
 
+        private Point _previousPosition;
+
         /// <summary>
         /// Initialize PlayerBird Class
         /// </summary>
@@ -26,10 +28,17 @@ namespace VangDeVolger
         /// <summary>
         /// Move Bird
         /// </summary>
+        /// <param name="Blocks"></param>
         /// <param name="e"></param>
-        internal override void Move(KeyEventArgs e)
+        internal override void Move(List<Block> Blocks, KeyEventArgs e)
         {
             Size direction;
+
+            if (Blocks.Any(block => this.Pb.Bounds.IntersectsWith(block.Pb.Bounds)))
+            {
+                this.Pb.Location = _previousPosition;
+                return;
+            }
 
             if (e.KeyCode.Equals(Keys.Down))
             {
@@ -52,6 +61,7 @@ namespace VangDeVolger
                 direction = new Size(0, 0);
             }
 
+            _previousPosition = this.Pb.Location;
             this.Pb.Location = Point.Add(this.Pb.Location, direction);
         }
     }

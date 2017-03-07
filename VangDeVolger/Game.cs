@@ -15,7 +15,7 @@ namespace VangDeVolger
         private Bird _player;
         private const int PlayerSpeed = 3;
 
-        private List<Block> _blocks = new List<Block>();
+        public List<Block> Blocks = new List<Block>();
 
         /// <summary>
         /// Initialize game
@@ -26,15 +26,15 @@ namespace VangDeVolger
 
             _player = new PlayerBird(new Point(50, 50), 3);
             
-            _blocks.Add(new SolidBlock(new Point(80, 80)));
-            _blocks.Add(new SolidBlock(new Point(120, 30)));
+            Blocks.Add(new SolidBlock(new Point(180, 180)));
+            Blocks.Add(new SolidBlock(new Point(120, 130)));
 
             Render();
         }
 
         public void Render()
         {
-            foreach (var block in _blocks)
+            foreach (var block in Blocks)
             {
                 Controls.Add(block.Pb);
             }
@@ -69,7 +69,7 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            _player.Move(e);
+            _player.Move(Blocks, e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 

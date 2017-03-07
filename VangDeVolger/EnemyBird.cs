@@ -23,7 +23,7 @@ namespace VangDeVolger
             this.Pb.Image = _image;
         }
 
-        internal override void Move(KeyEventArgs e)
+        internal override void Move(List<Block> blocks, KeyEventArgs keyEventArgs)
         {
             throw new NotImplementedException();
         }

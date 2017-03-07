@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace VangDeVolger
@@ -25,6 +26,6 @@ namespace VangDeVolger
             PlayerSpeed = speed;
         }
 
-        internal abstract void Move(KeyEventArgs e);
+        internal abstract void Move(List<Block> Blocks, KeyEventArgs e);
     }
 }
