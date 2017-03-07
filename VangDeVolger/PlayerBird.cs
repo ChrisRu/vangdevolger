@@ -10,12 +10,12 @@ namespace VangDeVolger
 {
     internal class PlayerBird : Bird
     {
-        private readonly Image _birdImage = VangDeVolger.Properties.Resources.vogel_groen;
-        private readonly Image _birdImageActive = VangDeVolger.Properties.Resources.vogel_groen_active;
+        private readonly Image _image = VangDeVolger.Properties.Resources.vogel_groen;
+        private readonly Image _imageActive = VangDeVolger.Properties.Resources.vogel_groen_active;
 
         public PlayerBird(Point position, int speed) : base(position, speed)
         {
-            this.Pb.Image = _birdImage;
+            this.Pb.Image = _image;
         }
 
         /// <summary>
