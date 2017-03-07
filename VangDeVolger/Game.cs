@@ -84,8 +84,20 @@ namespace VangDeVolger
             {
                 MessageBox.Show("up right");
             }
+            if ((keys[(int)Keys.Up] & keys[(int)Keys.Left] & 128) == 128)
+            {
+                MessageBox.Show("up left");
+            }
+            if ((keys[(int)Keys.Down] & keys[(int)Keys.Right] & 128) == 128)
+            {
+                MessageBox.Show("down right");
+            }
+            if ((keys[(int)Keys.Down] & keys[(int)Keys.Left] & 128) == 128)
+            {
+                MessageBox.Show("down left");
+            }
 
-                _player.Move(Blocks, e);
+            _player.Move(ref Blocks, e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 
