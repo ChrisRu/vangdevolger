@@ -22,7 +22,7 @@ namespace VangDeVolger
         {
             InitializeComponent();
 
-            _player = new PlayerBird(new Point(50, 50));
+            _player = new PlayerBird(new Point(50, 50), 3);
             Controls.Add(_player.Pb);
         }
 
