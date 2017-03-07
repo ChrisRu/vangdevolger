@@ -13,6 +13,11 @@ namespace VangDeVolger
         private readonly Image _image = VangDeVolger.Properties.Resources.vogel_groen;
         private readonly Image _imageActive = VangDeVolger.Properties.Resources.vogel_groen_active;
 
+        /// <summary>
+        /// Initialize PlayerBird Class
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="speed"></param>
         public PlayerBird(Point position, int speed) : base(position, speed)
         {
             this.Pb.Image = _image;

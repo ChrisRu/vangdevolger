@@ -5,9 +5,15 @@ namespace VangDeVolger
 {
     public abstract class Bird
     {
-        protected int PlayerSpeed;
         public PictureBox Pb;
 
+        protected int PlayerSpeed;
+
+        /// <summary>
+        /// Initialize Bird Class
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="speed"></param>
         protected Bird(Point position, int speed)
         {
             this.Pb = new PictureBox

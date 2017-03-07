@@ -11,8 +11,13 @@ namespace VangDeVolger
     internal abstract class Block
     {
         public PictureBox Pb;
+
         private readonly Image _image = VangDeVolger.Properties.Resources.rock;
 
+        /// <summary>
+        /// Initialize Block Class
+        /// </summary>
+        /// <param name="position"></param>
         protected Block(Point position)
         {
             this.Pb = new PictureBox
