@@ -5,7 +5,7 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockSolid : Block
     {
-        private readonly Image _image = VangDeVolger.Properties.Resources.solid;
+        private readonly Image _image = Properties.Resources.solid;
 
         public BlockSolid(Point position) : base(position)
         {

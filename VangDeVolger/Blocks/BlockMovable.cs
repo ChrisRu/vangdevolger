@@ -5,18 +5,15 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockMovable : Block
     {
-        private Point _previousLocation;
-        private readonly Image _image = VangDeVolger.Properties.Resources.rock;
+        private readonly Image _image = Properties.Resources.rock;
 
         public BlockMovable(Point position) : base(position)
         {
-            this.Pb.Image = _image;
+            Pb.Image = _image;
         }
 
         internal override void Move(ref List<Block> blocks, Size size)
         {
-            _previousLocation = this.Pb.Location;
-
             var newLocation = Point.Add(Pb.Location, size);
 
             if (newLocation.X < 0 || newLocation.X > Game.WindowWidth) return;
