@@ -15,6 +15,9 @@ namespace VangDeVolger
 {
     public partial class Game : Form
     {
+        public static int WindowWidth;
+        public static int WindowHeight;
+
         private readonly Bird _player;
         public const int PlayerSpeed = 3;
         public const int BlockSize = 32;
@@ -29,8 +32,12 @@ namespace VangDeVolger
         {
             InitializeComponent();
 
+            WindowWidth = this.Width;
+            WindowHeight = this.Height;
+
             _player = new PlayerBird(new Point(0, 0), 3);
-            Blocks = RandomGrid(this.Height, this.Width, BlockSize);
+            
+            Blocks = RandomGrid(Height, Width, BlockSize);
 
             Render();
         }
@@ -149,7 +156,7 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
 
         }

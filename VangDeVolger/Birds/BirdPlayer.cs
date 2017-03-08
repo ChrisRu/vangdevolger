@@ -99,7 +99,12 @@ namespace VangDeVolger.Birds
             }
 
             _previousPosition = this.Pb.Location;
-            this.Pb.Location = Point.Add(this.Pb.Location, direction);
+            var newLocation = Point.Add(this.Pb.Location, direction);
+
+            if (newLocation.X < 0 || newLocation.X > Game.WindowWidth) return;
+            if (newLocation.Y < 0 || newLocation.Y > Game.WindowHeight) return;
+            
+            this.Pb.Location = newLocation;
         }
     }
 }
