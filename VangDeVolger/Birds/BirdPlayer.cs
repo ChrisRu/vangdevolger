@@ -10,8 +10,8 @@ namespace VangDeVolger.Birds
         private readonly Image _imageLeft = Properties.Resources.bird_green_left;
         private readonly Image _imageRight = Properties.Resources.bird_green_right;
 
-        private string _facingDirection = "left";
-        private bool _goingRight;
+        private bool _facingRight = true;
+        private bool _goingRight = true;
 
         /// <summary>
         /// Initialize PlayerBird Class
@@ -20,7 +20,7 @@ namespace VangDeVolger.Birds
         /// <param name="speed"></param>
         public PlayerBird(Point position, int speed) : base(position, speed)
         {
-            Pb.Image = _imageLeft;
+            Pb.Image = _imageRight;
         }
 
         /// <summary>
@@ -54,16 +54,16 @@ namespace VangDeVolger.Birds
 
             }
 
-            if (!_goingRight && !_facingDirection.Equals("left"))
+            if (!_goingRight && _facingRight)
             {
                 Pb.Image = _imageLeft;
-                _facingDirection = "left";
+                _facingRight = false;
                 Pb.Invalidate();
             }
-            if (_goingRight && !_facingDirection.Equals("right"))
+            if (_goingRight && !_facingRight)
             {
                 Pb.Image = _imageRight;
-                _facingDirection = "right";
+                _facingRight = true;
                 Pb.Invalidate();
             }
 
