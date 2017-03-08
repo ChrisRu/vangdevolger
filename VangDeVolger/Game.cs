@@ -20,7 +20,7 @@ namespace VangDeVolger
         public const int BlockSize = 32;
         public const int BirdSize = 28;
 
-        public List<Block> Blocks = new List<Block>();
+        public List<Block> Blocks;
 
         /// <summary>
         /// Initialize game
@@ -30,21 +30,26 @@ namespace VangDeVolger
             InitializeComponent();
 
             _player = new PlayerBird(new Point(0, 0), 3);
+            Blocks = RandomGrid(this.Height, this.Width, BlockSize);
 
-            _createGrid();
             Render();
         }
 
         /// <summary>
-        /// Create the blocks on the grid
+        /// Returns a random list of blocks
         /// </summary>
-        private void _createGrid()
+        /// <param name="height"></param>
+        /// <param name="width"></param>
+        /// <param name="increase"></param>
+        /// <returns></returns>
+        public List<Block> RandomGrid(int height, int width, int increase)
         {
-            var tempGrid = new List<Block>();
+            var blocks = new List<Block>();
             var random = new Random();
-            for (var y = 0; y < this.Height; y += BlockSize)
+
+            for (var y = 0; y < height; y += increase)
             {
-                for (var x = 0; x < this.Width; x += BlockSize)
+                for (var x = 0; x < width; x += increase)
                 {
                     var chance = random.Next(100);
                     Block block = null;
@@ -65,49 +70,55 @@ namespace VangDeVolger
 
                     if (block != null)
                     {
-                        tempGrid.Add(block);
+                        blocks.Add(block);
                     }
                 }
             }
 
-            foreach (var block in tempGrid)
+            for (var i = 0; i < blocks.Count; i++)
             {
-                Blocks.Add(_setSiblingBlocks(block));
+                if (blocks[i] != null)
+                {
+                    blocks[i] = SetSiblingBlocks(blocks, blocks[i]);
+                }
             }
+
+            return blocks;
         }
 
         /// <summary>
         /// Checks around the block and adds sibling properties to the block
         /// </summary>
-        /// <param name="block"></param>
+        /// <param name="blocks"></param>
+        /// <param name="mainBlock"></param>
         /// <returns></returns>
-        private Block _setSiblingBlocks(Block block)
+        public Block SetSiblingBlocks(List<Block> blocks, Block mainBlock)
         {
-            var x = block.Pb.Location.X;
-            var y = block.Pb.Location.Y;
+            var x = mainBlock.Pb.Location.X;
+            var y = mainBlock.Pb.Location.Y;
 
             var topSibling =
-                Blocks.FirstOrDefault(
-                    blocker => (blocker.Pb.Location.X == x && blocker.Pb.Location.Y == y - BlockSize));
+                blocks.FirstOrDefault(
+                    block => (block.Pb.Location.X == x && block.Pb.Location.Y == y - BlockSize));
 
             var bottomSibling =
-                Blocks.FirstOrDefault(
-                    blocker => (blocker.Pb.Location.X == x && blocker.Pb.Location.Y == y + BlockSize));
+                blocks.FirstOrDefault(
+                    block => (block.Pb.Location.X == x && block.Pb.Location.Y == y + BlockSize));
 
             var leftSibling =
-                Blocks.FirstOrDefault(
-                    blocker => (blocker.Pb.Location.X == x - BlockSize && blocker.Pb.Location.Y == y));
+                blocks.FirstOrDefault(
+                    block => (block.Pb.Location.X == x - BlockSize && block.Pb.Location.Y == y));
 
             var rightSibling =
-                Blocks.FirstOrDefault(
-                    blocker => (blocker.Pb.Location.X == x + BlockSize && blocker.Pb.Location.Y == y));
+                blocks.FirstOrDefault(
+                    block => (block.Pb.Location.X == x + BlockSize && block.Pb.Location.Y == y));
 
-            block.SiblingTop = topSibling;
-            block.SiblingBottom = bottomSibling;
-            block.SiblingLeft = leftSibling;
-            block.SiblingRight = rightSibling;
+            mainBlock.SiblingTop = topSibling;
+            mainBlock.SiblingBottom = bottomSibling;
+            mainBlock.SiblingLeft = leftSibling;
+            mainBlock.SiblingRight = rightSibling;
 
-            return block;
+            return mainBlock;
         }
 
         /// <summary>
