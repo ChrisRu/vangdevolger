@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VangDeVolger.Birds;
 using VangDeVolger.Blocks;
@@ -17,6 +12,7 @@ namespace VangDeVolger
     {
         public static int WindowWidth;
         public static int WindowHeight;
+        public static List<Block> Blocks;
 
         private readonly Bird _player;
         public const int PlayerSpeed = 3;
@@ -44,8 +40,6 @@ namespace VangDeVolger
                     return new Size(0, 0);
             }
         }
-
-        public static List<Block> Blocks;
 
         /// <summary>
         /// Initialize game

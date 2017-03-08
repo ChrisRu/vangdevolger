@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using VangDeVolger.Blocks;
 
@@ -8,7 +7,8 @@ namespace VangDeVolger.Birds
 {
     internal class PlayerBird : Bird
     {
-        private readonly Image _image = Properties.Resources.bird_green;
+        private readonly Image _imageLeft = Properties.Resources.bird_green_left;
+        private readonly Image _imageRight = Properties.Resources.bird_green_right;
 
         private string _facingDirection = "left";
         private bool _goingRight;
@@ -20,7 +20,7 @@ namespace VangDeVolger.Birds
         /// <param name="speed"></param>
         public PlayerBird(Point position, int speed) : base(position, speed)
         {
-            Pb.Image = _image;
+            Pb.Image = _imageLeft;
         }
 
         /// <summary>
@@ -46,6 +46,7 @@ namespace VangDeVolger.Birds
                     break;
                 case Keys.Right:
                     direction = new Size(Speed, 0);
+                    _goingRight = true;
                     break;
                 default:
                     direction = new Size(0, 0);
@@ -55,13 +56,13 @@ namespace VangDeVolger.Birds
 
             if (!_goingRight && !_facingDirection.Equals("left"))
             {
-                Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                Pb.Image = _imageLeft;
                 _facingDirection = "left";
                 Pb.Invalidate();
             }
             if (_goingRight && !_facingDirection.Equals("right"))
             {
-                Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                Pb.Image = _imageRight;
                 _facingDirection = "right";
                 Pb.Invalidate();
             }

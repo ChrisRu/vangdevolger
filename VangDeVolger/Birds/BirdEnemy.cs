@@ -8,7 +8,8 @@ namespace VangDeVolger.Birds
 {
     internal class EnemyBird : Bird
     {
-        private readonly Image _image = Properties.Resources.bird_red;
+        private readonly Image _imageLeft = Properties.Resources.bird_red_left;
+        private readonly Image _imageRight = Properties.Resources.bird_red_right;
 
         /// <summary>
         /// Initialize EnemyBird Class
@@ -17,7 +18,7 @@ namespace VangDeVolger.Birds
         /// <param name="speed"></param>
         public EnemyBird(Point position, int speed) : base(position, speed)
         {
-            this.Pb.Image = _image;
+            Pb.Image = _imageLeft;
         }
 
         internal override void Move(ref List<Block> blocks, KeyEventArgs e)
