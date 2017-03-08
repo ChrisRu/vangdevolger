@@ -9,7 +9,7 @@ namespace VangDeVolger.Birds
     {
         public PictureBox Pb;
 
-        protected int PlayerSpeed;
+        protected int Speed;
 
         /// <summary>
         /// Initialize Bird Class
@@ -24,7 +24,7 @@ namespace VangDeVolger.Birds
                 Size = new Size(Game.BirdSize, Game.BirdSize),
                 SizeMode = PictureBoxSizeMode.Zoom
             };
-            PlayerSpeed = speed;
+            Speed = speed;
         }
 
         internal abstract void Move(ref List<Block> blocks, KeyEventArgs e);

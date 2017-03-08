@@ -17,13 +17,6 @@ namespace VangDeVolger.Blocks
         {
             _previousLocation = this.Pb.Location;
             this.Pb.Location = Point.Add(Pb.Location, size);
-            foreach (var block in blocks)
-            {
-                if (Pb.Bounds.IntersectsWith(block.Pb.Bounds))
-                {
-                    this.Pb.Location = _previousLocation;
-                }
-            }
         }
     }
 }

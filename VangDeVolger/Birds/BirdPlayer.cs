@@ -44,19 +44,19 @@ namespace VangDeVolger.Birds
                 {
                     if (e.KeyCode == Keys.Down)
                     {
-                        block.Move(ref blocks, new Size(0, Game.PlayerSpeed));
+                        block.Move(ref blocks, new Size(0, Game.BlockSize));
                     }
                     if (e.KeyCode == Keys.Up)
                     {
-                        block.Move(ref blocks, new Size(0, -Game.PlayerSpeed));
+                        block.Move(ref blocks, new Size(0, -Game.BlockSize));
                     }
                     if (e.KeyCode == Keys.Right)
                     {
-                        block.Move(ref blocks, new Size(Game.PlayerSpeed, 0));
+                        block.Move(ref blocks, new Size(Game.BlockSize, 0));
                     }
                     if (e.KeyCode == Keys.Left)
                     {
-                        block.Move(ref blocks, new Size(-Game.PlayerSpeed, 0));
+                        block.Move(ref blocks, new Size(-Game.BlockSize, 0));
                     }
                 }
                 else
@@ -68,21 +68,21 @@ namespace VangDeVolger.Birds
 
             if (e.KeyCode == Keys.Down)
             {
-                direction = new Size(0, Game.PlayerSpeed);
+                direction = new Size(0, Speed);
             }
             if (e.KeyCode == Keys.Up)
             {
-                direction = new Size(0, -Game.PlayerSpeed);
+                direction = new Size(0, -Speed);
             }
             if (e.KeyCode == Keys.Left)
             {
                 _goingRight = false;
-                direction = new Size(-Game.PlayerSpeed, 0);
+                direction = new Size(-Speed, 0);
             }
             if (e.KeyCode == Keys.Right)
             {
                 _goingRight = true;
-                direction = new Size(Game.PlayerSpeed, 0);
+                direction = new Size(Speed, 0);
             }
 
             if(!_goingRight && !_facingDirection.Equals("left"))
