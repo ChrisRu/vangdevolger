@@ -54,13 +54,14 @@ namespace VangDeVolger.Birds
 
             }
 
+            // Switch bird direction
             if (!_goingRight && _facingRight)
             {
                 Pb.Image = _imageLeft;
                 _facingRight = false;
                 Pb.Invalidate();
             }
-            if (_goingRight && !_facingRight)
+            else if (_goingRight && !_facingRight)
             {
                 Pb.Image = _imageRight;
                 _facingRight = true;
