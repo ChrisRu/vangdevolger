@@ -29,6 +29,6 @@ namespace VangDeVolger.Blocks
             };
         }
 
-        internal abstract void Move(ref List<Block> blocks, Size size);
+        internal abstract void Move(ref List<Block> blocks, Game.Directions direction);
     }
 }

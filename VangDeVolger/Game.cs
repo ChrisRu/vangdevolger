@@ -23,6 +23,28 @@ namespace VangDeVolger
         public const int BlockSize = 32;
         public const int BirdSize = 28;
 
+        public enum Directions
+        {
+            Up, Down, Left, Right
+        }
+
+        public static Size EnumToSize(Directions direction)
+        {
+            switch (direction)
+            {
+                case Directions.Up:
+                    return new Size(0, -BlockSize);
+                case Directions.Down:
+                    return new Size(0, BlockSize);
+                case Directions.Left:
+                    return new Size(-BlockSize, 0);
+                case Directions.Right:
+                    return new Size(BlockSize, 0);
+                default:
+                    return new Size(0, 0);
+            }
+        }
+
         public List<Block> Blocks;
 
         /// <summary>
@@ -35,8 +57,8 @@ namespace VangDeVolger
             WindowWidth = this.Width;
             WindowHeight = this.Height;
 
-            _player = new PlayerBird(new Point(0, 0), 3);
-            
+            _player = new PlayerBird(new Point(0, 0), PlayerSpeed);
+
             Blocks = RandomGrid(Height, Width, BlockSize);
             createEgg();
 
@@ -159,7 +181,7 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Timer1_Tick(object sender, EventArgs e)
         {
-
+            
         }
 
         /// <summary>
@@ -191,72 +213,6 @@ namespace VangDeVolger
             var egg = new BlockEgg(location, ref Blocks);
             Blocks.Add(egg);
             Controls.Add(egg.TimeLabel);
-            //egg.Pb.Controls.Add(egg.TimeLabel);
         }
-
-        /*
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            const int speed = 2;
-            _playerX = pictureBox1.Location.X;
-            _playerY = pictureBox1.Location.Y;
-
-            _enemyX = pictureBox2.Location.X;
-            _enemyY = pictureBox2.Location.Y;
-
-            // Check of de player en enemy elkaar raken
-            if (!pictureBox1.Bounds.IntersectsWith(pictureBox2.Bounds))
-            {
-                // Check of de enemy ee blok raakt
-                if (!pictureBox2.Bounds.IntersectsWith(pictureBox3.Bounds))
-                {
-                    if (_enemyX < _playerX)
-                    {
-                        _prevEnemyX = _enemyX;
-                        _enemyX += speed;
-                    }
-                    if (_enemyX > _playerX)
-                    {
-                        _prevEnemyX = _enemyX;
-                        _enemyX -= speed;
-                    }
-                    if (_enemyY < _playerY)
-                    {
-                        _prevEnemyY = _enemyY;
-                        _enemyY += speed;
-                    }
-                    if (_enemyY > _playerY)
-                    {
-                        _prevEnemyY = _enemyY;
-                        _enemyY -= speed;
-                    }
-                }
-                // Vind de korste weg langs het blok naar de speler
-                else
-                {
-                    // Omhoog erlangs
-                    if (_playerY < _enemyY)
-                    {
-                        _enemyY -= speed;
-                    }
-                    // Omlaag erlangs
-                    if (_playerY > _enemyY)
-                    {
-                        _enemyY += speed;
-                    }
-                    // dit is kutter dan kut.
-                }
-            }
-            else
-            {
-                timer1.Stop();
-                MessageBox.Show("Game over!");
-            }
-            label1.Text = "Enemy: X: " + _enemyX + " Y: " + _enemyY;
-            var p = new Point(_enemyX, _enemyY);
-            pictureBox2.Location = p;
-        }
-        */
     }
 }

@@ -5,14 +5,14 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockSolid : Block
     {
-        private readonly Image _image = VangDeVolger.Properties.Resources.solid;
+        private readonly Image _image = Properties.Resources.solid;
 
         public BlockSolid(Point position, ref List<Block> blocks) : base(position, ref blocks)
         {
-            this.Pb.Image = _image;
+            Pb.Image = _image;
         }
 
-        internal override void Move(ref List<Block> blocks, Size size)
+        internal override void Move(ref List<Block> blocks, Game.Directions direction)
         {
             throw new System.NotImplementedException();
         }

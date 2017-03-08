@@ -54,7 +54,7 @@ namespace VangDeVolger.Blocks
             }
         }
 
-        internal override void Move(ref List<Block> blocks, Size size)
+        internal override void Move(ref List<Block> blocks, Game.Directions direction)
         {
             throw new System.NotImplementedException();
         }

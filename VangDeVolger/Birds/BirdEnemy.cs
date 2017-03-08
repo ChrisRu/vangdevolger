@@ -8,8 +8,7 @@ namespace VangDeVolger.Birds
 {
     internal class EnemyBird : Bird
     {
-        private readonly Image _image = VangDeVolger.Properties.Resources.vogel_rood;
-        private readonly Image _imageActive = VangDeVolger.Properties.Resources.vogel_rood_active;
+        private readonly Image _image = Properties.Resources.bird_red;
 
         /// <summary>
         /// Initialize EnemyBird Class

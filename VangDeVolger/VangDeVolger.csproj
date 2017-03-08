@@ -88,12 +88,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vogel-groen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\vogel-rood.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\clock.png" />
   </ItemGroup>
   <ItemGroup>
@@ -103,16 +97,16 @@
     <None Include="Resources\rock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vogel-groen-active.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\vogel-rood-active.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\solid.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\egg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bird_green.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bird_red.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
