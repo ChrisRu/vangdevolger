@@ -13,8 +13,6 @@ namespace VangDeVolger.Birds
         private string _facingDirection = "left";
         private bool _goingRight;
 
-        private Point _previousPosition;
-
         /// <summary>
         /// Initialize PlayerBird Class
         /// </summary>
@@ -32,59 +30,30 @@ namespace VangDeVolger.Birds
         /// <param name="e"></param>
         internal override void Move(ref List<Block> blocks, KeyEventArgs e)
         {
-            var direction = new Size(0, 0);
+            Size direction;
 
-            // Collision checking
-            foreach (var block in blocks)
+            switch (e.KeyCode)
             {
-                if (!Pb.Bounds.IntersectsWith(block.Pb.Bounds)) continue;
+                case Keys.Down:
+                    direction = new Size(0, Speed);
+                    break;
+                case Keys.Up:
+                    direction = new Size(0, -Speed);
+                    break;
+                case Keys.Left:
+                    direction = new Size(-Speed, 0);
+                    _goingRight = false;
+                    break;
+                case Keys.Right:
+                    direction = new Size(Speed, 0);
+                    break;
+                default:
+                    direction = new Size(0, 0);
+                    break;
 
-                if (block.GetType().Name == "BlockMovable")
-                {
-                    if (e.KeyCode == Keys.Down)
-                    {
-                        block.Move(ref blocks, Game.Directions.Down);
-                    }
-                    if (e.KeyCode == Keys.Up)
-                    {
-                        block.Move(ref blocks, Game.Directions.Up);
-                    }
-                    if (e.KeyCode == Keys.Left)
-                    {
-                        block.Move(ref blocks, Game.Directions.Left);
-                    }
-                    if (e.KeyCode == Keys.Right)
-                    {
-                        block.Move(ref blocks, Game.Directions.Right);
-                    }
-                }
-                else
-                {
-                    Pb.Location = _previousPosition;
-                    return;
-                }
             }
 
-            if (e.KeyCode == Keys.Down)
-            {
-                direction = new Size(0, Speed);
-            }
-            if (e.KeyCode == Keys.Up)
-            {
-                direction = new Size(0, -Speed);
-            }
-            if (e.KeyCode == Keys.Left)
-            {
-                _goingRight = false;
-                direction = new Size(-Speed, 0);
-            }
-            if (e.KeyCode == Keys.Right)
-            {
-                _goingRight = true;
-                direction = new Size(Speed, 0);
-            }
-
-            if(!_goingRight && !_facingDirection.Equals("left"))
+            if (!_goingRight && !_facingDirection.Equals("left"))
             {
                 Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
                 _facingDirection = "left";
@@ -97,13 +66,45 @@ namespace VangDeVolger.Birds
                 Pb.Invalidate();
             }
 
-            _previousPosition = Pb.Location;
-            var newLocation = Point.Add(Pb.Location, direction);
+            var tempPb = new Rectangle
+            {
+                Location = Point.Add(Pb.Location, direction),
+                Size = Pb.Size
+            };
 
-            if (newLocation.X < 0 || newLocation.X > Game.WindowWidth) return;
-            if (newLocation.Y < 0 || newLocation.Y > Game.WindowHeight) return;
-            
-            this.Pb.Location = newLocation;
+            // Collision checking
+            foreach (var block in blocks)
+            {
+                if (!tempPb.IntersectsWith(block.Pb.Bounds)) continue;
+
+                if (block.GetType().Name == "BlockMovable")
+                {
+                    switch (e.KeyCode)
+                    {
+                        case Keys.Down:
+                            block.Move(ref blocks, Game.Directions.Down);
+                            break;
+                        case Keys.Up:
+                            block.Move(ref blocks, Game.Directions.Up);
+                            break;
+                        case Keys.Right:
+                            block.Move(ref blocks, Game.Directions.Right);
+                            break;
+                        case Keys.Left:
+                            block.Move(ref blocks, Game.Directions.Left);
+                            break;
+                    }
+                }
+                else
+                {
+                    tempPb.Location = Pb.Location;
+                }
+            }
+
+            if (tempPb.Location.X < 0 || tempPb.Location.X > Game.WindowWidth) return;
+            if (tempPb.Location.Y < 0 || tempPb.Location.Y > Game.WindowHeight) return;
+
+            Pb.Location = tempPb.Location;
         }
     }
 }
