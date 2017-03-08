@@ -38,6 +38,7 @@ namespace VangDeVolger
             _player = new PlayerBird(new Point(0, 0), 3);
             
             Blocks = RandomGrid(Height, Width, BlockSize);
+            createEgg();
 
             Render();
         }
@@ -68,11 +69,11 @@ namespace VangDeVolger
 
                     if (chance <= 5)
                     {
-                        block = new BlockSolid(new Point(x, y));
+                        block = new BlockSolid(new Point(x, y), ref Blocks);
                     }
                     else if (chance <= 25)
                     {
-                        block = new BlockMovable(new Point(x, y));
+                        block = new BlockMovable(new Point(x, y), ref Blocks);
                     }
 
                     if (block != null)
@@ -170,6 +171,27 @@ namespace VangDeVolger
         {
             _player.Move(ref Blocks, e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createEgg()
+        {
+            var location = new Point(220, 220);
+            foreach (var block in Blocks)
+            {
+                if (block.Pb.Location.X == location.X && block.Pb.Location.Y == location.Y)
+                {
+                    return;
+                }
+            }
+            var egg = new BlockEgg(location, ref Blocks);
+            Blocks.Add(egg);
+            Controls.Add(egg.TimeLabel);
+            //egg.Pb.Controls.Add(egg.TimeLabel);
         }
 
         /*

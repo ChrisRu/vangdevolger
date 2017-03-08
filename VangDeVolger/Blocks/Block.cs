@@ -12,12 +12,15 @@ namespace VangDeVolger.Blocks
         public Block SiblingLeft;
         public Block SiblingRight;
 
+        private List<Block> _blocks;
+
         /// <summary>
         /// Initialize Block Class
         /// </summary>
         /// <param name="position"></param>
-        protected Block(Point position)
+        protected Block(Point position, ref List<Block> blocks)
         {
+            _blocks = blocks;
             this.Pb = new PictureBox
             {
                 Size = new Size(Game.BlockSize, Game.BlockSize),

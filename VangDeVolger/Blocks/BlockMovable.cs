@@ -8,7 +8,7 @@ namespace VangDeVolger.Blocks
         private Point _previousLocation;
         private readonly Image _image = VangDeVolger.Properties.Resources.rock;
 
-        public BlockMovable(Point position) : base(position)
+        public BlockMovable(Point position, ref List<Block> blocks) : base(position, ref blocks)
         {
             this.Pb.Image = _image;
         }

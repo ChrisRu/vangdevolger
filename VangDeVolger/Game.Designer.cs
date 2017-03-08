@@ -32,6 +32,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.item_spawner = new System.Windows.Forms.Timer(this.components);
+            this.egg_timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timer1
@@ -44,7 +46,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 417);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 19);
+            this.label1.Size = new System.Drawing.Size(76, 23);
             this.label1.TabIndex = 3;
             this.label1.Text = "Enemy:";
             // 
@@ -53,13 +55,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 445);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 19);
+            this.label2.Size = new System.Drawing.Size(76, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Player";
             // 
+            // item_spawner
+            // 
+            this.item_spawner.Interval = 1000;
+            this.item_spawner.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(496, 473);
@@ -85,6 +92,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer item_spawner;
+        private System.Windows.Forms.Timer egg_timer;
     }
 }
 

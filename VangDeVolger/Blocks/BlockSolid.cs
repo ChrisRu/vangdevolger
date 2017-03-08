@@ -7,7 +7,7 @@ namespace VangDeVolger.Blocks
     {
         private readonly Image _image = VangDeVolger.Properties.Resources.solid;
 
-        public BlockSolid(Point position) : base(position)
+        public BlockSolid(Point position, ref List<Block> blocks) : base(position, ref blocks)
         {
             this.Pb.Image = _image;
         }
