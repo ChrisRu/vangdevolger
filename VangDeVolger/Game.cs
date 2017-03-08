@@ -35,7 +35,7 @@ namespace VangDeVolger
             WindowWidth = this.Width;
             WindowHeight = this.Height;
 
-            _player = new PlayerBird(new Point(0, 0), 3);
+            _player = new PlayerBird(new Point(0, 0), PlayerSpeed);
             
             Blocks = RandomGrid(Height, Width, BlockSize);
 

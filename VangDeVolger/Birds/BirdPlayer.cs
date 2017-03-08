@@ -8,11 +8,10 @@ namespace VangDeVolger.Birds
 {
     internal class PlayerBird : Bird
     {
-        private readonly Image _image = VangDeVolger.Properties.Resources.vogel_groen;
-        private readonly Image _imageActive = VangDeVolger.Properties.Resources.vogel_groen_active;
+        private readonly Image _image = Properties.Resources.bird_green;
 
         private string _facingDirection = "left";
-        private bool _goingRight = false;
+        private bool _goingRight;
 
         private Point _previousPosition;
 
