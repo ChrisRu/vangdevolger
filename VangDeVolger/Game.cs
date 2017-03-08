@@ -23,6 +23,28 @@ namespace VangDeVolger
         public const int BlockSize = 32;
         public const int BirdSize = 28;
 
+        public enum Directions
+        {
+            Up, Down, Left, Right
+        }
+
+        public static Size EnumToSize(Directions direction)
+        {
+            switch (direction)
+            {
+                case Directions.Up:
+                    return new Size(0, -BlockSize);
+                case Directions.Down:
+                    return new Size(0, BlockSize);
+                case Directions.Left:
+                    return new Size(-BlockSize, 0);
+                case Directions.Right:
+                    return new Size(BlockSize, 0);
+                default:
+                    return new Size(0, 0);
+            }
+        }
+
         public List<Block> Blocks;
 
         /// <summary>
@@ -36,7 +58,7 @@ namespace VangDeVolger
             WindowHeight = this.Height;
 
             _player = new PlayerBird(new Point(0, 0), PlayerSpeed);
-            
+
             Blocks = RandomGrid(Height, Width, BlockSize);
 
             Render();

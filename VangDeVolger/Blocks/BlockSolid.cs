@@ -9,10 +9,10 @@ namespace VangDeVolger.Blocks
 
         public BlockSolid(Point position) : base(position)
         {
-            this.Pb.Image = _image;
+            Pb.Image = _image;
         }
 
-        internal override void Move(ref List<Block> blocks, Size size)
+        internal override void Move(ref List<Block> blocks, Game.Directions direction)
         {
             throw new System.NotImplementedException();
         }

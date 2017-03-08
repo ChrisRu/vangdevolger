@@ -22,7 +22,7 @@ namespace VangDeVolger.Birds
         /// <param name="speed"></param>
         public PlayerBird(Point position, int speed) : base(position, speed)
         {
-            this.Pb.Image = _image;
+            Pb.Image = _image;
         }
 
         /// <summary>
@@ -43,24 +43,24 @@ namespace VangDeVolger.Birds
                 {
                     if (e.KeyCode == Keys.Down)
                     {
-                        block.Move(ref blocks, new Size(0, Game.BlockSize));
+                        block.Move(ref blocks, Game.Directions.Down);
                     }
                     if (e.KeyCode == Keys.Up)
                     {
-                        block.Move(ref blocks, new Size(0, -Game.BlockSize));
-                    }
-                    if (e.KeyCode == Keys.Right)
-                    {
-                        block.Move(ref blocks, new Size(Game.BlockSize, 0));
+                        block.Move(ref blocks, Game.Directions.Up);
                     }
                     if (e.KeyCode == Keys.Left)
                     {
-                        block.Move(ref blocks, new Size(-Game.BlockSize, 0));
+                        block.Move(ref blocks, Game.Directions.Left);
+                    }
+                    if (e.KeyCode == Keys.Right)
+                    {
+                        block.Move(ref blocks, Game.Directions.Right);
                     }
                 }
                 else
                 {
-                    this.Pb.Location = _previousPosition;
+                    Pb.Location = _previousPosition;
                     return;
                 }
             }
@@ -86,19 +86,19 @@ namespace VangDeVolger.Birds
 
             if(!_goingRight && !_facingDirection.Equals("left"))
             {
-                this.Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
                 _facingDirection = "left";
-                this.Pb.Invalidate();
+                Pb.Invalidate();
             }
             if (_goingRight && !_facingDirection.Equals("right"))
             {
-                this.Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                Pb.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
                 _facingDirection = "right";
-                this.Pb.Invalidate();
+                Pb.Invalidate();
             }
 
-            _previousPosition = this.Pb.Location;
-            var newLocation = Point.Add(this.Pb.Location, direction);
+            _previousPosition = Pb.Location;
+            var newLocation = Point.Add(Pb.Location, direction);
 
             if (newLocation.X < 0 || newLocation.X > Game.WindowWidth) return;
             if (newLocation.Y < 0 || newLocation.Y > Game.WindowHeight) return;

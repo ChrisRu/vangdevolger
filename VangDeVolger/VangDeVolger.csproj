@@ -87,12 +87,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\vogel-groen.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\vogel-rood.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\clock.png" />
   </ItemGroup>
   <ItemGroup>
@@ -100,12 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rock.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\vogel-groen-active.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\vogel-rood-active.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\solid.png" />
