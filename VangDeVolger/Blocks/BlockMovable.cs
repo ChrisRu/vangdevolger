@@ -6,11 +6,20 @@ namespace VangDeVolger.Blocks
     {
         private readonly Image _image = Properties.Resources.rock;
 
+        /// <summary>
+        /// Initialize BlockMovable Class
+        /// </summary>
+        /// <param name="position"></param>
         public BlockMovable(Point position) : base(position)
         {
             Pb.Image = _image;
         }
 
+        /// <summary>
+        /// Execute on collision with other object
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <returns></returns>
         public override bool Touch(Game.Directions direction)
         {
             var newLocation = Point.Add(Pb.Location, Game.EnumToSize(direction));

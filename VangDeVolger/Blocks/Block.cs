@@ -15,10 +15,9 @@ namespace VangDeVolger.Blocks
         /// Initialize Block Class
         /// </summary>
         /// <param name="position"></param>
-        /// <param name="blocks"></param>
         protected Block(Point position)
         {
-            this.Pb = new PictureBox
+            Pb = new PictureBox
             {
                 Size = new Size(Game.BlockSize, Game.BlockSize),
                 SizeMode = PictureBoxSizeMode.Zoom,
@@ -26,6 +25,11 @@ namespace VangDeVolger.Blocks
             };
         }
 
+        /// <summary>
+        /// Execute on collision with other object
+        /// </summary>
+        /// <param name="directions"></param>
+        /// <returns></returns>
         public abstract bool Touch(Game.Directions directions);
     }
 }

@@ -21,11 +21,10 @@ namespace VangDeVolger.Birds
         }
 
         /// <summary>
-        /// Move Bird
+        /// Move Bird with controls
         /// </summary>
-        /// <param name="blocks"></param>
         /// <param name="e"></param>
-        public override void Move(ref List<Block> blocks, KeyEventArgs e)
+        public override void Move(KeyEventArgs e)
         {
             Size direction;
 
@@ -60,7 +59,7 @@ namespace VangDeVolger.Birds
             var canMove = true;
 
             // Collision checking
-            foreach (var block in blocks)
+            foreach (var block in Game.Blocks)
             {
                 if (!tempPb.IntersectsWith(block.Pb.Bounds)) continue;
 

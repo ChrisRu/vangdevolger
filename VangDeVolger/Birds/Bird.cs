@@ -21,7 +21,7 @@ namespace VangDeVolger.Birds
         /// <param name="speed"></param>
         protected Bird(Point position, int speed)
         {
-            this.Pb = new PictureBox
+            Pb = new PictureBox
             {
                 Location = position,
                 Size = new Size(Game.BirdSize, Game.BirdSize),
@@ -30,8 +30,17 @@ namespace VangDeVolger.Birds
             Speed = speed;
         }
 
-        public abstract void Move(ref List<Block> blocks, KeyEventArgs e);
+        /// <summary>
+        /// Move Bird with controls
+        /// </summary>
+        /// <param name="e"></param>
+        public abstract void Move(KeyEventArgs e);
 
+        /// <summary>
+        /// Change facing direction of image
+        /// </summary>
+        /// <param name="imageLeft"></param>
+        /// <param name="imageRight"></param>
         public void ChangeDirection(Image imageLeft, Image imageRight)
         {
             if (!GoingRight && FacingRight)

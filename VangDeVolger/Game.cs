@@ -185,7 +185,7 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            _player.Move(ref Blocks, e);
+            _player.Move(e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 

@@ -11,7 +11,10 @@ namespace VangDeVolger.Blocks
         public Label TimeLabel = new Label();
         private Timer _timer;
 
-
+        /// <summary>
+        /// Initialize BlockEgg Class
+        /// </summary>
+        /// <param name="position"></param>
         public BlockEgg(Point position) : base(position)
         {
             this.Pb.Image = _image;
@@ -25,18 +28,23 @@ namespace VangDeVolger.Blocks
             TimeLabel.Location = Pb.Location;
             TimeLabel.Parent = Pb;
 
+            // TODO: Make label background transparent
             //Graphics.DrawString(_hatchTime.ToString(), Pb.Font, new SolidBrush(Color.White), 0f, 0f);
             
             TimeLabel.Visible = true;
 
-
             _timer = new Timer();
-            _timer.Tick += new EventHandler(t_Tick);
+            _timer.Tick += T_Tick;
             _timer.Interval = 1000;
             _timer.Start();
         }
-
-        private void t_Tick(object sender, EventArgs e)
+        
+        /// <summary>
+        /// On Timer tick check if hatched
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void T_Tick(object sender, EventArgs e)
         {
             if (_hatchTime > 0)
             {
@@ -51,6 +59,11 @@ namespace VangDeVolger.Blocks
             }
         }
 
+        /// <summary>
+        /// Execute on collision with other object
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <returns></returns>
         public override bool Touch(Game.Directions direction)
         {
             // TODO: Logic for egg grab here 

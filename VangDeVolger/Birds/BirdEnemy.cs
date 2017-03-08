@@ -21,7 +21,11 @@ namespace VangDeVolger.Birds
             Pb.Image = _imageLeft;
         }
 
-        public override void Move(ref List<Block> blocks, KeyEventArgs e)
+        /// <summary>
+        /// Move Bird with controls
+        /// </summary>
+        /// <param name="e"></param>
+        public override void Move(KeyEventArgs e)
         {
             // TODO: Add AI
 
