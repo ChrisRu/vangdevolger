@@ -55,7 +55,7 @@
     <Compile Include="Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
-    <Compile Include="Blocks\BlockMoveable.cs" />
+    <Compile Include="Blocks\BlockMovable.cs" />
     <Compile Include="Birds\BirdPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

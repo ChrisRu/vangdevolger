@@ -72,7 +72,7 @@ namespace VangDeVolger
                     }
                     else if (chance <= 25)
                     {
-                        block = new BlockMoveable(new Point(x, y));
+                        block = new BlockMovable(new Point(x, y));
                     }
 
                     if (block != null)

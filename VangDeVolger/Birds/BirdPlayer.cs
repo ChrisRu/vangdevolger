@@ -40,7 +40,7 @@ namespace VangDeVolger.Birds
             {
                 if (!Pb.Bounds.IntersectsWith(block.Pb.Bounds)) continue;
 
-                if (block.GetType().Name == "BlockMoveable")
+                if (block.GetType().Name == "BlockMovable")
                 {
                     if (e.KeyCode == Keys.Down)
                     {
