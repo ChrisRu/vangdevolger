@@ -85,6 +85,12 @@ namespace VangDeVolger.Birds
                 {
                     tempPb.Location = Pb.Location;
                 }
+
+                if(block.GetType().Name == "BlockEgg")
+                {
+                    block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het ei aanraakt want hij gaat toch kapot
+                    break;
+                }
             }
 
             if (tempPb.Location.X < 0 || tempPb.Location.X > Game.WindowWidth) return;

@@ -52,13 +52,18 @@ namespace VangDeVolger.Blocks
                 TimeLabel.Text = _hatchTime.ToString();
                 TimeLabel.Invalidate();
             }
-            else if (_hatchTime <= 0)
+            else if (_hatchTime <= 0) // het ei komt uit
             {
+                //verwijder het ei eerst
                 Game.Blocks.Remove(this);
                 _hatchTime = 20;
+                this.Pb.Dispose();
+                TimeLabel.Dispose();
+                // spawn een extra volger...
             }
         }
 
+       
         /// <summary>
         /// Execute on collision with other object
         /// </summary>
@@ -67,6 +72,13 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             // TODO: Logic for egg grab here 
+            // hatch = extra volger als straf
+            // touch = destroy
+
+            Game.Blocks.Remove(this);
+            _hatchTime = 20;
+            this.Pb.Dispose();
+            TimeLabel.Dispose();
 
             return false;
         }
