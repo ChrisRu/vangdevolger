@@ -72,6 +72,8 @@ namespace VangDeVolger.Birds
                 Size = Pb.Size
             };
 
+            var canMove = true;
+
             // Collision checking
             foreach (var block in blocks)
             {
@@ -82,16 +84,16 @@ namespace VangDeVolger.Birds
                     switch (e.KeyCode)
                     {
                         case Keys.Down:
-                            block.Move(ref blocks, Game.Directions.Down);
+                            canMove = block.Touch(Game.Directions.Down);
                             break;
                         case Keys.Up:
-                            block.Move(ref blocks, Game.Directions.Up);
+                            canMove = block.Touch(Game.Directions.Up);
                             break;
                         case Keys.Right:
-                            block.Move(ref blocks, Game.Directions.Right);
+                            canMove = block.Touch(Game.Directions.Right);
                             break;
                         case Keys.Left:
-                            block.Move(ref blocks, Game.Directions.Left);
+                            canMove = block.Touch(Game.Directions.Left);
                             break;
                     }
                 }
@@ -104,7 +106,11 @@ namespace VangDeVolger.Birds
             if (tempPb.Location.X < 0 || tempPb.Location.X > Game.WindowWidth) return;
             if (tempPb.Location.Y < 0 || tempPb.Location.Y > Game.WindowHeight) return;
 
-            Pb.Location = tempPb.Location;
+            if (canMove)
+            {
+                Pb.Location = tempPb.Location;
+            }
+            
         }
     }
 }

@@ -45,7 +45,7 @@ namespace VangDeVolger
             }
         }
 
-        public List<Block> Blocks;
+        public static List<Block> Blocks;
 
         /// <summary>
         /// Initialize game
@@ -91,11 +91,11 @@ namespace VangDeVolger
 
                     if (chance <= 5)
                     {
-                        block = new BlockSolid(new Point(x, y), ref Blocks);
+                        block = new BlockSolid(new Point(x, y));
                     }
                     else if (chance <= 25)
                     {
-                        block = new BlockMovable(new Point(x, y), ref Blocks);
+                        block = new BlockMovable(new Point(x, y));
                     }
 
                     if (block != null)
@@ -210,7 +210,7 @@ namespace VangDeVolger
                     return;
                 }
             }
-            var egg = new BlockEgg(location, ref Blocks);
+            var egg = new BlockEgg(location);
             Blocks.Add(egg);
             Controls.Add(egg.TimeLabel);
         }

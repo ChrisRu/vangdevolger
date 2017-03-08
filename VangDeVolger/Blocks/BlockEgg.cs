@@ -7,17 +7,15 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockEgg : Block
     {
-        private List<Block> _blocks;
         private readonly Image _image = VangDeVolger.Properties.Resources.egg;
         private int _hatchTime = 20;
         public Label TimeLabel = new Label();
         private Timer _timer;
 
 
-        public BlockEgg(Point position, ref List<Block> blocks) : base(position, ref blocks)
+        public BlockEgg(Point position) : base(position)
         {
             this.Pb.Image = _image;
-            _blocks = blocks;
 
             TimeLabel.AutoSize = true;
             TimeLabel.Name = "TimeLabel";
@@ -49,14 +47,16 @@ namespace VangDeVolger.Blocks
             }
             else if (_hatchTime <= 0)
             {
-                _blocks.Remove(this);
+                Game.Blocks.Remove(this);
                 _hatchTime = 20;
             }
         }
 
-        internal override void Move(ref List<Block> blocks, Game.Directions direction)
+        public override bool Touch(Game.Directions direction)
         {
-            throw new System.NotImplementedException();
+            // TODO: Logic for egg grab here 
+
+            return false;
         }
     }
 }

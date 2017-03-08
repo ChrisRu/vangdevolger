@@ -7,19 +7,34 @@ namespace VangDeVolger.Blocks
     {
         private readonly Image _image = Properties.Resources.rock;
 
-        public BlockMovable(Point position, ref List<Block> blocks) : base(position, ref blocks)
+        public BlockMovable(Point position) : base(position)
         {
             Pb.Image = _image;
         }
 
-        internal override void Move(ref List<Block> blocks, Game.Directions direction)
+        public override bool Touch(Game.Directions direction)
         {
             var newLocation = Point.Add(Pb.Location, Game.EnumToSize(direction));
 
-            if (newLocation.X < 0 || newLocation.X > Game.WindowWidth) return;
-            if (newLocation.Y < 0 || newLocation.Y > Game.WindowHeight) return;
+            if (newLocation.X < 0 || newLocation.X > Game.WindowWidth) return false;
+            if (newLocation.Y < 0 || newLocation.Y > Game.WindowHeight) return false;
 
-            this.Pb.Location = Point.Add(Pb.Location, Game.EnumToSize(direction));
+            var canMove = true;
+
+            foreach (var block in Game.Blocks)
+            {
+                var nextBlockLocation = Point.Add(Pb.Location, Game.EnumToSize(direction));
+
+                if (nextBlockLocation != block.Pb.Location) continue;
+
+                canMove = block.Touch(direction);
+                
+            }
+
+            if (!canMove) return false;
+
+            Pb.Location = Point.Add(Pb.Location, Game.EnumToSize(direction));
+            return true;
         }
     }
 }
