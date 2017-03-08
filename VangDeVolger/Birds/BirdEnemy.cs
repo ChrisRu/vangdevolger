@@ -21,9 +21,11 @@ namespace VangDeVolger.Birds
             Pb.Image = _imageLeft;
         }
 
-        internal override void Move(ref List<Block> blocks, KeyEventArgs e)
+        public override void Move(ref List<Block> blocks, KeyEventArgs e)
         {
-            throw new NotImplementedException();
+            // TODO: Add AI
+
+            ChangeDirection(_imageLeft, _imageRight);
         }
     }
 }

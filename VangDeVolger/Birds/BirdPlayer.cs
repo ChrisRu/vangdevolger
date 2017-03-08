@@ -10,9 +10,6 @@ namespace VangDeVolger.Birds
         private readonly Image _imageLeft = Properties.Resources.bird_green_left;
         private readonly Image _imageRight = Properties.Resources.bird_green_right;
 
-        private bool _facingRight = true;
-        private bool _goingRight = true;
-
         /// <summary>
         /// Initialize PlayerBird Class
         /// </summary>
@@ -28,7 +25,7 @@ namespace VangDeVolger.Birds
         /// </summary>
         /// <param name="blocks"></param>
         /// <param name="e"></param>
-        internal override void Move(ref List<Block> blocks, KeyEventArgs e)
+        public override void Move(ref List<Block> blocks, KeyEventArgs e)
         {
             Size direction;
 
@@ -42,32 +39,18 @@ namespace VangDeVolger.Birds
                     break;
                 case Keys.Left:
                     direction = new Size(-Speed, 0);
-                    _goingRight = false;
+                    GoingRight = false;
                     break;
                 case Keys.Right:
                     direction = new Size(Speed, 0);
-                    _goingRight = true;
+                    GoingRight = true;
                     break;
                 default:
                     direction = new Size(0, 0);
                     break;
 
             }
-
-            // Switch bird direction
-            if (!_goingRight && _facingRight)
-            {
-                Pb.Image = _imageLeft;
-                _facingRight = false;
-                Pb.Invalidate();
-            }
-            else if (_goingRight && !_facingRight)
-            {
-                Pb.Image = _imageRight;
-                _facingRight = true;
-                Pb.Invalidate();
-            }
-
+            
             var tempPb = new Rectangle
             {
                 Location = Point.Add(Pb.Location, direction),
@@ -112,7 +95,8 @@ namespace VangDeVolger.Birds
             {
                 Pb.Location = tempPb.Location;
             }
-            
+
+            ChangeDirection(_imageLeft, _imageRight);
         }
     }
 }

@@ -9,6 +9,9 @@ namespace VangDeVolger.Birds
     {
         public PictureBox Pb;
 
+        public bool FacingRight = true;
+        public bool GoingRight = true;
+
         protected int Speed;
 
         /// <summary>
@@ -27,6 +30,22 @@ namespace VangDeVolger.Birds
             Speed = speed;
         }
 
-        internal abstract void Move(ref List<Block> blocks, KeyEventArgs e);
+        public abstract void Move(ref List<Block> blocks, KeyEventArgs e);
+
+        public void ChangeDirection(Image imageLeft, Image imageRight)
+        {
+            if (!GoingRight && FacingRight)
+            {
+                Pb.Image = imageLeft;
+                FacingRight = false;
+                Pb.Invalidate();
+            }
+            else if (GoingRight && !FacingRight)
+            {
+                Pb.Image = imageRight;
+                FacingRight = true;
+                Pb.Invalidate();
+            }
+        }
     }
 }
