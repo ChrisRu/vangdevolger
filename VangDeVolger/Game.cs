@@ -99,6 +99,7 @@ namespace VangDeVolger
                 }
             }
 
+            // TODO: Onnodige for loop bullshit
             for (var i = 0; i < blocks.Count; i++)
             {
                 if (blocks[i] != null)
@@ -116,6 +117,8 @@ namespace VangDeVolger
         /// <param name="blocks"></param>
         /// <param name="mainBlock"></param>
         /// <returns></returns>
+        
+        // TODO: Onnodige bullshit
         public Block SetSiblingBlocks(List<Block> blocks, Block mainBlock)
         {
             var x = mainBlock.Pb.Location.X;
