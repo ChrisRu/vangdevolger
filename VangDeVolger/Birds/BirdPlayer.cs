@@ -94,7 +94,7 @@ namespace VangDeVolger.Birds
                 }
                 if (block.GetType().Name == "BlockFood")
                 {
-                    block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het ei aanraakt want hij gaat toch kapot
+                    block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het food aanraakt want hij gaat toch kapot
                     break;
                 }
             }
