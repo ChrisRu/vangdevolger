@@ -58,6 +58,7 @@ namespace VangDeVolger
 
             Blocks = RandomGrid(Height, Width, BlockSize);
             CreateEgg();
+            CreateFood();
 
             //bmp = new Bitmap(WindowWidth, WindowHeight);
 
@@ -230,6 +231,33 @@ namespace VangDeVolger
 
                 Blocks.Add(egg);
                 Controls.Add(egg.Pb);
+                break;
+            }
+        }
+
+        private void CreateFood()
+        {
+            while (true)
+            {
+                var random = new Random();
+                var randomX = random.Next(0, WindowWidth / BlockSize) * BlockSize;
+                var randomY = random.Next(0, WindowHeight / BlockSize) * BlockSize;
+                var location = new Point(randomX, randomY);
+
+                var tempPb = new Rectangle
+                {
+                    Location = location,
+                    Size = new Size(BlockSize, BlockSize)
+                };
+
+                if (Blocks.Any(block => tempPb.IntersectsWith(block.Pb.Bounds)) || randomX == 0 && randomY == 0)
+                {
+                    continue;
+                }
+
+                var food = new BlockFood(location);
+                Blocks.Add(food);
+                Controls.Add(food.Pb);
                 break;
             }
         }

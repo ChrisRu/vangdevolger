@@ -11,7 +11,7 @@ namespace VangDeVolger.Blocks
         private readonly Timer _timer = new Timer();
 
         /// <summary>
-        /// Initialize BlockSolid Class
+        /// Initialize BlockEgg Class
         /// </summary>
         /// <param name="position"></param>
         public BlockFood(Point position) : base(position)
