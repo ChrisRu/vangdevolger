@@ -214,8 +214,8 @@ namespace VangDeVolger
             while (true)
             {
                 var random = new Random();
-                var randomX = random.Next(0, WindowWidth / 32) * 32;
-                var randomY = random.Next(0, WindowHeight / 32) * 32;
+                var randomX = random.Next(0, WindowWidth / BlockSize) * BlockSize;
+                var randomY = random.Next(0, WindowHeight / BlockSize) * BlockSize;
                 var location = new Point(randomX, randomY);
 
                 var tempPb = new Rectangle
