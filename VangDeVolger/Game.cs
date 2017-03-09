@@ -232,22 +232,24 @@ namespace VangDeVolger
             }
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        /// <summary>
+        /// Random Item Spawn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Timer2_Tick(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            int kans;
-            kans = rnd.Next(1, 5); // per 15 seconden is de kans 1 op 4 dat er een item spawnd, gemiddeld dus 1 per minuut.
+            var rnd = new Random();
+            var chance = rnd.Next(1, 5);
 
+            if (chance != 3) return;
 
-            if (kans == 3)
+            var choice = rnd.Next(1, 4); // kies een van de drie mogelijke item spawns random
+            switch (choice)
             {
-                int keuze = rnd.Next(1, 4); // kies een van de drie mogelijke item spawns random
-                switch (keuze)
-                {
-                    case 1: { CreateEgg(); break; } // egg
-                    case 2: { CreateEgg(); break; } // egg > moet ander item worden
-                    case 3: { CreateEgg(); break; } // egg > moet ander item worden
-                }
+                case 1: CreateEgg(); break; // egg
+                case 2: CreateEgg(); break; // egg > moet ander item worden
+                case 3: CreateEgg(); break; // egg > moet ander item worden
             }
         }
     }
