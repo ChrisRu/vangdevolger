@@ -16,11 +16,11 @@ namespace VangDeVolger
         public static List<Block> Blocks;
 
         private readonly Bird _player;
-        public const int PlayerSpeed = 3;
+        public static int PlayerSpeed = 3;
         public const int BlockSize = 32;
         public const int BirdSize = 28;
 
-        public Bitmap bmp;
+        //public Bitmap bmp;
 
         public enum Directions
         {
@@ -54,12 +54,12 @@ namespace VangDeVolger
             WindowWidth = this.Width;
             WindowHeight = this.Height;
 
-            _player = new PlayerBird(new Point(0, 0), PlayerSpeed);
+            _player = new PlayerBird(new Point(0, 0));
 
             Blocks = RandomGrid(Height, Width, BlockSize);
             CreateEgg();
 
-            bmp = new Bitmap(WindowWidth, WindowHeight);
+            //bmp = new Bitmap(WindowWidth, WindowHeight);
 
             Render();
         }
@@ -226,10 +226,22 @@ namespace VangDeVolger
                 }
 
                 var egg = new BlockEgg(location);
+                egg.SpawnBird += CreateEnemy;
+
                 Blocks.Add(egg);
                 Controls.Add(egg.Pb);
                 break;
             }
+        }
+
+        public void CreateEnemy(object sender, EventArgs e)
+        {
+            var block = sender as Control;
+
+            if (block == null) return;
+
+            var enemy = new EnemyBird(block.Location);
+            Controls.Add(enemy.Pb);
         }
 
         /// <summary>

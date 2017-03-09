@@ -16,7 +16,7 @@ namespace VangDeVolger.Birds
         /// </summary>
         /// <param name="position"></param>
         /// <param name="speed"></param>
-        public PlayerBird(Point position, int speed) : base(position, speed)
+        public PlayerBird(Point position) : base(position)
         {
             Pb.Image = _imageRight;
         }
@@ -32,17 +32,17 @@ namespace VangDeVolger.Birds
             switch (e.KeyCode)
             {
                 case Keys.Down:
-                    direction = new Size(0, Speed);
+                    direction = new Size(0, Game.PlayerSpeed);
                     break;
                 case Keys.Up:
-                    direction = new Size(0, -Speed);
+                    direction = new Size(0, -Game.PlayerSpeed);
                     break;
                 case Keys.Left:
-                    direction = new Size(-Speed, 0);
+                    direction = new Size(-Game.PlayerSpeed, 0);
                     GoingRight = false;
                     break;
                 case Keys.Right:
-                    direction = new Size(Speed, 0);
+                    direction = new Size(Game.PlayerSpeed, 0);
                     GoingRight = true;
                     break;
                 default:

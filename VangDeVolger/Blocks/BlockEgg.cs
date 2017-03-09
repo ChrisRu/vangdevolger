@@ -9,6 +9,8 @@ namespace VangDeVolger.Blocks
         private readonly Image _image = Properties.Resources.egg;
         private int _hatchTime = 215;
 
+        public EventHandler SpawnBird;
+
         /// <summary>
         /// Initialize BlockEgg Class
         /// </summary>
@@ -40,7 +42,7 @@ namespace VangDeVolger.Blocks
 
                 Dispose();
 
-                // TODO: spawn een extra volger...
+                SpawnBird(this, new EventArgs());
             }
         }
 
