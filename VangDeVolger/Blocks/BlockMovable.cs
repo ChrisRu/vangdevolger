@@ -32,12 +32,20 @@ namespace VangDeVolger.Blocks
 
             foreach (var block in Game.Blocks.ToList())
             {
-                var nextBlockLocation = Point.Add(Pb.Location, Game.EnumToSize(direction));
-
-                if (nextBlockLocation != block.Pb.Location) continue;
+                if (newLocation != block.Pb.Location) continue;
 
                 canMove = block.Touch(direction);
-                
+            }
+
+            foreach (var enemy in Game.Enemies)
+            {
+                var tempRect = new Rectangle
+                {
+                    Location = newLocation,
+                    Size = new Size(Game.BlockSize, Game.BlockSize)
+                };
+
+                if (tempRect.IntersectsWith(enemy.Pb.Bounds)) canMove = false;
             }
 
             if (!canMove) return false;

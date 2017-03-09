@@ -14,6 +14,7 @@ namespace VangDeVolger
         public static int WindowWidth;
         public static int WindowHeight;
         public static List<Block> Blocks;
+        public static List<Bird> Enemies;
 
         private readonly Bird _player;
         public static int PlayerSpeed = 3;
@@ -57,6 +58,7 @@ namespace VangDeVolger
             _player = new PlayerBird(new Point(0, 0));
 
             Blocks = RandomGrid(Height, Width, BlockSize);
+            Enemies = new List<Bird>();
             CreateEgg();
             CreateFood();
 
@@ -192,7 +194,10 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Timer1_Tick(object sender, EventArgs e)
         {
-
+            foreach (var enemy in Enemies)
+            {
+                enemy.Move(new KeyEventArgs(new Keys()));
+            }
         }
 
         /// <summary>
@@ -264,11 +269,12 @@ namespace VangDeVolger
 
         public void CreateEnemy(object sender, EventArgs e)
         {
-            var block = sender as Control;
+            var block = (Block) sender;
 
             if (block == null) return;
 
-            var enemy = new EnemyBird(block.Location);
+            var enemy = new EnemyBird(block.Pb.Location);
+            Enemies.Add(enemy);
             Controls.Add(enemy.Pb);
         }
 
