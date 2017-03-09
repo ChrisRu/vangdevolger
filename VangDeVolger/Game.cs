@@ -197,16 +197,30 @@ namespace VangDeVolger
 
         }
 
-        private void CreateEgg()
+        private static void CreateEgg()
         {
-            var location = new Point(220, 220);
+            while (true)
+            {
+                var random = new Random();
+                var randomX = random.Next(0, WindowWidth / 32) * 32;
+                var randomY = random.Next(0, WindowHeight / 32) * 32;
+                var location = new Point(randomX, randomY);
 
-            if (Blocks.Any(block => block.Pb.Location.X == location.X && block.Pb.Location.Y == location.Y)) return;
+                var tempPb = new Rectangle
+                {
+                    Location = location, Size = new Size(BlockSize, BlockSize)
+                };
 
-            var egg = new BlockEgg(location);
-            Blocks.Add(egg);
-            Controls.Add(egg.TimeLabel);
+                if (Blocks.Any(block => tempPb.IntersectsWith(block.Pb.Bounds)) || randomX == 0 && randomY == 0)
+                {
+                    continue;
+                }
+
+                var egg = new BlockEgg(location);
+                Blocks.Add(egg);
+                //Controls.Add(egg.TimeLabel);
+                break;
+            }
         }
-
     }
 }

@@ -7,7 +7,7 @@ namespace VangDeVolger.Blocks
     internal class BlockEgg : Block
     {
         private readonly Image _image = Properties.Resources.egg;
-        private int _hatchTime = 20;
+        private int _hatchTime = 115;
         public Label TimeLabel;
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace VangDeVolger.Blocks
 
             var timer = new Timer();
             timer.Tick += T_Tick;
-            timer.Interval = 1000;
+            timer.Interval = 100;
             timer.Start();
         }
         
@@ -37,6 +37,16 @@ namespace VangDeVolger.Blocks
                 _hatchTime -= 1;
                 TimeLabel.Text = _hatchTime.ToString();
                 TimeLabel.Invalidate();
+
+                Pb.Top = 5;
+                if (Pb.Top == 0)
+                {
+                    Pb.Top = 5;
+                }
+                else
+                {
+                    Pb.Top = 0;
+                }
             }
             else if (_hatchTime <= 0) // het ei komt uit
             {
@@ -64,7 +74,6 @@ namespace VangDeVolger.Blocks
         public void Remove()
         {
             Game.Blocks.Remove(this);
-            _hatchTime = 20;
             Pb.Dispose();
             TimeLabel.Dispose();
         }
