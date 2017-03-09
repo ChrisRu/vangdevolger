@@ -8,6 +8,7 @@ namespace VangDeVolger.Blocks
     {
         private readonly Image _image = Properties.Resources.egg;
         private int _hatchTime = 215;
+        private Timer _timer;
 
         public EventHandler SpawnBird;
 
@@ -19,10 +20,10 @@ namespace VangDeVolger.Blocks
         {
             Pb.Image = _image;
 
-            var timer = new Timer();
-            timer.Tick += T_Tick;
-            timer.Interval = 100;
-            timer.Start();
+            _timer = new Timer();
+            _timer.Tick += T_Tick;
+            _timer.Interval = 100;
+            _timer.Start();
         }
         
         /// <summary>
@@ -38,6 +39,7 @@ namespace VangDeVolger.Blocks
             }
             else if (_hatchTime <= 0) // het ei komt uit
             {
+                _timer.Stop();
                 SpawnBird(this, new EventArgs());
                 Dispose();
             }
