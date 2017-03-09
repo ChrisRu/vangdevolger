@@ -62,7 +62,7 @@
             // item_spawner
             // 
             this.item_spawner.Interval = 1000;
-            this.item_spawner.Tick += new System.EventHandler(this.timer2_Tick);
+            this.item_spawner.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
             // Game
             // 
