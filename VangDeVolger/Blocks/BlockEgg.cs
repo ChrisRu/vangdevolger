@@ -42,7 +42,7 @@ namespace VangDeVolger.Blocks
             {
                 var birdLocation = Pb.Location;
 
-                Remove();
+                Dispose();
 
                 // TODO: spawn een extra volger...
             }
@@ -56,11 +56,14 @@ namespace VangDeVolger.Blocks
         /// <returns></returns>
         public override bool Touch(Game.Directions direction)
         {
-            Remove();
+            Dispose();
             return true;
         }
 
-        public void Remove()
+        /// <summary>
+        /// Dispose Class and remove from view and blocks list
+        /// </summary>
+        public void Dispose()
         {
             Game.Blocks.Remove(this);
             Pb.Dispose();
