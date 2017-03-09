@@ -8,7 +8,7 @@ namespace VangDeVolger.Blocks
     {
         private readonly Image _image = Properties.Resources.heart;
         private int _boostTime = 20;
-        private Timer timer = new Timer();
+        private readonly Timer _timer = new Timer();
 
         /// <summary>
         /// Initialize BlockSolid Class
@@ -28,9 +28,9 @@ namespace VangDeVolger.Blocks
         {
             // start the boost
 
-            timer.Tick += T_Tick;
-            timer.Interval = 1000;
-            timer.Start();
+            _timer.Tick += T_Tick;
+            _timer.Interval = 1000;
+            _timer.Start();
 
             Dispose();
             return true;
@@ -46,14 +46,13 @@ namespace VangDeVolger.Blocks
             if(_boostTime > 0)
             {
                 _boostTime -= 1;
-            }else if(_boostTime <= 0)
+            }
+            else if(_boostTime <= 0)
             {
                 //stop the boost
 
-
-
                 Dispose();
-                timer.Stop();
+                _timer.Stop();
             }
         }
 
