@@ -8,7 +8,7 @@ namespace VangDeVolger.Blocks
     {
         private readonly Image _image = Properties.Resources.heart;
         private int _boostTime = 20;
-        private Timer timer = new Timer();
+        private readonly Timer _timer = new Timer();
 
         /// <summary>
         /// Initialize BlockEgg Class
@@ -27,12 +27,13 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             // start the boost
+            Game.PlayerSpeed = 6;
 
-            timer.Tick += T_Tick;
-            timer.Interval = 1000;
-            timer.Start();
+            _timer.Tick += T_Tick;
+            _timer.Interval = 1000;
+            _timer.Start();
 
-            Dispose();
+            Pb.Dispose();
             return true;
         }
 
@@ -46,24 +47,15 @@ namespace VangDeVolger.Blocks
             if(_boostTime > 0)
             {
                 _boostTime -= 1;
-            }else if(_boostTime <= 0)
+            }
+            else if(_boostTime <= 0)
             {
                 //stop the boost
+                Game.PlayerSpeed = 3;
 
-
-
-                Dispose();
-                timer.Stop();
+                Game.Blocks.Remove(this);
+                _timer.Stop();
             }
-        }
-
-        /// <summary>
-        /// Dispose Class and remove from view and blocks list
-        /// </summary>
-        public void Dispose()
-        {
-            Game.Blocks.Remove(this);
-            Pb.Dispose();
         }
     }
 }

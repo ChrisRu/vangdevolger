@@ -15,7 +15,6 @@ namespace VangDeVolger.Birds
         /// Initialize PlayerBird Class
         /// </summary>
         /// <param name="position"></param>
-        /// <param name="speed"></param>
         public PlayerBird(Point position) : base(position)
         {
             Pb.Image = _imageRight;
