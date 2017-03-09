@@ -1,12 +1,69 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace VangDeVolger.Blocks
 {
-    class BlockFood
+    internal class BlockFood : Block
     {
+        private readonly Image _image = Properties.Resources.heart;
+        private int _boostTime = 20;
+        private Timer timer = new Timer();
+
+        /// <summary>
+        /// Initialize BlockSolid Class
+        /// </summary>
+        /// <param name="position"></param>
+        public BlockFood(Point position) : base(position)
+        {
+            Pb.Image = _image;
+        }
+
+        /// <summary>
+        /// Execute on collision with other object
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <returns></returns>
+        public override bool Touch(Game.Directions direction)
+        {
+            // start the boost
+
+            timer.Tick += T_Tick;
+            timer.Interval = 1000;
+            timer.Start();
+
+            Dispose();
+            return true;
+        }
+
+        /// <summary>
+        /// On Timer tick -1 second of remaining speed boost time
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void T_Tick(object sender, EventArgs e)
+        {
+            if(_boostTime > 0)
+            {
+                _boostTime -= 1;
+            }else if(_boostTime <= 0)
+            {
+                //stop the boost
+
+
+
+                Dispose();
+                timer.Stop();
+            }
+        }
+
+        /// <summary>
+        /// Dispose Class and remove from view and blocks list
+        /// </summary>
+        public void Dispose()
+        {
+            Game.Blocks.Remove(this);
+            Pb.Dispose();
+        }
     }
 }
