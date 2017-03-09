@@ -181,6 +181,7 @@ namespace VangDeVolger
         private void Game_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            timer2.Start();
         }
 
         /// <summary>
@@ -202,11 +203,6 @@ namespace VangDeVolger
         {
             _player.Move(e);
             label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
-        }
-
-        private void Timer2_Tick(object sender, EventArgs e)
-        {
-
         }
 
         private void CreateEgg()
@@ -231,7 +227,27 @@ namespace VangDeVolger
 
                 var egg = new BlockEgg(location);
                 Blocks.Add(egg);
+                Controls.Add(egg.Pb);
                 break;
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            int kans;
+            kans = rnd.Next(1, 5); // per 15 seconden is de kans 1 op 4 dat er een item spawnd, gemiddeld dus 1 per minuut.
+
+
+            if (kans == 3)
+            {
+                int keuze = rnd.Next(1, 4); // kies een van de drie mogelijke item spawns random
+                switch (keuze)
+                {
+                    case 1: { CreateEgg(); break; } // egg
+                    case 2: { CreateEgg(); break; } // egg > moet ander item worden
+                    case 3: { CreateEgg(); break; } // egg > moet ander item worden
+                }
             }
         }
     }

@@ -25,8 +25,8 @@ namespace VangDeVolger.Blocks
         {
             var newLocation = Point.Add(Pb.Location, Game.EnumToSize(direction));
 
-            if (newLocation.X < 0 || newLocation.X > Game.WindowWidth) return false;
-            if (newLocation.Y < 0 || newLocation.Y > Game.WindowHeight) return false;
+            if (newLocation.X < 0 || newLocation.X > (Game.WindowWidth - Pb.Width)) return false;
+            if (newLocation.Y < 0 || newLocation.Y > Game.WindowHeight - (Pb.Width * 2)) return false;
 
             var canMove = true;
 

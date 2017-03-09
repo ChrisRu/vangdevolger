@@ -32,8 +32,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.item_spawner = new System.Windows.Forms.Timer(this.components);
             this.egg_timer = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timer1
@@ -59,16 +59,16 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Player";
             // 
-            // item_spawner
+            // timer2
             // 
-            this.item_spawner.Interval = 1000;
-            this.item_spawner.Tick += new System.EventHandler(this.Timer2_Tick);
+            this.timer2.Interval = 15000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Game
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(496, 473);
+            this.ClientSize = new System.Drawing.Size(509, 481);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,8 +92,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Timer item_spawner;
         private System.Windows.Forms.Timer egg_timer;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

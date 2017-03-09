@@ -94,8 +94,8 @@ namespace VangDeVolger.Birds
                 }
             }
 
-            if (tempPb.Location.X < 0 || tempPb.Location.X > Game.WindowWidth) return;
-            if (tempPb.Location.Y < 0 || tempPb.Location.Y > Game.WindowHeight) return;
+            if (tempPb.Location.X < 0 || tempPb.Location.X > (Game.WindowWidth - (Pb.Width * 1.4))) return;
+            if (tempPb.Location.Y < 0 || tempPb.Location.Y > Game.WindowHeight - (Pb.Height * 2.3)) return;
 
             if (canMove)
             {
