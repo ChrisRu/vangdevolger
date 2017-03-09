@@ -6,7 +6,7 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockFood : Block
     {
-        private readonly Image _image = Properties.Resources.heart;
+        private readonly Image _image = Properties.Resources.redbull;
         private int _boostTime = 20;
         private readonly Timer _timer = new Timer();
 

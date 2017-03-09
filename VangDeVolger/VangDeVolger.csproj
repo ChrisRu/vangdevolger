@@ -92,9 +92,6 @@
     <None Include="Resources\clock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\heart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\rock.png" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +111,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\egg.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redbull.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,7 +5,7 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockMovable : Block
     {
-        private readonly Image _image = Properties.Resources.rock;
+        private readonly Image _image = Properties.Resources.tree;
 
         /// <summary>
         /// Initialize BlockMovable Class
