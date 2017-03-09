@@ -16,11 +16,11 @@ namespace VangDeVolger
         public static List<Block> Blocks;
 
         private readonly Bird _player;
-        public const int PlayerSpeed = 3;
+        public static int PlayerSpeed = 3;
         public const int BlockSize = 32;
         public const int BirdSize = 28;
 
-        public Bitmap bmp;
+        //public Bitmap bmp;
 
         public enum Directions
         {
@@ -54,12 +54,12 @@ namespace VangDeVolger
             WindowWidth = this.Width;
             WindowHeight = this.Height;
 
-            _player = new PlayerBird(new Point(0, 0), PlayerSpeed);
+            _player = new PlayerBird(new Point(0, 0));
 
             Blocks = RandomGrid(Height, Width, BlockSize);
             CreateEgg();
 
-            bmp = new Bitmap(WindowWidth, WindowHeight);
+            //bmp = new Bitmap(WindowWidth, WindowHeight);
 
             Render();
         }
@@ -226,28 +226,42 @@ namespace VangDeVolger
                 }
 
                 var egg = new BlockEgg(location);
+                egg.SpawnBird += CreateEnemy;
+
                 Blocks.Add(egg);
                 Controls.Add(egg.Pb);
                 break;
             }
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        public void CreateEnemy(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            int kans;
-            kans = rnd.Next(1, 5); // per 15 seconden is de kans 1 op 4 dat er een item spawnd, gemiddeld dus 1 per minuut.
+            var block = sender as Control;
 
+            if (block == null) return;
 
-            if (kans == 3)
+            var enemy = new EnemyBird(block.Location);
+            Controls.Add(enemy.Pb);
+        }
+
+        /// <summary>
+        /// Random Item Spawn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            var rnd = new Random();
+            var chance = rnd.Next(1, 5);
+
+            if (chance != 3) return;
+
+            var choice = rnd.Next(1, 4); // kies een van de drie mogelijke item spawns random
+            switch (choice)
             {
-                int keuze = rnd.Next(1, 4); // kies een van de drie mogelijke item spawns random
-                switch (keuze)
-                {
-                    case 1: { CreateEgg(); break; } // egg
-                    case 2: { CreateEgg(); break; } // egg > moet ander item worden
-                    case 3: { CreateEgg(); break; } // egg > moet ander item worden
-                }
+                case 1: CreateEgg(); break; // egg
+                case 2: CreateEgg(); break; // egg > moet ander item worden
+                case 3: CreateEgg(); break; // egg > moet ander item worden
             }
         }
     }

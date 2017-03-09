@@ -16,7 +16,7 @@ namespace VangDeVolger.Birds
         /// </summary>
         /// <param name="position"></param>
         /// <param name="speed"></param>
-        public EnemyBird(Point position, int speed) : base(position, speed)
+        public EnemyBird(Point position) : base(position)
         {
             Pb.Image = _imageLeft;
         }

@@ -12,14 +12,12 @@ namespace VangDeVolger.Birds
         public bool FacingRight = true;
         public bool GoingRight = true;
 
-        protected int Speed;
-
         /// <summary>
         /// Initialize Bird Class
         /// </summary>
         /// <param name="position"></param>
         /// <param name="speed"></param>
-        protected Bird(Point position, int speed)
+        protected Bird(Point position)
         {
             Pb = new PictureBox
             {
@@ -27,7 +25,6 @@ namespace VangDeVolger.Birds
                 Size = new Size(Game.BirdSize, Game.BirdSize),
                 SizeMode = PictureBoxSizeMode.Zoom
             };
-            Speed = speed;
         }
 
         /// <summary>
