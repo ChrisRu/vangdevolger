@@ -8,7 +8,6 @@ namespace VangDeVolger.Blocks
     {
         private readonly Image _image = Properties.Resources.egg;
         private int _hatchTime = 115;
-        public Label TimeLabel;
 
         /// <summary>
         /// Initialize BlockEgg Class
@@ -17,7 +16,6 @@ namespace VangDeVolger.Blocks
         public BlockEgg(Point position) : base(position)
         {
             Pb.Image = _image;
-            TimeLabel = CreateLabel("TimeLabel", new Size(56, 18), _hatchTime.ToString());
 
             var timer = new Timer();
             timer.Tick += T_Tick;
@@ -35,8 +33,6 @@ namespace VangDeVolger.Blocks
             if (_hatchTime > 0)
             {
                 _hatchTime -= 1;
-                TimeLabel.Text = _hatchTime.ToString();
-                TimeLabel.Invalidate();
             }
             else if (_hatchTime <= 0) // het ei komt uit
             {
@@ -67,32 +63,6 @@ namespace VangDeVolger.Blocks
         {
             Game.Blocks.Remove(this);
             Pb.Dispose();
-            TimeLabel.Dispose();
-        }
-
-        /// <summary>
-        /// Creates a label on the position of the block itself
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="size"></param>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        private Label CreateLabel(string name, Size size, string text)
-        {
-            var label = new Label
-            {
-                AutoSize = true,
-                Name = name,
-                Size = size,
-                Text = text,
-                BackColor = Color.Transparent,
-                ForeColor = Color.Black,
-                Location = Pb.Location,
-                Parent = Pb,
-                Visible = true
-            };
-
-            return label;
         }
     }
 }

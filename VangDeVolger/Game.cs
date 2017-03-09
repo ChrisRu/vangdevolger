@@ -231,7 +231,6 @@ namespace VangDeVolger
 
                 var egg = new BlockEgg(location);
                 Blocks.Add(egg);
-                //Controls.Add(egg.TimeLabel);
                 break;
             }
         }
