@@ -27,12 +27,13 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             // start the boost
+            Game.PlayerSpeed = 6;
 
             _timer.Tick += T_Tick;
             _timer.Interval = 1000;
             _timer.Start();
 
-            Dispose();
+            Pb.Dispose();
             return true;
         }
 
@@ -50,19 +51,11 @@ namespace VangDeVolger.Blocks
             else if(_boostTime <= 0)
             {
                 //stop the boost
+                Game.PlayerSpeed = 3;
 
-                Dispose();
+                Game.Blocks.Remove(this);
                 _timer.Stop();
             }
-        }
-
-        /// <summary>
-        /// Dispose Class and remove from view and blocks list
-        /// </summary>
-        public void Dispose()
-        {
-            Game.Blocks.Remove(this);
-            Pb.Dispose();
         }
     }
 }

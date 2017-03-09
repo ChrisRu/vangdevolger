@@ -38,11 +38,8 @@ namespace VangDeVolger.Blocks
             }
             else if (_hatchTime <= 0) // het ei komt uit
             {
-                var birdLocation = Pb.Location;
-
-                Dispose();
-
                 SpawnBird(this, new EventArgs());
+                Dispose();
             }
         }
 
