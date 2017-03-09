@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Linq;
 
 namespace VangDeVolger.Blocks
 {
@@ -29,7 +30,7 @@ namespace VangDeVolger.Blocks
 
             var canMove = true;
 
-            foreach (var block in Game.Blocks)
+            foreach (var block in Game.Blocks.ToList())
             {
                 var nextBlockLocation = Point.Add(Pb.Location, Game.EnumToSize(direction));
 

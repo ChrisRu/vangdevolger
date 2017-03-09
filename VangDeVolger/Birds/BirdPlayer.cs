@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using VangDeVolger.Blocks;
 
@@ -59,7 +60,7 @@ namespace VangDeVolger.Birds
             var canMove = true;
 
             // Collision checking
-            foreach (var block in Game.Blocks)
+            foreach (var block in Game.Blocks.ToList())
             {
                 if (!tempPb.IntersectsWith(block.Pb.Bounds)) continue;
 

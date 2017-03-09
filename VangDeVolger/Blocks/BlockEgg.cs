@@ -57,7 +57,7 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             Remove();
-            return false;
+            return true;
         }
 
         public void Remove()
