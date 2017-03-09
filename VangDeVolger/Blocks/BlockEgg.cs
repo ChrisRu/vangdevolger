@@ -6,7 +6,7 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockEgg : Block
     {
-        private readonly Image _image = VangDeVolger.Properties.Resources.egg;
+        private readonly Image _image = Properties.Resources.egg;
         private int _hatchTime = 20;
         public Label TimeLabel;
 
