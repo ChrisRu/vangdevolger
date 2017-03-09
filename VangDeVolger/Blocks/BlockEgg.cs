@@ -37,16 +37,6 @@ namespace VangDeVolger.Blocks
                 _hatchTime -= 1;
                 TimeLabel.Text = _hatchTime.ToString();
                 TimeLabel.Invalidate();
-
-                Pb.Top = 5;
-                if (Pb.Top == 0)
-                {
-                    Pb.Top = 5;
-                }
-                else
-                {
-                    Pb.Top = 0;
-                }
             }
             else if (_hatchTime <= 0) // het ei komt uit
             {
@@ -55,7 +45,6 @@ namespace VangDeVolger.Blocks
                 Remove();
 
                 // TODO: spawn een extra volger...
-
             }
         }
 

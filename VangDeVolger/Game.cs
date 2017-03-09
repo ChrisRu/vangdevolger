@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using VangDeVolger.Birds;
 using VangDeVolger.Blocks;
@@ -18,6 +19,8 @@ namespace VangDeVolger
         public const int PlayerSpeed = 3;
         public const int BlockSize = 32;
         public const int BirdSize = 28;
+
+        public Bitmap bmp;
 
         public enum Directions
         {
@@ -55,6 +58,8 @@ namespace VangDeVolger
 
             Blocks = RandomGrid(Height, Width, BlockSize);
             CreateEgg();
+
+            bmp = new Bitmap(WindowWidth, WindowHeight);
 
             Render();
         }
@@ -117,7 +122,7 @@ namespace VangDeVolger
         /// <param name="blocks"></param>
         /// <param name="mainBlock"></param>
         /// <returns></returns>
-        
+
         // TODO: Onnodige bullshit
         public Block SetSiblingBlocks(List<Block> blocks, Block mainBlock)
         {
@@ -153,12 +158,19 @@ namespace VangDeVolger
         /// </summary>
         public void Render()
         {
-            foreach (var block in Blocks)
-            {
-                Controls.Add(block.Pb);
-            }
+            //using (var graphics = Graphics.FromImage(bmp))
+            //{
+                foreach (var block in Blocks)
+                {
+                    Controls.Add(block.Pb);
+                    //graphics.DrawImage(block.Pb.Image, block.Pb.Location.X, block.Pb.Location.Y, block.Pb.Width,
+                    //    block.Pb.Height);
 
-            Controls.Add(_player.Pb);
+                }
+                //graphics.DrawImage(_player.Pb.Image, _player.Pb.Location.X, _player.Pb.Location.Y, _player.Pb.Width,
+                //        _player.Pb.Height);
+                Controls.Add(_player.Pb);
+            //}
         }
 
         /// <summary>
@@ -178,7 +190,7 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            
+
         }
 
         /// <summary>
@@ -197,7 +209,7 @@ namespace VangDeVolger
 
         }
 
-        private static void CreateEgg()
+        private void CreateEgg()
         {
             while (true)
             {
@@ -208,7 +220,8 @@ namespace VangDeVolger
 
                 var tempPb = new Rectangle
                 {
-                    Location = location, Size = new Size(BlockSize, BlockSize)
+                    Location = location,
+                    Size = new Size(BlockSize, BlockSize)
                 };
 
                 if (Blocks.Any(block => tempPb.IntersectsWith(block.Pb.Bounds)) || randomX == 0 && randomY == 0)
