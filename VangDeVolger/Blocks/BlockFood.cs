@@ -52,8 +52,7 @@ namespace VangDeVolger.Blocks
             else if (_boostTime <= 0)
             {
                 //stop the boost
-                Game.PlayerSpeed = 3;
-                _boostTime = 20;
+                 Game.PlayerSpeed = 3;
                 _timer.Stop();
             }
         }

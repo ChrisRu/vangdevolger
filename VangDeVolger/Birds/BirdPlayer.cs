@@ -47,7 +47,6 @@ namespace VangDeVolger.Birds
                 default:
                     direction = new Size(0, 0);
                     break;
-
             }
             
             var tempPb = new Rectangle
@@ -91,11 +90,12 @@ namespace VangDeVolger.Birds
                     block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het ei aanraakt want hij gaat toch kapot
                     break;
                 }
+
                 if (block.GetType().Name == "BlockFood")
                 {       
-                        block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het food aanraakt want hij gaat toch kapot
-                        break;
-                    }
+                    block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het food aanraakt want hij gaat toch kapot
+                    break;
+                }
 
             }
 

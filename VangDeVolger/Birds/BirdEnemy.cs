@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using VangDeVolger.Blocks;
 
@@ -26,7 +27,50 @@ namespace VangDeVolger.Birds
         /// <param name="e"></param>
         public override void Move(KeyEventArgs e)
         {
-            // TODO: Add AI
+            Size direction;
+
+            var random = new Random();
+            switch (random.Next(0, 4))
+            {
+                case 0:
+                    direction = new Size(0, Game.PlayerSpeed);
+                    break;
+                case 1:
+                    direction = new Size(0, -Game.PlayerSpeed);
+                    break;
+                case 2:
+                    direction = new Size(-Game.PlayerSpeed, 0);
+                    GoingRight = false;
+                    break;
+                case 3:
+                    direction = new Size(Game.PlayerSpeed, 0);
+                    GoingRight = true;
+                    break;
+                default:
+                    direction = new Size(0, 0);
+                    break;
+            }
+
+            var tempPb = new Rectangle
+            {
+                Location = Point.Add(Pb.Location, direction),
+                Size = Pb.Size
+            };
+
+            // Collision checking
+            foreach (var block in Game.Blocks.ToList())
+            {
+                if (tempPb.IntersectsWith(block.Pb.Bounds))
+                {
+                    tempPb.Location = Pb.Location;
+                }
+
+            }
+
+            if (tempPb.Location.X < 0 || tempPb.Location.X > (Game.WindowWidth - (Pb.Width * 1.4))) return;
+            if (tempPb.Location.Y < 0 || tempPb.Location.Y > Game.WindowHeight - (Pb.Height * 2.3)) return;
+
+            Pb.Location = tempPb.Location;
 
             ChangeDirection(_imageLeft, _imageRight);
         }
