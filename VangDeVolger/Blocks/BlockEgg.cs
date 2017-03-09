@@ -6,10 +6,9 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockEgg : Block
     {
-        private readonly Image _image = VangDeVolger.Properties.Resources.egg;
+        private readonly Image _image = Properties.Resources.egg;
         private int _hatchTime = 20;
-        public Label TimeLabel = new Label();
-        private Timer _timer;
+        public Label TimeLabel;
 
         /// <summary>
         /// Initialize BlockEgg Class
@@ -17,26 +16,13 @@ namespace VangDeVolger.Blocks
         /// <param name="position"></param>
         public BlockEgg(Point position) : base(position)
         {
-            this.Pb.Image = _image;
+            Pb.Image = _image;
+            TimeLabel = CreateLabel("TimeLabel", new Size(56, 18), _hatchTime.ToString());
 
-            TimeLabel.AutoSize = true;
-            TimeLabel.Name = "TimeLabel";
-            TimeLabel.Size = new Size(56, 18);
-            TimeLabel.Text = _hatchTime.ToString();
-            TimeLabel.BackColor = Color.Transparent;
-            TimeLabel.ForeColor = Color.Black;
-            TimeLabel.Location = Pb.Location;
-            TimeLabel.Parent = Pb;
-
-            // TODO: Make label background transparent
-            //Graphics.DrawString(_hatchTime.ToString(), Pb.Font, new SolidBrush(Color.White), 0f, 0f);
-            
-            TimeLabel.Visible = true;
-
-            _timer = new Timer();
-            _timer.Tick += T_Tick;
-            _timer.Interval = 1000;
-            _timer.Start();
+            var timer = new Timer();
+            timer.Tick += T_Tick;
+            timer.Interval = 1000;
+            timer.Start();
         }
         
         /// <summary>
@@ -54,12 +40,12 @@ namespace VangDeVolger.Blocks
             }
             else if (_hatchTime <= 0) // het ei komt uit
             {
-                //verwijder het ei eerst
-                Game.Blocks.Remove(this);
-                _hatchTime = 20;
-                this.Pb.Dispose();
-                TimeLabel.Dispose();
-                // spawn een extra volger...
+                var birdLocation = Pb.Location;
+
+                Remove();
+
+                // TODO: spawn een extra volger...
+
             }
         }
 
@@ -71,16 +57,41 @@ namespace VangDeVolger.Blocks
         /// <returns></returns>
         public override bool Touch(Game.Directions direction)
         {
-            // TODO: Logic for egg grab here 
-            // hatch = extra volger als straf
-            // touch = destroy
+            Remove();
+            return false;
+        }
 
+        public void Remove()
+        {
             Game.Blocks.Remove(this);
             _hatchTime = 20;
-            this.Pb.Dispose();
+            Pb.Dispose();
             TimeLabel.Dispose();
+        }
 
-            return false;
+        /// <summary>
+        /// Creates a label on the position of the block itself
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="size"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private Label CreateLabel(string name, Size size, string text)
+        {
+            var label = new Label
+            {
+                AutoSize = true,
+                Name = name,
+                Size = size,
+                Text = text,
+                BackColor = Color.Transparent,
+                ForeColor = Color.Black,
+                Location = Pb.Location,
+                Parent = Pb,
+                Visible = true
+            };
+
+            return label;
         }
     }
 }
