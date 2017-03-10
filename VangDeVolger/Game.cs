@@ -18,6 +18,7 @@ namespace VangDeVolger
 
         private readonly Bird _player;
         public static int PlayerSpeed = 3;
+        public static int EnemySpeed = 2;
         public const int BlockSize = 32;
         public const int BirdSize = 28;
 
@@ -61,6 +62,7 @@ namespace VangDeVolger
             Enemies = new List<Bird>();
             CreateEgg();
             CreateFood();
+            CreateStopwatch();
 
             //bmp = new Bitmap(WindowWidth, WindowHeight);
 
@@ -197,6 +199,7 @@ namespace VangDeVolger
             foreach (var enemy in Enemies)
             {
                 enemy.Move(new KeyEventArgs(new Keys()));
+                label1.Text = "Enemy: X: " + enemy.Pb.Location.X + "Y :" + enemy.Pb.Location.X;
             }
         }
 
@@ -267,6 +270,33 @@ namespace VangDeVolger
             }
         }
 
+        private void CreateStopwatch()
+        {
+            while (true)
+            {
+                var random = new Random();
+                var randomX = random.Next(0, WindowWidth / BlockSize) * BlockSize;
+                var randomY = random.Next(0, WindowHeight / BlockSize) * BlockSize;
+                var location = new Point(randomX, randomY);
+
+                var tempPb = new Rectangle
+                {
+                    Location = location,
+                    Size = new Size(BlockSize, BlockSize)
+                };
+
+                if (Blocks.Any(block => tempPb.IntersectsWith(block.Pb.Bounds)) || randomX == 0 && randomY == 0)
+                {
+                    continue;
+                }
+
+                var stopwatch = new BlockStopwatch(location);
+                Blocks.Add(stopwatch);
+                Controls.Add(stopwatch.Pb);
+                break;
+            }
+        }
+
         public void CreateEnemy(object sender, EventArgs e)
         {
             var block = (Block) sender;
@@ -294,8 +324,8 @@ namespace VangDeVolger
             switch (choice)
             {
                 case 1: CreateEgg(); break; // egg
-                case 2: CreateEgg(); break; // egg > moet ander item worden
-                case 3: CreateEgg(); break; // egg > moet ander item worden
+                case 2: CreateFood(); break; // food
+                case 3: CreateStopwatch(); break; // stopwatch
             }
         }
     }

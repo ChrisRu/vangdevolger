@@ -33,23 +33,24 @@ namespace VangDeVolger.Birds
             switch (random.Next(0, 4))
             {
                 case 0:
-                    direction = new Size(0, Game.PlayerSpeed);
+                    direction = new Size(0, Game.EnemySpeed);
                     break;
                 case 1:
-                    direction = new Size(0, -Game.PlayerSpeed);
+                    direction = new Size(0, -Game.EnemySpeed);
                     break;
                 case 2:
-                    direction = new Size(-Game.PlayerSpeed, 0);
+                    direction = new Size(-Game.EnemySpeed, 0);
                     GoingRight = false;
                     break;
                 case 3:
-                    direction = new Size(Game.PlayerSpeed, 0);
+                    direction = new Size(Game.EnemySpeed, 0);
                     GoingRight = true;
                     break;
                 default:
                     direction = new Size(0, 0);
                     break;
             }
+            
 
             var tempPb = new Rectangle
             {

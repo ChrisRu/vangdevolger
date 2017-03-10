@@ -51,6 +51,7 @@
     <Compile Include="Birds\BirdEnemy.cs" />
     <Compile Include="Blocks\BlockEgg.cs" />
     <Compile Include="Blocks\BlockFood.cs" />
+    <Compile Include="Blocks\BlockStopwatch.cs" />
     <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>

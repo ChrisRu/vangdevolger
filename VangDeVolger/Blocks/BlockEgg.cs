@@ -53,6 +53,7 @@ namespace VangDeVolger.Blocks
         /// <returns></returns>
         public override bool Touch(Game.Directions direction)
         {
+            _timer.Stop();
             Dispose();
             return true;
         }

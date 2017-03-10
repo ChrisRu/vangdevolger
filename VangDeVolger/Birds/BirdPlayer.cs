@@ -96,6 +96,11 @@ namespace VangDeVolger.Birds
                     block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het food aanraakt want hij gaat toch kapot
                     break;
                 }
+                if (block.GetType().Name == "BlockStopwatch")
+                {
+                    block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je de stopwatch aanraakt want hij gaat toch kapot
+                    break;
+                }
 
             }
 
