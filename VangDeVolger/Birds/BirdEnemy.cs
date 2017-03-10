@@ -18,6 +18,7 @@ namespace VangDeVolger.Birds
         /// <param name="position"></param>
         public EnemyBird(Point position) : base(position)
         {
+            Speed = 2;
             Pb.Image = _imageLeft;
         }
 
@@ -33,17 +34,17 @@ namespace VangDeVolger.Birds
             switch (random.Next(0, 4))
             {
                 case 0:
-                    direction = new Size(0, Game.EnemySpeed);
+                    direction = new Size(0, Speed);
                     break;
                 case 1:
-                    direction = new Size(0, -Game.EnemySpeed);
+                    direction = new Size(0, -Speed);
                     break;
                 case 2:
-                    direction = new Size(-Game.EnemySpeed, 0);
+                    direction = new Size(-Speed, 0);
                     GoingRight = false;
                     break;
                 case 3:
-                    direction = new Size(Game.EnemySpeed, 0);
+                    direction = new Size(Speed, 0);
                     GoingRight = true;
                     break;
                 default:

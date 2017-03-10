@@ -27,7 +27,11 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             // start the slowdown
-            Game.EnemySpeed = 1;
+            foreach (var enemy in Game.Enemies)
+            {
+                enemy.Speed = 1;
+            }
+
             Pb.Dispose();
 
             _timer.Tick += T_Tick;
@@ -52,7 +56,11 @@ namespace VangDeVolger.Blocks
             else if (_slowtTime <= 0)
             {
                 //stop the boost
-                Game.EnemySpeed = 2;
+                foreach (var enemy in Game.Enemies)
+                {
+                    enemy.Speed = 2;
+                }
+
                 _timer.Stop();
             }
         }

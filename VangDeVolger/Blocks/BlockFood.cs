@@ -26,8 +26,8 @@ namespace VangDeVolger.Blocks
         /// <returns></returns>
         public override bool Touch(Game.Directions direction)
         {
-            // start the boost
-            Game.PlayerSpeed = 5;
+            Game._player.Speed = 5;
+
             Pb.Dispose();
 
             _timer.Tick += T_Tick;
@@ -51,8 +51,8 @@ namespace VangDeVolger.Blocks
             }
             else if (_boostTime <= 0)
             {
-                //stop the boost
-                 Game.PlayerSpeed = 3;
+                Game._player.Speed = 3;
+                 
                 _timer.Stop();
             }
         }
