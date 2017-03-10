@@ -18,7 +18,6 @@ namespace VangDeVolger.Birds
         /// Initialize Bird Class
         /// </summary>
         /// <param name="position"></param>
-        /// <param name="speed"></param>
         protected Bird(Point position)
         {
             Pb = new PictureBox

@@ -2,13 +2,14 @@
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using VangDeVolger.Birds;
 
 namespace VangDeVolger.Blocks
 {
     internal class BlockStopwatch : Block
     {
         private readonly Image _image = Properties.Resources.clock;
-        private int _slowtTime = 20;
+        private int _slowDownTime = 20;
         private readonly Timer _timer = new Timer();
 
         /// <summary>
@@ -32,7 +33,6 @@ namespace VangDeVolger.Blocks
             {
                 enemy.Speed = 1;
             }
-            
 
             Pb.Dispose();
 
@@ -52,11 +52,11 @@ namespace VangDeVolger.Blocks
         /// <param name="e"></param>
         private void T_Tick(object sender, EventArgs e)
         {
-            if (_slowtTime > 0)
+            if (_slowDownTime > 0)
             {
-                _slowtTime -= 1;
+                _slowDownTime -= 1;
             }
-            else if (_slowtTime <= 0)
+            else if (_slowDownTime <= 0)
             {
                 //stop the boost
                 foreach (var enemy in Game.Enemies)

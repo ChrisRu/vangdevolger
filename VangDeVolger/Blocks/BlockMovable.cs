@@ -48,10 +48,12 @@ namespace VangDeVolger.Blocks
                 if (tempRect.IntersectsWith(enemy.Pb.Bounds)) canMove = false;
             }
 
-            if (!canMove) return false;
+            if (canMove)
+            {
+                Pb.Location = Point.Add(Pb.Location, Game.EnumToSize(direction));
+            }
 
-            Pb.Location = Point.Add(Pb.Location, Game.EnumToSize(direction));
-            return true;
+            return canMove;
         }
     }
 }

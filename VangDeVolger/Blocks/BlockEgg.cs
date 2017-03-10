@@ -9,7 +9,7 @@ namespace VangDeVolger.Blocks
     {
         private readonly Image _image = Properties.Resources.egg;
         private int _hatchTime = 205;
-        private Timer _timer;
+        private readonly Timer _timer = new Timer();
 
         public EventHandler SpawnBird;
 
@@ -21,7 +21,6 @@ namespace VangDeVolger.Blocks
         {
             Pb.Image = _image;
 
-            _timer = new Timer();
             _timer.Tick += T_Tick;
             _timer.Interval = 100;
             _timer.Start();

@@ -82,28 +82,25 @@ namespace VangDeVolger.Birds
                             break;
                     }
                 }
-                else
-                {
-                    tempPb.Location = Pb.Location;
-                }
-
-                if(block.GetType().Name == "BlockEgg")
+                else if (block.GetType().Name == "BlockEgg")
                 {
                     block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het ei aanraakt want hij gaat toch kapot
                     break;
                 }
-
-                if (block.GetType().Name == "BlockFood")
+                else if (block.GetType().Name == "BlockFood")
                 {       
                     block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het food aanraakt want hij gaat toch kapot
                     break;
                 }
-                if (block.GetType().Name == "BlockStopwatch")
+                else if (block.GetType().Name == "BlockStopwatch")
                 {
                     block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je de stopwatch aanraakt want hij gaat toch kapot
                     break;
                 }
-
+                else
+                {
+                    tempPb.Location = Pb.Location;
+                }
             }
 
             if (tempPb.Location.X < 0 || tempPb.Location.X > (Game.WindowWidth - (Pb.Width * 1.4))) return;

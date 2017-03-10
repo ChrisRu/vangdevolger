@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using VangDeVolger.Blocks;
 
 namespace VangDeVolger.Birds
 {
@@ -27,35 +25,29 @@ namespace VangDeVolger.Birds
         /// <param name="e"></param>
         public override void Move(KeyEventArgs e)
         {
-            Size direction = new Size(0, 0);
+            Size direction;
 
-            Random rnd = new Random();
-            int x = rnd.Next(1, 5);
+            var randomNumber = new Random().Next(1, 5);
 
-            switch(x)
+            switch (randomNumber)
             {
                 case 1:
-                    {
-                        direction = new Size(0, -Game.EnemySpeed);
-                        break;
-                    }
+                    direction = new Size(0, -Speed);
+                    break;
                 case 2:
-                    {
-                        direction = new Size(0, +Game.EnemySpeed);
-                        break;
-                    }
+                    direction = new Size(0, Speed);
+                    break;
                 case 3:
-                    {
-                        direction = new Size(-Game.EnemySpeed, 0);
-                        GoingRight = false;
-                        break;
-                    }
+                    direction = new Size(-Speed, 0);
+                    GoingRight = false;
+                    break;
                 case 4:
-                    {
-                        direction = new Size(+Game.EnemySpeed, 0);
-                        GoingRight = true;
-                        break;
-                    }
+                    direction = new Size(Speed, 0);
+                    GoingRight = true;
+                    break;
+                default:
+                    direction = new Size(0, 0);
+                    break;
             }
 
             var tempPb = new Rectangle
@@ -71,7 +63,6 @@ namespace VangDeVolger.Birds
                 {
                     tempPb.Location = Pb.Location;
                 }
-
             }
 
             if (tempPb.Location.X < 0 || tempPb.Location.X > (Game.WindowWidth - (Pb.Width * 1.4))) return;
