@@ -93,9 +93,6 @@
     <None Include="Resources\clock.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\rock.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\solid.png" />
   </ItemGroup>
   <ItemGroup>

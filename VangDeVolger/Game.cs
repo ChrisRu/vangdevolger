@@ -195,10 +195,11 @@ namespace VangDeVolger
 
             if (e.KeyCode == Keys.Escape)
             {
-                if (menuStrip1.Visible == false)
+                if (!menuStrip1.Visible)
                 {
                     menuStrip1.Show();
-                }else
+                }
+                else
                 {
                     menuStrip1.Hide();
                 }
@@ -220,10 +221,18 @@ namespace VangDeVolger
                     Size = new Size(BlockSize, BlockSize)
                 };
 
-                if (!Blocks.Any(block => tempPb.IntersectsWith(block.Pb.Bounds)) || randomX != 0 && randomY != 0)
+                var noIntersects = true;
+                foreach (var block in Blocks)
+                {
+                    if (block.Pb.Bounds.IntersectsWith(tempPb))
+                    {
+                        noIntersects = false;
+                    }
+                }
+
+                if (noIntersects)
                 {
                     return location;
-                    break;
                 }
             }
         }
@@ -252,7 +261,7 @@ namespace VangDeVolger
 
         public void CreateEnemy(object sender, EventArgs e)
         {
-            var block = (Block) sender;
+            var block = (Block)sender;
 
             if (block != null)
             {
@@ -269,33 +278,27 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            var rnd = new Random();
-            var chance = rnd.Next(1, 5);
-
-            if (chance == 3)
+            var randomNumber = new Random().Next(0, 15);
+            switch (randomNumber)
             {
-                var choice = rnd.Next(1, 4); // kies een van de drie mogelijke item spawns random
-                switch (choice)
-                {
-                    case 1:
-                        CreateEgg();
-                        break; // egg
-                    case 2:
-                        CreateFood();
-                        break; // food
-                    case 3:
-                        CreateStopwatch();
-                        break; // stopwatch
-                }
+                case 0:
+                    CreateEgg();
+                    break; // egg
+                case 1:
+                    CreateFood();
+                    break; // food
+                case 2:
+                    CreateStopwatch();
+                    break; // stopwatch
             }
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Vang De Vogel is made by:\n\nLeon Hubert\nChristian Ruigrok","About");
+            MessageBox.Show("Vang De Vogel is made by:\n\nLeon Hubert\nChristian Ruigrok", "About");
         }
 
-        private void howToPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HowToPlayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to get score:\n\tCapture red birds by moving blocks.\n\nPick up items for temporary boosts and destroy eggs to prevent new birds from spawning.\n\nGood luck!", "How to play");
         }
