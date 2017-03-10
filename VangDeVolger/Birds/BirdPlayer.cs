@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Windows.Forms;
 using VangDeVolger.Blocks;
 
@@ -17,6 +18,7 @@ namespace VangDeVolger.Birds
         /// <param name="position"></param>
         public PlayerBird(Point position) : base(position)
         {
+            Speed = 3;
             Pb.Image = _imageRight;
         }
 
@@ -31,17 +33,17 @@ namespace VangDeVolger.Birds
             switch (e.KeyCode)
             {
                 case Keys.Down:
-                    direction = new Size(0, Game.PlayerSpeed);
+                    direction = new Size(0, Speed);
                     break;
                 case Keys.Up:
-                    direction = new Size(0, -Game.PlayerSpeed);
+                    direction = new Size(0, -Speed);
                     break;
                 case Keys.Left:
-                    direction = new Size(-Game.PlayerSpeed, 0);
+                    direction = new Size(-Speed, 0);
                     GoingRight = false;
                     break;
                 case Keys.Right:
-                    direction = new Size(Game.PlayerSpeed, 0);
+                    direction = new Size(Speed, 0);
                     GoingRight = true;
                     break;
                 default:

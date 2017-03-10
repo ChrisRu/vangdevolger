@@ -29,43 +29,7 @@ namespace VangDeVolger.Birds
         {
             Size direction = new Size(0, 0);
 
-            if (!Game._player.Pb.Bounds.IntersectsWith(Pb.Bounds))
-            {
-                foreach (var block in Game.Blocks.ToList())
-                {
-                    if (!Pb.Bounds.IntersectsWith(block.Pb.Bounds))
-                    {
-
-                        if (Game._player.Pb.Location.X < Pb.Location.X)
-                        {
-                            direction = new Size(-Game.EnemySpeed, 0);
-                            GoingRight = false;
-                        }
-                        if (Game._player.Pb.Location.X > Pb.Location.X)
-                        {
-                            direction = new Size(+Game.EnemySpeed, 0);
-                            GoingRight = true;
-                        }
-                        if (Game._player.Pb.Location.Y < Pb.Location.Y)
-                        {
-                            direction = new Size(0, -Game.EnemySpeed);
-                        }
-                        if (Game._player.Pb.Location.Y > Pb.Location.Y)
-                        {
-                            direction = new Size(0, +Game.EnemySpeed);
-                        }
-                    }
-                    else
-                    {
-
-                    }
-                }
-            }
-            else
-            {
-                // game over
-                MessageBox.Show("You suck dick!");
-            }
+            
 
             var tempPb = new Rectangle
             {

@@ -8,6 +8,8 @@ namespace VangDeVolger.Birds
     public abstract class Bird
     {
         public PictureBox Pb;
+        public const int BirdSize = 28;
+        public int Speed;
 
         public bool FacingRight = true;
         public bool GoingRight = true;
@@ -22,7 +24,7 @@ namespace VangDeVolger.Birds
             Pb = new PictureBox
             {
                 Location = position,
-                Size = new Size(Game.BirdSize, Game.BirdSize),
+                Size = new Size(BirdSize, BirdSize),
                 SizeMode = PictureBoxSizeMode.Zoom
             };
         }

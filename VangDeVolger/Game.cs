@@ -199,7 +199,6 @@ namespace VangDeVolger
             foreach (var enemy in Enemies)
             {
                 enemy.Move(new KeyEventArgs(new Keys()));
-                label1.Text = "Enemy: X: " + enemy.Pb.Location.X + "Y :" + enemy.Pb.Location.X;
             }
         }
 
@@ -211,7 +210,6 @@ namespace VangDeVolger
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
             _player.Move(e);
-            label2.Text = "Player: X: " + _player.Pb.Location.X + " Y: " + _player.Pb.Location.Y;
         }
 
         private void CreateEgg()
