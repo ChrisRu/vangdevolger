@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace VangDeVolger.Blocks
@@ -27,7 +28,7 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             Game._player.Speed = 5;
-
+            
             Pb.Dispose();
 
             _timer.Tick += T_Tick;
@@ -35,6 +36,7 @@ namespace VangDeVolger.Blocks
             _timer.Start();
 
             Game.Blocks.Remove(this);
+            new SoundPlayer(Properties.Resources.Heart).Play();
             return true;
         }
 

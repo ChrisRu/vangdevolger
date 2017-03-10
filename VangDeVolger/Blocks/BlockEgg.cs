@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace VangDeVolger.Blocks
@@ -55,6 +56,8 @@ namespace VangDeVolger.Blocks
         {
             _timer.Stop();
             Dispose();
+
+            new SoundPlayer(Properties.Resources.EggCrack).Play();
             return true;
         }
 

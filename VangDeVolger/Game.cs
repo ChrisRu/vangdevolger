@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Threading;
 using System.Windows.Forms;
 using VangDeVolger.Birds;
@@ -87,7 +88,7 @@ namespace VangDeVolger
 
                     if (y == 0 && x == 0)
                     {
-                        break;
+                        continue;
                     }
 
                     if (chance <= 5)

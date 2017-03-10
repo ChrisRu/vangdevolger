@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace VangDeVolger.Blocks
@@ -31,6 +32,7 @@ namespace VangDeVolger.Blocks
             {
                 enemy.Speed = 1;
             }
+            
 
             Pb.Dispose();
 
@@ -39,6 +41,7 @@ namespace VangDeVolger.Blocks
             _timer.Start();
 
             Game.Blocks.Remove(this);
+            new SoundPlayer(Properties.Resources.ClockTick).Play();
             return true;
         }
 
