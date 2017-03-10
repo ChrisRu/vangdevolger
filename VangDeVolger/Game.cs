@@ -16,7 +16,7 @@ namespace VangDeVolger
         public static List<Block> Blocks;
         public static List<Bird> Enemies;
 
-        private readonly Bird _player;
+        public static Bird _player;
         public static int PlayerSpeed = 3;
         public static int EnemySpeed = 2;
         public const int BlockSize = 32;
@@ -90,7 +90,7 @@ namespace VangDeVolger
 
                     if (y == 0 && x == 0)
                     {
-                        break;
+                        continue;
                     }
 
                     if (chance <= 5)

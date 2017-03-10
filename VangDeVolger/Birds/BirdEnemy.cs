@@ -27,30 +27,45 @@ namespace VangDeVolger.Birds
         /// <param name="e"></param>
         public override void Move(KeyEventArgs e)
         {
-            Size direction;
+            Size direction = new Size(0, 0);
 
-            var random = new Random();
-            switch (random.Next(0, 4))
+            if (!Game._player.Pb.Bounds.IntersectsWith(Pb.Bounds))
             {
-                case 0:
-                    direction = new Size(0, Game.EnemySpeed);
-                    break;
-                case 1:
-                    direction = new Size(0, -Game.EnemySpeed);
-                    break;
-                case 2:
-                    direction = new Size(-Game.EnemySpeed, 0);
-                    GoingRight = false;
-                    break;
-                case 3:
-                    direction = new Size(Game.EnemySpeed, 0);
-                    GoingRight = true;
-                    break;
-                default:
-                    direction = new Size(0, 0);
-                    break;
+                foreach (var block in Game.Blocks.ToList())
+                {
+                    if (!Pb.Bounds.IntersectsWith(block.Pb.Bounds))
+                    {
+
+                        if (Game._player.Pb.Location.X < Pb.Location.X)
+                        {
+                            direction = new Size(-Game.EnemySpeed, 0);
+                            GoingRight = false;
+                        }
+                        if (Game._player.Pb.Location.X > Pb.Location.X)
+                        {
+                            direction = new Size(+Game.EnemySpeed, 0);
+                            GoingRight = true;
+                        }
+                        if (Game._player.Pb.Location.Y < Pb.Location.Y)
+                        {
+                            direction = new Size(0, -Game.EnemySpeed);
+                        }
+                        if (Game._player.Pb.Location.Y > Pb.Location.Y)
+                        {
+                            direction = new Size(0, +Game.EnemySpeed);
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
-            
+            else
+            {
+                // game over
+                MessageBox.Show("You suck dick!");
+            }
 
             var tempPb = new Rectangle
             {
