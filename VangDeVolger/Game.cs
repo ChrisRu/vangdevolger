@@ -246,9 +246,12 @@ namespace VangDeVolger
 
         public void CreateStopwatch()
         {
-            var stopwatch = new BlockStopwatch(RandomOpenPosition());
-            Blocks.Add(stopwatch);
-            Controls.Add(stopwatch.Pb);
+            if (Enemies.Count > 0)
+            {
+                var stopwatch = new BlockStopwatch(RandomOpenPosition());
+                Blocks.Add(stopwatch);
+                Controls.Add(stopwatch.Pb);
+            }
         }
 
         public void CreateEgg()
