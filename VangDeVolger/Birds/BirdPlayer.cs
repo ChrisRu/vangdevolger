@@ -112,6 +112,14 @@ namespace VangDeVolger.Birds
             }
 
             ChangeDirection(_imageLeft, _imageRight);
+
+            foreach (var enemy in Game.Enemies)
+            {
+                if (enemy.Pb.Bounds.IntersectsWith(Pb.Bounds))
+                {
+                    MessageBox.Show("GAME OVER");
+                }
+            }
         }
     }
 }
