@@ -14,8 +14,9 @@ namespace VangDeVolger.Blocks
         /// <summary>
         /// Initialize BlockEgg Class
         /// </summary>
-        /// <param name="position"></param>
-        public BlockFood(Point position) : base(position)
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public BlockFood(int x, int y) : base(x, y)
         {
             Pb.Image = _image;
         }
@@ -35,7 +36,7 @@ namespace VangDeVolger.Blocks
             _timer.Interval = 1000;
             _timer.Start();
 
-            Game.Blocks.Remove(this);
+            Game.Blocks[Pb.Location.Y / 32, Pb.Location.X / 32] = null;
 
             new SoundPlayer(Properties.Resources.Heart).Play();
 

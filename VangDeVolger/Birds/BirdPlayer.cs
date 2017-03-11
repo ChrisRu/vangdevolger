@@ -60,8 +60,10 @@ namespace VangDeVolger.Birds
             var canMove = true;
 
             // Collision checking
-            foreach (var block in Game.Blocks.ToList())
+            foreach (var block in Game.Blocks)
             {
+                if (block == null) continue;
+
                 if (!tempPb.IntersectsWith(block.Pb.Bounds)) continue;
 
                 if (block is BlockMovable)
@@ -84,17 +86,20 @@ namespace VangDeVolger.Birds
                 }
                 else if (block is BlockEgg)
                 {
-                    block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het ei aanraakt want hij gaat toch kapot
+                    block.Touch(Game.Directions.Up);
+                    //maakt niet zoveel uit welke richting je het ei aanraakt want hij gaat toch kapot
                     break;
                 }
                 else if (block is BlockFood)
-                {       
-                    block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het food aanraakt want hij gaat toch kapot
+                {
+                    block.Touch(Game.Directions.Up);
+                    //maakt niet zoveel uit welke richting je het food aanraakt want hij gaat toch kapot
                     break;
                 }
                 else if (block is BlockStopwatch)
                 {
-                    block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je de stopwatch aanraakt want hij gaat toch kapot
+                    block.Touch(Game.Directions.Up);
+                    //maakt niet zoveel uit welke richting je de stopwatch aanraakt want hij gaat toch kapot
                     break;
                 }
                 else

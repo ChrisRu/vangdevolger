@@ -12,7 +12,7 @@ namespace VangDeVolger
     {
         public static int WindowWidth;
         public static int WindowHeight;
-        public static List<Block> Blocks;
+        public static Block[,] Blocks;
         public static List<Bird> Enemies;
 
         public static Bird Player;
@@ -52,7 +52,7 @@ namespace VangDeVolger
 
             Player = new PlayerBird(new Point(0, 0));
 
-            Blocks = RandomGrid(Height, Width, BlockSize);
+            Blocks = RandomGrid(Height / 32, Width / 32);
             Enemies = new List<Bird>();
 
             CreateEgg();
@@ -67,16 +67,16 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="height"></param>
         /// <param name="width"></param>
-        /// <param name="increase"></param>
         /// <returns></returns>
-        public List<Block> RandomGrid(int height, int width, int increase)
+        public Block[,] RandomGrid(int height, int width)
         {
-            var blocks = new List<Block>();
+            var blocks = new Block[height, width];
+
             var random = new Random();
 
-            for (var y = 0; y < height; y += increase)
+            for (var y = 0; y < height; y++)
             {
-                for (var x = 0; x < width; x += increase)
+                for (var x = 0; x < width; x++)
                 {
                     var chance = random.Next(100);
 
@@ -84,13 +84,13 @@ namespace VangDeVolger
 
                     if (chance <= 5)
                     {
-                        Block block = new BlockSolid(new Point(x, y));
-                        blocks.Add(block);
+                        Block block = new BlockSolid(x, y);
+                        blocks[y, x] = block;
                     }
                     else if (chance <= 25)
                     {
-                        Block block = new BlockMovable(new Point(x, y));
-                        blocks.Add(block);
+                        Block block = new BlockMovable(x, y);
+                        blocks[y, x] = block;
                     }
                 }
             }
@@ -117,7 +117,7 @@ namespace VangDeVolger
         /// <param name="mainBlock"></param>
         /// <returns></returns>
         // TODO: Onnodige bullshit
-        public Block SetSiblingBlocks(List<Block> blocks, Block mainBlock)
+        public Block SetSiblingBlocks(Block[][] blocks, Block mainBlock)
         {
             var x = mainBlock.Pb.Location.X;
             var y = mainBlock.Pb.Location.Y;
@@ -154,7 +154,10 @@ namespace VangDeVolger
         {
             foreach (var block in Blocks)
             {
-                Controls.Add(block.Pb);
+                if (block != null)
+                {
+                    Controls.Add(block.Pb);
+                }
             }
             Controls.Add(Player.Pb);
         }
@@ -211,13 +214,13 @@ namespace VangDeVolger
             while (true)
             {
                 var random = new Random();
-                var randomX = random.Next(0, WindowWidth / BlockSize) * BlockSize;
-                var randomY = random.Next(0, WindowHeight / BlockSize) * BlockSize;
+                var randomX = random.Next(0, Blocks.GetLength(0));
+                var randomY = random.Next(0, Blocks.GetLength(1));
                 var location = new Point(randomX, randomY);
 
                 var tempPb = new Rectangle
                 {
-                    Location = location,
+                    Location = new Point(location.X * 32, location.Y * 32),
                     Size = new Size(BlockSize, BlockSize)
                 };
 
@@ -237,9 +240,12 @@ namespace VangDeVolger
                 
                 foreach (var block in Blocks)
                 {
-                    if (block.Pb.Bounds.IntersectsWith(tempPb))
+                    if (block != null)
                     {
-                        noIntersects = false;
+                        if (block.Pb.Bounds.IntersectsWith(tempPb))
+                        {
+                            noIntersects = false;
+                        }
                     }
                 }
 
@@ -252,8 +258,9 @@ namespace VangDeVolger
 
         public void CreateFood()
         {
-            var food = new BlockFood(RandomOpenPosition());
-            Blocks.Add(food);
+            var location = RandomOpenPosition();
+            var food = new BlockFood(location.X, location.Y);
+            Blocks[location.Y, location.X] = food;
             Controls.Add(food.Pb);
         }
 
@@ -261,17 +268,19 @@ namespace VangDeVolger
         {
             if (Enemies.Count > 0)
             {
-                var stopwatch = new BlockStopwatch(RandomOpenPosition());
-                Blocks.Add(stopwatch);
+                var location = RandomOpenPosition();
+                var stopwatch = new BlockStopwatch(location.X, location.Y);
+                Blocks[location.Y, location.X] = stopwatch;
                 Controls.Add(stopwatch.Pb);
             }
         }
 
         public void CreateEgg()
         {
-            var egg = new BlockEgg(RandomOpenPosition());
+            var location = RandomOpenPosition();
+            var egg = new BlockEgg(location.X, location.Y);
             egg.SpawnBird += CreateEnemy;
-            Blocks.Add(egg);
+            Blocks[location.Y, location.X] = egg;
             Controls.Add(egg.Pb);
         }
 

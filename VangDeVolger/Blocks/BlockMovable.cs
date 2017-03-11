@@ -10,8 +10,9 @@ namespace VangDeVolger.Blocks
         /// <summary>
         /// Initialize BlockMovable Class
         /// </summary>
-        /// <param name="position"></param>
-        public BlockMovable(Point position) : base(position)
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public BlockMovable(int x, int y) : base(x, y)
         {
             Pb.Image = _image;
         }
@@ -30,11 +31,13 @@ namespace VangDeVolger.Blocks
 
             var canMove = true;
 
-            foreach (var block in Game.Blocks.ToList())
+            foreach (var block in Game.Blocks)
             {
-                if (newLocation != block.Pb.Location) continue;
-
-                canMove = block.Touch(direction);
+                if (block != null)
+                {
+                    if (newLocation != block.Pb.Location) continue;
+                    canMove = block.Touch(direction);
+                }
             }
 
             foreach (var enemy in Game.Enemies)

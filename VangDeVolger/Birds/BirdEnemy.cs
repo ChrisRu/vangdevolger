@@ -57,7 +57,7 @@ namespace VangDeVolger.Birds
             };
 
             // Collision checking
-            foreach (var block in Game.Blocks.ToList())
+            foreach (var block in Game.Blocks)
             {
                 if (tempPb.IntersectsWith(block.Pb.Bounds))
                 {

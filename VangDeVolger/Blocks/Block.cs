@@ -5,7 +5,11 @@ namespace VangDeVolger.Blocks
 {
     public abstract class Block
     {
+        public const int BlockSize = 32;
         public PictureBox Pb;
+        public int X;
+        public int Y;
+
         public Block SiblingTop;
         public Block SiblingBottom;
         public Block SiblingLeft;
@@ -14,9 +18,13 @@ namespace VangDeVolger.Blocks
         /// <summary>
         /// Initialize Block Class
         /// </summary>
-        /// <param name="position"></param>
-        protected Block(Point position)
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        protected Block(int x, int y)
         {
+            X = x;
+            Y = y;
+            var position = new Point(x * BlockSize, y * BlockSize);
             Pb = new PictureBox
             {
                 Size = new Size(Game.BlockSize, Game.BlockSize),

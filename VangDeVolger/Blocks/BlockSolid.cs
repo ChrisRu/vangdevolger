@@ -9,8 +9,9 @@ namespace VangDeVolger.Blocks
         /// <summary>
         /// Initialize BlockSolid Class
         /// </summary>
-        /// <param name="position"></param>
-        public BlockSolid(Point position) : base(position)
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public BlockSolid(int x, int y) : base(x, y)
         {
             Pb.Image = _image;
         }
