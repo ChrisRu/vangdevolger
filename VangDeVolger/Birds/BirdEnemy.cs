@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using VangDeVolger.PathFinding;
 
 namespace VangDeVolger.Birds
 {
@@ -25,29 +26,30 @@ namespace VangDeVolger.Birds
         /// <param name="e"></param>
         public override void Move(KeyEventArgs e)
         {
+            var birdLocation = Game.Player.Pb.Location;
+            var pathFinder = new PathFinder(Game.Blocks, Game.Blocks[0, 0], Game.Blocks[5, 5]);
+
+            var path = pathFinder.GetOptimalPath();
+
             Size direction;
-
-            var randomNumber = new Random().Next(1, 5);
-
-            switch (randomNumber)
+            if (path[0].Block.X > Pb.Location.X)
             {
-                case 1:
-                    direction = new Size(0, -Speed);
-                    break;
-                case 2:
-                    direction = new Size(0, Speed);
-                    break;
-                case 3:
-                    direction = new Size(-Speed, 0);
-                    GoingRight = false;
-                    break;
-                case 4:
-                    direction = new Size(Speed, 0);
-                    GoingRight = true;
-                    break;
-                default:
-                    direction = new Size(0, 0);
-                    break;
+                direction = new Size(-Speed, 0);
+            }
+            else
+            {
+                direction = new Size(Speed, 0);
+            }
+
+            if (path[0].Block.Y > Pb.Location.Y)
+            {
+                GoingRight = false;
+                direction = new Size(0, -Speed);
+            }
+            else
+            {
+                GoingRight = true;
+                direction = new Size(0, Speed);
             }
 
             var tempPb = new Rectangle

@@ -15,6 +15,12 @@ namespace VangDeVolger.PathFinding
 
         private readonly PathFinderBlock _to;
 
+        /// <summary>
+        /// Initialize PathFinder Class
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
         public PathFinder(Block[,] grid, Block from, Block to)
         {
             
@@ -96,9 +102,17 @@ namespace VangDeVolger.PathFinding
         private PathFinderBlock[,] _transformGrid(Block[,] grid)
         {
             PathFinderBlock[,] newGrid = new PathFinderBlock[grid.GetLength(0), grid.GetLength(1)];
-            foreach (var block in grid)
+            for (var y = 0; y < grid.GetLength(0); y++)
             {
-                newGrid[block.X, block.Y] = _transformBlock(block);
+                for (var x = 0; x < grid.GetLength(1); x++) {
+                    var block = grid[y, x];
+                    if (block == null)
+                    {
+                        block = new BlockSolid(x, y);
+                    }
+                    newGrid[block.X, block.Y] = _transformBlock(block);
+                }
+                
             }
             return newGrid;
         }
