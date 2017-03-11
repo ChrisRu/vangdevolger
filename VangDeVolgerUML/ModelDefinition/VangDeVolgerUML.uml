@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="4f049a9b-ebc7-4e76-a813-3f5ab3654274"
+  name="VangDeVolgerUML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="de3f8e9f-23bc-4b36-b629-27e227e37e2e"
+        name="Game"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="3a5695b9-3076-4a7c-ac99-0f0cdc369754"
+            isDerived="false"
+            sourceEndRoleName="Game"
+            targetEndRoleName="Bird"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="da5c65cf-ff68-4778-842b-731916719147"
+              LastKnownName="Bird"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f48b5adb-3222-4e4b-9c54-54f95bc0a31e"
+                  name="Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="98b7853f-ae2a-4488-bcca-c4540de39021"
+                  name="Bird"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a1ea66bc-a783-4a81-bdfa-f08b32572394"
+            isDerived="false"
+            sourceEndRoleName="Game"
+            targetEndRoleName="Block"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8279b917-5ffc-4085-8bec-d24a73c89076"
+              LastKnownName="Block"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="53b16858-c8cb-454a-9812-b00896e6b9c7"
+                  name="Game"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="408526ee-bafa-46ee-ba8d-a1ea0457aba2"
+                  name="Block"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="348378e2-5e14-43eb-8838-3ce17736ce72"
+            name="Block Size"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="63fc5c94-5323-4f33-b90c-bd9a0d01dd5a"
+            name="Window Width"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="f60fd8ce-42dd-47cf-ab67-404bccbd4f6a"
+            name="Window Height"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fd8dcaac-eca4-4a1b-a533-22efaf1908a4"
+            name="Enemy List"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="17a96e67-e988-4275-a50a-de2836b98d86"
+            name="Block List"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f5547165-7d5d-468e-948b-dce82195d9ea"
+            name="Key Down"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="63eeae79-9b18-4ac7-81f2-9cf1000a7cf6"
+            name="Render"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1f074479-87e9-4d95-844c-2c210e89f646"
+            name="Create Stopwatch"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="b2870c92-5f47-483d-8034-3c877a7dd4f0"
+            name="Create Egg"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="199bedf6-b328-407f-be85-141490c67d41"
+            name="Create Food"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="7e8828bf-8b35-4bc1-9051-b952db7f6080"
+            name="Create Grid"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="da5c65cf-ff68-4778-842b-731916719147"
+        name="Bird"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="978edc8d-fb98-42b8-b40d-7dfc0624dd00"
+            isSubstitutable="false">
+            <classMoniker
+              Id="e08acf9d-6eea-40c2-b113-51335856ce76"
+              LastKnownName="BirdPlayer"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+          <generalization
+            Id="68511ec0-7efb-4f6a-800e-e815baa75ec9"
+            isSubstitutable="false">
+            <classMoniker
+              Id="474c8cf6-c0f9-4a79-afe2-9517b7d8e034"
+              LastKnownName="BirdEnemy"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="6a05369d-6509-4902-9735-a08661423bc6"
+            name="Facing Direction"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="56bc357a-ed98-4f9d-96de-fbfe3171160a"
+            name="Moving Direction"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="7a691416-1a29-4a49-ae5a-cb6042d7eaca"
+            name="Location"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d60edc01-ea9b-4822-b5e9-8ee0458bcdce"
+            name="Size"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a705b107-a6e4-4805-82eb-cf0b229f4586"
+            name="Move"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="18ab0f12-3bb1-46f0-8743-0f40f5c4a9b9"
+            name="Change Direction"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8279b917-5ffc-4085-8bec-d24a73c89076"
+        name="Block"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="046906bb-e93d-42f4-b9fd-6249d7c751ea"
+            isSubstitutable="false">
+            <classMoniker
+              Id="047042b8-3f54-43a0-971a-6e0b995bdbb0"
+              LastKnownName="BlockEgg"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+          <generalization
+            Id="d4b81bc1-baf1-48d6-88c3-b759bd83674f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="10b93fa1-e0a3-407d-bf3c-ba71a3f505c4"
+              LastKnownName="BlockFood"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+          <generalization
+            Id="7d985388-5a49-4abd-a5fc-8c2a394efc36"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b55bdb55-6512-446b-9ca6-16e3d170cae6"
+              LastKnownName="BlockStopwatch"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+          <generalization
+            Id="81842a2b-0cdc-4437-a411-2fbc9f2a5f78"
+            isSubstitutable="false">
+            <classMoniker
+              Id="d10e0916-9f72-4cc7-a72d-0b31dde8497d"
+              LastKnownName="BlockSolid"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+          <generalization
+            Id="e35463fd-22c0-4daf-a678-c820d2f42d2d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="2f82f829-89a8-4de5-8495-5ff1f46fa60f"
+              LastKnownName="BlockMovable"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="aaa8918c-09c5-4c5c-8575-4c44f998ab8e"
+            name="Size"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="529fb6a9-d455-4f5f-8f9d-ba057155d3af"
+            name="Location"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="0543a62d-da32-440c-b98b-c084bf055413"
+            name="Sibblings"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="494bd931-d406-4313-a014-646f631ff9f6"
+            name="Touch"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e08acf9d-6eea-40c2-b113-51335856ce76"
+        name="BirdPlayer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="0935cb8c-51d0-4d49-8f32-82ac87946c90"
+            name="Image"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="474c8cf6-c0f9-4a79-afe2-9517b7d8e034"
+        name="BirdEnemy"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="b406acf1-ccea-4ee5-b9c6-ea45302dd91b"
+            name="Image"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="047042b8-3f54-43a0-971a-6e0b995bdbb0"
+        name="BlockEgg"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="1cd4cf8c-6ce3-4be1-a577-1769a3ad2c73"
+            name="Image"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="68317f49-f939-4195-9e33-70ab6c44a264"
+            name="Dispose"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="10b93fa1-e0a3-407d-bf3c-ba71a3f505c4"
+        name="BlockFood"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="2698769d-c693-4e2f-97a1-e923fe4cc3d5"
+            name="Image"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="ab7bc406-401a-4868-8c6e-52974f5377c0"
+            name="Dispose"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2f82f829-89a8-4de5-8495-5ff1f46fa60f"
+        name="BlockMovable"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="64b13935-5629-455b-b1e7-824e4639ca13"
+            name="Image"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d10e0916-9f72-4cc7-a72d-0b31dde8497d"
+        name="BlockSolid"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="545170ae-18ce-498e-a5e2-95b0e74809ff"
+            name="Image"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b55bdb55-6512-446b-9ca6-16e3d170cae6"
+        name="BlockStopwatch"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="7100a65b-88ad-4772-ba1a-afa759efea3a"
+            name="Image"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="b756b714-c841-47dc-8e2f-a20876825516"
+            name="Dispose"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
