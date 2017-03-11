@@ -8,7 +8,7 @@ namespace VangDeVolger.Blocks
     internal class BlockEgg : Block
     {
         private readonly Image _image = Properties.Resources.egg;
-        private int _hatchTime = 205;
+        private int _hatchTime = 20; // 205
         private readonly Timer _timer = new Timer();
 
         public EventHandler SpawnBird;

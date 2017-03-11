@@ -14,10 +14,9 @@ namespace VangDeVolger.PathFinding
         public int G;
         public int H;
 
-        public PathFinderBlock(Block block, List<PathFinderBlock> siblingBlocks)
+        public PathFinderBlock(Block block)
         {
             Block = block;
-            SiblingBlocks = siblingBlocks;
             F = 0;
             G = 0;
             H = 0;

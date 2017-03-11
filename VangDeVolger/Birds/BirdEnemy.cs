@@ -31,6 +31,11 @@ namespace VangDeVolger.Birds
 
             var path = pathFinder.GetOptimalPath();
 
+            if (path.Count <= 0)
+            {
+                MessageBox.Show("BIRD TRAPPED");
+            }
+
             Size direction;
             if (path[0].Block.X > Pb.Location.X)
             {
