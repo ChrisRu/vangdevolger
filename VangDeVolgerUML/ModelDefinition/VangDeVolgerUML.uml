@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="4f049a9b-ebc7-4e76-a813-3f5ab3654274"
   name="VangDeVolgerUML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -25,6 +25,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="99751e21-86b1-41b1-867d-11424f60d80f"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0e5ab029-ab78-4166-a256-e382969d1724"
+              LastKnownName="Form"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <targetEnds>
           <association
             Id="3a5695b9-3076-4a7c-ac99-0f0cdc369754"
@@ -221,24 +231,6 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <generalsInternal>
-          <generalization
-            Id="978edc8d-fb98-42b8-b40d-7dfc0624dd00"
-            isSubstitutable="false">
-            <classMoniker
-              Id="e08acf9d-6eea-40c2-b113-51335856ce76"
-              LastKnownName="BirdPlayer"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-          </generalization>
-          <generalization
-            Id="68511ec0-7efb-4f6a-800e-e815baa75ec9"
-            isSubstitutable="false">
-            <classMoniker
-              Id="474c8cf6-c0f9-4a79-afe2-9517b7d8e034"
-              LastKnownName="BirdEnemy"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-          </generalization>
-        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="6a05369d-6509-4902-9735-a08661423bc6"
@@ -312,48 +304,6 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <generalsInternal>
-          <generalization
-            Id="046906bb-e93d-42f4-b9fd-6249d7c751ea"
-            isSubstitutable="false">
-            <classMoniker
-              Id="047042b8-3f54-43a0-971a-6e0b995bdbb0"
-              LastKnownName="BlockEgg"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-          </generalization>
-          <generalization
-            Id="d4b81bc1-baf1-48d6-88c3-b759bd83674f"
-            isSubstitutable="false">
-            <classMoniker
-              Id="10b93fa1-e0a3-407d-bf3c-ba71a3f505c4"
-              LastKnownName="BlockFood"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-          </generalization>
-          <generalization
-            Id="7d985388-5a49-4abd-a5fc-8c2a394efc36"
-            isSubstitutable="false">
-            <classMoniker
-              Id="b55bdb55-6512-446b-9ca6-16e3d170cae6"
-              LastKnownName="BlockStopwatch"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-          </generalization>
-          <generalization
-            Id="81842a2b-0cdc-4437-a411-2fbc9f2a5f78"
-            isSubstitutable="false">
-            <classMoniker
-              Id="d10e0916-9f72-4cc7-a72d-0b31dde8497d"
-              LastKnownName="BlockSolid"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-          </generalization>
-          <generalization
-            Id="e35463fd-22c0-4daf-a678-c820d2f42d2d"
-            isSubstitutable="false">
-            <classMoniker
-              Id="2f82f829-89a8-4de5-8495-5ff1f46fa60f"
-              LastKnownName="BlockMovable"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-          </generalization>
-        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="aaa8918c-09c5-4c5c-8575-4c44f998ab8e"
@@ -408,6 +358,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="ebdda16b-3d2e-49d4-874c-061cc2ae4be8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="da5c65cf-ff68-4778-842b-731916719147"
+              LastKnownName="Bird"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="0935cb8c-51d0-4d49-8f32-82ac87946c90"
@@ -430,6 +390,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="d0b90076-fdf7-4c8f-967d-661b345e03e8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="da5c65cf-ff68-4778-842b-731916719147"
+              LastKnownName="Bird"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="b406acf1-ccea-4ee5-b9c6-ea45302dd91b"
@@ -452,6 +422,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="49ffa483-bba5-4d1c-8405-9410ff99207c"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8279b917-5ffc-4085-8bec-d24a73c89076"
+              LastKnownName="Block"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="1cd4cf8c-6ce3-4be1-a577-1769a3ad2c73"
@@ -465,16 +445,6 @@
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="68317f49-f939-4195-9e33-70ab6c44a264"
-            name="Dispose"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -484,6 +454,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="7b5c9433-7d72-4a0b-81ad-9d294a44d13d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8279b917-5ffc-4085-8bec-d24a73c89076"
+              LastKnownName="Block"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="2698769d-c693-4e2f-97a1-e923fe4cc3d5"
@@ -497,16 +477,6 @@
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="ab7bc406-401a-4868-8c6e-52974f5377c0"
-            name="Dispose"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -516,6 +486,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="db1a33f4-3b17-4395-a520-2539b0456950"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8279b917-5ffc-4085-8bec-d24a73c89076"
+              LastKnownName="Block"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="64b13935-5629-455b-b1e7-824e4639ca13"
@@ -538,6 +518,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="220554b0-5ead-46d2-909a-6d3d82f307a4"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8279b917-5ffc-4085-8bec-d24a73c89076"
+              LastKnownName="Block"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="545170ae-18ce-498e-a5e2-95b0e74809ff"
@@ -560,6 +550,16 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="f1adf539-f72a-4d68-9c70-da85f956706b"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8279b917-5ffc-4085-8bec-d24a73c89076"
+              LastKnownName="Block"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
             Id="7100a65b-88ad-4772-ba1a-afa759efea3a"
@@ -573,17 +573,15 @@
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="b756b714-c841-47dc-8e2f-a20876825516"
-            name="Dispose"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0e5ab029-ab78-4166-a256-e382969d1724"
+        name="Form"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -64,7 +64,7 @@ namespace VangDeVolger.Birds
             {
                 if (!tempPb.IntersectsWith(block.Pb.Bounds)) continue;
 
-                if (block.GetType().Name == "BlockMovable")
+                if (block is BlockMovable)
                 {
                     switch (e.KeyCode)
                     {
@@ -82,17 +82,17 @@ namespace VangDeVolger.Birds
                             break;
                     }
                 }
-                else if (block.GetType().Name == "BlockEgg")
+                else if (block is BlockEgg)
                 {
                     block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het ei aanraakt want hij gaat toch kapot
                     break;
                 }
-                else if (block.GetType().Name == "BlockFood")
+                else if (block is BlockFood)
                 {       
                     block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je het food aanraakt want hij gaat toch kapot
                     break;
                 }
-                else if (block.GetType().Name == "BlockStopwatch")
+                else if (block is BlockStopwatch)
                 {
                     block.Touch(Game.Directions.Up); //maakt niet zoveel uit welke richting je de stopwatch aanraakt want hij gaat toch kapot
                     break;

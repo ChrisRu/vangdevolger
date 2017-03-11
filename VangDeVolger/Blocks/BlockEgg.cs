@@ -41,7 +41,8 @@ namespace VangDeVolger.Blocks
             {
                 _timer.Stop();
                 SpawnBird(this, new EventArgs());
-                Dispose();
+                Game.Blocks.Remove(this);
+                Pb.Dispose();
             }
         }
 
@@ -54,19 +55,11 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             _timer.Stop();
-            Dispose();
+            Game.Blocks.Remove(this);
+            Pb.Dispose();
 
             new SoundPlayer(Properties.Resources.EggCrack).Play();
             return true;
-        }
-
-        /// <summary>
-        /// Dispose Class and remove from view and blocks list
-        /// </summary>
-        public void Dispose()
-        {
-            Game.Blocks.Remove(this);
-            Pb.Dispose();
         }
     }
 }

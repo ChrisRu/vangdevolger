@@ -222,6 +222,19 @@ namespace VangDeVolger
                 };
 
                 var noIntersects = true;
+                if (tempPb.IntersectsWith(Player.Pb.Bounds))
+                {
+                    noIntersects = false;
+                }
+
+                foreach(var enemy in Enemies)
+                {
+                    if (tempPb.IntersectsWith(enemy.Pb.Bounds))
+                    {
+                        noIntersects = false;
+                    }
+                }
+                
                 foreach (var block in Blocks)
                 {
                     if (block.Pb.Bounds.IntersectsWith(tempPb))

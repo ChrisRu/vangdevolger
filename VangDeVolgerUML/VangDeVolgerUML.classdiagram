@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="546439b0-74f1-43bf-a6b0-6bf787228c04" name="VangDeVolgerUML" linkedPackageId="0ef1a277-d60d-4d99-8751-736f2dcfc4ff" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="546439b0-74f1-43bf-a6b0-6bf787228c04" name="VangDeVolgerUML" linkedPackageId="0ef1a277-d60d-4d99-8751-736f2dcfc4ff" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="1a846fe9-a346-4b10-87e8-eb3c7224a518" name="Game" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="de3f8e9f-23bc-4b36-b629-27e227e37e2e" />
+        <generalsInternal>
+          <generalization Id="d33f9414-24b3-4dd3-9b7e-0e5a454f8199" isSubstitutable="false">
+            <classMoniker Id="9e11cc06-47e4-40a5-a9d8-7f605cf1d462" LastKnownName="Form" />
+            <elementDefinition Id="99751e21-86b1-41b1-867d-11424f60d80f" />
+          </generalization>
+        </generalsInternal>
         <targetEnds>
           <association Id="b859bc6d-2893-4ff5-9092-5fd0bbef4e62" isDerived="false" sourceEndRoleName="Game" targetEndRoleName="Bird" isLeaf="false" isAbstract="false">
             <classMoniker Id="10cd567d-08ab-4ad4-bcdd-ea1c923b7689" LastKnownName="Bird" />
@@ -80,16 +86,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="10cd567d-08ab-4ad4-bcdd-ea1c923b7689" name="Bird" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="da5c65cf-ff68-4778-842b-731916719147" />
-        <generalsInternal>
-          <generalization Id="846bebf2-f694-406f-84cd-f37f10e5dbd4" isSubstitutable="false">
-            <classMoniker Id="269ac537-adb6-4922-ba7c-98372f203665" LastKnownName="BirdPlayer" />
-            <elementDefinition Id="978edc8d-fb98-42b8-b40d-7dfc0624dd00" />
-          </generalization>
-          <generalization Id="aa4e5c16-7226-44b8-a53b-3f42e44a395d" isSubstitutable="false">
-            <classMoniker Id="3f638dee-7516-4db6-9056-89d0240dcad9" LastKnownName="BirdEnemy" />
-            <elementDefinition Id="68511ec0-7efb-4f6a-800e-e815baa75ec9" />
-          </generalization>
-        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="d2dd0914-5ec7-42b9-8985-1c5870593044" name="Facing Direction" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6a05369d-6509-4902-9735-a08661423bc6" />
@@ -117,28 +113,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" name="Block" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8279b917-5ffc-4085-8bec-d24a73c89076" />
-        <generalsInternal>
-          <generalization Id="691fdfb7-692b-4a25-bf50-2ce0ff9c3ba7" isSubstitutable="false">
-            <classMoniker Id="5f4850a8-c368-4af5-ad92-b097114c3b1a" LastKnownName="BlockEgg" />
-            <elementDefinition Id="046906bb-e93d-42f4-b9fd-6249d7c751ea" />
-          </generalization>
-          <generalization Id="9b02e8b7-66c9-4817-98d6-8e18447b9c87" isSubstitutable="false">
-            <classMoniker Id="2b51c8e5-bc59-449e-95f1-d7e6907d4db9" LastKnownName="BlockFood" />
-            <elementDefinition Id="d4b81bc1-baf1-48d6-88c3-b759bd83674f" />
-          </generalization>
-          <generalization Id="99f9c945-a402-42d9-99a8-22d0b12034e0" isSubstitutable="false">
-            <classMoniker Id="5d8f5dee-9279-466c-aad6-473b26bfc9a1" LastKnownName="BlockStopwatch" />
-            <elementDefinition Id="7d985388-5a49-4abd-a5fc-8c2a394efc36" />
-          </generalization>
-          <generalization Id="43955c18-fc4e-492d-a623-e9c9f468818b" isSubstitutable="false">
-            <classMoniker Id="c54e2a4f-c25a-4c22-b8ee-6a777eddf5a5" LastKnownName="BlockSolid" />
-            <elementDefinition Id="81842a2b-0cdc-4437-a411-2fbc9f2a5f78" />
-          </generalization>
-          <generalization Id="ec684760-7cc0-43aa-8287-ed7314e16bca" isSubstitutable="false">
-            <classMoniker Id="13f0c2fb-3159-4f70-a2bd-8ef9ce1dc758" LastKnownName="BlockMovable" />
-            <elementDefinition Id="e35463fd-22c0-4daf-a678-c820d2f42d2d" />
-          </generalization>
-        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="0cdf42ad-5750-4d93-9a33-258a0da84813" name="Size" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="aaa8918c-09c5-4c5c-8575-4c44f998ab8e" />
@@ -160,6 +134,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="269ac537-adb6-4922-ba7c-98372f203665" name="BirdPlayer" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="e08acf9d-6eea-40c2-b113-51335856ce76" />
+        <generalsInternal>
+          <generalization Id="219a232c-7451-4659-8746-29fb0444478a" isSubstitutable="false">
+            <classMoniker Id="10cd567d-08ab-4ad4-bcdd-ea1c923b7689" LastKnownName="Bird" />
+            <elementDefinition Id="ebdda16b-3d2e-49d4-874c-061cc2ae4be8" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="abba1b51-66ae-4616-8db3-00ead2b8c045" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="0935cb8c-51d0-4d49-8f32-82ac87946c90" />
@@ -170,6 +150,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="3f638dee-7516-4db6-9056-89d0240dcad9" name="BirdEnemy" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="474c8cf6-c0f9-4a79-afe2-9517b7d8e034" />
+        <generalsInternal>
+          <generalization Id="fc485c47-5f44-4412-99ee-50c1aaab2abc" isSubstitutable="false">
+            <classMoniker Id="10cd567d-08ab-4ad4-bcdd-ea1c923b7689" LastKnownName="Bird" />
+            <elementDefinition Id="d0b90076-fdf7-4c8f-967d-661b345e03e8" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="8a368bdb-90a5-4f0b-9402-2892814918b9" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="b406acf1-ccea-4ee5-b9c6-ea45302dd91b" />
@@ -180,36 +166,44 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="5f4850a8-c368-4af5-ad92-b097114c3b1a" name="BlockEgg" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="047042b8-3f54-43a0-971a-6e0b995bdbb0" />
+        <generalsInternal>
+          <generalization Id="4aa3b436-0fac-4541-a429-47d63942a2d1" isSubstitutable="false">
+            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
+            <elementDefinition Id="49ffa483-bba5-4d1c-8405-9410ff99207c" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="a8580676-ad68-4fc4-8988-d26d5c75ca31" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="1cd4cf8c-6ce3-4be1-a577-1769a3ad2c73" />
           </property>
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="44fdeecc-3b62-40f7-9e02-bb97c6bc6d97" name="Dispose" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="68317f49-f939-4195-9e33-70ab6c44a264" />
-          </operation>
-        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="2b51c8e5-bc59-449e-95f1-d7e6907d4db9" name="BlockFood" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="10b93fa1-e0a3-407d-bf3c-ba71a3f505c4" />
+        <generalsInternal>
+          <generalization Id="db8f58b6-0981-4165-8d94-bc297928e33e" isSubstitutable="false">
+            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
+            <elementDefinition Id="7b5c9433-7d72-4a0b-81ad-9d294a44d13d" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="e0c0c67b-2a77-40b6-996a-73d6f5d28cb6" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="2698769d-c693-4e2f-97a1-e923fe4cc3d5" />
           </property>
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="1c9f879e-f9e2-487e-8cf8-2b30495be064" name="Dispose" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="ab7bc406-401a-4868-8c6e-52974f5377c0" />
-          </operation>
-        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="13f0c2fb-3159-4f70-a2bd-8ef9ce1dc758" name="BlockMovable" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="2f82f829-89a8-4de5-8495-5ff1f46fa60f" />
+        <generalsInternal>
+          <generalization Id="19550a17-10d0-482e-b0bc-fd86aac2bcc9" isSubstitutable="false">
+            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
+            <elementDefinition Id="db1a33f4-3b17-4395-a520-2539b0456950" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="9259dc3a-cd0a-4137-b6bf-cbb2ea0bc6e5" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="64b13935-5629-455b-b1e7-824e4639ca13" />
@@ -220,6 +214,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="c54e2a4f-c25a-4c22-b8ee-6a777eddf5a5" name="BlockSolid" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="d10e0916-9f72-4cc7-a72d-0b31dde8497d" />
+        <generalsInternal>
+          <generalization Id="6d572b22-dbee-4efd-a517-9fad3a9f40cf" isSubstitutable="false">
+            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
+            <elementDefinition Id="220554b0-5ead-46d2-909a-6d3d82f307a4" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="3f870ad2-0712-457f-8a4e-e7863a5256d9" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="545170ae-18ce-498e-a5e2-95b0e74809ff" />
@@ -230,16 +230,22 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="5d8f5dee-9279-466c-aad6-473b26bfc9a1" name="BlockStopwatch" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b55bdb55-6512-446b-9ca6-16e3d170cae6" />
+        <generalsInternal>
+          <generalization Id="347448d4-b963-4524-b19f-a281f4c7906d" isSubstitutable="false">
+            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
+            <elementDefinition Id="f1adf539-f72a-4d68-9c70-da85f956706b" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property Id="eae53ee0-1d28-449a-9f2a-9a38ff9492a0" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7100a65b-88ad-4772-ba1a-afa759efea3a" />
           </property>
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="72bb147c-1d87-4e6a-ad91-637422b96736" name="Dispose" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="b756b714-c841-47dc-8e2f-a20876825516" />
-          </operation>
-        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9e11cc06-47e4-40a5-a9d8-7f605cf1d462" name="Form" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0e5ab029-ab78-4166-a256-e382969d1724" />
       </class>
     </logicalClassDesignerModelHasTypes>
   </packagedElements>
