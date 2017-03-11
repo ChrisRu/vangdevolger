@@ -99,6 +99,9 @@
           <property Id="92f8c76c-06e8-4f83-933f-41176d840be6" name="Size" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="d60edc01-ea9b-4822-b5e9-8ee0458bcdce" />
           </property>
+          <property Id="0529f787-7163-4572-98ed-718aa389af6d" name="Pb" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="85f725c8-3ca3-4ebd-9ac4-a338f3f152fd" />
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="79e68951-ff74-47b2-b13a-742988b523bb" name="Move" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -122,6 +125,9 @@
           </property>
           <property Id="2f2a3ecc-76df-44ad-adf4-b528aef2c632" name="Sibblings" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="0543a62d-da32-440c-b98b-c084bf055413" />
+          </property>
+          <property Id="ff700679-7a41-4197-ac37-b15df4df6dff" name="Pb" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="05e344a9-2a30-47ec-a633-5317a34a3604" />
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>

@@ -276,6 +276,17 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="85f725c8-3ca3-4ebd-9ac4-a338f3f152fd"
+            name="Pb"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -330,6 +341,17 @@
           <property
             Id="0543a62d-da32-440c-b98b-c084bf055413"
             name="Sibblings"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="05e344a9-2a30-47ec-a633-5317a34a3604"
+            name="Pb"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
