@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,6 +11,8 @@ namespace VangDeVolger.Birds
     {
         private readonly Image _imageLeft = Properties.Resources.bird_red_left;
         private readonly Image _imageRight = Properties.Resources.bird_red_right;
+        public PathFinder PathFinder;
+        public List<PathFinderBlock> Path;
 
         /// <summary>
         /// Initialize EnemyBird Class
@@ -18,6 +21,8 @@ namespace VangDeVolger.Birds
         public EnemyBird(Point position) : base(position)
         {
             Pb.Image = _imageLeft;
+            PathFinder = new PathFinder(Game.Blocks, Game.Blocks[14, 14], Game.Blocks[5, 5]);
+            Path = PathFinder.GetOptimalPath();
         }
 
         /// <summary>
@@ -26,18 +31,13 @@ namespace VangDeVolger.Birds
         /// <param name="e"></param>
         public override void Move(KeyEventArgs e)
         {
-            var birdLocation = Game.Player.Pb.Location;
-            var pathFinder = new PathFinder(Game.Blocks, Game.Blocks[0, 0], Game.Blocks[5, 5]);
-
-            var path = pathFinder.GetOptimalPath();
-
-            if (path.Count <= 0)
+            if (Path.Count <= 0)
             {
                 MessageBox.Show("BIRD TRAPPED");
             }
 
             Size direction;
-            if (path[0].Block.X > Pb.Location.X)
+            if (Path[0].Block.X > Pb.Location.X)
             {
                 direction = new Size(-Speed, 0);
             }
@@ -46,7 +46,7 @@ namespace VangDeVolger.Birds
                 direction = new Size(Speed, 0);
             }
 
-            if (path[0].Block.Y > Pb.Location.Y)
+            if (Path[0].Block.Y > Pb.Location.Y)
             {
                 GoingRight = false;
                 direction = new Size(0, -Speed);
@@ -66,7 +66,7 @@ namespace VangDeVolger.Birds
             // Collision checking
             foreach (var block in Game.Blocks)
             {
-                if (tempPb.IntersectsWith(block.Pb.Bounds))
+                if (block != null && tempPb.IntersectsWith(block.Pb.Bounds))
                 {
                     tempPb.Location = Pb.Location;
                 }

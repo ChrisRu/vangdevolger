@@ -60,6 +60,9 @@ namespace VangDeVolger
             CreateStopwatch();
 
             Render();
+
+            Blocks[14, 14] = new BlockSolid(14, 14);
+            Blocks[5, 5] = new BlockSolid(5, 5);
         }
 
         /// <summary>

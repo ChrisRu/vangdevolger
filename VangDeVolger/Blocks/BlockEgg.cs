@@ -41,6 +41,7 @@ namespace VangDeVolger.Blocks
             else if (_hatchTime <= 0) // het ei komt uit
             {
                 _timer.Stop();
+
                 SpawnBird(this, new EventArgs());
                 Game.Blocks[Pb.Location.Y / 32, Pb.Location.X / 32] = null;
                 Pb.Dispose();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using VangDeVolger.Blocks;
 
 namespace VangDeVolger.PathFinding
@@ -24,11 +25,18 @@ namespace VangDeVolger.PathFinding
         public PathFinder(Block[,] grid, Block from, Block to)
         {
             
-            _grid = _transformGrid(grid);
-            _grid = _addSiblings(_grid);
-            _to = _transformBlock(to);
-
-            _openSet.Add(_transformBlock(from));
+            _grid = _addSiblings(_transformGrid(grid));
+            foreach (var item in _grid)
+            {
+                if (to.X == item.Block.X && to.Y == item.Block.Y)
+                {
+                    _to = item;
+                }
+                else if (from.X == item.Block.X && from.Y == item.Block.Y)
+                {
+                    _openSet.Add(item);
+                }
+            }
         }
 
         /// <summary>
@@ -97,6 +105,7 @@ namespace VangDeVolger.PathFinding
                 }
             }
             // No solution
+            MessageBox.Show("NO solution");
             return path;
         }
 
@@ -118,10 +127,7 @@ namespace VangDeVolger.PathFinding
             return newGrid;
         }
 
-        private PathFinderBlock _transformBlock(Block block)
-        {
-            return new PathFinderBlock(block);
-        }
+        private PathFinderBlock _transformBlock(Block block) => new PathFinderBlock(block);
 
         private PathFinderBlock[,] _addSiblings(PathFinderBlock[,] grid)
         {
@@ -131,28 +137,40 @@ namespace VangDeVolger.PathFinding
                 for (var x = 0; x < grid.GetLength(1); x++)
                 {
                     var block = grid[y, x];
-                    var siblings = new List<PathFinderBlock>();
-
-                    if (x < grid.GetLength(1))
-                    {
-                        siblings.Add(grid[x + 1, y]);
-                    }
-                    if (x > 0)
-                    {
-                        siblings.Add(grid[x - 1, y]);
-                    }
-                    if (y < grid.GetLength(0))
-                    {
-                        siblings.Add(grid[x, y + 1]);
-                    }
-                    if (y > 0)
-                    {
-                        siblings.Add(grid[x, y - 1]);
-                    }
-                    block.SiblingBlocks = siblings;
+                    block = _addSibling(grid, block);
+                    newGrid[y, x] = block;
                 }
             }
             return newGrid;
+        }
+
+        private PathFinderBlock _addSibling(PathFinderBlock[,] grid, PathFinderBlock block)
+        {
+            var x = block.Block.X;
+            var y = block.Block.Y;
+
+            var siblings = new List<PathFinderBlock>();
+
+            if (x < grid.GetLength(0) - 1)
+            {
+                siblings.Add(grid[x + 1, y]);
+            }
+            if (x > 0)
+            {
+                siblings.Add(grid[x - 1, y]);
+            }
+            if (y < grid.GetLength(0) - 1)
+            {
+                siblings.Add(grid[x, y + 1]);
+            }
+            if (y > 0)
+            {
+                siblings.Add(grid[x, y - 1]);
+            }
+
+            block.SiblingBlocks = siblings;
+
+            return block;
         }
 
         private int Heuristic(PathFinderBlock from)
