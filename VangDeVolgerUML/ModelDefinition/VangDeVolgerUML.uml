@@ -69,7 +69,28 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="c8325598-0ac5-4a55-9b34-5929aacba4a9"
+            name="Enum Direction"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9216339a-62d6-437b-be0b-a603d875c38b"
+            name="KeyDown"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -552,6 +573,17 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="d715139c-3cb5-4bdf-b40d-82eafeefb590"
+            name="Player"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -581,6 +613,14 @@
           <operation
             Id="fb3d271f-b5a2-4372-82dc-1c7120937771"
             name="Render"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="aebdf3eb-bc61-422b-8af7-a904ac277790"
+            name="CreateRandomGrid"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"

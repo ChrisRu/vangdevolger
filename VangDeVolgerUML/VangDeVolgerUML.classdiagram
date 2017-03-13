@@ -20,7 +20,15 @@
           <property Id="163294de-57be-4423-a2cc-3a0d4c29a104" name="GameLevel" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5841effd-5848-4ec7-8e29-5f7512a2d03e" />
           </property>
+          <property Id="5dba1e0f-6c9e-4fda-b79e-cf647f8122ff" name="Enum Direction" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c8325598-0ac5-4a55-9b34-5929aacba4a9" />
+          </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="d2fde2a2-d97e-4c89-b0fb-61cdd0e3a9b7" name="KeyDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9216339a-62d6-437b-be0b-a603d875c38b" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -246,6 +254,9 @@
           <property Id="e5c3afec-9587-4624-b62b-3317ab18fe7f" name="BlockList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="238a99c9-f37f-43eb-9420-cd7627e3b247" />
           </property>
+          <property Id="52b081d1-a8ac-4de8-9c38-8d0858b07a37" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d715139c-3cb5-4bdf-b40d-82eafeefb590" />
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="9728fabd-0561-43a8-938b-7fa9e202999c" name="CreateEgg" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -259,6 +270,9 @@
           </operation>
           <operation Id="8fc2ce2c-dde1-4a72-86cf-33f45f520a0c" name="Render" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="fb3d271f-b5a2-4372-82dc-1c7120937771" />
+          </operation>
+          <operation Id="6882d01d-a19b-4234-a54e-e987dc42304b" name="CreateRandomGrid" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="aebdf3eb-bc61-422b-8af7-a904ac277790" />
           </operation>
         </ownedOperationsInternal>
       </class>
