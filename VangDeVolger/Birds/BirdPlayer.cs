@@ -60,7 +60,7 @@ namespace VangDeVolger.Birds
             var canMove = true;
 
             // Collision checking
-            foreach (var block in Game.Blocks.ToList())
+            foreach (var block in Level.Blocks.ToList())
             {
                 if (!tempPb.IntersectsWith(block.Pb.Bounds)) continue;
 
@@ -113,7 +113,7 @@ namespace VangDeVolger.Birds
 
             ChangeDirection(_imageLeft, _imageRight);
 
-            foreach (var enemy in Game.Enemies)
+            foreach (var enemy in Level.Enemies)
             {
                 if (enemy.Pb.Bounds.IntersectsWith(Pb.Bounds))
                 {

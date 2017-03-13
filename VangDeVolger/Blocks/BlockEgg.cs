@@ -41,7 +41,7 @@ namespace VangDeVolger.Blocks
             {
                 _timer.Stop();
                 SpawnBird(this, new EventArgs());
-                Game.Blocks.Remove(this);
+                Level.Blocks.Remove(this);
                 Pb.Dispose();
             }
         }
@@ -55,7 +55,7 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             _timer.Stop();
-            Game.Blocks.Remove(this);
+            Level.Blocks.Remove(this);
             Pb.Dispose();
 
             new SoundPlayer(Properties.Resources.EggCrack).Play();

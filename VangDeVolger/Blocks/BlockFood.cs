@@ -27,7 +27,7 @@ namespace VangDeVolger.Blocks
         /// <returns></returns>
         public override bool Touch(Game.Directions direction)
         {
-            Game.Player.Speed = 5;
+            Level.Player.Speed = 5;
             
             Pb.Dispose();
 
@@ -35,7 +35,7 @@ namespace VangDeVolger.Blocks
             _timer.Interval = 1000;
             _timer.Start();
 
-            Game.Blocks.Remove(this);
+            Level.Blocks.Remove(this);
 
             new SoundPlayer(Properties.Resources.Heart).Play();
 
@@ -55,7 +55,7 @@ namespace VangDeVolger.Blocks
             }
             else if (_boostTime <= 0)
             {
-                Game.Player.Speed = 3;
+                Level.Player.Speed = 3;
                  
                 _timer.Stop();
             }

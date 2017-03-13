@@ -30,14 +30,14 @@ namespace VangDeVolger.Blocks
 
             var canMove = true;
 
-            foreach (var block in Game.Blocks.ToList())
+            foreach (var block in Level.Blocks.ToList())
             {
                 if (newLocation != block.Pb.Location) continue;
 
                 canMove = block.Touch(direction);
             }
 
-            foreach (var enemy in Game.Enemies)
+            foreach (var enemy in Level.Enemies)
             {
                 var tempRect = new Rectangle
                 {

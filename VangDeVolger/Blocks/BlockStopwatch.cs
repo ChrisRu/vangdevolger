@@ -29,7 +29,7 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Game.Directions direction)
         {
             // start the slowdown
-            foreach (var enemy in Game.Enemies)
+            foreach (var enemy in Level.Enemies)
             {
                 enemy.Speed = 1;
             }
@@ -40,7 +40,7 @@ namespace VangDeVolger.Blocks
             _timer.Interval = 1000;
             _timer.Start();
 
-            Game.Blocks.Remove(this);
+            Level.Blocks.Remove(this);
             new SoundPlayer(Properties.Resources.ClockTick).Play();
             return true;
         }
@@ -59,7 +59,7 @@ namespace VangDeVolger.Blocks
             else if (_slowDownTime <= 0)
             {
                 //stop the boost
-                foreach (var enemy in Game.Enemies)
+                foreach (var enemy in Level.Enemies)
                 {
                     enemy.Speed = 2;
                 }
