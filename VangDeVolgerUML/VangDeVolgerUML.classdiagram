@@ -20,9 +20,6 @@
           <property Id="163294de-57be-4423-a2cc-3a0d4c29a104" name="GameLevel" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5841effd-5848-4ec7-8e29-5f7512a2d03e" />
           </property>
-          <property Id="5dba1e0f-6c9e-4fda-b79e-cf647f8122ff" name="Enum Direction" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="c8325598-0ac5-4a55-9b34-5929aacba4a9" />
-          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="d2fde2a2-d97e-4c89-b0fb-61cdd0e3a9b7" name="KeyDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -34,34 +31,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="10cd567d-08ab-4ad4-bcdd-ea1c923b7689" name="Bird" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="da5c65cf-ff68-4778-842b-731916719147" />
-        <targetEnds>
-          <association Id="3be404f3-12d6-4ab1-9011-4b73b0055e43" isDerived="false" sourceEndRoleName="Bird" targetEndRoleName="Level" isLeaf="false" isAbstract="false">
-            <classMoniker Id="4b3b23fa-445d-4407-9a9b-994de7b9933b" LastKnownName="Level" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="da5bcc02-e7d3-4232-a59e-b383917d71f9" name="Bird" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString Id="b1b7e23a-d0fe-4746-a42c-16135a33278f" name="Lower" value="*">
-                      <elementDefinition Id="ee6d54d5-0cd7-4ede-87aa-a6578ece6387" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="5e5a87ca-d193-49e4-b569-2647a5416593" name="Upper" value="*">
-                      <elementDefinition Id="e0ae0e38-a2a6-42bc-960e-ece00bd6b1ed" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="a8260f61-b9c8-4620-8712-a3d08903ad49" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="135b4564-1756-48c8-8a63-02c54adb6765" name="Level" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="f6cc79d9-35e5-47da-a243-6d466d293d71" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="bd73e535-fea1-4537-bef5-75ec1dafdc2c" />
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property Id="d2dd0914-5ec7-42b9-8985-1c5870593044" name="FacingDirection" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6a05369d-6509-4902-9735-a08661423bc6" />
@@ -95,34 +64,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" name="Block" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8279b917-5ffc-4085-8bec-d24a73c89076" />
-        <targetEnds>
-          <association Id="588c8b9a-6ed9-423a-8d45-2864efd607cb" isDerived="false" sourceEndRoleName="Block" targetEndRoleName="Level" isLeaf="false" isAbstract="false">
-            <classMoniker Id="4b3b23fa-445d-4407-9a9b-994de7b9933b" LastKnownName="Level" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="367bafa8-e2ba-4a26-9294-ec410734563f" name="Block" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <lowerValueInternal>
-                    <literalString Id="6da48ff9-8588-49fc-bf02-601b22ec5970" name="Lower" value="*">
-                      <elementDefinition Id="0fd5cdb0-cbbe-4cd8-a634-dd40e3de605c" />
-                    </literalString>
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString Id="ef9df7ef-2fee-4a31-a3ba-d84f2a0f652b" name="Upper" value="*">
-                      <elementDefinition Id="f0e6862a-cf5a-4cdd-8f9c-f0b1c675b483" />
-                    </literalString>
-                  </upperValueInternal>
-                  <elementDefinition Id="5fec7c97-0321-4220-a048-14dfda88048f" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="f0989772-1f69-4143-8505-8a0516294532" name="Level" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="8ed371c3-aa9f-49ee-9cd7-6ef166afb813" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="7eb56c14-5b1d-4152-8b9f-99c7e235b2ef" />
-          </association>
-        </targetEnds>
         <ownedAttributesInternal>
           <property Id="0cdf42ad-5750-4d93-9a33-258a0da84813" name="Size" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="aaa8918c-09c5-4c5c-8575-4c44f998ab8e" />
@@ -246,9 +187,61 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="396d9a78-80ed-44f7-9acb-8413172c98d7" />
           </association>
+          <association Id="05d71ebd-f7ec-40c7-aaeb-a78589af2a78" isDerived="false" sourceEndRoleName="Level" targetEndRoleName="Bird" isLeaf="false" isAbstract="false">
+            <classMoniker Id="10cd567d-08ab-4ad4-bcdd-ea1c923b7689" LastKnownName="Bird" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8388b243-1199-4b3f-8736-3b5afe6ada8e" name="Level" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="76385955-1415-4dd3-9472-924ee9ce2379" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e11f1e47-0ad5-40f0-a024-5901c9c50267" name="Bird" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="10e74eeb-5fe4-4a05-a43f-918d54af8550" name="Lower" value="*">
+                      <elementDefinition Id="2d734de7-15f8-443e-a0f8-983c193b87f6" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="1be8a5e1-7480-42a5-a691-0e01ccdf8a95" name="Upper" value="*">
+                      <elementDefinition Id="1b112ef4-191a-4ca6-850a-a3cac281b64e" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="757267c8-3132-4b0e-ab04-5c279ebddc09" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="576b79e0-da3c-4778-a509-5953a07c1225" />
+          </association>
+          <association Id="13898c09-c746-4fc1-89c7-eee0595714f1" isDerived="false" sourceEndRoleName="Level" targetEndRoleName="Block" isLeaf="false" isAbstract="false">
+            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6594f97d-c97f-4816-991f-1540fd614a5e" name="Level" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5bd27240-1bc0-4f11-a2e4-6db85c340576" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fc73c6c6-8fd7-48de-8c40-5fef7aab13c0" name="Block" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="f3f2a364-01ad-4b68-a8bd-f1bd9efd6868" name="Lower" value="*">
+                      <elementDefinition Id="42eeb8d8-d3ec-40e6-a873-635edb634639" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="b07e2823-6d63-46e3-9121-0309f41bd6b5" name="Upper" value="*">
+                      <elementDefinition Id="e681f22c-5663-4fa1-a9d0-739ab148807e" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="1c6654aa-4dbc-4ab6-b551-83d80ca98455" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="86f00f0a-f163-4d7c-bf4c-ef2465822eba" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="789f9f1a-12e3-4238-86cd-ce8e16b84580" name="Enemies" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="789f9f1a-12e3-4238-86cd-ce8e16b84580" name="EnemyList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="603ecb16-5589-49c4-9139-43ec3023a2d6" />
           </property>
           <property Id="e5c3afec-9587-4624-b62b-3317ab18fe7f" name="BlockList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
