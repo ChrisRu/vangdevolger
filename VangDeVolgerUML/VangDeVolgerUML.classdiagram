@@ -17,6 +17,9 @@
           <property Id="fdf30fa4-f8e1-462d-bf92-1127dfd5f2a8" name="Window Height" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f60fd8ce-42dd-47cf-ab67-404bccbd4f6a" />
           </property>
+          <property Id="163294de-57be-4423-a2cc-3a0d4c29a104" name="GameLevel" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5841effd-5848-4ec7-8e29-5f7512a2d03e" />
+          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -52,10 +55,10 @@
           </association>
         </targetEnds>
         <ownedAttributesInternal>
-          <property Id="d2dd0914-5ec7-42b9-8985-1c5870593044" name="Facing Direction" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="d2dd0914-5ec7-42b9-8985-1c5870593044" name="FacingDirection" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="6a05369d-6509-4902-9735-a08661423bc6" />
           </property>
-          <property Id="47885221-83c8-48b9-97cc-d2b1b6aee584" name="Moving Direction" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="47885221-83c8-48b9-97cc-d2b1b6aee584" name="MovingDirection" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="56bc357a-ed98-4f9d-96de-fbfe3171160a" />
           </property>
           <property Id="3c68cf57-f5bb-4158-8ff7-1a6b2cb39e0f" name="Location" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -66,6 +69,9 @@
           </property>
           <property Id="0529f787-7163-4572-98ed-718aa389af6d" name="Pb" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="85f725c8-3ca3-4ebd-9ac4-a338f3f152fd" />
+          </property>
+          <property Id="980f0d18-a6d2-4698-8625-da18d8d9b2cc" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d42bbb87-1ef8-4a4f-b447-1cf795d23798" />
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
@@ -116,11 +122,11 @@
           <property Id="d1ecdf05-b50c-4ff3-bd46-c491e1f18841" name="Location" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="529fb6a9-d455-4f5f-8f9d-ba057155d3af" />
           </property>
-          <property Id="2f2a3ecc-76df-44ad-adf4-b528aef2c632" name="Sibblings" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="0543a62d-da32-440c-b98b-c084bf055413" />
-          </property>
           <property Id="ff700679-7a41-4197-ac37-b15df4df6dff" name="Pb" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="05e344a9-2a30-47ec-a633-5317a34a3604" />
+          </property>
+          <property Id="9fd1e55b-9329-4bfe-be11-1b51e220e00d" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a902522f-5929-4c96-a457-58614616d6f5" />
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
@@ -139,11 +145,6 @@
             <elementDefinition Id="ebdda16b-3d2e-49d4-874c-061cc2ae4be8" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="abba1b51-66ae-4616-8db3-00ead2b8c045" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="0935cb8c-51d0-4d49-8f32-82ac87946c90" />
-          </property>
-        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -155,11 +156,6 @@
             <elementDefinition Id="d0b90076-fdf7-4c8f-967d-661b345e03e8" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="8a368bdb-90a5-4f0b-9402-2892814918b9" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="b406acf1-ccea-4ee5-b9c6-ea45302dd91b" />
-          </property>
-        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -171,11 +167,6 @@
             <elementDefinition Id="49ffa483-bba5-4d1c-8405-9410ff99207c" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="a8580676-ad68-4fc4-8988-d26d5c75ca31" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="1cd4cf8c-6ce3-4be1-a577-1769a3ad2c73" />
-          </property>
-        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -187,11 +178,6 @@
             <elementDefinition Id="7b5c9433-7d72-4a0b-81ad-9d294a44d13d" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="e0c0c67b-2a77-40b6-996a-73d6f5d28cb6" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="2698769d-c693-4e2f-97a1-e923fe4cc3d5" />
-          </property>
-        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -203,11 +189,6 @@
             <elementDefinition Id="db1a33f4-3b17-4395-a520-2539b0456950" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="9259dc3a-cd0a-4137-b6bf-cbb2ea0bc6e5" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="64b13935-5629-455b-b1e7-824e4639ca13" />
-          </property>
-        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -219,11 +200,6 @@
             <elementDefinition Id="220554b0-5ead-46d2-909a-6d3d82f307a4" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="3f870ad2-0712-457f-8a4e-e7863a5256d9" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="545170ae-18ce-498e-a5e2-95b0e74809ff" />
-          </property>
-        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -235,11 +211,6 @@
             <elementDefinition Id="f1adf539-f72a-4d68-9c70-da85f956706b" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property Id="eae53ee0-1d28-449a-9f2a-9a38ff9492a0" name="Image" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="7100a65b-88ad-4772-ba1a-afa759efea3a" />
-          </property>
-        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>

@@ -58,6 +58,17 @@
             isDerivedUnion="false"
             aggregation="None"
             isComposite="false" />
+          <property
+            Id="5841effd-5848-4ec7-8e29-5f7512a2d03e"
+            name="GameLevel"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
         </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
@@ -125,7 +136,7 @@
         <ownedAttributesInternal>
           <property
             Id="6a05369d-6509-4902-9735-a08661423bc6"
-            name="Facing Direction"
+            name="FacingDirection"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -136,7 +147,7 @@
             isComposite="false" />
           <property
             Id="56bc357a-ed98-4f9d-96de-fbfe3171160a"
-            name="Moving Direction"
+            name="MovingDirection"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -170,6 +181,17 @@
           <property
             Id="85f725c8-3ca3-4ebd-9ac4-a338f3f152fd"
             name="Pb"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d42bbb87-1ef8-4a4f-b447-1cf795d23798"
+            name="Image"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -284,8 +306,8 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="0543a62d-da32-440c-b98b-c084bf055413"
-            name="Sibblings"
+            Id="05e344a9-2a30-47ec-a633-5317a34a3604"
+            name="Pb"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -295,8 +317,8 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="05e344a9-2a30-47ec-a633-5317a34a3604"
-            name="Pb"
+            Id="a902522f-5929-4c96-a457-58614616d6f5"
+            name="Image"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -335,19 +357,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="0935cb8c-51d0-4d49-8f32-82ac87946c90"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -367,19 +376,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="b406acf1-ccea-4ee5-b9c6-ea45302dd91b"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -399,19 +395,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="1cd4cf8c-6ce3-4be1-a577-1769a3ad2c73"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -431,19 +414,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="2698769d-c693-4e2f-97a1-e923fe4cc3d5"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -463,19 +433,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="64b13935-5629-455b-b1e7-824e4639ca13"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -495,19 +452,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="545170ae-18ce-498e-a5e2-95b0e74809ff"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -527,19 +471,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="7100a65b-88ad-4772-ba1a-afa759efea3a"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
