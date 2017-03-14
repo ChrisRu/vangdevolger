@@ -11,8 +11,7 @@ namespace VangDeVolger.Elements.Blocks
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        /// <param name="scale"></param>
-        protected Block(int x, int y, int scale) : base(x, y, scale)
+        protected Block(int x, int y) : base(x, y)
         {
 
         }

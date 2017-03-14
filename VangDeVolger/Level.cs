@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq.Expressions;
 using System.Windows.Forms;
-using System.Xml.Schema;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
 using VangDeVolger.Elements.Blocks;
@@ -17,6 +15,7 @@ namespace VangDeVolger
         public Control.ControlCollection Controls;
         public static Element[,] Grid;
         public static Tuple<int, int> BirdLocation;
+        public static Tuple<int, int> EnemyLocation;
 
         public Level(Control.ControlCollection controls, int width, int height, int scale)
         {
@@ -29,7 +28,10 @@ namespace VangDeVolger
 
             // Create new Player
             BirdLocation = new Tuple<int, int>(0, 0);
-            Grid[0, 0] = new Player(0, 0, Scaling);
+            Grid[0, 0] = new Player(0, 0);
+
+            EnemyLocation = new Tuple<int, int>(Width - 1, Height - 1);
+            Grid[Width - 1, Height - 1] = new Enemy(Width - 1, Height - 1);
 
             Render();
         }
@@ -53,12 +55,12 @@ namespace VangDeVolger
 
                     if (chance <= 5)
                     {
-                        Block block = new BlockSolid(x, y, Scaling);
+                        Block block = new BlockSolid(x, y);
                         blocks[x, y] = block;
                     }
                     else if (chance <= 25)
                     {
-                        Block block = new BlockMovable(x, y, Scaling);
+                        Block block = new BlockMovable(x, y);
                         blocks[x, y] = block;
                     }
                 }

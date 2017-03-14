@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace VangDeVolger.Elements.Birds
+﻿namespace VangDeVolger.Elements.Birds
 {
     internal class Enemy : Bird
     {
@@ -9,12 +7,12 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        /// <param name="scale"></param>
-        public Enemy(int x, int y, int scale) : base(x, y, scale)
+        public Enemy(int x, int y) : base(x, y)
         {
             ImageLeft = Properties.Resources.bird_red_left;
             ImageRight = Properties.Resources.bird_red_right;
-            Pb.Image = ImageRight;
+            Pb.Image = ImageLeft;
+            GoingRight = false;
         }
 
         /// <summary>
@@ -23,6 +21,8 @@ namespace VangDeVolger.Elements.Birds
         /// <param name="direction"></param>
         public override bool Move(Direction direction)
         {
+            ChangeDirection(direction);
+
             return false;
         }
     }

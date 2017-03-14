@@ -8,7 +8,7 @@
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="scale"></param>
-        public BlockSolid(int x, int y, int scale) : base(x, y, scale)
+        public BlockSolid(int x, int y) : base(x, y)
         {
             Image = Properties.Resources.solid;
             Pb.Image = Image;

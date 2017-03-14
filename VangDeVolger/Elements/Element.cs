@@ -9,15 +9,15 @@ namespace VangDeVolger.Elements
         public int Y;
         public PictureBox Pb;
 
-        protected Element(int x, int y, int scale)
+        protected Element(int x, int y)
         {
             X = x;
             Y = y;
             Pb = new PictureBox
             {
-                Size = new Size(scale, scale),
+                Size = new Size(Level.Scaling, Level.Scaling),
                 SizeMode = PictureBoxSizeMode.Zoom,
-                Location = new Point(x * scale, y * scale)
+                Location = new Point(x * Level.Scaling, y * Level.Scaling)
             };
         }
 

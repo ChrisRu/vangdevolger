@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 
 namespace VangDeVolger.Elements.Birds
 {
@@ -14,8 +13,7 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        /// <param name="scale"></param>
-        protected Bird(int x, int y, int scale) : base (x, y, scale)
+        protected Bird(int x, int y) : base (x, y)
         {
             
         }
@@ -23,9 +21,17 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Change facing direction of image
         /// </summary>
-        public void ChangeDirection()
+        public void ChangeDirection(Direction direction)
         {
-            Pb.Image = Pb.Image == ImageLeft ? ImageRight : ImageLeft;
+            if (direction == Direction.Left)
+            {
+                GoingRight = false;
+            }
+            if (direction == Direction.Right)
+            {
+                GoingRight = true;
+            }
+            Pb.Image = GoingRight ? ImageRight : ImageLeft;
             Pb.Invalidate();
         }
     }

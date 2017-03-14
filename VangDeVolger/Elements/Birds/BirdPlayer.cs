@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace VangDeVolger.Elements.Birds
 {
@@ -10,8 +9,7 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        /// <param name="scale"></param>
-        public Player(int x, int y, int scale) : base(x, y, scale)
+        public Player(int x, int y) : base(x, y)
         {
             ImageLeft = Properties.Resources.bird_green_left;
             ImageRight = Properties.Resources.bird_green_right;
@@ -20,6 +18,8 @@ namespace VangDeVolger.Elements.Birds
 
         public override bool Move(Direction direction)
         {
+            ChangeDirection(direction);
+
             var newLocation = Level.DirectionToLocation(X, Y, direction);
             var nextBlock = Level.Grid[newLocation.Item1, newLocation.Item2];
 

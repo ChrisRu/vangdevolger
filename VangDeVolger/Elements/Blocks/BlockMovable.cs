@@ -8,7 +8,7 @@
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="scale"></param>
-        public BlockMovable(int x, int y, int scale) : base(x, y, scale)
+        public BlockMovable(int x, int y) : base(x, y)
         {
             Image = Properties.Resources.tree;
             Pb.Image = Image;

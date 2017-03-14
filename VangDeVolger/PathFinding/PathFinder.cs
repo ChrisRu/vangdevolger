@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Blocks;
@@ -104,7 +101,7 @@ namespace VangDeVolger.PathFinding
                 }
             }
             // No solution
-            MessageBox.Show("NO solution");
+            MessageBox.Show("No solution");
             return path;
         }
 
@@ -114,7 +111,7 @@ namespace VangDeVolger.PathFinding
             for (var y = 0; y < grid.GetLength(0); y++)
             {
                 for (var x = 0; x < grid.GetLength(1); x++) {
-                    var block = grid[y, x] ?? new BlockSolid(x, y, Level.Scaling);
+                    var block = grid[y, x] ?? new BlockSolid(x, y);
                     newGrid[block.X, block.Y] = _transformBlock(block);
                 }
                 
