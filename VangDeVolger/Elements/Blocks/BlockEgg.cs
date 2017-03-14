@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 
-namespace VangDeVolger.Blocks
+namespace VangDeVolger.Elements.Blocks
 {
     internal class BlockEgg : Block
     {
@@ -11,7 +11,7 @@ namespace VangDeVolger.Blocks
         private int _hatchTime = 20; // 205
         private readonly Timer _timer = new Timer();
 
-        public EventHandler SpawnBird;
+        //public EventHandler SpawnBird;
 
         /// <summary>
         /// Initialize BlockEgg Class
@@ -43,8 +43,8 @@ namespace VangDeVolger.Blocks
             {
                 _timer.Stop();
 
-                SpawnBird(this, new EventArgs());
-                Game.Blocks[X, Y] = null;
+                //SpawnBird(this, new EventArgs());
+                //Game.Blocks[X, Y] = null;
                 Pb.Dispose();
             }
         }
@@ -58,7 +58,7 @@ namespace VangDeVolger.Blocks
         public override bool Touch(Direction direction)
         {
             _timer.Stop();
-            Game.Blocks[X, Y] = null;
+            //Game.Blocks[X, Y] = null;
             Pb.Dispose();
 
             new SoundPlayer(Properties.Resources.EggCrack).Play();

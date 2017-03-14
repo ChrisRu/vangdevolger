@@ -1,29 +1,23 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace VangDeVolger.Birds
+namespace VangDeVolger.Elements.Birds
 {
-    public abstract class Bird
+    public abstract class Bird : Element
     {
         protected Image ImageLeft;
         protected Image ImageRight;
         protected bool GoingRight = true;
 
-        public PictureBox Pb;
-
         /// <summary>
         /// Initialize Bird Class
         /// </summary>
-        /// <param name="position"></param>
-        protected Bird(Point position)
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="scale"></param>
+        protected Bird(int x, int y, int scale) : base (x, y, scale)
         {
-            Pb = new PictureBox
-            {
-                Location = position,
-                Size = new Size(Level.Scaling, Level.Scaling),
-                SizeMode = PictureBoxSizeMode.Zoom,
-                Image = ImageRight
-            };
+            
         }
 
         /// <summary>

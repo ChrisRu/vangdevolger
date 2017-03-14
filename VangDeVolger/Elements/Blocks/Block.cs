@@ -1,18 +1,20 @@
 ﻿using System.Drawing;
 
-namespace VangDeVolger.Blocks
+namespace VangDeVolger.Elements.Blocks
 {
-    internal class BlockMovable : Block
+    public abstract class Block : Element
     {
+        protected Image Image;
+
         /// <summary>
-        /// Initialize BlockMovable Class
+        /// Initialize Block Class
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="scale"></param>
-        protected BlockMovable(int x, int y, int scale) : base(x, y, scale)
+        protected Block(int x, int y, int scale) : base(x, y, scale)
         {
-            Image = Properties.Resources.tree;
+
         }
 
         /// <summary>
@@ -20,9 +22,6 @@ namespace VangDeVolger.Blocks
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>
-        public override bool Touch(Direction direction)
-        {
-            return true;
-        }
+        public abstract bool Touch(Direction direction);
     }
 }

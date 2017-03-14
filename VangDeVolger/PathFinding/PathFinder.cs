@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VangDeVolger.Blocks;
+using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger.PathFinding
 {
@@ -118,7 +118,7 @@ namespace VangDeVolger.PathFinding
                     var block = grid[y, x];
                     if (block == null)
                     {
-                        block = new BlockEgg(x, y);
+                        block = new BlockEgg(x, y, Level.Scaling);
                     }
                     newGrid[block.X, block.Y] = _transformBlock(block);
                 }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using VangDeVolger.Birds;
-using VangDeVolger.Blocks;
+using VangDeVolger.Elements;
+using VangDeVolger.Elements.Birds;
+using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger
 {
@@ -9,7 +10,7 @@ namespace VangDeVolger
     {
         public static int Scaling;
         public Control.ControlCollection Controls;
-        public Block[,] Grid;
+        public Element[,] Grid;
 
         public Level(Control.ControlCollection controls, int width, int height, int scale)
         {
@@ -17,6 +18,10 @@ namespace VangDeVolger
             Scaling = scale;
 
             Grid = GetRandomGrid((width / scale), (height / scale));
+
+            Grid[0, 0] = new Player(0, 0, Scaling);
+
+            Render();
         }
 
         /// <summary>
@@ -25,9 +30,9 @@ namespace VangDeVolger
         /// <param name="sizeX"></param>
         /// <param name="sizeY"></param>
         /// <returns></returns>
-        public Block[,] GetRandomGrid(int sizeX, int sizeY)
+        public Element[,] GetRandomGrid(int sizeX, int sizeY)
         {
-            var blocks = new Block[sizeX, sizeY];
+            var blocks = new Element[sizeX, sizeY];
             var random = new Random();
 
             for (var y = 0; y < sizeY; y++)
@@ -54,9 +59,9 @@ namespace VangDeVolger
 
         public Tuple<int, int> GetRandomOpenPosition()
         {
+            var random = new Random();
             while (true)
             {
-                var random = new Random();
                 var randomX = random.Next(0, Grid.GetLength(0));
                 var randomY = random.Next(0, Grid.GetLength(1));
 
@@ -67,7 +72,10 @@ namespace VangDeVolger
             }
         }
 
-        public void KeyDown(KeyEventArgs e) => Bird.Move(e);
+        public void KeyDown(KeyEventArgs e)
+        {
+            
+        }
 
         /// <summary>
         /// Add all elements to the Controls

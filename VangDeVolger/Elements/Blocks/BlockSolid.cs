@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace VangDeVolger.Blocks
+﻿namespace VangDeVolger.Elements.Blocks
 {
     internal class BlockSolid : Block
     {
@@ -10,9 +8,10 @@ namespace VangDeVolger.Blocks
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="scale"></param>
-        protected BlockSolid(int x, int y, int scale) : base(x, y, scale)
+        public BlockSolid(int x, int y, int scale) : base(x, y, scale)
         {
             Image = Properties.Resources.solid;
+            Pb.Image = Image;
         }
 
         /// <summary>

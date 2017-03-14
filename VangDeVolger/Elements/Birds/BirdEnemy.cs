@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using VangDeVolger.PathFinding;
+﻿using System.Windows.Forms;
 
-namespace VangDeVolger.Birds
+namespace VangDeVolger.Elements.Birds
 {
-    internal class EnemyBird : Bird
+    internal class Enemy : Bird
     {
         /// <summary>
         /// Initialize EnemyBird Class
         /// </summary>
-        /// <param name="position"></param>
-        public EnemyBird(Point position) : base(position)
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="scale"></param>
+        public Enemy(int x, int y, int scale) : base(x, y, scale)
         {
             ImageLeft = Properties.Resources.bird_red_left;
             ImageRight = Properties.Resources.bird_red_right;
+            Pb.Image = ImageRight;
         }
 
         /// <summary>

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using System.Media;
 using System.Windows.Forms;
 
-namespace VangDeVolger.Blocks
+namespace VangDeVolger.Elements.Blocks
 {
     internal class BlockFood : Block
     {
@@ -29,18 +28,6 @@ namespace VangDeVolger.Blocks
         /// <returns></returns>
         public override bool Touch(Direction direction)
         {
-            Game.Player.Speed = 5;
-            
-            Pb.Dispose();
-
-            _timer.Tick += T_Tick;
-            _timer.Interval = 1000;
-            _timer.Start();
-
-            Game.Blocks[X, Y] = null;
-
-            new SoundPlayer(Properties.Resources.Heart).Play();
-
             return true;
         }
 
@@ -56,9 +43,7 @@ namespace VangDeVolger.Blocks
                 _boostTime -= 1;
             }
             else if (_boostTime <= 0)
-            {
-                Game.Player.Speed = 3;
-                 
+            {                
                 _timer.Stop();
             }
         }

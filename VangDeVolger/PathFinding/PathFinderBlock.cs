@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Schema;
-using VangDeVolger.Blocks;
+using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger.PathFinding
 {

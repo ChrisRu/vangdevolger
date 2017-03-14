@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using System.Media;
 using System.Windows.Forms;
-using VangDeVolger.Birds;
 
-namespace VangDeVolger.Blocks
+namespace VangDeVolger.Elements.Blocks
 {
     internal class BlockStopwatch : Block
     {
@@ -30,20 +28,6 @@ namespace VangDeVolger.Blocks
         /// <returns></returns>
         public override bool Touch(Direction direction)
         {
-            // start the slowdown
-            foreach (var enemy in Game.Enemies)
-            {
-                enemy.Speed = 1;
-            }
-
-            Pb.Dispose();
-
-            _timer.Tick += T_Tick;
-            _timer.Interval = 1000;
-            _timer.Start();
-
-            Game.Blocks[X, Y] = null;
-            new SoundPlayer(Properties.Resources.ClockTick).Play();
             return true;
         }
 
@@ -60,12 +44,6 @@ namespace VangDeVolger.Blocks
             }
             else if (_slowDownTime <= 0)
             {
-                //stop the boost
-                foreach (var enemy in Game.Enemies)
-                {
-                    enemy.Speed = 2;
-                }
-
                 _timer.Stop();
             }
         }

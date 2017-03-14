@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using VangDeVolger.Birds;
-using VangDeVolger.Blocks;
 
 namespace VangDeVolger
 {
@@ -41,10 +39,12 @@ namespace VangDeVolger
         /// <param name="e"></param>
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            foreach (var enemy in Enemies)
-            {
-                enemy.Move(new KeyEventArgs(new Keys()));
-            }
+            
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            
         }
 
         /// <summary>
