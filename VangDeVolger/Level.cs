@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq.Expressions;
 using System.Windows.Forms;
+using System.Xml.Schema;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
 using VangDeVolger.Elements.Blocks;
@@ -10,21 +11,21 @@ namespace VangDeVolger
 {
     public class Level
     {
-        private readonly int _width;
-        private readonly int _height;
+        public static int Width;
+        public static int Height;
         public static int Scaling;
         public Control.ControlCollection Controls;
-        public Element[,] Grid;
-        public Tuple<int, int> BirdLocation;
+        public static Element[,] Grid;
+        public static Tuple<int, int> BirdLocation;
 
         public Level(Control.ControlCollection controls, int width, int height, int scale)
         {
             Controls = controls;
-            _width = width;
-            _height = height;
+            Width = (width - width % scale) / scale;
+            Height = (height - height % scale) / scale - 1;
             Scaling = scale;
 
-            Grid = GetRandomGrid((width / scale), (height / scale));
+            Grid = GetRandomGrid(Width, Height);
 
             // Create new Player
             BirdLocation = new Tuple<int, int>(0, 0);
@@ -99,17 +100,16 @@ namespace VangDeVolger
                     direction = Direction.Right;
                     break;
             }
-            MoveBird(direction);
-
+            if (direction != null)
+            {
+                Grid[BirdLocation.Item1, BirdLocation.Item2].Move((Direction) direction);
+            }
         }
 
-        public void MoveBird(Direction? direction)
+        public static Tuple<int, int> DirectionToLocation(int x, int y, Direction? direction)
         {
-            var x = BirdLocation.Item1;
-            var y = BirdLocation.Item2;
             var newX = x;
             var newY = y;
-
             switch (direction)
             {
                 case Direction.Up:
@@ -119,7 +119,7 @@ namespace VangDeVolger
                     }
                     break;
                 case Direction.Down:
-                    if (y < _height)
+                    if (y < Height - 1)
                     {
                         newY++;
                     }
@@ -131,22 +131,22 @@ namespace VangDeVolger
                     }
                     break;
                 case Direction.Right:
-                    if (x < _width)
+                    if (x < Width - 1)
                     {
                         newX++;
                     }
                     break;
             }
+            return new Tuple<int, int>(newX, newY);
+        }
 
-            if (Grid[newX, newY] == null || newX != x && newY != y)
-            {
-                BirdLocation = new Tuple<int, int>(newX, newY);
-                Grid[newX, newY] = Grid[x, y];
-                Grid[x, y] = null;
-                Grid[newX, newY].Pb.Location = new Point(newX * Scaling, newY * Scaling);
-                Grid[newX, newY].X = newX;
-                Grid[newX, newY].Y = newY;
-            }
+        public static void MoveBlock(int x, int y, int newX, int newY)
+        {
+            Grid[newX, newY] = Grid[x, y];
+            Grid[x, y] = null;
+            Grid[newX, newY].Pb.Location = new Point(newX * Scaling, newY * Scaling);
+            Grid[newX, newY].X = newX;
+            Grid[newX, newY].Y = newY;
         }
 
         /// <summary>

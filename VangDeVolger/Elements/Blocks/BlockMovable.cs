@@ -19,9 +19,28 @@
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>
-        public override bool Touch(Direction direction)
+        public override bool Move(Direction direction)
         {
-            return true;
+            var newLocation = Level.DirectionToLocation(X, Y, direction);
+            var nextBlock = Level.Grid[newLocation.Item1, newLocation.Item2];
+
+            if (newLocation.Item1 == X && newLocation.Item2 == Y)
+            {
+                return false;
+            }
+
+            if (nextBlock == null)
+            {
+                Level.MoveBlock(X, Y, newLocation.Item1, newLocation.Item2);
+                return true;
+            }
+
+            if (nextBlock.Move(direction))
+            {
+                Level.MoveBlock(X, Y, newLocation.Item1, newLocation.Item2);
+                return true;
+            }
+            return false;
         }
     }
 }

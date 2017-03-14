@@ -20,10 +20,10 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Move Bird with controls
         /// </summary>
-        /// <param name="e"></param>
-        public override void Move(KeyEventArgs e)
+        /// <param name="direction"></param>
+        public override bool Move(Direction direction)
         {
-
+            return false;
         }
     }
 }

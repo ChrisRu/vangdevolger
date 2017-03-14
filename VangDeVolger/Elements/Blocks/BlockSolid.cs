@@ -19,7 +19,7 @@
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>
-        public override bool Touch(Direction direction)
+        public override bool Move(Direction direction)
         {
             return false;
         }

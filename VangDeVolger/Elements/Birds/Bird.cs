@@ -21,12 +21,6 @@ namespace VangDeVolger.Elements.Birds
         }
 
         /// <summary>
-        /// Move Bird with controls
-        /// </summary>
-        /// <param name="e"></param>
-        public abstract void Move(KeyEventArgs e);
-
-        /// <summary>
         /// Change facing direction of image
         /// </summary>
         public void ChangeDirection()

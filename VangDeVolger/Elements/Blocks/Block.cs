@@ -16,12 +16,5 @@ namespace VangDeVolger.Elements.Blocks
         {
 
         }
-
-        /// <summary>
-        /// Execute on collision with other object
-        /// </summary>
-        /// <param name="direction"></param>
-        /// <returns></returns>
-        public abstract bool Touch(Direction direction);
     }
 }

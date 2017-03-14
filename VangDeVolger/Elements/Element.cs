@@ -20,5 +20,7 @@ namespace VangDeVolger.Elements
                 Location = new Point(x * scale, y * scale)
             };
         }
+
+        public abstract bool Move(Direction direction);
     }
 }

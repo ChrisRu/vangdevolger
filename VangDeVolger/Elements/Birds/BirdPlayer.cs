@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace VangDeVolger.Elements.Birds
 {
@@ -17,9 +18,31 @@ namespace VangDeVolger.Elements.Birds
             Pb.Image = ImageRight;
         }
 
-        public override void Move(KeyEventArgs e)
+        public override bool Move(Direction direction)
         {
+            var newLocation = Level.DirectionToLocation(X, Y, direction);
+            var nextBlock = Level.Grid[newLocation.Item1, newLocation.Item2];
 
+            if (newLocation.Item1 == X && newLocation.Item2 == Y)
+            {
+                return false;
+            }
+
+            if (nextBlock == null)
+            {
+                Level.BirdLocation = new Tuple<int, int>(newLocation.Item1, newLocation.Item2);
+                Level.MoveBlock(X, Y, newLocation.Item1, newLocation.Item2);
+                return true;
+            }
+
+            if (nextBlock.Move(direction))
+            {
+                Level.BirdLocation = new Tuple<int, int>(newLocation.Item1, newLocation.Item2);
+                Level.MoveBlock(X, Y, newLocation.Item1, newLocation.Item2);
+                return true;
+            }
+
+            return false;
         }
     }
 }

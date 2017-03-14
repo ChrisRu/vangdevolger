@@ -47,28 +47,6 @@ namespace VangDeVolger
             
         }
 
-        /// <summary>
-        /// Use Player Controls
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Game_KeyDown(object sender, KeyEventArgs e)
-        {
-            GameLevel.KeyDown(e);
-
-            if (e.KeyCode == Keys.Escape)
-            {
-                if (!menuStrip1.Visible)
-                {
-                    menuStrip1.Show();
-                }
-                else
-                {
-                    menuStrip1.Hide();
-                }
-            }
-        }
-
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Vang De Vogel is made by:\n\nLeon Hubert\nChristian Ruigrok", "About");
@@ -78,5 +56,7 @@ namespace VangDeVolger
         {
             MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to get score:\n\tCapture red birds by moving blocks.\n\nPick up items for temporary boosts and destroy eggs to prevent new birds from spawning.\n\nGood luck!", "How to play");
         }
+
+        private void Game_KeyDown(object sender, KeyEventArgs e) => GameLevel.KeyDown(e);
     }
 }
