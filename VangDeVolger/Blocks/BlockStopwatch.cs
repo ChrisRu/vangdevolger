@@ -17,7 +17,8 @@ namespace VangDeVolger.Blocks
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public BlockStopwatch(int x, int y) : base(x, y)
+        /// <param name="scale"></param>
+        public BlockStopwatch(int x, int y, int scale) : base(x, y, scale)
         {
             Pb.Image = _image;
         }
@@ -27,7 +28,7 @@ namespace VangDeVolger.Blocks
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>
-        public override bool Touch(Game.Directions direction)
+        public override bool Touch(Direction direction)
         {
             // start the slowdown
             foreach (var enemy in Game.Enemies)
@@ -41,7 +42,7 @@ namespace VangDeVolger.Blocks
             _timer.Interval = 1000;
             _timer.Start();
 
-            Game.Blocks[Pb.Location.Y / 32, Pb.Location.X / 32] = null;
+            Game.Blocks[X, Y] = null;
             new SoundPlayer(Properties.Resources.ClockTick).Play();
             return true;
         }

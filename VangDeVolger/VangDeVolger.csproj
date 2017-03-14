@@ -52,6 +52,7 @@
     <Compile Include="Blocks\BlockEgg.cs" />
     <Compile Include="Blocks\BlockFood.cs" />
     <Compile Include="Blocks\BlockStopwatch.cs" />
+    <Compile Include="Direction.cs" />
     <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +61,7 @@
     </Compile>
     <Compile Include="Blocks\BlockMovable.cs" />
     <Compile Include="Birds\BirdPlayer.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="PathFinding\PathFinder.cs" />
     <Compile Include="PathFinding\PathFinderBlock.cs" />
     <Compile Include="Program.cs" />

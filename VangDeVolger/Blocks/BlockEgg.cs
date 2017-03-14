@@ -18,7 +18,8 @@ namespace VangDeVolger.Blocks
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public BlockEgg(int x, int y) : base(x, y)
+        /// <param name="scale"></param>
+        public BlockEgg(int x, int y, int scale) : base(x, y, scale)
         {
             Pb.Image = _image;
 
@@ -43,7 +44,7 @@ namespace VangDeVolger.Blocks
                 _timer.Stop();
 
                 SpawnBird(this, new EventArgs());
-                Game.Blocks[Pb.Location.Y / 32, Pb.Location.X / 32] = null;
+                Game.Blocks[X, Y] = null;
                 Pb.Dispose();
             }
         }
@@ -54,10 +55,10 @@ namespace VangDeVolger.Blocks
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>
-        public override bool Touch(Game.Directions direction)
+        public override bool Touch(Direction direction)
         {
             _timer.Stop();
-            Game.Blocks[Pb.Location.Y / 32, Pb.Location.X / 32] = null;
+            Game.Blocks[X, Y] = null;
             Pb.Dispose();
 
             new SoundPlayer(Properties.Resources.EggCrack).Play();

@@ -5,39 +5,36 @@ namespace VangDeVolger.Blocks
 {
     public abstract class Block
     {
-        public const int BlockSize = 32;
         public PictureBox Pb;
-        public int X;
-        public int Y;
-
-        public Block SiblingTop;
-        public Block SiblingBottom;
-        public Block SiblingLeft;
-        public Block SiblingRight;
+        protected int X;
+        protected int Y;
+        protected Image Image;
 
         /// <summary>
         /// Initialize Block Class
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        protected Block(int x, int y)
+        /// <param name="scale"></param>
+        protected Block(int x, int y, int scale)
         {
             X = x;
             Y = y;
-            var position = new Point(x * BlockSize, y * BlockSize);
+            var position = new Point(x * scale, y * scale);
             Pb = new PictureBox
             {
-                Size = new Size(Game.BlockSize, Game.BlockSize),
+                Size = new Size(scale, scale),
                 SizeMode = PictureBoxSizeMode.Zoom,
-                Location = position
+                Location = position,
+                Image = Image
             };
         }
 
         /// <summary>
         /// Execute on collision with other object
         /// </summary>
-        /// <param name="directions"></param>
+        /// <param name="direction"></param>
         /// <returns></returns>
-        public abstract bool Touch(Game.Directions directions);
+        public abstract bool Touch(Direction direction);
     }
 }

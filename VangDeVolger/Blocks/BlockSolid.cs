@@ -4,16 +4,15 @@ namespace VangDeVolger.Blocks
 {
     internal class BlockSolid : Block
     {
-        private readonly Image _image = Properties.Resources.solid;
-
         /// <summary>
         /// Initialize BlockSolid Class
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public BlockSolid(int x, int y) : base(x, y)
+        /// <param name="scale"></param>
+        protected BlockSolid(int x, int y, int scale) : base(x, y, scale)
         {
-            Pb.Image = _image;
+            Image = Properties.Resources.solid;
         }
 
         /// <summary>
@@ -21,7 +20,7 @@ namespace VangDeVolger.Blocks
         /// </summary>
         /// <param name="direction"></param>
         /// <returns></returns>
-        public override bool Touch(Game.Directions direction)
+        public override bool Touch(Direction direction)
         {
             return false;
         }
