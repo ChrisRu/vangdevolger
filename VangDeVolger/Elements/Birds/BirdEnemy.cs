@@ -5,8 +5,8 @@
         /// <summary>
         /// Initialize EnemyBird Class
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="x">Position X on grid</param>
+        /// <param name="y">Position Y on grid</param>
         public Enemy(int x, int y) : base(x, y)
         {
             ImageLeft = Properties.Resources.bird_red_left;
@@ -18,7 +18,7 @@
         /// <summary>
         /// Move Bird with controls
         /// </summary>
-        /// <param name="direction"></param>
+        /// <param name="direction">Direction of movement</param>
         public override bool Move(Direction direction)
         {
             ChangeDirection(direction);

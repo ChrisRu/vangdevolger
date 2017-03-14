@@ -17,6 +17,13 @@ namespace VangDeVolger
         public static Tuple<int, int> BirdLocation;
         public static Tuple<int, int> EnemyLocation;
 
+        /// <summary>
+        /// Initialize Level Class
+        /// </summary>
+        /// <param name="controls">Controls of the Form</param>
+        /// <param name="width">Width of the Form</param>
+        /// <param name="height">Height of the Form</param>
+        /// <param name="scale">Scaling size of the Form</param>
         public Level(Control.ControlCollection controls, int width, int height, int scale)
         {
             Controls = controls;
@@ -39,9 +46,9 @@ namespace VangDeVolger
         /// <summary>
         /// Returns a random list of blocks
         /// </summary>
-        /// <param name="sizeX"></param>
-        /// <param name="sizeY"></param>
-        /// <returns></returns>
+        /// <param name="sizeX">Grid size horizontally</param>
+        /// <param name="sizeY">Grid size vertically</param>
+        /// <returns>Jagged Array of Elements</returns>
         public Element[,] GetRandomGrid(int sizeX, int sizeY)
         {
             var blocks = new Element[sizeX, sizeY];
@@ -69,6 +76,10 @@ namespace VangDeVolger
             return blocks;
         }
 
+        /// <summary>
+        /// Get Random Open Position in the Grid
+        /// </summary>
+        /// <returns>Tuple with X and Y values</returns>
         public Tuple<int, int> GetRandomOpenPosition()
         {
             var random = new Random();
@@ -84,6 +95,10 @@ namespace VangDeVolger
             }
         }
 
+        /// <summary>
+        /// Execute on KeyDown
+        /// </summary>
+        /// <param name="e">KeyData</param>
         public void KeyDown(KeyEventArgs e)
         {
             Direction? direction = null;
@@ -108,6 +123,13 @@ namespace VangDeVolger
             }
         }
 
+        /// <summary>
+        /// Convert Direction to X and Y Location
+        /// </summary>
+        /// <param name="x">Initial X Position</param>
+        /// <param name="y">Initial Y Position</param>
+        /// <param name="direction">Direction of movement</param>
+        /// <returns>Tuple with X and Y values</returns>
         public static Tuple<int, int> DirectionToLocation(int x, int y, Direction? direction)
         {
             var newX = x;
@@ -142,6 +164,13 @@ namespace VangDeVolger
             return new Tuple<int, int>(newX, newY);
         }
 
+        /// <summary>
+        /// Move Block from position to new position
+        /// </summary>
+        /// <param name="x">Initial X Position</param>
+        /// <param name="y">Initial Y Position</param>
+        /// <param name="newX">New X Position</param>
+        /// <param name="newY">New Y Position</param>
         public static void MoveBlock(int x, int y, int newX, int newY)
         {
             Grid[newX, newY] = Grid[x, y];

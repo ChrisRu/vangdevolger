@@ -11,8 +11,8 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize Bird Class
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="x">Position X on grid</param>
+        /// <param name="y">Position Y on grid</param>
         protected Bird(int x, int y) : base (x, y)
         {
             
@@ -21,6 +21,7 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Change facing direction of image
         /// </summary>
+        /// <param name="direction">Facing Direction</param>
         public void ChangeDirection(Direction direction)
         {
             if (direction == Direction.Left)

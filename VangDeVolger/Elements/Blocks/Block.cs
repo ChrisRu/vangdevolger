@@ -9,8 +9,8 @@ namespace VangDeVolger.Elements.Blocks
         /// <summary>
         /// Initialize Block Class
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="x">Position X on grid</param>
+        /// <param name="y">Position Y on grid</param>
         protected Block(int x, int y) : base(x, y)
         {
 

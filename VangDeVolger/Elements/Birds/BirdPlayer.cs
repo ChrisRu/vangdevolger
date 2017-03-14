@@ -7,8 +7,8 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize PlayerBird Class
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
+        /// <param name="x">Position X on grid</param>
+        /// <param name="y">Position Y on grid</param>
         public Player(int x, int y) : base(x, y)
         {
             ImageLeft = Properties.Resources.bird_green_left;
@@ -16,6 +16,11 @@ namespace VangDeVolger.Elements.Birds
             Pb.Image = ImageRight;
         }
 
+        /// <summary>
+        /// Move Player towards direction
+        /// </summary>
+        /// <param name="direction">Direction of movement</param>
+        /// <returns>bool Can move</returns>
         public override bool Move(Direction direction)
         {
             ChangeDirection(direction);

@@ -5,9 +5,8 @@
         /// <summary>
         /// Initialize BlockMovable Class
         /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="scale"></param>
+        /// <param name="x">Position X on grid</param>
+        /// <param name="y">Position Y on grid</param>
         public BlockMovable(int x, int y) : base(x, y)
         {
             Image = Properties.Resources.tree;
@@ -17,8 +16,8 @@
         /// <summary>
         /// Execute on collision with other object
         /// </summary>
-        /// <param name="direction"></param>
-        /// <returns></returns>
+        /// <param name="direction">Direction of movement</param>
+        /// <returns>bool Can move</returns>
         public override bool Move(Direction direction)
         {
             var newLocation = Level.DirectionToLocation(X, Y, direction);

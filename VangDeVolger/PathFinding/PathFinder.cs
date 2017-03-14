@@ -17,9 +17,9 @@ namespace VangDeVolger.PathFinding
         /// <summary>
         /// Initialize PathFinder Class
         /// </summary>
-        /// <param name="grid"></param>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
+        /// <param name="grid">Current Grid of Elements</param>
+        /// <param name="from">Position of Enemy Bird</param>
+        /// <param name="to">Position of Player Bird</param>
         public PathFinder(Block[,] grid, Element from, Element to)
         {
             
@@ -40,7 +40,7 @@ namespace VangDeVolger.PathFinding
         /// <summary>
         /// Path Finding using the A* algorithm
         /// </summary>
-        /// <returns>Optimal Path</returns>
+        /// <returns>List with Optimal Path</returns>
         public List<PathFinderBlock> GetOptimalPath()
         {
             var path = new List<PathFinderBlock>();
@@ -105,6 +105,11 @@ namespace VangDeVolger.PathFinding
             return path;
         }
 
+        /// <summary>
+        /// Transform Blocks to PathFinderBlocks
+        /// </summary>
+        /// <param name="grid">Block Grid</param>
+        /// <returns></returns>
         private static PathFinderBlock[,] _transformGrid(Block[,] grid)
         {
             var newGrid = new PathFinderBlock[grid.GetLength(0), grid.GetLength(1)];
@@ -119,6 +124,11 @@ namespace VangDeVolger.PathFinding
             return newGrid;
         }
 
+        /// <summary>
+        /// Transform Block to PathFinderBlock
+        /// </summary>
+        /// <param name="block">Block to be converted</param>
+        /// <returns>PathFinderBlock</returns>
         private static PathFinderBlock _transformBlock(Block block) => new PathFinderBlock(block);
 
         private PathFinderBlock[,] _addSiblings(PathFinderBlock[,] grid)
@@ -136,6 +146,12 @@ namespace VangDeVolger.PathFinding
             return newGrid;
         }
 
+        /// <summary>
+        /// Adds Sibling to PathFinderBlock
+        /// </summary>
+        /// <param name="grid">PathFinderBlock grid</param>
+        /// <param name="block">Block to add Siblings to</param>
+        /// <returns></returns>
         private static PathFinderBlock _addSibling(PathFinderBlock[,] grid, PathFinderBlock block)
         {
             var x = block.Block.X;
@@ -165,6 +181,11 @@ namespace VangDeVolger.PathFinding
             return block;
         }
 
+        /// <summary>
+        /// Get Estimated Distance (Heuristic)
+        /// </summary>
+        /// <param name="from">Block from where to calculate the Heuristic</param>
+        /// <returns>Average block distance</returns>
         private int Heuristic(PathFinderBlock from)
         {
             // Manhattan distance
