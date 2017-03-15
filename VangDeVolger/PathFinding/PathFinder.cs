@@ -24,7 +24,7 @@ namespace VangDeVolger.PathFinding
         {
             
             _grid = _addSiblings(_transformGrid(grid));
-            foreach (var item in _grid)
+            foreach (PathFinderBlock item in _grid)
             {
                 if (to.X == item.Block.X && to.Y == item.Block.Y)
                 {
@@ -43,12 +43,12 @@ namespace VangDeVolger.PathFinding
         /// <returns>List with Optimal Path</returns>
         public List<PathFinderBlock> GetOptimalPath()
         {
-            var path = new List<PathFinderBlock>();
+            List<PathFinderBlock> path = new List<PathFinderBlock>();
 
             while (_openSet.Count > 0)
             {
-                var winner = 0;
-                for (var i = 0; i < _openSet.Count; i++)
+                int winner = 0;
+                for (int i = 0; i < _openSet.Count; i++)
                 {
                     if (_openSet[i].F < _openSet[winner].F)
                     {
@@ -56,12 +56,12 @@ namespace VangDeVolger.PathFinding
                     }
                 }
 
-                var current = _openSet[winner];
+                PathFinderBlock current = _openSet[winner];
 
                 if (current == _to)
                 {
                     // DONE
-                    var next = current;
+                    PathFinderBlock next = current;
                     path.Add(next);
                     
                     while (next.CameFrom != null)
@@ -76,11 +76,11 @@ namespace VangDeVolger.PathFinding
                 _openSet.Remove(current);
                 _closedSet.Add(current);
 
-                foreach (var sibling in current.SiblingBlocks)
+                foreach (PathFinderBlock sibling in current.SiblingBlocks)
                 {
                     if (_closedSet.Contains(sibling) || sibling == null) continue;
 
-                    var tempG = current.G + 1;
+                    int tempG = current.G + 1;
 
                     if (_openSet.Contains(sibling))
                     {
@@ -112,12 +112,11 @@ namespace VangDeVolger.PathFinding
         /// <returns></returns>
         private static PathFinderBlock[,] _transformGrid(Block[,] grid)
         {
-            var newGrid = new PathFinderBlock[grid.GetLength(0), grid.GetLength(1)];
-            for (var y = 0; y < grid.GetLength(0); y++)
+            PathFinderBlock[,] newGrid = new PathFinderBlock[grid.GetLength(0), grid.GetLength(1)];
+            for (int y = 0; y < grid.GetLength(0); y++)
             {
-                for (var x = 0; x < grid.GetLength(1); x++) {
-                    var block = grid[y, x] ?? new BlockSolid(x, y);
-                    newGrid[block.X, block.Y] = _transformBlock(block);
+                for (int x = 0; x < grid.GetLength(1); x++) {
+                    newGrid[x, y] = _transformBlock(grid[x, y]);
                 }
                 
             }
@@ -133,12 +132,12 @@ namespace VangDeVolger.PathFinding
 
         private PathFinderBlock[,] _addSiblings(PathFinderBlock[,] grid)
         {
-            var newGrid = new PathFinderBlock[grid.GetLength(0), grid.GetLength(1)];
-            for (var y = 0; y < grid.GetLength(0); y++)
+            PathFinderBlock[,] newGrid = new PathFinderBlock[grid.GetLength(0), grid.GetLength(1)];
+            for (int y = 0; y < grid.GetLength(0); y++)
             {
-                for (var x = 0; x < grid.GetLength(1); x++)
+                for (int x = 0; x < grid.GetLength(1); x++)
                 {
-                    var block = grid[y, x];
+                    PathFinderBlock block = grid[y, x];
                     block = _addSibling(grid, block);
                     newGrid[y, x] = block;
                 }
@@ -154,10 +153,10 @@ namespace VangDeVolger.PathFinding
         /// <returns></returns>
         private static PathFinderBlock _addSibling(PathFinderBlock[,] grid, PathFinderBlock block)
         {
-            var x = block.Block.X;
-            var y = block.Block.Y;
+            int x = block.Block.X;
+            int y = block.Block.Y;
 
-            var siblings = new List<PathFinderBlock>();
+            List<PathFinderBlock> siblings = new List<PathFinderBlock>();
 
             if (x < grid.GetLength(0) - 1)
             {
@@ -189,8 +188,8 @@ namespace VangDeVolger.PathFinding
         private int Heuristic(PathFinderBlock from)
         {
             // Manhattan distance
-            var x = Math.Abs(from.Block.X - _to.Block.X);
-            var y = Math.Abs(from.Block.Y + _to.Block.Y);
+            int x = Math.Abs(from.Block.X - _to.Block.X);
+            int y = Math.Abs(from.Block.Y + _to.Block.Y);
             return x + y;
         }
     }
