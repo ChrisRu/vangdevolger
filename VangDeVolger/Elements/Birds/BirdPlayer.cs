@@ -25,25 +25,23 @@ namespace VangDeVolger.Elements.Birds
         {
             ChangeDirection(direction);
 
-            var newLocation = Level.DirectionToLocation(X, Y, direction);
-            var nextBlock = Level.Grid[newLocation.Item1, newLocation.Item2];
+            Coordinates newLocation = Level.DirectionToLocation(X, Y, direction);
+            Element nextBlock = Level.Grid[newLocation.X, newLocation.Y];
 
-            if (newLocation.Item1 == X && newLocation.Item2 == Y)
+            if (newLocation.X == X && newLocation.Y == Y)
             {
                 return false;
             }
 
             if (nextBlock == null)
             {
-                Level.BirdLocation = new Tuple<int, int>(newLocation.Item1, newLocation.Item2);
-                Level.MoveBlock(X, Y, newLocation.Item1, newLocation.Item2);
+                Level.MoveBlock(X, Y, newLocation.X, newLocation.Y);
                 return true;
             }
 
             if (nextBlock.Move(direction))
             {
-                Level.BirdLocation = new Tuple<int, int>(newLocation.Item1, newLocation.Item2);
-                Level.MoveBlock(X, Y, newLocation.Item1, newLocation.Item2);
+                Level.MoveBlock(X, Y, newLocation.X, newLocation.Y);
                 return true;
             }
 

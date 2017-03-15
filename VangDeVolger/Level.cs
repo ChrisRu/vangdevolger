@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
@@ -14,8 +15,42 @@ namespace VangDeVolger
         public static int Scaling;
         public Control.ControlCollection Controls;
         public static Element[,] Grid;
-        public static Tuple<int, int> BirdLocation;
-        public static Tuple<int, int> EnemyLocation;
+
+        public Element Player
+        {
+            get
+            {
+                Coordinates playerCoordinates = new Coordinates();
+
+                foreach (Element element in Grid)
+                {
+                    if (element is Player)
+                    {
+                        playerCoordinates = new Coordinates(element.X, element.Y);
+                    }
+                }
+
+                return Grid[playerCoordinates.X, playerCoordinates.Y];
+            }
+        }
+
+        public Element Enemy
+        {
+            get
+            {
+                Coordinates enemyCoordinates = new Coordinates();
+
+                foreach (Element element in Grid)
+                {
+                    if (element is Enemy)
+                    {
+                        enemyCoordinates = new Coordinates(element.X, element.Y);
+                    }
+                }
+
+                return Grid[enemyCoordinates.X, enemyCoordinates.Y];
+            }
+        }
 
         /// <summary>
         /// Initialize Level Class
@@ -33,11 +68,10 @@ namespace VangDeVolger
 
             Grid = GetRandomGrid(Width, Height);
 
-            // Create new Player
-            BirdLocation = new Tuple<int, int>(0, 0);
+            // Create Player
             Grid[0, 0] = new Player(0, 0);
 
-            EnemyLocation = new Tuple<int, int>(Width - 1, Height - 1);
+            // Create Enemy
             Grid[Width - 1, Height - 1] = new Enemy(Width - 1, Height - 1);
 
             Render();
@@ -51,14 +85,14 @@ namespace VangDeVolger
         /// <returns>Jagged Array of Elements</returns>
         public Element[,] GetRandomGrid(int sizeX, int sizeY)
         {
-            var blocks = new Element[sizeX, sizeY];
-            var random = new Random();
+            Element[,] blocks = new Element[sizeX, sizeY];
+            Random random = new Random();
 
             for (var y = 0; y < sizeY; y++)
             {
                 for (var x = 0; x < sizeX; x++)
                 {
-                    var chance = random.Next(100);
+                    int chance = random.Next(100);
 
                     if (chance <= 5)
                     {
@@ -79,18 +113,18 @@ namespace VangDeVolger
         /// <summary>
         /// Get Random Open Position in the Grid
         /// </summary>
-        /// <returns>Tuple with X and Y values</returns>
-        public Tuple<int, int> GetRandomOpenPosition()
+        /// <returns>Random Open Coordinates</returns>
+        public Coordinates GetRandomOpenPosition()
         {
-            var random = new Random();
+            Random random = new Random();
             while (true)
             {
-                var randomX = random.Next(0, Grid.GetLength(0));
-                var randomY = random.Next(0, Grid.GetLength(1));
+                int randomX = random.Next(0, Grid.GetLength(0));
+                int randomY = random.Next(0, Grid.GetLength(1));
 
                 if (Grid[randomX, randomY] == null)
                 {
-                    return new Tuple<int, int>(randomX, randomY);
+                    return new Coordinates(randomX, randomY);
                 }
             }
         }
@@ -119,7 +153,7 @@ namespace VangDeVolger
             }
             if (direction != null)
             {
-                Grid[BirdLocation.Item1, BirdLocation.Item2].Move((Direction) direction);
+                Player.Move((Direction) direction);
             }
         }
 
@@ -130,10 +164,10 @@ namespace VangDeVolger
         /// <param name="y">Initial Y Position</param>
         /// <param name="direction">Direction of movement</param>
         /// <returns>Tuple with X and Y values</returns>
-        public static Tuple<int, int> DirectionToLocation(int x, int y, Direction? direction)
+        public static Coordinates DirectionToLocation(int x, int y, Direction? direction)
         {
-            var newX = x;
-            var newY = y;
+            int newX = x;
+            int newY = y;
             switch (direction)
             {
                 case Direction.Up:
@@ -161,7 +195,7 @@ namespace VangDeVolger
                     }
                     break;
             }
-            return new Tuple<int, int>(newX, newY);
+            return new Coordinates(newX, newY);
         }
 
         /// <summary>
