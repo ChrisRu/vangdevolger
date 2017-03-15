@@ -75,6 +75,23 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="sender">The form</param>
         /// <param name="e">KeyData</param>
-        private void Game_KeyDown(object sender, KeyEventArgs e) => GameLevel.KeyDown(e);
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            GameLevel.KeyDown(e);
+
+            // Toggle Menu
+            // TODO: Pause game on escape
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (menuStrip1.Visible)
+                {
+                    menuStrip1.Hide();
+                }
+                else
+                {
+                    menuStrip1.Show();
+                }
+            }
+        }
     }
 }
