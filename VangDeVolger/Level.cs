@@ -62,7 +62,7 @@ namespace VangDeVolger
             height = (height - height % Scale) / Scale - 1;
 
             //Grid = GetRandomGrid(width, height);
-            Grid = new ImageReader.ImageReader(new Bitmap(Properties.Resources.maze2)).GetGrid();
+            Grid = new ImageReader.ImageReader(new Bitmap(Properties.Resources.maze)).GetGrid();
 
             // Create Player
             Grid[0, 0] = new Player(0, 0);

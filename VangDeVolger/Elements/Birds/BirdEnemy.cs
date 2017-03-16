@@ -48,6 +48,15 @@ namespace VangDeVolger.Elements.Birds
         {
             if (Path.Count > 0)
             {
+                if (X > Path[Path.Count - 1].X)
+                {
+                    ChangeDirection(Direction.Left);
+                }
+                else if (X < Path[Path.Count - 1].X)
+                {
+                    ChangeDirection(Direction.Right);
+                }
+
                 Level.MoveBlock(X, Y, Path[Path.Count - 1].X, Path[Path.Count - 1].Y);
                 Path.Remove(Path[Path.Count - 1]);
             }
