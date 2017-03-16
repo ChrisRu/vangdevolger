@@ -20,7 +20,7 @@
         /// <returns>bool Can move</returns>
         public override bool Move(Direction direction)
         {
-            Coordinates newLocation = Level.DirectionToLocation(X, Y, direction);
+            Coordinates newLocation = DirectionToLocation(X, Y, direction);
             Element nextBlock = Level.Grid[newLocation.X, newLocation.Y];
 
             if (newLocation.X == X && newLocation.Y == Y)

@@ -11,8 +11,6 @@ namespace VangDeVolger
     public class Level
     {
         public const int Scale = 32;
-        public static int Width;
-        public static int Height;
         public Control.ControlCollection Controls;
         public static Element[,] Grid;
 
@@ -61,16 +59,16 @@ namespace VangDeVolger
         public Level(Control.ControlCollection controls, int width, int height)
         {
             Controls = controls;
-            Width = (width - width % Scale) / Scale;
-            Height = (height - height % Scale) / Scale - 1;
+            width = (width - width % Scale) / Scale;
+            height = (height - height % Scale) / Scale - 1;
 
-            Grid = GetRandomGrid(Width, Height);
+            Grid = GetRandomGrid(width, height);
 
             // Create Player
             Grid[0, 0] = new Player(0, 0);
 
             // Create Enemy
-            Grid[Width - 1, Height - 1] = new Enemy(Width - 1, Height - 1);
+            Grid[width - 1, height - 1] = new Enemy(width - 1, height - 1);
 
             Render();
         }
@@ -153,47 +151,6 @@ namespace VangDeVolger
             {
                 Player.Move((Direction) direction);
             }
-        }
-
-        /// <summary>
-        /// Convert Direction to X and Y Location
-        /// </summary>
-        /// <param name="x">Initial X Position</param>
-        /// <param name="y">Initial Y Position</param>
-        /// <param name="direction">Direction of movement</param>
-        /// <returns>Tuple with X and Y values</returns>
-        public static Coordinates DirectionToLocation(int x, int y, Direction? direction)
-        {
-            int newX = x;
-            int newY = y;
-            switch (direction)
-            {
-                case Direction.Up:
-                    if (y > 0)
-                    {
-                        newY--;
-                    }
-                    break;
-                case Direction.Down:
-                    if (y < Height - 1)
-                    {
-                        newY++;
-                    }
-                    break;
-                case Direction.Left:
-                    if (x > 0)
-                    {
-                        newX--;
-                    }
-                    break;
-                case Direction.Right:
-                    if (x < Width - 1)
-                    {
-                        newX++;
-                    }
-                    break;
-            }
-            return new Coordinates(newX, newY);
         }
 
         /// <summary>

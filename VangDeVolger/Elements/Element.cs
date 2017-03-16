@@ -33,5 +33,47 @@ namespace VangDeVolger.Elements
         /// <param name="direction">Direction of movement</param>
         /// <returns>bool Can move</returns>
         public abstract bool Move(Direction direction);
+
+
+        /// <summary>
+        /// Convert Direction to X and Y Location
+        /// </summary>
+        /// <param name="x">Initial X Position</param>
+        /// <param name="y">Initial Y Position</param>
+        /// <param name="direction">Direction of movement</param>
+        /// <returns>Tuple with X and Y values</returns>
+        public Coordinates DirectionToLocation(int x, int y, Direction? direction)
+        {
+            int newX = x;
+            int newY = y;
+            switch (direction)
+            {
+                case Direction.Up:
+                    if (y > 0)
+                    {
+                        newY--;
+                    }
+                    break;
+                case Direction.Down:
+                    if (y < Level.Grid.GetLength(0) - 2)
+                    {
+                        newY++;
+                    }
+                    break;
+                case Direction.Left:
+                    if (x > 0)
+                    {
+                        newX--;
+                    }
+                    break;
+                case Direction.Right:
+                    if (x < Level.Grid.GetLength(1))
+                    {
+                        newX++;
+                    }
+                    break;
+            }
+            return new Coordinates(newX, newY);
+        }
     }
 }
