@@ -14,9 +14,9 @@ namespace VangDeVolger.ImageReader
     {
         public Bitmap ImageBitmap;
 
-        public ImageReader(Bitmap imageBitmap)
+        public ImageReader(Image image)
         {
-            ImageBitmap = imageBitmap;
+            ImageBitmap = new Bitmap(image);
         }
 
         public Element[,] GetGrid()

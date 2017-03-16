@@ -65,6 +65,7 @@ namespace VangDeVolger
             if (e.KeyCode == Keys.Escape)
             {
                 _paused = !_paused;
+
                 if (menuStrip1.Visible)
                 {
                     menuStrip1.Hide();

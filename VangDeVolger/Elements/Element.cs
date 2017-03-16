@@ -55,7 +55,7 @@ namespace VangDeVolger.Elements
                     }
                     break;
                 case Direction.Down:
-                    if (y < Level.Grid.GetLength(0) - 2)
+                    if (y < Level.Grid.GetLength(0) - 1)
                     {
                         newY++;
                     }
@@ -67,7 +67,7 @@ namespace VangDeVolger.Elements
                     }
                     break;
                 case Direction.Right:
-                    if (x < Level.Grid.GetLength(1))
+                    if (x < Level.Grid.GetLength(1) - 1)
                     {
                         newX++;
                     }
