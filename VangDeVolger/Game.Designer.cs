@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.egg_timer = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pornToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,16 +42,6 @@
             this.howToPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 50;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 15000;
-            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
             // menuStrip1
             // 
@@ -177,9 +163,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer egg_timer;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pornToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neeToolStripMenuItem;

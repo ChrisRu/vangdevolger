@@ -10,9 +10,9 @@ namespace VangDeVolger
 {
     public class Level
     {
+        public const int Scale = 32;
         public static int Width;
         public static int Height;
-        public static int Scaling;
         public Control.ControlCollection Controls;
         public static Element[,] Grid;
 
@@ -58,13 +58,11 @@ namespace VangDeVolger
         /// <param name="controls">Controls of the Form</param>
         /// <param name="width">Width of the Form</param>
         /// <param name="height">Height of the Form</param>
-        /// <param name="scale">Scaling size of the Form</param>
-        public Level(Control.ControlCollection controls, int width, int height, int scale)
+        public Level(Control.ControlCollection controls, int width, int height)
         {
             Controls = controls;
-            Width = (width - width % scale) / scale;
-            Height = (height - height % scale) / scale - 1;
-            Scaling = scale;
+            Width = (width - width % Scale) / Scale;
+            Height = (height - height % Scale) / Scale - 1;
 
             Grid = GetRandomGrid(Width, Height);
 
@@ -209,7 +207,7 @@ namespace VangDeVolger
         {
             Grid[newX, newY] = Grid[x, y];
             Grid[x, y] = null;
-            Grid[newX, newY].Pb.Location = new Point(newX * Scaling, newY * Scaling);
+            Grid[newX, newY].Pb.Location = new Point(newX * Scale, newY * Scale);
             Grid[newX, newY].X = newX;
             Grid[newX, newY].Y = newY;
         }

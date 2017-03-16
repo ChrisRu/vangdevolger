@@ -5,6 +5,7 @@ namespace VangDeVolger.Elements
 {
     public abstract class Element
     {
+        public const int Scale = 32;
         public int X;
         public int Y;
         public PictureBox Pb;
@@ -20,9 +21,9 @@ namespace VangDeVolger.Elements
             Y = y;
             Pb = new PictureBox
             {
-                Size = new Size(Level.Scaling, Level.Scaling),
+                Size = new Size(Scale, Scale),
                 SizeMode = PictureBoxSizeMode.Zoom,
-                Location = new Point(x * Level.Scaling, y * Level.Scaling)
+                Location = new Point(x * Scale, y * Scale)
             };
         }
 

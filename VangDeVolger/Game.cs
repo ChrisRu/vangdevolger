@@ -6,6 +6,7 @@ namespace VangDeVolger
     public partial class Game : Form
     {
         public Level GameLevel;
+        private bool _paused;
 
         /// <summary>
         /// Initialize game
@@ -14,7 +15,7 @@ namespace VangDeVolger
         {
             InitializeComponent();
 
-            GameLevel = new Level(Controls, Width, Height, 32);
+            GameLevel = new Level(Controls, Width, Height);
         }
 
 
@@ -25,29 +26,7 @@ namespace VangDeVolger
         /// <param name="e">Arguments given by form</param>
         private void Game_Load(object sender, EventArgs e)
         {
-            timer1.Start();
-            timer2.Start();
             menuStrip1.Hide();
-        }
-
-        /// <summary>
-        /// Execute code every tick
-        /// </summary>
-        /// <param name="sender">The form</param>
-        /// <param name="e">Arguments given by form</param>
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            
-        }
-
-        /// <summary>
-        /// Execute code every tick
-        /// </summary>
-        /// <param name="sender">The form</param>
-        /// <param name="e">Arguments given by form</param>
-        private void Timer2_Tick(object sender, EventArgs e)
-        {
-            
         }
 
         /// <summary>
@@ -77,12 +56,15 @@ namespace VangDeVolger
         /// <param name="e">KeyData</param>
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            GameLevel.KeyDown(e);
+            if (!_paused)
+            {
+                GameLevel.KeyDown(e);
+            }
 
             // Toggle Menu
-            // TODO: Pause game on escape
             if (e.KeyCode == Keys.Escape)
             {
+                _paused = !_paused;
                 if (menuStrip1.Visible)
                 {
                     menuStrip1.Hide();
