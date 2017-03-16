@@ -9,6 +9,7 @@ namespace VangDeVolger.Elements.Birds
     {
         public PathFinder PathFinder;
         public List<Coordinates> Path;
+
         /// <summary>
         /// Initialize EnemyBird Class
         /// </summary>

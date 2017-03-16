@@ -192,7 +192,7 @@ namespace VangDeVolger.PathFinding
         {
             // Manhattan distance
             int x = Math.Abs(from.X - _to.X);
-            int y = Math.Abs(from.Y + _to.Y);
+            int y = Math.Abs(from.Y - _to.Y);
             return x + y;
         }
     }
