@@ -84,9 +84,9 @@ namespace VangDeVolger
             Element[,] blocks = new Element[sizeX, sizeY];
             Random random = new Random();
 
-            for (var y = 0; y < sizeY; y++)
+            for (int y = 0; y < sizeY; y++)
             {
-                for (var x = 0; x < sizeX; x++)
+                for (int x = 0; x < sizeX; x++)
                 {
                     int chance = random.Next(100);
 
@@ -174,11 +174,11 @@ namespace VangDeVolger
         /// </summary>
         public void Render()
         {
-            foreach (var block in Grid)
+            foreach (Element element in Grid)
             {
-                if (block != null)
+                if (element != null)
                 {
-                    Controls.Add(block.Pb);
+                    Controls.Add(element.Pb);
                 }
             }
         }
