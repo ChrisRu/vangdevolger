@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
@@ -90,6 +89,7 @@ namespace VangDeVolger
                 {
                     int chance = random.Next(100);
 
+                    
                     if (chance <= 5)
                     {
                         Block block = new BlockSolid(x, y);
@@ -100,6 +100,7 @@ namespace VangDeVolger
                         Block block = new BlockMovable(x, y);
                         blocks[x, y] = block;
                     }
+                    
                 }
             }
 
@@ -162,6 +163,11 @@ namespace VangDeVolger
         /// <param name="newY">New Y Position</param>
         public static void MoveBlock(int x, int y, int newX, int newY)
         {
+            if (x == newX && y == newY)
+            {
+                return;
+            }
+
             Grid[newX, newY] = Grid[x, y];
             Grid[x, y] = null;
             Grid[newX, newY].Pb.Location = new Point(newX * Scale, newY * Scale);
