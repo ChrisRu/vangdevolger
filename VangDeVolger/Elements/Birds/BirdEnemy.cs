@@ -25,7 +25,7 @@ namespace VangDeVolger.Elements.Birds
             PathFinder = new PathFinder(Level.Grid, new Coordinates(this.X, this.Y), new Coordinates(0, 0));
             Path = PathFinder.GetOptimalPath();
 
-            var timer = new Timer
+            Timer timer = new Timer
             {
                 Interval = 500
             };
@@ -58,6 +58,8 @@ namespace VangDeVolger.Elements.Birds
 
         private void _moveAlongPath(object sender, EventArgs e)
         {
+            if (Level.Paused) return;
+
             if (Path.Count > 0)
             {
                 if (X > Path[Path.Count - 1].X)

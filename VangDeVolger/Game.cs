@@ -6,7 +6,6 @@ namespace VangDeVolger
     public partial class Game : Form
     {
         public Level GameLevel;
-        private bool _paused;
 
         /// <summary>
         /// Initialize game
@@ -56,15 +55,12 @@ namespace VangDeVolger
         /// <param name="e">KeyData</param>
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            if (!_paused)
-            {
-                GameLevel.KeyDown(e);
-            }
+            GameLevel.KeyDown(e);
 
             // Toggle Menu
             if (e.KeyCode == Keys.Escape)
             {
-                _paused = !_paused;
+                Level.Paused = !Level.Paused;
 
                 if (menuStrip1.Visible)
                 {
