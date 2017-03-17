@@ -67,5 +67,14 @@ namespace VangDeVolger
                 }
             }
         }
+
+        private void Game_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                Level.Paused = true;
+                menuStrip1.Show();
+            }
+        }
     }
 }
