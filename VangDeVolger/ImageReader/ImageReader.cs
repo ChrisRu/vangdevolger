@@ -35,7 +35,7 @@ namespace VangDeVolger.ImageReader
                         case "000000":
                             grid[x, y] = null;
                             break;
-                        // Donker Wit
+                        // Black
                         case "ff000000":
                             grid[x, y] = new BlockSolid(x, y);
                             break;

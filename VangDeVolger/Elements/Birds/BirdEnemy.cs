@@ -44,6 +44,18 @@ namespace VangDeVolger.Elements.Birds
             return false;
         }
 
+        public Coordinates GetPlayerLocation()
+        {
+            foreach (Element element in Level.Grid)
+            {
+                if (element is Player)
+                {
+                    return new Coordinates(element.X, element.Y);
+                }
+            }
+            return new Coordinates(0, 0);
+        }
+
         private void _moveAlongPath(object sender, EventArgs e)
         {
             if (Path.Count > 0)
@@ -56,11 +68,11 @@ namespace VangDeVolger.Elements.Birds
                 {
                     ChangeDirection(Direction.Right);
                 }
-
-                Level.MoveBlock(X, Y, Path[Path.Count - 1].X, Path[Path.Count - 1].Y);
+                PathFinder = new PathFinder(Level.Grid, new Coordinates(X, Y), GetPlayerLocation());
+                Path = PathFinder.GetOptimalPath();
                 Path.Remove(Path[Path.Count - 1]);
+                Level.MoveBlock(X, Y, Path[Path.Count - 1].X, Path[Path.Count - 1].Y);
             }
-            //Path = PathFinder.GetOptimalPath();
         }
     }
 }
