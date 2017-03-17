@@ -12,6 +12,8 @@ namespace VangDeVolger
         private static Stream str = Properties.Resources.LoopyMusic;
         private SoundPlayer snd = new SoundPlayer(str);
 
+        public static int interval = 500;
+
         /// <summary>
         /// Initialize game
         /// </summary>
@@ -83,6 +85,21 @@ namespace VangDeVolger
         private void onToolStripMenuItem_Click(object sender, EventArgs e)
         {
             snd.PlayLooping();
+        }
+
+        private void easyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            interval = 700;
+        }
+
+        private void mediumToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            interval = 500;
+        }
+
+        private void hardToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            interval = 300;
         }
     }
 }

@@ -10,6 +10,8 @@ namespace VangDeVolger.Elements.Birds
         public PathFinder PathFinder;
         public List<Coordinates> Path;
 
+        public Timer timer = new Timer();
+
         /// <summary>
         /// Initialize EnemyBird Class
         /// </summary>
@@ -25,12 +27,34 @@ namespace VangDeVolger.Elements.Birds
             PathFinder = new PathFinder(Level.Grid, new Coordinates(this.X, this.Y), new Coordinates(0, 0));
             Path = PathFinder.GetOptimalPath();
 
-            Timer timer = new Timer
+            timer = new Timer
             {
                 Interval = 500
             };
             timer.Tick += _moveAlongPath;
             timer.Start();
+        }
+
+        public Boolean _gameOverCheck()
+        {
+            foreach (Element element in Level.Grid)
+            {
+                if (element is Player)
+                {
+                    foreach (Element element2 in Level.Grid)
+                    {
+                        if (element2 is Enemy)
+                        {
+                            if (element.Pb.Location == element2.Pb.Location)
+                            {
+                                // game over
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -59,6 +83,9 @@ namespace VangDeVolger.Elements.Birds
         private void _moveAlongPath(object sender, EventArgs e)
         {
             if (Level.Paused) return;
+            if (_gameOverCheck()) return;
+
+            timer.Interval = Game.interval;
 
             PathFinder = new PathFinder(Level.Grid, new Coordinates(X, Y), GetPlayerLocation());
             Path = PathFinder.GetOptimalPath();
