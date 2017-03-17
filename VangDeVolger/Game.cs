@@ -49,12 +49,7 @@ namespace VangDeVolger
             MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to get score:\n\tCapture red birds by moving blocks.\n\nPick up items for temporary boosts and destroy eggs to prevent new birds from spawning.\n\nGood luck!", "How to play");
         }
 
-        /// <summary>
-        /// Execute on KeyDown
-        /// </summary>
-        /// <param name="sender">The form</param>
-        /// <param name="e">KeyData</param>
-        private void Game_KeyDown(object sender, KeyEventArgs e)
+        private void Game_KeyUp(object sender, KeyEventArgs e)
         {
             if (!_paused)
             {
