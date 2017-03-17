@@ -52,7 +52,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(509, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(509, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -62,19 +62,19 @@
             this.neeToolStripMenuItem,
             this.jaToolStripMenuItem});
             this.pornToolStripMenuItem.Name = "pornToolStripMenuItem";
-            this.pornToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.pornToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.pornToolStripMenuItem.Text = "Game";
             // 
             // neeToolStripMenuItem
             // 
             this.neeToolStripMenuItem.Name = "neeToolStripMenuItem";
-            this.neeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.neeToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
             this.neeToolStripMenuItem.Text = "Restart";
             // 
             // jaToolStripMenuItem
             // 
             this.jaToolStripMenuItem.Name = "jaToolStripMenuItem";
-            this.jaToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.jaToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
             this.jaToolStripMenuItem.Text = "Pause";
             // 
             // optionsToolStripMenuItem
@@ -82,7 +82,7 @@
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modeToolStripMenuItem1});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
             // modeToolStripMenuItem1
@@ -92,25 +92,25 @@
             this.mediumToolStripMenuItem1,
             this.hardToolStripMenuItem1});
             this.modeToolStripMenuItem1.Name = "modeToolStripMenuItem1";
-            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(123, 26);
             this.modeToolStripMenuItem1.Text = "Mode";
             // 
             // easyToolStripMenuItem1
             // 
             this.easyToolStripMenuItem1.Name = "easyToolStripMenuItem1";
-            this.easyToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.easyToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
             this.easyToolStripMenuItem1.Text = "Easy";
             // 
             // mediumToolStripMenuItem1
             // 
             this.mediumToolStripMenuItem1.Name = "mediumToolStripMenuItem1";
-            this.mediumToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.mediumToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
             this.mediumToolStripMenuItem1.Text = "Medium";
             // 
             // hardToolStripMenuItem1
             // 
             this.hardToolStripMenuItem1.Name = "hardToolStripMenuItem1";
-            this.hardToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.hardToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
             this.hardToolStripMenuItem1.Text = "Hard";
             // 
             // helpToolStripMenuItem
@@ -119,20 +119,20 @@
             this.aboutToolStripMenuItem,
             this.howToPlayToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // howToPlayToolStripMenuItem
             // 
             this.howToPlayToolStripMenuItem.Name = "howToPlayToolStripMenuItem";
-            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.howToPlayToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.howToPlayToolStripMenuItem.Text = "How to play";
             this.howToPlayToolStripMenuItem.Click += new System.EventHandler(this.HowToPlayToolStripMenuItem_Click);
             // 
@@ -154,7 +154,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vang de Volger";
             this.Load += new System.EventHandler(this.Game_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Game_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
