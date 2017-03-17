@@ -9,6 +9,7 @@ namespace VangDeVolger
 {
     public class Level
     {
+        public static bool Paused;
         public const int Scale = 32;
         public Control.ControlCollection Controls;
         public static Element[,] Grid;
@@ -133,6 +134,8 @@ namespace VangDeVolger
         /// <param name="e">KeyData</param>
         public void KeyDown(KeyEventArgs e)
         {
+            if (Paused) return;
+
             Direction? direction = null;
             switch (e.KeyCode)
             {

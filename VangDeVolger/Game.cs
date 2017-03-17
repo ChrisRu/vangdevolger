@@ -8,7 +8,6 @@ namespace VangDeVolger
     public partial class Game : Form
     {
         public Level GameLevel;
-        private bool _paused;
 
         private static Stream str = Properties.Resources.LoopyMusic;
         private SoundPlayer snd = new SoundPlayer(str);
@@ -58,15 +57,12 @@ namespace VangDeVolger
 
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
-            if (!_paused)
-            {
-                GameLevel.KeyDown(e);
-            }
+            GameLevel.KeyDown(e);
 
             // Toggle Menu
             if (e.KeyCode == Keys.Escape)
             {
-                _paused = !_paused;
+                Level.Paused = !Level.Paused;
 
                 if (menuStrip1.Visible)
                 {

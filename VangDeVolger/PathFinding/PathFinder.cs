@@ -169,7 +169,7 @@ namespace VangDeVolger.PathFinding
             {
                 siblings.Add(grid[x - 1, y]);
             }
-            if (y < grid.GetLength(0) - 2)
+            if (y < grid.GetLength(0) - 1)
             {
                 siblings.Add(grid[x, y + 1]);
             }
