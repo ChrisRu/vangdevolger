@@ -60,6 +60,9 @@ namespace VangDeVolger.Elements.Birds
         {
             if (Level.Paused) return;
 
+            PathFinder = new PathFinder(Level.Grid, new Coordinates(X, Y), GetPlayerLocation());
+            Path = PathFinder.GetOptimalPath();
+
             if (Path.Count > 0)
             {
                 if (X > Path[Path.Count - 1].X)
@@ -70,8 +73,6 @@ namespace VangDeVolger.Elements.Birds
                 {
                     ChangeDirection(Direction.Right);
                 }
-                PathFinder = new PathFinder(Level.Grid, new Coordinates(X, Y), GetPlayerLocation());
-                Path = PathFinder.GetOptimalPath();
                 Path.Remove(Path[Path.Count - 1]);
                 Level.MoveBlock(X, Y, Path[Path.Count - 1].X, Path[Path.Count - 1].Y);
             }
