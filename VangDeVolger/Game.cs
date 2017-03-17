@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Media;
 using System.Windows.Forms;
 
 namespace VangDeVolger
@@ -7,6 +9,9 @@ namespace VangDeVolger
     {
         public Level GameLevel;
         private bool _paused;
+
+        private static Stream str = Properties.Resources.LoopyMusic;
+        private SoundPlayer snd = new SoundPlayer(str);
 
         /// <summary>
         /// Initialize game
@@ -27,6 +32,8 @@ namespace VangDeVolger
         private void Game_Load(object sender, EventArgs e)
         {
             menuStrip1.Hide();
+
+            snd.PlayLooping();
         }
 
         /// <summary>
@@ -70,6 +77,16 @@ namespace VangDeVolger
                     menuStrip1.Show();
                 }
             }
+        }
+
+        private void offToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            snd.Stop();
+        }
+
+        private void onToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            snd.PlayLooping();
         }
     }
 }

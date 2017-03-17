@@ -31,12 +31,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pornToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.jaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.easyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mediumToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.musicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.offToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,8 +61,7 @@
             // pornToolStripMenuItem
             // 
             this.pornToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neeToolStripMenuItem,
-            this.jaToolStripMenuItem});
+            this.neeToolStripMenuItem});
             this.pornToolStripMenuItem.Name = "pornToolStripMenuItem";
             this.pornToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.pornToolStripMenuItem.Text = "Game";
@@ -71,16 +72,11 @@
             this.neeToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
             this.neeToolStripMenuItem.Text = "Restart";
             // 
-            // jaToolStripMenuItem
-            // 
-            this.jaToolStripMenuItem.Name = "jaToolStripMenuItem";
-            this.jaToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
-            this.jaToolStripMenuItem.Text = "Pause";
-            // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modeToolStripMenuItem1});
+            this.modeToolStripMenuItem1,
+            this.musicToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -92,7 +88,7 @@
             this.mediumToolStripMenuItem1,
             this.hardToolStripMenuItem1});
             this.modeToolStripMenuItem1.Name = "modeToolStripMenuItem1";
-            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(123, 26);
+            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.modeToolStripMenuItem1.Text = "Mode";
             // 
             // easyToolStripMenuItem1
@@ -112,6 +108,29 @@
             this.hardToolStripMenuItem1.Name = "hardToolStripMenuItem1";
             this.hardToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
             this.hardToolStripMenuItem1.Text = "Hard";
+            // 
+            // musicToolStripMenuItem
+            // 
+            this.musicToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.onToolStripMenuItem,
+            this.offToolStripMenuItem});
+            this.musicToolStripMenuItem.Name = "musicToolStripMenuItem";
+            this.musicToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.musicToolStripMenuItem.Text = "Music";
+            // 
+            // onToolStripMenuItem
+            // 
+            this.onToolStripMenuItem.Name = "onToolStripMenuItem";
+            this.onToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.onToolStripMenuItem.Text = "On";
+            this.onToolStripMenuItem.Click += new System.EventHandler(this.onToolStripMenuItem_Click);
+            // 
+            // offToolStripMenuItem
+            // 
+            this.offToolStripMenuItem.Name = "offToolStripMenuItem";
+            this.offToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.offToolStripMenuItem.Text = "Off";
+            this.offToolStripMenuItem.Click += new System.EventHandler(this.offToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -166,7 +185,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pornToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem jaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem easyToolStripMenuItem1;
@@ -175,6 +193,9 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem howToPlayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem musicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem onToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem offToolStripMenuItem;
     }
 }
 
