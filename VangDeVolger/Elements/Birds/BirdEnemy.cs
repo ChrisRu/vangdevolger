@@ -45,7 +45,7 @@ namespace VangDeVolger.Elements.Birds
                     {
                         if (element2 is Enemy)
                         {
-                            if (element.Pb.Location == element2.Pb.Location)
+                            if (element.Pb.Bounds.IntersectsWith(element2.Pb.Bounds))
                             {
                                 // game over
                                 return true;
@@ -83,7 +83,7 @@ namespace VangDeVolger.Elements.Birds
         private void _moveAlongPath(object sender, EventArgs e)
         {
             if (Level.Paused) return;
-            if (_gameOverCheck()) return;
+            if (_gameOverCheck()) MessageBox.Show("U lose noob");
 
             timer.Interval = Game.interval;
 

@@ -77,6 +77,7 @@ namespace VangDeVolger
             }
         }
 
+<<<<<<< HEAD
         private void offToolStripMenuItem_Click(object sender, EventArgs e)
         {
             snd.Stop();
@@ -100,6 +101,15 @@ namespace VangDeVolger
         private void hardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             interval = 300;
+=======
+        private void Game_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                Level.Paused = true;
+                menuStrip1.Show();
+            }
+>>>>>>> a64d929d6ba4e100d4792da091f8b62d7e34c226
         }
     }
 }
