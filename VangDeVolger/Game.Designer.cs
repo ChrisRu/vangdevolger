@@ -68,19 +68,10 @@
             // 
             // neeToolStripMenuItem
             // 
-            this.neeToolStripMenuItem.Name = "neeToolStripMenuItem";
+            this.neeToolStripMenuItem.Name = "pauseToolStripMenuItem";
             this.neeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.neeToolStripMenuItem.Text = "Restart";
             // 
-<<<<<<< HEAD
-=======
-            // jaToolStripMenuItem
-            // 
-            this.jaToolStripMenuItem.Name = "jaToolStripMenuItem";
-            this.jaToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.jaToolStripMenuItem.Text = "Pause";
-            // 
->>>>>>> a64d929d6ba4e100d4792da091f8b62d7e34c226
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,43 +88,31 @@
             this.mediumToolStripMenuItem1,
             this.hardToolStripMenuItem1});
             this.modeToolStripMenuItem1.Name = "modeToolStripMenuItem1";
-<<<<<<< HEAD
             this.modeToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-=======
             this.modeToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
->>>>>>> a64d929d6ba4e100d4792da091f8b62d7e34c226
             this.modeToolStripMenuItem1.Text = "Mode";
             // 
             // easyToolStripMenuItem1
             // 
             this.easyToolStripMenuItem1.Name = "easyToolStripMenuItem1";
-<<<<<<< HEAD
             this.easyToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-=======
             this.easyToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
->>>>>>> a64d929d6ba4e100d4792da091f8b62d7e34c226
             this.easyToolStripMenuItem1.Text = "Easy";
             this.easyToolStripMenuItem1.Click += new System.EventHandler(this.easyToolStripMenuItem1_Click);
             // 
             // mediumToolStripMenuItem1
             // 
             this.mediumToolStripMenuItem1.Name = "mediumToolStripMenuItem1";
-<<<<<<< HEAD
             this.mediumToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-=======
             this.mediumToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
->>>>>>> a64d929d6ba4e100d4792da091f8b62d7e34c226
             this.mediumToolStripMenuItem1.Text = "Medium";
             this.mediumToolStripMenuItem1.Click += new System.EventHandler(this.mediumToolStripMenuItem1_Click);
             // 
             // hardToolStripMenuItem1
             // 
             this.hardToolStripMenuItem1.Name = "hardToolStripMenuItem1";
-<<<<<<< HEAD
             this.hardToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-=======
             this.hardToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
->>>>>>> a64d929d6ba4e100d4792da091f8b62d7e34c226
             this.hardToolStripMenuItem1.Text = "Hard";
             this.hardToolStripMenuItem1.Click += new System.EventHandler(this.hardToolStripMenuItem1_Click);
             // 
