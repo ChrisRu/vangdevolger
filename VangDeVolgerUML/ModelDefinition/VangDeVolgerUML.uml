@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="4f049a9b-ebc7-4e76-a813-3f5ab3654274"
   name="VangDeVolgerUML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -37,185 +37,57 @@
         </generalsInternal>
         <targetEnds>
           <association
-            Id="3a5695b9-3076-4a7c-ac99-0f0cdc369754"
+            Id="23ac2223-cf51-46f8-97e5-cd892fcaf637"
             isDerived="false"
             sourceEndRoleName="Game"
-            targetEndRoleName="Bird"
+            targetEndRoleName="Level"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
-              Id="da5c65cf-ff68-4778-842b-731916719147"
-              LastKnownName="Bird"
+              Id="7556f8fd-0a80-46f0-800f-0485bce193fa"
+              LastKnownName="Level"
               LastKnownLocation="VangDeVolgerUML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="f48b5adb-3222-4e4b-9c54-54f95bc0a31e"
+                  Id="b87f58f2-ba3e-44ca-86ee-4190cf3ac575"
                   name="Game"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="None"
+                  aggregation="Composite"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="98b7853f-ae2a-4488-bcca-c4540de39021"
-                  name="Bird"
+                  Id="5086a865-7494-45d3-86e6-e84c68c3bbd7"
+                  name="Level"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="a1ea66bc-a783-4a81-bdfa-f08b32572394"
-            isDerived="false"
-            sourceEndRoleName="Game"
-            targetEndRoleName="Block"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="8279b917-5ffc-4085-8bec-d24a73c89076"
-              LastKnownName="Block"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="53b16858-c8cb-454a-9812-b00896e6b9c7"
-                  name="Game"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="408526ee-bafa-46ee-ba8d-a1ea0457aba2"
-                  name="Block"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
+                  isComposite="true" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
-        <ownedAttributesInternal>
-          <property
-            Id="348378e2-5e14-43eb-8838-3ce17736ce72"
-            name="Block Size"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="63fc5c94-5323-4f33-b90c-bd9a0d01dd5a"
-            name="Window Width"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="f60fd8ce-42dd-47cf-ab67-404bccbd4f6a"
-            name="Window Height"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="fd8dcaac-eca4-4a1b-a533-22efaf1908a4"
-            name="Enemy List"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="17a96e67-e988-4275-a50a-de2836b98d86"
-            name="Block List"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="f5547165-7d5d-468e-948b-dce82195d9ea"
-            name="Key Down"
+            Id="7c16b6f9-d7c9-4275-bcee-157660d3a8a9"
+            name="KeyUp"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false" />
           <operation
-            Id="63eeae79-9b18-4ac7-81f2-9cf1000a7cf6"
-            name="Render"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="1f074479-87e9-4d95-844c-2c210e89f646"
-            name="Create Stopwatch"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="b2870c92-5f47-483d-8034-3c877a7dd4f0"
-            name="Create Egg"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="199bedf6-b328-407f-be85-141490c67d41"
-            name="Create Food"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="7e8828bf-8b35-4bc1-9051-b952db7f6080"
-            name="Create Grid"
+            Id="ba60f4d1-a6b8-44dd-af82-b7351dda0b64"
+            name="Form_Resize"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -231,10 +103,20 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="6070b379-430b-4154-bb78-d9aac9fe3e26"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
+              LastKnownName="Element"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
-            Id="6a05369d-6509-4902-9735-a08661423bc6"
-            name="Facing Direction"
+            Id="a483d1d0-736a-4e14-89a1-baa20ca3df13"
+            name="ImageLeft"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -244,8 +126,8 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="56bc357a-ed98-4f9d-96de-fbfe3171160a"
-            name="Moving Direction"
+            Id="e7475b99-4ad8-4a43-bf4b-e360215cf696"
+            name="ImageRight"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -255,30 +137,8 @@
             aggregation="None"
             isComposite="false" />
           <property
-            Id="7a691416-1a29-4a49-ae5a-cb6042d7eaca"
-            name="Location"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="d60edc01-ea9b-4822-b5e9-8ee0458bcdce"
-            name="Size"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="85f725c8-3ca3-4ebd-9ac4-a338f3f152fd"
-            name="Pb"
+            Id="d8ade708-3643-43b5-bb69-8414b6b2ab4f"
+            name="GoingRight"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -288,24 +148,6 @@
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="a705b107-a6e4-4805-82eb-cf0b229f4586"
-            name="Move"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="18ab0f12-3bb1-46f0-8743-0f40f5c4a9b9"
-            name="Change Direction"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -315,43 +157,20 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="3e3b6b4f-dab9-475f-bdee-2ebc5bae7f88"
+            isSubstitutable="false">
+            <classMoniker
+              Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
+              LastKnownName="Element"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributesInternal>
           <property
-            Id="aaa8918c-09c5-4c5c-8575-4c44f998ab8e"
-            name="Size"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="529fb6a9-d455-4f5f-8f9d-ba057155d3af"
-            name="Location"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="0543a62d-da32-440c-b98b-c084bf055413"
-            name="Sibblings"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="05e344a9-2a30-47ec-a633-5317a34a3604"
-            name="Pb"
+            Id="c2f6ba2c-44da-48e7-976d-fe509d1b1063"
+            name="Image"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -361,22 +180,12 @@
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="494bd931-d406-4313-a014-646f631ff9f6"
-            name="Touch"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
         Id="e08acf9d-6eea-40c2-b113-51335856ce76"
-        name="BirdPlayer"
+        name="Player"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -390,25 +199,12 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="0935cb8c-51d0-4d49-8f32-82ac87946c90"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <class
         Id="474c8cf6-c0f9-4a79-afe2-9517b7d8e034"
-        name="BirdEnemy"
+        name="Enemy"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -422,10 +218,51 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="eaa59eb0-6849-477e-87a6-700724801898"
+            isDerived="false"
+            sourceEndRoleName="Enemy"
+            targetEndRoleName="PathFinder"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="bcfdaa8f-f04a-4897-8ed7-867d69a8317f"
+              LastKnownName="PathFinder"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2ed6a72d-b86c-4268-bd51-88981630b01e"
+                  name="Enemy"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fbe29bf6-176b-467c-bbcf-c756ba4acf8c"
+                  name="PathFinder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
-            Id="b406acf1-ccea-4ee5-b9c6-ea45302dd91b"
-            name="Image"
+            Id="d0f812c5-4bd7-4ad2-994e-82e431749c86"
+            name="MoveTimer"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -435,6 +272,24 @@
             aggregation="None"
             isComposite="false" />
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="9934af13-67fd-446b-a2eb-3798b762a53c"
+            name="IsGameOver"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="783aaa6d-c553-47d1-9039-531c92235027"
+            name="MoveAlongPath"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -446,7 +301,7 @@
         isActiveClass="false">
         <generalsInternal>
           <generalization
-            Id="49ffa483-bba5-4d1c-8405-9410ff99207c"
+            Id="8689185b-6443-4924-a361-cd751afdab81"
             isSubstitutable="false">
             <classMoniker
               Id="8279b917-5ffc-4085-8bec-d24a73c89076"
@@ -454,19 +309,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="1cd4cf8c-6ce3-4be1-a577-1769a3ad2c73"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -486,19 +328,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="2698769d-c693-4e2f-97a1-e923fe4cc3d5"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -518,19 +347,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="64b13935-5629-455b-b1e7-824e4639ca13"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -550,19 +366,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="545170ae-18ce-498e-a5e2-95b0e74809ff"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -582,19 +385,6 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
-        <ownedAttributesInternal>
-          <property
-            Id="7100a65b-88ad-4772-ba1a-afa759efea3a"
-            name="Image"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -604,6 +394,427 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
+        name="Element"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="b9dbb4de-05e9-405a-a4cc-1126d2738966"
+            name="X"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="bb9bd4f2-610b-4d4c-bb95-8aff2b0cd24c"
+            name="Y"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="d04b2f77-819a-40a4-80d0-0175ad401897"
+            name="Pb"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b55dcff0-b94f-40dc-84df-fd1fcd939129"
+                LastKnownName="Picturebox"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="47328a4f-aee0-4fcc-b5a0-20eb63e5297d"
+            name="Move"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="b41319f7-67f0-45cf-baf8-8267d53e371e"
+            name="DirectionToLocation"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7556f8fd-0a80-46f0-800f-0485bce193fa"
+        name="Level"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="5e59543f-a861-491c-9738-a39ca573bd92"
+            isDerived="false"
+            sourceEndRoleName="Level"
+            targetEndRoleName="Element"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
+              LastKnownName="Element"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8821e0b5-c867-4559-8333-1d475f7d1dc0"
+                  name="Level"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dddcf470-ff0f-4675-88b5-32b03fb9f148"
+                  name="Element"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="0237f80a-537b-4938-9c43-3241d8c14b9a"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c68ece8a-0a6d-42d0-86d0-2b65084f9aa4"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="0ecb9f9e-97fa-499b-bb06-50459ecfc414"
+            isDerived="false"
+            sourceEndRoleName="Level"
+            targetEndRoleName="ImageReader"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="c9d5fdb6-04be-4607-8d89-a4a5cbcb0e19"
+              LastKnownName="ImageReader"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b76a706c-5d7e-4885-a904-0568506bde52"
+                  name="Level"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="60b8e719-2b6b-4f1a-bdbe-b12e8e489df8"
+                  name="ImageReader"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="e966581a-bf52-4386-a8d0-e9fb71889778"
+            name="Paused"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="3d3d6253-12be-47b6-a9f2-f1937f6e5f44"
+                LastKnownName="Bool"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8b6454ed-1150-4a9b-a7d7-4d5b390d7b79"
+            name="Scale"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="a8e468a1-6ecc-4cdd-82b1-42fd99a2c181"
+                LastKnownName="Int"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ae34d2be-9467-4aaa-a560-9556aa47b0be"
+            name="Player"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="fc557150-a0c4-474f-b622-d68de369aace"
+            name="Enemy"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="1833d6ca-2e04-4fc6-b969-cc6c7f809dcf"
+            name="GetRandomGrid"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="d1f64218-2a4b-468a-be85-0773f3cf1253"
+            name="GetRandomOpenPosition"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="74ce90f1-ad0b-476d-abd7-f1386699f69e"
+            name="KeyDown"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f15234b1-36ca-4c76-8997-3436aec37b2d"
+            name="Render"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="42f6a0a4-e846-4035-9e84-26948abf5340"
+            name="MoveBlock"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="3d3d6253-12be-47b6-a9f2-f1937f6e5f44"
+        name="Bool" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a8e468a1-6ecc-4cdd-82b1-42fd99a2c181"
+        name="Int" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="a292210d-3a3f-4cc7-8c65-79d0632ccd32"
+        name="Direction"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="70bb943f-a4b5-48ae-bea0-9463593c9a6b"
+            name="Up" />
+          <enumerationLiteral
+            Id="f09bb43f-1e05-4ee2-a749-91cae0c0a36b"
+            name="Down" />
+          <enumerationLiteral
+            Id="e22461a5-46a8-4977-9346-ff3c4a6ee25f"
+            name="Left" />
+          <enumerationLiteral
+            Id="10d024d8-8b06-4c25-8483-5b6726a43e70"
+            name="Right" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="eb239ffc-d3f5-4350-ab7c-14c67e3fa9ef"
+        name="Coordinates : Struct"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b55dcff0-b94f-40dc-84df-fd1fcd939129"
+        name="Picturebox" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bcfdaa8f-f04a-4897-8ed7-867d69a8317f"
+        name="PathFinder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="47040c33-4a52-491a-8da8-cf1a397f0f02"
+            isDerived="false"
+            sourceEndRoleName="PathFinder"
+            targetEndRoleName="PathFinderBlock"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="f6e2455d-5056-4cfb-8a31-29f53f51080a"
+              LastKnownName="PathFinderBlock"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5f5e4e44-d80b-4b76-aa4f-1d7063d99305"
+                  name="PathFinder"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a5994517-fcae-4292-9fad-8ae9c7f8bbf5"
+                  name="PathFinderBlock"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f1bfbfd2-18e8-42de-aebf-432175215e68"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a4fbf86a-8f06-4a00-8cc8-8d27848915c0"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f6e2455d-5056-4cfb-8a31-29f53f51080a"
+        name="PathFinderBlock"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c9d5fdb6-04be-4607-8d89-a4a5cbcb0e19"
+        name="ImageReader"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="2aeb36e0-0e9d-4e38-9e75-1a01a7fb585e"
+            name="ImageBItmap"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="2833592f-8d4d-414a-b989-f7e6a1aaca4d"
+            name="GetGrid"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

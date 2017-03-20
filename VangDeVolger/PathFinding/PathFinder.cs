@@ -102,7 +102,6 @@ namespace VangDeVolger.PathFinding
                 }
             }
             // No solution
-            MessageBox.Show("Enemy Bird has been trapped!");
             return path;
         }
 
