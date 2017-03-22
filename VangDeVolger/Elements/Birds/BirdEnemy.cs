@@ -35,28 +35,6 @@ namespace VangDeVolger.Elements.Birds
             timer.Start();
         }
 
-        public Boolean _gameOverCheck()
-        {
-            foreach (Element element in Level.Grid)
-            {
-                if (element is Player)
-                {
-                    foreach (Element element2 in Level.Grid)
-                    {
-                        if (element2 is Enemy)
-                        {
-                            if (element.Pb.Bounds.IntersectsWith(element2.Pb.Bounds))
-                            {
-                                // game over
-                                return true;
-                            }
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
         /// <summary>
         /// Move Bird with controls
         /// </summary>
@@ -83,7 +61,6 @@ namespace VangDeVolger.Elements.Birds
         private void _moveAlongPath(object sender, EventArgs e)
         {
             if (Level.Paused) return;
-            if (_gameOverCheck()) MessageBox.Show("U lose noob");
 
             timer.Interval = Game.interval;
 

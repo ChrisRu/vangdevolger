@@ -68,7 +68,7 @@
             // 
             // neeToolStripMenuItem
             // 
-            this.neeToolStripMenuItem.Name = "pauseToolStripMenuItem";
+            this.neeToolStripMenuItem.Name = "neeToolStripMenuItem";
             this.neeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.neeToolStripMenuItem.Text = "Restart";
             // 
@@ -88,14 +88,12 @@
             this.mediumToolStripMenuItem1,
             this.hardToolStripMenuItem1});
             this.modeToolStripMenuItem1.Name = "modeToolStripMenuItem1";
-            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
-            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(106, 22);
             this.modeToolStripMenuItem1.Text = "Mode";
             // 
             // easyToolStripMenuItem1
             // 
             this.easyToolStripMenuItem1.Name = "easyToolStripMenuItem1";
-            this.easyToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.easyToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.easyToolStripMenuItem1.Text = "Easy";
             this.easyToolStripMenuItem1.Click += new System.EventHandler(this.easyToolStripMenuItem1_Click);
@@ -103,7 +101,6 @@
             // mediumToolStripMenuItem1
             // 
             this.mediumToolStripMenuItem1.Name = "mediumToolStripMenuItem1";
-            this.mediumToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.mediumToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.mediumToolStripMenuItem1.Text = "Medium";
             this.mediumToolStripMenuItem1.Click += new System.EventHandler(this.mediumToolStripMenuItem1_Click);
@@ -111,7 +108,6 @@
             // hardToolStripMenuItem1
             // 
             this.hardToolStripMenuItem1.Name = "hardToolStripMenuItem1";
-            this.hardToolStripMenuItem1.Size = new System.Drawing.Size(181, 26);
             this.hardToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.hardToolStripMenuItem1.Text = "Hard";
             this.hardToolStripMenuItem1.Click += new System.EventHandler(this.hardToolStripMenuItem1_Click);
@@ -122,20 +118,20 @@
             this.onToolStripMenuItem,
             this.offToolStripMenuItem});
             this.musicToolStripMenuItem.Name = "musicToolStripMenuItem";
-            this.musicToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.musicToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.musicToolStripMenuItem.Text = "Music";
             // 
             // onToolStripMenuItem
             // 
             this.onToolStripMenuItem.Name = "onToolStripMenuItem";
-            this.onToolStripMenuItem.Size = new System.Drawing.Size(105, 26);
+            this.onToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.onToolStripMenuItem.Text = "On";
             this.onToolStripMenuItem.Click += new System.EventHandler(this.onToolStripMenuItem_Click);
             // 
             // offToolStripMenuItem
             // 
             this.offToolStripMenuItem.Name = "offToolStripMenuItem";
-            this.offToolStripMenuItem.Size = new System.Drawing.Size(105, 26);
+            this.offToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.offToolStripMenuItem.Text = "Off";
             this.offToolStripMenuItem.Click += new System.EventHandler(this.offToolStripMenuItem_Click);
             // 

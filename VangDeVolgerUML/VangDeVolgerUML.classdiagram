@@ -130,28 +130,6 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="5f4850a8-c368-4af5-ad92-b097114c3b1a" name="BlockEgg" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="047042b8-3f54-43a0-971a-6e0b995bdbb0" />
-        <generalsInternal>
-          <generalization Id="28639732-13c7-4b8f-afd0-e890cd396e7f" isSubstitutable="false">
-            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
-            <elementDefinition Id="8689185b-6443-4924-a361-cd751afdab81" />
-          </generalization>
-        </generalsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="2b51c8e5-bc59-449e-95f1-d7e6907d4db9" name="BlockFood" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="10b93fa1-e0a3-407d-bf3c-ba71a3f505c4" />
-        <generalsInternal>
-          <generalization Id="db8f58b6-0981-4165-8d94-bc297928e33e" isSubstitutable="false">
-            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
-            <elementDefinition Id="7b5c9433-7d72-4a0b-81ad-9d294a44d13d" />
-          </generalization>
-        </generalsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
       <class Id="13f0c2fb-3159-4f70-a2bd-8ef9ce1dc758" name="BlockMovable" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="2f82f829-89a8-4de5-8495-5ff1f46fa60f" />
         <generalsInternal>
@@ -169,17 +147,6 @@
           <generalization Id="6d572b22-dbee-4efd-a517-9fad3a9f40cf" isSubstitutable="false">
             <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
             <elementDefinition Id="220554b0-5ead-46d2-909a-6d3d82f307a4" />
-          </generalization>
-        </generalsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="5d8f5dee-9279-466c-aad6-473b26bfc9a1" name="BlockStopwatch" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="b55bdb55-6512-446b-9ca6-16e3d170cae6" />
-        <generalsInternal>
-          <generalization Id="347448d4-b963-4524-b19f-a281f4c7906d" isSubstitutable="false">
-            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
-            <elementDefinition Id="f1adf539-f72a-4d68-9c70-da85f956706b" />
           </generalization>
         </generalsInternal>
       </class>
@@ -231,7 +198,7 @@
               <associationHasOwnedEnds>
                 <memberEnd Id="a5eca88c-04c8-4a5f-ad9d-57ae202a92cd" name="Element" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
                   <lowerValueInternal>
-                    <literalString Id="e1514064-cddd-4db7-ab79-8f3b5b3cb08c" name="Lower" value="0">
+                    <literalString Id="e1514064-cddd-4db7-ab79-8f3b5b3cb08c" name="Lower" value="2">
                       <elementDefinition Id="0237f80a-537b-4938-9c43-3241d8c14b9a" />
                     </literalString>
                   </lowerValueInternal>
@@ -367,11 +334,68 @@
             <elementDefinition Id="47040c33-4a52-491a-8da8-cf1a397f0f02" />
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="5ee4a9ae-1345-44f9-b8ec-672222903fff" name="OpenSet" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8cd84af9-1914-4a87-9765-aa604877aa0f" />
+          </property>
+          <property Id="e057e511-6a71-43ec-aa73-bf9ea925fb96" name="ClosedSet" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bbe6ba85-b8a2-497f-95a1-a68ebcef3360" />
+          </property>
+          <property Id="4aabda82-59a5-4232-a445-636b2aeceeb6" name="To" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5333ab6c-bec8-4426-aeb5-2778f6f57c75" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="ec576d7c-a692-4d4d-9416-27441a2100c4" name="GetOptimalPath" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b7a93a55-606a-4d7c-bce2-10de4003b58e" />
+          </operation>
+          <operation Id="22a0a1a6-ab9b-4183-ad42-b3ea85ddeb84" name="Heuristic" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9caf9e07-29ce-4163-9d94-8f20bea0b295" />
+          </operation>
+          <operation Id="56d7e4d6-a59b-4a4f-89f3-2ec7b77f86b2" name="TransformBlocks" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0408f566-113b-4ba8-98bf-002be008ad5d" />
+          </operation>
+          <operation Id="b65eb4c7-4791-406b-8cf3-bf9049548207" name="TransformBlock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="9e5a9800-e276-4812-a5ef-fab07089c6e0" />
+          </operation>
+          <operation Id="fad9d4d8-1706-40bd-a89a-8517b3111878" name="AddSibling" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c1d01fea-e501-409f-aa67-85fe6ac344ec" />
+          </operation>
+          <operation Id="87b43be6-219a-4345-98f9-10f3c025c3cd" name="AddSiblings" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="44174e42-6de1-4716-80cf-7ed29c919c09" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="14838f2b-dbd0-478d-bb4c-8c17bfe198b2" name="PathFinderBlock" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="f6e2455d-5056-4cfb-8a31-29f53f51080a" />
+        <ownedAttributesInternal>
+          <property Id="c3f2fb5f-5e47-45de-843c-a518ef7e21c1" name="F" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bacb0368-fc42-4344-b7e2-15eef7561275" />
+          </property>
+          <property Id="4d660ba4-26e6-4482-a31b-e347e5cf7900" name="G" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c185bdde-fd74-4b41-972d-43dc71cbe2a1" />
+          </property>
+          <property Id="eb359219-2a8d-4bea-8b51-d62c33c4e68e" name="H" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="50bbf35e-ed84-47c2-9dfb-a816ea28c301" />
+          </property>
+          <property Id="6535304b-29e4-4c2b-8d93-cf1d5f6ed723" name="Element" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="181f597c-afa8-42f1-a96b-39c427fa9fb2" />
+          </property>
+          <property Id="b8c05ce6-2d16-454e-a63a-6848ced40f83" name="X" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3f0f9198-db8c-4150-bf90-0fb81f807cb4" />
+          </property>
+          <property Id="11666bbc-f353-4ce7-9efd-248d12539d93" name="Y" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="41ee0e02-5351-472d-b3c8-0ccb3b96715c" />
+          </property>
+          <property Id="d9cee2a4-000c-4327-a32d-cb751c553614" name="CameFrom" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6f6ec7fe-7d78-4ae7-9a99-0f9245599fca" />
+          </property>
+          <property Id="013e1acc-118c-4412-9aed-04c3e3e2b972" name="SiblingBlocks" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f8479a90-c58f-4541-bb47-7c5f539ec92f" />
+          </property>
+        </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>

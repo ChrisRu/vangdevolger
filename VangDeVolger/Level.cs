@@ -170,6 +170,10 @@ namespace VangDeVolger
             if (x == newX && y == newY)
             {
                 return;
+            } else if (Grid[x, y] is Enemy && Grid[newX, newY] is Player || Grid[x, y] is Player && Grid[newX, newY] is Enemy)
+            {
+                MessageBox.Show("GAME OVER");
+                return;
             }
 
             Grid[newX, newY] = Grid[x, y];
