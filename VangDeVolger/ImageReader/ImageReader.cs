@@ -13,9 +13,9 @@ namespace VangDeVolger.ImageReader
             ImageBitmap = new Bitmap(image);
         }
 
-        public Element[,] GetGrid()
+        public Spot[,] GetGrid()
         {
-            Element[,] grid = new Element[ImageBitmap.Width, ImageBitmap.Height];
+            Spot[,] grid = new Spot[ImageBitmap.Width, ImageBitmap.Height];
 
             for (int y = 0; y < ImageBitmap.Height; y++)
             {
@@ -31,7 +31,7 @@ namespace VangDeVolger.ImageReader
                             break;
                         // Black
                         case "ff000000":
-                            grid[x, y] = new BlockSolid(x, y);
+                            grid[x, y] = new Spot(new BlockSolid());
                             break;
                     }
                 }

@@ -8,7 +8,6 @@ namespace VangDeVolger.Elements.Birds
     internal class Enemy : Bird
     {
         public PathFinder PathFinder;
-        public List<Coordinates> Path;
 
         public Timer timer = new Timer();
 
@@ -17,21 +16,22 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         /// <param name="x">Position X on grid</param>
         /// <param name="y">Position Y on grid</param>
-        public Enemy(int x, int y) : base(x, y)
+        public Enemy()
         {
             ImageLeft = Properties.Resources.bird_red_left;
             ImageRight = Properties.Resources.bird_red_right;
             Pb.Image = ImageLeft;
             GoingRight = false;
-
+            /*
             PathFinder = new PathFinder(Level.Grid, new Coordinates(this.X, this.Y), new Coordinates(0, 0));
             Path = PathFinder.GetOptimalPath();
+            */
 
             timer = new Timer
             {
                 Interval = 500
             };
-            timer.Tick += _moveAlongPath;
+            //timer.Tick += _moveAlongPath;
             timer.Start();
         }
 
@@ -45,7 +45,7 @@ namespace VangDeVolger.Elements.Birds
 
             return false;
         }
-
+        /*
         public Coordinates GetPlayerLocation()
         {
             foreach (Element element in Level.Grid)
@@ -80,6 +80,6 @@ namespace VangDeVolger.Elements.Birds
                 Path.Remove(Path[Path.Count - 1]);
                 Level.MoveBlock(X, Y, Path[Path.Count - 1].X, Path[Path.Count - 1].Y);
             }
-        }
+        }*/
     }
 }

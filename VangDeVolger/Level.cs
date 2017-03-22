@@ -12,43 +12,7 @@ namespace VangDeVolger
         public static bool Paused;
         public const int Scale = 32;
         public Control.ControlCollection Controls;
-        public static Element[,] Grid;
-
-        public Element Player
-        {
-            get
-            {
-                Coordinates playerCoordinates = new Coordinates();
-
-                foreach (Element element in Grid)
-                {
-                    if (element is Player)
-                    {
-                        playerCoordinates = new Coordinates(element.X, element.Y);
-                    }
-                }
-
-                return Grid[playerCoordinates.X, playerCoordinates.Y];
-            }
-        }
-
-        public Element Enemy
-        {
-            get
-            {
-                Coordinates enemyCoordinates = new Coordinates();
-
-                foreach (Element element in Grid)
-                {
-                    if (element is Enemy)
-                    {
-                        enemyCoordinates = new Coordinates(element.X, element.Y);
-                    }
-                }
-
-                return Grid[enemyCoordinates.X, enemyCoordinates.Y];
-            }
-        }
+        public Spot[,] Grid { get; set; }
 
         /// <summary>
         /// Initialize Level Class
@@ -66,10 +30,10 @@ namespace VangDeVolger
             //Grid = new ImageReader.ImageReader(Properties.Resources.maze).GetGrid();
 
             // Create Player
-            Grid[0, 0] = new Player(0, 0);
+            Grid[0, 0] = new Spot(new Player());
 
             // Create Enemy
-            Grid[width - 1, height - 1] = new Enemy(width - 1, height - 1);
+            Grid[width - 1, height - 1] = new Spot(new Enemy());
 
             Render();
         }
@@ -80,9 +44,9 @@ namespace VangDeVolger
         /// <param name="sizeX">Grid size horizontally</param>
         /// <param name="sizeY">Grid size vertically</param>
         /// <returns>Jagged Array of Elements</returns>
-        public Element[,] GetRandomGrid(int sizeX, int sizeY)
+        public Spot[,] GetRandomGrid(int sizeX, int sizeY)
         {
-            Element[,] blocks = new Element[sizeX, sizeY];
+            Spot[,] spots = new Spot[sizeX, sizeY];
             Random random = new Random();
 
             for (int y = 0; y < sizeY; y++)
@@ -90,42 +54,22 @@ namespace VangDeVolger
                 for (int x = 0; x < sizeX; x++)
                 {
                     int chance = random.Next(100);
-
                     
                     if (chance <= 5)
                     {
-                        Block block = new BlockSolid(x, y);
-                        blocks[x, y] = block;
+                        Spot spot = new Spot(new BlockSolid());
+                        spots[x, y] = spot;
                     }
                     else if (chance <= 25)
                     {
-                        Block block = new BlockMovable(x, y);
-                        blocks[x, y] = block;
+                        Spot spot = new Spot(new BlockMovable());
+                        spots[x, y] = spot;
                     }
                     
                 }
             }
 
-            return blocks;
-        }
-
-        /// <summary>
-        /// Get Random Open Position in the Grid
-        /// </summary>
-        /// <returns>Random Open Coordinates</returns>
-        public Coordinates GetRandomOpenPosition()
-        {
-            Random random = new Random();
-            while (true)
-            {
-                int randomX = random.Next(0, Grid.GetLength(0));
-                int randomY = random.Next(0, Grid.GetLength(1));
-
-                if (Grid[randomX, randomY] == null)
-                {
-                    return new Coordinates(randomX, randomY);
-                }
-            }
+            return spots;
         }
 
         /// <summary>
@@ -154,33 +98,8 @@ namespace VangDeVolger
             }
             if (direction != null)
             {
-                Player.Move((Direction) direction);
+                //Player.Move((Direction) direction);
             }
-        }
-
-        /// <summary>
-        /// Move Block from position to new position
-        /// </summary>
-        /// <param name="x">Initial X Position</param>
-        /// <param name="y">Initial Y Position</param>
-        /// <param name="newX">New X Position</param>
-        /// <param name="newY">New Y Position</param>
-        public static void MoveBlock(int x, int y, int newX, int newY)
-        {
-            if (x == newX && y == newY)
-            {
-                return;
-            } else if (Grid[x, y] is Enemy && Grid[newX, newY] is Player || Grid[x, y] is Player && Grid[newX, newY] is Enemy)
-            {
-                MessageBox.Show("GAME OVER");
-                return;
-            }
-
-            Grid[newX, newY] = Grid[x, y];
-            Grid[x, y] = null;
-            Grid[newX, newY].Pb.Location = new Point(newX * Scale, newY * Scale);
-            Grid[newX, newY].X = newX;
-            Grid[newX, newY].Y = newY;
         }
 
         /// <summary>
@@ -188,11 +107,34 @@ namespace VangDeVolger
         /// </summary>
         public void Render()
         {
-            foreach (Element element in Grid)
+            for (int y = 0; y < Grid.GetLength(0); y++)
             {
-                if (element != null)
+                for (int x = 0; x < Grid.GetLength(1); x++)
                 {
-                    Controls.Add(element.Pb);
+                    Spot spot = Grid[x, y];
+                    if (spot?.Element != null)
+                    {
+                        spot.Element.Pb.Location = new Point(x * Scale, y * Scale);
+
+                        if (y != 0)
+                        {
+                            spot.Neighbors.Add(Direction.Up, Grid[x, y - 1]);
+                        }
+                        if (y != Grid.GetLength(0) - 1)
+                        {
+                            spot.Neighbors.Add(Direction.Down, Grid[x, y + 1]);
+                        }
+                        if (x != 0)
+                        {
+                            spot.Neighbors.Add(Direction.Left, Grid[x - 1, y]);
+                        }
+                        if (x != Grid.GetLength(1) - 1)
+                        {
+                            spot.Neighbors.Add(Direction.Right, Grid[x + 1, y]);
+                        }
+                        
+                        Controls.Add(spot.Element.Pb);
+                    }
                 }
             }
         }

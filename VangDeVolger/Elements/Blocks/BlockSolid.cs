@@ -5,9 +5,7 @@
         /// <summary>
         /// Initialize BlockSolid Class
         /// </summary>
-        /// <param name="x">Position X on grid</param>
-        /// <param name="y">Position Y on grid</param>
-        public BlockSolid(int x, int y) : base(x, y)
+        public BlockSolid()
         {
             Image = Properties.Resources.solid;
             Pb.Image = Image;

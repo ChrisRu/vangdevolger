@@ -8,6 +8,7 @@ namespace VangDeVolger.PathFinding
 {
     internal class PathFinder
     {
+        /*
         private readonly List<PathFinderElement> _openSet = new List<PathFinderElement>();
         private readonly List<PathFinderElement> _closedSet = new List<PathFinderElement>();
 
@@ -19,7 +20,7 @@ namespace VangDeVolger.PathFinding
         /// <param name="grid">Current Grid of Elements</param>
         /// <param name="from">Position of Enemy Bird</param>
         /// <param name="to">Position of Player Bird</param>
-        public PathFinder(Element[,] grid, Coordinates from, Coordinates to)
+        public PathFinder(Element[,] grid, Spot from, Spot to)
         {
             PathFinderElement[,] pathFinderGrid = _addSiblings(_transformGrid(grid));
             foreach (PathFinderElement item in pathFinderGrid)
@@ -193,6 +194,6 @@ namespace VangDeVolger.PathFinding
             int x = Math.Abs(from.X - _to.X);
             int y = Math.Abs(from.Y - _to.Y);
             return x + y;
-        }
+        }*/
     }
 }

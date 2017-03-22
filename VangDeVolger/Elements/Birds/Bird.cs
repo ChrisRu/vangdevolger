@@ -4,18 +4,18 @@ namespace VangDeVolger.Elements.Birds
 {
     public abstract class Bird : Element
     {
-        protected Image ImageLeft;
-        protected Image ImageRight;
-        protected bool GoingRight = true;
+        protected Image ImageLeft { get; set; }
+        protected Image ImageRight { get; set; }
+        protected bool GoingRight { get; set; }
 
         /// <summary>
         /// Initialize Bird Class
         /// </summary>
         /// <param name="x">Position X on grid</param>
         /// <param name="y">Position Y on grid</param>
-        protected Bird(int x, int y) : base (x, y)
+        protected Bird()
         {
-            
+            GoingRight = true;
         }
 
         /// <summary>

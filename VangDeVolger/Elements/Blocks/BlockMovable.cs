@@ -5,9 +5,7 @@
         /// <summary>
         /// Initialize BlockMovable Class
         /// </summary>
-        /// <param name="x">Position X on grid</param>
-        /// <param name="y">Position Y on grid</param>
-        public BlockMovable(int x, int y) : base(x, y)
+        public BlockMovable()
         {
             Image = Properties.Resources.tree;
             Pb.Image = Image;
@@ -20,9 +18,7 @@
         /// <returns>bool Can move</returns>
         public override bool Move(Direction direction)
         {
-            Coordinates newLocation = DirectionToLocation(X, Y, direction);
-            Element nextBlock = Level.Grid[newLocation.X, newLocation.Y];
-
+            /*
             if (newLocation.X == X && newLocation.Y == Y)
             {
                 return false;
@@ -39,6 +35,7 @@
                 Level.MoveBlock(X, Y, newLocation.X, newLocation.Y);
                 return true;
             }
+            */
 
             return false;
         }
