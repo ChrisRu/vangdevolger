@@ -77,27 +77,27 @@ namespace VangDeVolger
             }
         }
 
-        private void offToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OffToolStripMenuItem_Click(object sender, EventArgs e)
         {
             snd.Stop();
         }
 
-        private void onToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             snd.PlayLooping();
         }
 
-        private void easyToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             interval = 700;
         }
 
-        private void mediumToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void MediumToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             interval = 500;
         }
 
-        private void hardToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void HardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             interval = 300;
         }

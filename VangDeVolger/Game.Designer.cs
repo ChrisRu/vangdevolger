@@ -96,21 +96,21 @@
             this.easyToolStripMenuItem1.Name = "easyToolStripMenuItem1";
             this.easyToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.easyToolStripMenuItem1.Text = "Easy";
-            this.easyToolStripMenuItem1.Click += new System.EventHandler(this.easyToolStripMenuItem1_Click);
+            this.easyToolStripMenuItem1.Click += new System.EventHandler(this.EasyToolStripMenuItem1_Click);
             // 
             // mediumToolStripMenuItem1
             // 
             this.mediumToolStripMenuItem1.Name = "mediumToolStripMenuItem1";
             this.mediumToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.mediumToolStripMenuItem1.Text = "Medium";
-            this.mediumToolStripMenuItem1.Click += new System.EventHandler(this.mediumToolStripMenuItem1_Click);
+            this.mediumToolStripMenuItem1.Click += new System.EventHandler(this.MediumToolStripMenuItem1_Click);
             // 
             // hardToolStripMenuItem1
             // 
             this.hardToolStripMenuItem1.Name = "hardToolStripMenuItem1";
             this.hardToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.hardToolStripMenuItem1.Text = "Hard";
-            this.hardToolStripMenuItem1.Click += new System.EventHandler(this.hardToolStripMenuItem1_Click);
+            this.hardToolStripMenuItem1.Click += new System.EventHandler(this.HardToolStripMenuItem1_Click);
             // 
             // musicToolStripMenuItem
             // 
@@ -126,14 +126,14 @@
             this.onToolStripMenuItem.Name = "onToolStripMenuItem";
             this.onToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.onToolStripMenuItem.Text = "On";
-            this.onToolStripMenuItem.Click += new System.EventHandler(this.onToolStripMenuItem_Click);
+            this.onToolStripMenuItem.Click += new System.EventHandler(this.OnToolStripMenuItem_Click);
             // 
             // offToolStripMenuItem
             // 
             this.offToolStripMenuItem.Name = "offToolStripMenuItem";
             this.offToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
             this.offToolStripMenuItem.Text = "Off";
-            this.offToolStripMenuItem.Click += new System.EventHandler(this.offToolStripMenuItem_Click);
+            this.offToolStripMenuItem.Click += new System.EventHandler(this.OffToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

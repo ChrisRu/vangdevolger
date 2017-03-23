@@ -23,29 +23,21 @@ namespace VangDeVolger.Elements.Birds
         /// <returns>bool Can move</returns>
         public override bool Move(Direction direction)
         {
-            //ChangeDirection(direction);
+            ChangeDirection(direction);
 
             if (!Parent.Neighbors.TryGetValue(direction, out Spot nextSpot))
             {
                 return false;
             }
-
-            if (nextSpot != null)
+            else if (nextSpot.Element == null)
             {
-                if (nextSpot.Element == null)
-                {
-                    this.Parent.MoveTo(direction);
-                    return true;
-                }
-                if (nextSpot.Element.Move(direction))
-                {
-                    this.Parent.MoveTo(direction);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                this.Parent.MoveElement(direction);
+                return true;
+            }
+            else if (nextSpot.Element.Move(direction))
+            {
+                this.Parent.MoveElement(direction);
+                return true;
             }
             else
             {

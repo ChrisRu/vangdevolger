@@ -22,23 +22,15 @@
             {
                 return false;
             }
-
-            if (nextSpot != null)
+            else if (nextSpot.Element == null)
             {
-                if (nextSpot.Element == null)
-                {
-                    this.Parent.MoveTo(direction);
-                    return true;
-                }
-                if (nextSpot.Element.Move(direction))
-                {
-                    this.Parent.MoveTo(direction);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                this.Parent.MoveElement(direction);
+                return true;
+            }
+            else if (nextSpot.Element.Move(direction))
+            {
+                this.Parent.MoveElement(direction);
+                return true;
             }
             else
             {

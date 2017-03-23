@@ -128,27 +128,29 @@ namespace VangDeVolger
                 for (int x = 0; x < Grid.GetLength(1); x++)
                 {
                     Spot spot = Grid[x, y];
+
+                    // Set neighbors
+                    if (y > 0)
+                    {
+                        spot.Neighbors.Add(Direction.Up, Grid[x, y - 1]);
+                    }
+                    if (y < Grid.GetLength(0) - 1)
+                    {
+                        spot.Neighbors.Add(Direction.Down, Grid[x, y + 1]);
+                    }
+                    if (x > 0)
+                    {
+                        spot.Neighbors.Add(Direction.Left, Grid[x - 1, y]);
+                    }
+                    if (x < Grid.GetLength(1) - 1)
+                    {
+                        spot.Neighbors.Add(Direction.Right, Grid[x + 1, y]);
+                    }
+
+                    // Add elements to Controls
                     if (spot.Element != null)
                     {
                         spot.Element.Pb.Location = new Point(x * Scale, y * Scale);
-
-                        if (y > 0)
-                        {
-                            spot.Neighbors.Add(Direction.Up, Grid[x, y - 1]);
-                        }
-                        if (y < Grid.GetLength(0) - 1)
-                        {
-                            spot.Neighbors.Add(Direction.Down, Grid[x, y + 1]);
-                        }
-                        if (x > 0)
-                        {
-                            spot.Neighbors.Add(Direction.Left, Grid[x - 1, y]);
-                        }
-                        if (x < Grid.GetLength(1) - 1)
-                        {
-                            spot.Neighbors.Add(Direction.Right, Grid[x + 1, y]);
-                        }
-                        
                         Controls.Add(spot.Element.Pb);
                     }
                 }

@@ -30,8 +30,17 @@ namespace VangDeVolger.Elements.Birds
             {
                 this.GoingRight = true;
             }
-            this.Pb.Image = GoingRight ? ImageRight : ImageLeft;
-            this.Pb.Invalidate();
+
+            if (GoingRight && Pb.Image == ImageLeft)
+            {
+                Pb.Image = ImageRight;
+                this.Pb.Invalidate();
+            }
+            else if (!GoingRight && Pb.Image == ImageRight)
+            {
+                Pb.Image = ImageLeft;
+                this.Pb.Invalidate();
+            }
         }
     }
 }

@@ -8,11 +8,11 @@ namespace VangDeVolger.PathFinding
 {
     internal class PathFinder
     {
-        /*
-        private readonly List<PathFinderElement> _openSet = new List<PathFinderElement>();
-        private readonly List<PathFinderElement> _closedSet = new List<PathFinderElement>();
 
-        private readonly PathFinderElement _to;
+        private readonly List<Spot> _openSet;
+        private readonly List<Spot> _closedSet;
+
+        private readonly Spot _to;
 
         /// <summary>
         /// Initialize PathFinder Class
@@ -20,18 +20,20 @@ namespace VangDeVolger.PathFinding
         /// <param name="grid">Current Grid of Elements</param>
         /// <param name="from">Position of Enemy Bird</param>
         /// <param name="to">Position of Player Bird</param>
-        public PathFinder(Element[,] grid, Spot from, Spot to)
+        public PathFinder(Spot[,] grid, Spot from, Spot to)
         {
-            PathFinderElement[,] pathFinderGrid = _addSiblings(_transformGrid(grid));
-            foreach (PathFinderElement item in pathFinderGrid)
+            _openSet = new List<Spot>();
+            _closedSet = new List<Spot>();
+
+            foreach (Spot spot in grid)
             {
-                if (to.X == item.X && to.Y == item.Y)
+                if (to == spot)
                 {
-                    _to = item;
+                    _to = spot;
                 }
-                else if (from.X == item.X && from.Y == item.Y)
+                else if (from == spot)
                 {
-                    _openSet.Add(item);
+                    _openSet.Add(spot);
                 }
             }
         }
@@ -40,9 +42,9 @@ namespace VangDeVolger.PathFinding
         /// Path Finding using the A* algorithm
         /// </summary>
         /// <returns>List with Optimal Path</returns>
-        public List<Coordinates> GetOptimalPath()
+        public List<Spot> GetOptimalPath()
         {
-            List<Coordinates> path = new List<Coordinates>();
+            List<Spot> path = new List<Spot>();
 
             while (_openSet.Count > 0)
             {
@@ -55,19 +57,19 @@ namespace VangDeVolger.PathFinding
                     }
                 }
 
-                PathFinderElement current = _openSet[winner];
+                Spot current = _openSet[winner];
 
                 if (current == _to)
                 {
                     // DONE
 
-                    PathFinderElement next = current;
-                    path.Add(new Coordinates(next.X, next.Y));
+                    Spot next = current;
+                    path.Add(next);
                     
-                    while (next.CameFrom != null)
+                    while (next.CameFromSpot != null)
                     {
-                        path.Add(new Coordinates(next.CameFrom.X, next.CameFrom.Y));
-                        next = next.CameFrom;
+                        path.Add(next);
+                        next = next.CameFromSpot;
                     }
 
                     return path;
@@ -76,30 +78,32 @@ namespace VangDeVolger.PathFinding
                 _openSet.Remove(current);
                 _closedSet.Add(current);
 
-                foreach (PathFinderElement sibling in current.SiblingBlocks)
+                foreach (KeyValuePair<Direction, Spot> neighbor in current.Neighbors)
                 {
-                    if (_closedSet.Contains(sibling)) continue;
+                    Spot spot = neighbor.Value;
 
-                    if (sibling.Element != null && !(sibling.Element is Bird)) continue;
+                    if (_closedSet.Contains(spot)) continue;
+
+                    if (spot.Element != null && !(spot.Element is Bird)) continue;
 
                     int tempG = current.G + 1;
 
-                    if (_openSet.Contains(sibling))
+                    if (_openSet.Contains(spot))
                     {
-                        if (tempG < sibling.G)
+                        if (tempG < spot.G)
                         {
-                            sibling.G = tempG;
+                            spot.G = tempG;
                         }
                     }
                     else
                     {
-                        sibling.G = tempG;
-                        _openSet.Add(sibling);
+                        spot.G = tempG;
+                        _openSet.Add(spot);
                     }
 
-                    sibling.H = Heuristic(sibling);
-                    sibling.F = sibling.G + sibling.H;
-                    sibling.CameFrom = current;
+                    spot.H = Heuristic();
+                    spot.F = spot.G + spot.H;
+                    spot.CameFromSpot = current;
                 }
             }
             // No solution
@@ -107,93 +111,13 @@ namespace VangDeVolger.PathFinding
         }
 
         /// <summary>
-        /// Transform Blocks to PathFinderBlocks
-        /// </summary>
-        /// <param name="grid">Block Grid</param>
-        /// <returns></returns>
-        private static PathFinderElement[,] _transformGrid(Element[,] grid)
-        {
-            PathFinderElement[,] newGrid = new PathFinderElement[grid.GetLength(0), grid.GetLength(1)];
-            for (int y = 0; y < grid.GetLength(0); y++)
-            {
-                for (int x = 0; x < grid.GetLength(1); x++) {
-                    newGrid[x, y] = _transformBlock(grid[x, y], x, y);
-                }
-                
-            }
-            return newGrid;
-        }
-
-        /// <summary>
-        /// Transform Block to PathFinderBlock
-        /// </summary>
-        /// <param name="block">Block to be converted</param>
-        /// <param name="x">Position X of the Block</param>
-        /// <param name="y">Position Y of the Block</param>
-        /// <returns>PathFinderBlock</returns>
-        private static PathFinderElement _transformBlock(Element block, int x, int y) => new PathFinderElement(block, x, y);
-
-        private PathFinderElement[,] _addSiblings(PathFinderElement[,] grid)
-        {
-            PathFinderElement[,] newGrid = new PathFinderElement[grid.GetLength(0), grid.GetLength(1)];
-            for (int y = 0; y < grid.GetLength(0); y++)
-            {
-                for (int x = 0; x < grid.GetLength(1); x++)
-                {
-                    PathFinderElement block = grid[x, y];
-                    block = _addSibling(grid, block);
-                    newGrid[x, y] = block;
-                }
-            }
-            return newGrid;
-        }
-
-        /// <summary>
-        /// Adds Sibling to PathFinderBlock
-        /// </summary>
-        /// <param name="grid">PathFinderBlock grid</param>
-        /// <param name="block">Block to add Siblings to</param>
-        /// <returns></returns>
-        private static PathFinderElement _addSibling(PathFinderElement[,] grid, PathFinderElement block)
-        {
-            int x = block.X;
-            int y = block.Y;
-
-            List<PathFinderElement> siblings = new List<PathFinderElement>();
-
-            if (x < grid.GetLength(0) - 1)
-            {
-                siblings.Add(grid[x + 1, y]);
-            }
-            if (x > 0)
-            {
-                siblings.Add(grid[x - 1, y]);
-            }
-            if (y < grid.GetLength(0) - 1)
-            {
-                siblings.Add(grid[x, y + 1]);
-            }
-            if (y > 0)
-            {
-                siblings.Add(grid[x, y - 1]);
-            }
-
-            block.SiblingBlocks = siblings;
-
-            return block;
-        }
-
-        /// <summary>
         /// Get Estimated Distance (Heuristic)
         /// </summary>
-        /// <param name="from">Block from where to calculate the Heuristic</param>
         /// <returns>Average block distance</returns>
-        private int Heuristic(PathFinderElement from)
+        private int Heuristic()
         {
             // Manhattan distance
-            int x = Math.Abs(from.X - _to.X);
-            int y = Math.Abs(from.Y - _to.Y);
-            return x + y;
-        }*/
+            return 32;
+        }
     }
 }

@@ -7,30 +7,32 @@ namespace VangDeVolger.Elements.Birds
 {
     internal class Enemy : Bird
     {
-        public PathFinder PathFinder;
+        public PathFinder PathFinder { get; set; }
+        public List<Spot> Path { get; set; }
 
-        public Timer timer = new Timer();
+        public Timer Timer { get; set; }
 
         /// <summary>
         /// Initialize EnemyBird Class
         /// </summary>
         public Enemy(Spot parent) : base(parent)
         {
+            Timer = new Timer();
             ImageLeft = Properties.Resources.bird_red_left;
             ImageRight = Properties.Resources.bird_red_right;
             Pb.Image = ImageLeft;
             GoingRight = false;
-            /*
-            PathFinder = new PathFinder(Level.Grid, new Coordinates(this.X, this.Y), new Coordinates(0, 0));
-            Path = PathFinder.GetOptimalPath();
-            */
+            
+            //PathFinder = new PathFinder(Level.Grid, new Coordinates(this.X, this.Y), new Coordinates(0, 0));
+            //Path = PathFinder.GetOptimalPath();
+            
 
-            timer = new Timer
+            Timer = new Timer
             {
                 Interval = 500
             };
             //timer.Tick += _moveAlongPath;
-            timer.Start();
+            Timer.Start();
         }
 
         /// <summary>
