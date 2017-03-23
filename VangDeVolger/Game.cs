@@ -8,6 +8,7 @@ namespace VangDeVolger
 {
     public partial class Game : Form
     {
+        private bool _soundPlaying;
         private readonly int _size = 20;
         private readonly int _scale = 32;
         public Level GameLevel { get; set; }
@@ -36,6 +37,8 @@ namespace VangDeVolger
         private void Game_Load(object sender, EventArgs e)
         {
             Snd.PlayLooping();
+            _soundPlaying = true;
+            musicToolStripMenuItem.Checked = true;
         }
 
         /// <summary>
@@ -61,31 +64,6 @@ namespace VangDeVolger
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
             GameLevel.KeyDown(e);
-
-            // Toggle Menu
-            if (e.KeyCode == Keys.Escape)
-            {
-                if (menuStrip1.Visible)
-                {
-                    GameLevel.Paused = false;
-                    pauseToolStripMenuItem.Checked = false;
-                }
-                else
-                {
-                    GameLevel.Paused = true;
-                    pauseToolStripMenuItem.Checked = true;
-                }
-            }
-        }
-
-        private void OffToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Snd.Stop();
-        }
-
-        private void OnToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Snd.PlayLooping();
         }
 
         private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -102,33 +80,24 @@ namespace VangDeVolger
         {
             EnemyMoveInterval = 300;
         }
+
         private void Game_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
             {
-                GameLevel.Paused = true;
-                pauseToolStripMenuItem.Checked = true;
+                _togglePaused(false);
+                _toggleMusic(false);
             }
         }
 
         private void PauseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GameLevel.Paused)
-            {
-                GameLevel.Paused = false;
-                pauseToolStripMenuItem.Checked = false;
-            }
-            else
-            {
-                GameLevel.Paused = true;
-                pauseToolStripMenuItem.Checked = true;
-            }
+            _togglePaused(!GameLevel.Paused);
         }
 
         private void RestartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GameLevel.Paused = true;
-            pauseToolStripMenuItem.Checked = true;
+            _togglePaused(true);
 
             var gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Set a grid size:", "Grid size", "16");
             int gridSize;
@@ -153,8 +122,44 @@ namespace VangDeVolger
             GameLevel = new Level(Controls, gridSize, _scale, menuStrip1.Height);
             ClientSize = new Size(gridSize * _scale, gridSize * _scale + menuStrip1.Height);
 
-            GameLevel.Paused = false;
-            pauseToolStripMenuItem.Checked = false;
+            _togglePaused(false);
+        }
+
+        private void MusicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _toggleMusic(!_soundPlaying);
+        }
+
+        private void _toggleMusic(bool play)
+        {
+            if (!play)
+            {
+                _soundPlaying = false;
+                Snd.Stop();
+                musicToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                _soundPlaying = true;
+                Snd.PlayLooping();
+                musicToolStripMenuItem.Checked = true;
+            }
+        }
+
+        private void _togglePaused(bool play)
+        {
+            if (!play)
+            {
+                GameLevel.Paused = false;
+                pauseToolStripMenuItem.Checked = false;
+                _toggleMusic(true);
+            }
+            else
+            {
+                GameLevel.Paused = true;
+                pauseToolStripMenuItem.Checked = true;
+                _toggleMusic(false);
+            }
         }
     }
 }
