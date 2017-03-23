@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 using VangDeVolger.Elements;
-using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger.ImageReader
 {
@@ -31,7 +30,7 @@ namespace VangDeVolger.ImageReader
                             break;
                         // Black
                         case "ff000000":
-                            grid[x, y] = new Spot(ElementType.Solid);
+                            grid[x, y] = new Spot(ElementType.Solid, 32);
                             break;
                     }
                 }

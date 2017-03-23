@@ -1,19 +1,15 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace VangDeVolger.Elements.Birds
+﻿namespace VangDeVolger.Elements.Birds
 {
-    internal class Player : Bird
+    public class Player : Bird
     {
         /// <summary>
         /// Initialize PlayerBird Class
         /// </summary>
         public Player(Spot parent) : base(parent)
         {
-            this.ImageLeft = Properties.Resources.bird_green_left;
-            this.ImageRight = Properties.Resources.bird_green_right;
-            this.Pb.Image = ImageRight;
+            ImageLeft = Properties.Resources.bird_green_left;
+            ImageRight = Properties.Resources.bird_green_right;
+            Pb.Image = ImageRight;
         }
 
         /// <summary>
@@ -29,20 +25,17 @@ namespace VangDeVolger.Elements.Birds
             {
                 return false;
             }
-            else if (nextSpot.Element == null)
+            if (nextSpot.Element == null)
             {
-                this.Parent.MoveElement(direction);
+                Parent.MoveElement(direction);
                 return true;
             }
-            else if (nextSpot.Element.Move(direction))
+            if (nextSpot.Element.Move(direction))
             {
-                this.Parent.MoveElement(direction);
+                Parent.MoveElement(direction);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

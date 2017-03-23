@@ -7,7 +7,7 @@ namespace VangDeVolger.Elements
 {
     public class Spot
     {
-        public const int Scale = 32;
+        public readonly int Scale;
         public Element Element { get; set; }
         public Dictionary<Direction, Spot> Neighbors { get; set; } = new Dictionary<Direction, Spot>();
 
@@ -21,8 +21,10 @@ namespace VangDeVolger.Elements
         /// Initialize Spot Class
         /// </summary>
         /// <param name="blockType"></param>
-        public Spot(ElementType blockType)
+        /// <param name="scale"></param>
+        public Spot(ElementType blockType, int scale)
         {
+            Scale = scale;
             switch (blockType)
             {
                 case ElementType.Solid:

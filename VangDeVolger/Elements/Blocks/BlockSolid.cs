@@ -16,9 +16,6 @@
         /// </summary>
         /// <param name="direction">Direction of movement</param>
         /// <returns>bool Can Move</returns>
-        public override bool Move(Direction direction)
-        {
-            return false;
-        }
+        public override bool Move(Direction direction) => false;
     }
 }

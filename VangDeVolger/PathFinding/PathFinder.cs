@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+﻿using System.Collections.Generic;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
 
 namespace VangDeVolger.PathFinding
 {
-    internal class PathFinder
+    public class PathFinder
     {
-
         private readonly List<Spot> _openSet;
         private readonly List<Spot> _closedSet;
-
         private readonly Spot _to;
 
         /// <summary>
@@ -114,10 +110,6 @@ namespace VangDeVolger.PathFinding
         /// Get Estimated Distance (Heuristic)
         /// </summary>
         /// <returns>Average block distance</returns>
-        private int Heuristic()
-        {
-            // Manhattan distance
-            return 32;
-        }
+        private int Heuristic() => 32;
     }
 }

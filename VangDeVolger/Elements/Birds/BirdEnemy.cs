@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using VangDeVolger.PathFinding;
 
 namespace VangDeVolger.Elements.Birds
 {
-    internal class Enemy : Bird
+    public class Enemy : Bird
     {
         public PathFinder PathFinder { get; set; }
         public List<Spot> Path { get; set; }
@@ -23,7 +22,7 @@ namespace VangDeVolger.Elements.Birds
             Pb.Image = ImageLeft;
             GoingRight = false;
             
-            //PathFinder = new PathFinder(Level.Grid, new Coordinates(this.X, this.Y), new Coordinates(0, 0));
+            //PathFinder = new PathFinder(Level.Grid, new Coordinates(X, Y), new Coordinates(0, 0));
             //Path = PathFinder.GetOptimalPath();
             
 
@@ -62,7 +61,7 @@ namespace VangDeVolger.Elements.Birds
         {
             if (Level.Paused) return;
 
-            timer.Interval = Game.interval;
+            timer.EnemyMoveInterval = Game.interval;
 
             PathFinder = new PathFinder(Level.Grid, new Coordinates(X, Y), GetPlayerLocation());
             Path = PathFinder.GetOptimalPath();

@@ -1,56 +1,43 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
-using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger
 {
     public class Level
     {
-        public static bool Paused;
-        public const int Scale = 32;
-        public Control.ControlCollection Controls;
+        public int Scale { get; set; }
+        public int Size { get; set; }
+        public bool Paused { get; set; }
+        public Control.ControlCollection Controls { get; set; }
         public Spot[,] Grid { get; set; }
 
-        public Spot Player
-        {
-            get
-            {
-                foreach (Spot spot in Grid)
-                {
-                    if (spot.Element is Player)
-                    {
-                        return spot;
-                    }
-                }
-                return null;
-            }
-        }
+        public Element Player =>
+            (from Spot spot in Grid where spot.Element is Player select spot.Element).FirstOrDefault();
+        public Element Enemy =>
+            (from Spot spot in Grid where spot.Element is Enemy select spot.Element).FirstOrDefault();
 
         /// <summary>
         /// Initialize Level Class
         /// </summary>
         /// <param name="controls">Controls of the Form</param>
-        /// <param name="width">Width of the Form</param>
-        /// <param name="height">Height of the Form</param>
-        public Level(Control.ControlCollection controls, int width, int height)
+        /// <param name="size">Width of the Form</param>
+        /// <param name="scale">Height of the Form</param>
+        /// <param name="offsetTop"></param>
+        public Level(Control.ControlCollection controls, int size, int scale, int offsetTop)
         {
             Controls = controls;
-            width = (width - width % Scale) / Scale;
-            height = (height - height % Scale) / Scale - 1;
+            Size = size;
+            Scale = scale;
+            Grid = GetRandomGrid(size, size);
 
-            Grid = GetRandomGrid(width, height);
-            //Grid = new ImageReader.ImageReader(Properties.Resources.maze).GetGrid();
+            Grid[0, 0] = new Spot(ElementType.Player, Scale);
+            Grid[size - 1, size - 1] = new Spot(ElementType.Enemy, Scale);
 
-            // Create Player
-            Grid[0, 0] = new Spot(ElementType.Player);
-
-            // Create Enemy
-            Grid[width - 1, height - 1] = new Spot(ElementType.Enemy);
-
-            Render();
+            Render(offsetTop);
         }
 
         /// <summary>
@@ -72,15 +59,15 @@ namespace VangDeVolger
 
                     if (randomNumber < 5)
                     {
-                        spots[x, y] = new Spot(ElementType.Solid);
+                        spots[x, y] = new Spot(ElementType.Solid, Scale);
                     }
                     else if (randomNumber < 25)
                     {
-                        spots[x, y] = new Spot(ElementType.Movable);
+                        spots[x, y] = new Spot(ElementType.Movable, Scale);
                     }
                     else
                     {
-                        spots[x, y] = new Spot(ElementType.None);
+                        spots[x, y] = new Spot(ElementType.None, Scale);
                     }
                 }
             }
@@ -114,14 +101,15 @@ namespace VangDeVolger
             }
             if (direction != null)
             {
-                Player.Element.Move((Direction) direction);
+                Player.Move((Direction) direction);
             }
         }
 
         /// <summary>
-        /// Add all elements to the Controls
+        /// Add all Elements to Controls
         /// </summary>
-        public void Render()
+        /// <param name="offsetTop">Offset on Top of View</param>
+        public void Render(int offsetTop)
         {
             for (int y = 0; y < Grid.GetLength(0); y++)
             {
@@ -150,7 +138,7 @@ namespace VangDeVolger
                     // Add elements to Controls
                     if (spot.Element != null)
                     {
-                        spot.Element.Pb.Location = new Point(x * Scale, y * Scale);
+                        spot.Element.Pb.Location = new Point(x * Scale, y * Scale + offsetTop);
                         Controls.Add(spot.Element.Pb);
                     }
                 }

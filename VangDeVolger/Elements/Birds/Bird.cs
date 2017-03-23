@@ -13,7 +13,7 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         protected Bird(Spot parent) : base(parent)
         {
-            this.GoingRight = true;
+            GoingRight = true;
         }
 
         /// <summary>
@@ -24,22 +24,22 @@ namespace VangDeVolger.Elements.Birds
         {
             if (direction == Direction.Left)
             {
-                this.GoingRight = false;
+                GoingRight = false;
             }
             if (direction == Direction.Right)
             {
-                this.GoingRight = true;
+                GoingRight = true;
             }
 
             if (GoingRight && Pb.Image == ImageLeft)
             {
                 Pb.Image = ImageRight;
-                this.Pb.Invalidate();
+                Pb.Invalidate();
             }
             else if (!GoingRight && Pb.Image == ImageRight)
             {
                 Pb.Image = ImageLeft;
-                this.Pb.Invalidate();
+                Pb.Invalidate();
             }
         }
     }

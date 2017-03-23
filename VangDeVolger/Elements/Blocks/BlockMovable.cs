@@ -1,6 +1,6 @@
 ﻿namespace VangDeVolger.Elements.Blocks
 {
-    internal class BlockMovable : Block
+    public class BlockMovable : Block
     {
         /// <summary>
         /// Initialize BlockMovable Class
@@ -22,20 +22,17 @@
             {
                 return false;
             }
-            else if (nextSpot.Element == null)
+            if (nextSpot.Element == null)
             {
-                this.Parent.MoveElement(direction);
+                Parent.MoveElement(direction);
                 return true;
             }
-            else if (nextSpot.Element.Move(direction))
+            if (nextSpot.Element.Move(direction))
             {
-                this.Parent.MoveElement(direction);
+                Parent.MoveElement(direction);
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

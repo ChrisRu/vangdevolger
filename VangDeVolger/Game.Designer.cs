@@ -30,7 +30,8 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pornToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RestartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.easyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,16 +62,25 @@
             // pornToolStripMenuItem
             // 
             this.pornToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neeToolStripMenuItem});
+            this.pauseToolStripMenuItem,
+            this.RestartToolStripMenuItem});
             this.pornToolStripMenuItem.Name = "pornToolStripMenuItem";
             this.pornToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.pornToolStripMenuItem.Text = "Game";
             // 
-            // neeToolStripMenuItem
+            // pauseToolStripMenuItem
             // 
-            this.neeToolStripMenuItem.Name = "neeToolStripMenuItem";
-            this.neeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
-            this.neeToolStripMenuItem.Text = "Restart";
+            this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pauseToolStripMenuItem.Text = "Pause";
+            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.PauseToolStripMenuItem_Click);
+            // 
+            // RestartToolStripMenuItem
+            // 
+            this.RestartToolStripMenuItem.Name = "RestartToolStripMenuItem";
+            this.RestartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.RestartToolStripMenuItem.Text = "Restart";
+            this.RestartToolStripMenuItem.Click += new System.EventHandler(this.RestartToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
@@ -187,7 +197,7 @@
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pornToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem neeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RestartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem easyToolStripMenuItem1;
@@ -199,6 +209,7 @@
         private System.Windows.Forms.ToolStripMenuItem musicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem onToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem offToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
     }
 }
 

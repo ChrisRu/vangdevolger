@@ -1,18 +1,18 @@
 ﻿using System;
-using System.IO;
+using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using VangDeVolger.Elements;
 
 namespace VangDeVolger
 {
     public partial class Game : Form
     {
-        public Level GameLevel;
-
-        private static Stream str = Properties.Resources.LoopyMusic;
-        private SoundPlayer snd = new SoundPlayer(str);
-
-        public static int interval = 500;
+        private readonly int _size = 20;
+        private readonly int _scale = 32;
+        public Level GameLevel { get; set; }
+        public SoundPlayer Snd { get; set; }
+        public int EnemyMoveInterval = 500;
 
         /// <summary>
         /// Initialize game
@@ -21,7 +21,10 @@ namespace VangDeVolger
         {
             InitializeComponent();
 
-            GameLevel = new Level(Controls, Width, Height);
+            GameLevel = new Level(Controls, _size, _scale, menuStrip1.Height);
+            ClientSize = new Size(_size * _scale, _size * _scale + menuStrip1.Height);
+
+            Snd = new SoundPlayer(Properties.Resources.LoopyMusic);
         }
 
 
@@ -32,9 +35,7 @@ namespace VangDeVolger
         /// <param name="e">Arguments given by form</param>
         private void Game_Load(object sender, EventArgs e)
         {
-            menuStrip1.Hide();
-
-            //snd.PlayLooping();
+            Snd.PlayLooping();
         }
 
         /// <summary>
@@ -64,50 +65,96 @@ namespace VangDeVolger
             // Toggle Menu
             if (e.KeyCode == Keys.Escape)
             {
-                Level.Paused = !Level.Paused;
-
                 if (menuStrip1.Visible)
                 {
-                    menuStrip1.Hide();
+                    GameLevel.Paused = false;
+                    pauseToolStripMenuItem.Checked = false;
                 }
                 else
                 {
-                    menuStrip1.Show();
+                    GameLevel.Paused = true;
+                    pauseToolStripMenuItem.Checked = true;
                 }
             }
         }
 
         private void OffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            snd.Stop();
+            Snd.Stop();
         }
 
         private void OnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            snd.PlayLooping();
+            Snd.PlayLooping();
         }
 
         private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            interval = 700;
+            EnemyMoveInterval = 700;
         }
 
         private void MediumToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            interval = 500;
+            EnemyMoveInterval = 500;
         }
 
         private void HardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            interval = 300;
+            EnemyMoveInterval = 300;
         }
         private void Game_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
             {
-                Level.Paused = true;
-                menuStrip1.Show();
+                GameLevel.Paused = true;
+                pauseToolStripMenuItem.Checked = true;
             }
+        }
+
+        private void PauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (GameLevel.Paused)
+            {
+                GameLevel.Paused = false;
+                pauseToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                GameLevel.Paused = true;
+                pauseToolStripMenuItem.Checked = true;
+            }
+        }
+
+        private void RestartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GameLevel.Paused = true;
+            pauseToolStripMenuItem.Checked = true;
+
+            var gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Set a grid size:", "Grid size", "16");
+            int gridSize;
+            try
+            {
+                gridSize = Convert.ToInt32(gridSizeInput);
+            }
+            catch (Exception error)
+            {
+                Console.Write(error);
+                gridSize = _size;
+            }
+
+            foreach (Spot spot in GameLevel.Grid)
+            {
+                if (spot.Element?.Pb != null)
+                {
+                    Controls.Remove(spot.Element.Pb);
+                }
+            }
+
+            GameLevel = new Level(Controls, gridSize, _scale, menuStrip1.Height);
+            ClientSize = new Size(gridSize * _scale, gridSize * _scale + menuStrip1.Height);
+
+            GameLevel.Paused = false;
+            pauseToolStripMenuItem.Checked = false;
         }
     }
 }
