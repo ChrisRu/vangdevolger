@@ -31,7 +31,7 @@ namespace VangDeVolger.ImageReader
                             break;
                         // Black
                         case "ff000000":
-                            grid[x, y] = new Spot(new BlockSolid());
+                            grid[x, y] = new Spot(ElementType.Solid);
                             break;
                     }
                 }

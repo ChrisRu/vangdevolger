@@ -5,7 +5,7 @@
         /// <summary>
         /// Initialize BlockMovable Class
         /// </summary>
-        public BlockMovable()
+        public BlockMovable(Spot parent) : base(parent)
         {
             Image = Properties.Resources.tree;
             Pb.Image = Image;
@@ -18,26 +18,32 @@
         /// <returns>bool Can move</returns>
         public override bool Move(Direction direction)
         {
-            /*
-            if (newLocation.X == X && newLocation.Y == Y)
+            if (!Parent.Neighbors.TryGetValue(direction, out Spot nextSpot))
             {
                 return false;
             }
 
-            if (nextBlock == null)
+            if (nextSpot != null)
             {
-                Level.MoveBlock(X, Y, newLocation.X, newLocation.Y);
-                return true;
+                if (nextSpot.Element == null)
+                {
+                    this.Parent.MoveTo(direction);
+                    return true;
+                }
+                if (nextSpot.Element.Move(direction))
+                {
+                    this.Parent.MoveTo(direction);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            if (nextBlock.Move(direction))
+            else
             {
-                Level.MoveBlock(X, Y, newLocation.X, newLocation.Y);
-                return true;
+                return false;
             }
-            */
-
-            return false;
         }
     }
 }

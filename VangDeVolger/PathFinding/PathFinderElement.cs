@@ -7,7 +7,6 @@ namespace VangDeVolger.PathFinding
     {
         public Element Element;
         public PathFinderElement CameFrom = null;
-        public List<PathFinderElement> SiblingBlocks;
 
         public int X;
         public int Y;

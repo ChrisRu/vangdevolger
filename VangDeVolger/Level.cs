@@ -14,6 +14,21 @@ namespace VangDeVolger
         public Control.ControlCollection Controls;
         public Spot[,] Grid { get; set; }
 
+        public Spot Player
+        {
+            get
+            {
+                foreach (Spot spot in Grid)
+                {
+                    if (spot.Element is Player)
+                    {
+                        return spot;
+                    }
+                }
+                return null;
+            }
+        }
+
         /// <summary>
         /// Initialize Level Class
         /// </summary>
@@ -30,10 +45,10 @@ namespace VangDeVolger
             //Grid = new ImageReader.ImageReader(Properties.Resources.maze).GetGrid();
 
             // Create Player
-            Grid[0, 0] = new Spot(new Player());
+            Grid[0, 0] = new Spot(ElementType.Player);
 
             // Create Enemy
-            Grid[width - 1, height - 1] = new Spot(new Enemy());
+            Grid[width - 1, height - 1] = new Spot(ElementType.Enemy);
 
             Render();
         }
@@ -53,19 +68,20 @@ namespace VangDeVolger
             {
                 for (int x = 0; x < sizeX; x++)
                 {
-                    int chance = random.Next(100);
-                    
-                    if (chance <= 5)
+                    int randomNumber = random.Next(0, 100);
+
+                    if (randomNumber < 5)
                     {
-                        Spot spot = new Spot(new BlockSolid());
-                        spots[x, y] = spot;
+                        spots[x, y] = new Spot(ElementType.Solid);
                     }
-                    else if (chance <= 25)
+                    else if (randomNumber < 25)
                     {
-                        Spot spot = new Spot(new BlockMovable());
-                        spots[x, y] = spot;
+                        spots[x, y] = new Spot(ElementType.Movable);
                     }
-                    
+                    else
+                    {
+                        spots[x, y] = new Spot(ElementType.None);
+                    }
                 }
             }
 
@@ -98,7 +114,7 @@ namespace VangDeVolger
             }
             if (direction != null)
             {
-                //Player.Move((Direction) direction);
+                Player.Element.Move((Direction) direction);
             }
         }
 
@@ -112,23 +128,23 @@ namespace VangDeVolger
                 for (int x = 0; x < Grid.GetLength(1); x++)
                 {
                     Spot spot = Grid[x, y];
-                    if (spot?.Element != null)
+                    if (spot.Element != null)
                     {
                         spot.Element.Pb.Location = new Point(x * Scale, y * Scale);
 
-                        if (y != 0)
+                        if (y > 0)
                         {
                             spot.Neighbors.Add(Direction.Up, Grid[x, y - 1]);
                         }
-                        if (y != Grid.GetLength(0) - 1)
+                        if (y < Grid.GetLength(0) - 1)
                         {
                             spot.Neighbors.Add(Direction.Down, Grid[x, y + 1]);
                         }
-                        if (x != 0)
+                        if (x > 0)
                         {
                             spot.Neighbors.Add(Direction.Left, Grid[x - 1, y]);
                         }
-                        if (x != Grid.GetLength(1) - 1)
+                        if (x < Grid.GetLength(1) - 1)
                         {
                             spot.Neighbors.Add(Direction.Right, Grid[x + 1, y]);
                         }

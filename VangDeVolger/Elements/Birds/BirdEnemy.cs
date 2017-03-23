@@ -14,9 +14,7 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize EnemyBird Class
         /// </summary>
-        /// <param name="x">Position X on grid</param>
-        /// <param name="y">Position Y on grid</param>
-        public Enemy()
+        public Enemy(Spot parent) : base(parent)
         {
             ImageLeft = Properties.Resources.bird_red_left;
             ImageRight = Properties.Resources.bird_red_right;

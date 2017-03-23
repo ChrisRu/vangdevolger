@@ -5,7 +5,7 @@
         /// <summary>
         /// Initialize BlockSolid Class
         /// </summary>
-        public BlockSolid()
+        public BlockSolid(Spot parent) : base(parent)
         {
             Image = Properties.Resources.solid;
             Pb.Image = Image;

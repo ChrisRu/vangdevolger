@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ElementType.cs" />
     <Compile Include="Elements\Birds\Bird.cs" />
     <Compile Include="Elements\Blocks\Block.cs" />
     <Compile Include="Elements\Birds\BirdEnemy.cs" />

@@ -11,11 +11,9 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize Bird Class
         /// </summary>
-        /// <param name="x">Position X on grid</param>
-        /// <param name="y">Position Y on grid</param>
-        protected Bird()
+        protected Bird(Spot parent) : base(parent)
         {
-            GoingRight = true;
+            this.GoingRight = true;
         }
 
         /// <summary>
@@ -26,14 +24,14 @@ namespace VangDeVolger.Elements.Birds
         {
             if (direction == Direction.Left)
             {
-                GoingRight = false;
+                this.GoingRight = false;
             }
             if (direction == Direction.Right)
             {
-                GoingRight = true;
+                this.GoingRight = true;
             }
-            Pb.Image = GoingRight ? ImageRight : ImageLeft;
-            Pb.Invalidate();
+            this.Pb.Image = GoingRight ? ImageRight : ImageLeft;
+            this.Pb.Invalidate();
         }
     }
 }

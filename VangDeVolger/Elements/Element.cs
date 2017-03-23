@@ -6,13 +6,15 @@ namespace VangDeVolger.Elements
     public abstract class Element
     {
         public const int Scale = 32;
+        public Spot Parent { get; set; }
         public PictureBox Pb { get; set; }
 
         /// <summary>
         /// Initialize Element Class
         /// </summary>
-        protected Element()
+        protected Element(Spot parent)
         {
+            this.Parent = parent;
             this.Pb = new PictureBox
             {
                 Size = new Size(Scale, Scale),

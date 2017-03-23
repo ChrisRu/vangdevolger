@@ -34,7 +34,7 @@ namespace VangDeVolger
         {
             menuStrip1.Hide();
 
-            snd.PlayLooping();
+            //snd.PlayLooping();
         }
 
         /// <summary>

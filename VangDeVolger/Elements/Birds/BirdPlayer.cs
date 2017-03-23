@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace VangDeVolger.Elements.Birds
 {
@@ -7,11 +9,11 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize PlayerBird Class
         /// </summary>
-        public Player()
+        public Player(Spot parent) : base(parent)
         {
-            ImageLeft = Properties.Resources.bird_green_left;
-            ImageRight = Properties.Resources.bird_green_right;
-            Pb.Image = ImageRight;
+            this.ImageLeft = Properties.Resources.bird_green_left;
+            this.ImageRight = Properties.Resources.bird_green_right;
+            this.Pb.Image = ImageRight;
         }
 
         /// <summary>
@@ -21,30 +23,34 @@ namespace VangDeVolger.Elements.Birds
         /// <returns>bool Can move</returns>
         public override bool Move(Direction direction)
         {
-            /*
-            ChangeDirection(direction);
+            //ChangeDirection(direction);
 
-            Coordinates newLocation = DirectionToLocation(X, Y, direction);
-            Element nextBlock = Level.Grid[newLocation.X, newLocation.Y];
-
-            if (newLocation.X == X && newLocation.Y == Y)
+            if (!Parent.Neighbors.TryGetValue(direction, out Spot nextSpot))
             {
                 return false;
             }
 
-            if (nextBlock == null)
+            if (nextSpot != null)
             {
-                Level.MoveBlock(X, Y, newLocation.X, newLocation.Y);
-                return true;
+                if (nextSpot.Element == null)
+                {
+                    this.Parent.MoveTo(direction);
+                    return true;
+                }
+                if (nextSpot.Element.Move(direction))
+                {
+                    this.Parent.MoveTo(direction);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-
-            if (nextBlock.Move(direction))
+            else
             {
-                Level.MoveBlock(X, Y, newLocation.X, newLocation.Y);
-                return true;
+                return false;
             }
-            */
-            return false;
         }
     }
 }
