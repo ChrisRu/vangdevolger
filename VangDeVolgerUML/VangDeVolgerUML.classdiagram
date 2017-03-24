@@ -445,14 +445,23 @@
       <class Id="6722605c-6ad5-4aca-b98e-4ac39bcd4b7b" name="PathFinder" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="bcfdaa8f-f04a-4897-8ed7-867d69a8317f" />
         <ownedAttributesInternal>
-          <property Id="5ee4a9ae-1345-44f9-b8ec-672222903fff" name="OpenSet" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="5ee4a9ae-1345-44f9-b8ec-672222903fff" name="openSet" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="8cd84af9-1914-4a87-9765-aa604877aa0f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="216b6e6a-d6a8-40a8-aa28-bf04af2227ed" LastKnownName="List&lt;Spot&gt;" />
+            </type_NamedElement>
           </property>
-          <property Id="e057e511-6a71-43ec-aa73-bf9ea925fb96" name="ClosedSet" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="e057e511-6a71-43ec-aa73-bf9ea925fb96" name="closedSet" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="bbe6ba85-b8a2-497f-95a1-a68ebcef3360" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b9f4e88e-097d-4aa4-8cba-0f96731a3508" LastKnownName="List&lt;Spot&gt;" />
+            </type_NamedElement>
           </property>
-          <property Id="4aabda82-59a5-4232-a445-636b2aeceeb6" name="To" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="4aabda82-59a5-4232-a445-636b2aeceeb6" name="to" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="5333ab6c-bec8-4426-aeb5-2778f6f57c75" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c81a23e6-65ea-4288-8e34-ddb5c3bafbb1" LastKnownName="Spot" />
+            </type_NamedElement>
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
@@ -461,18 +470,6 @@
           </operation>
           <operation Id="22a0a1a6-ab9b-4183-ad42-b3ea85ddeb84" name="Heuristic" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="9caf9e07-29ce-4163-9d94-8f20bea0b295" />
-          </operation>
-          <operation Id="56d7e4d6-a59b-4a4f-89f3-2ec7b77f86b2" name="TransformBlocks" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="0408f566-113b-4ba8-98bf-002be008ad5d" />
-          </operation>
-          <operation Id="b65eb4c7-4791-406b-8cf3-bf9049548207" name="TransformBlock" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="9e5a9800-e276-4812-a5ef-fab07089c6e0" />
-          </operation>
-          <operation Id="fad9d4d8-1706-40bd-a89a-8517b3111878" name="AddSibling" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="c1d01fea-e501-409f-aa67-85fe6ac344ec" />
-          </operation>
-          <operation Id="87b43be6-219a-4345-98f9-10f3c025c3cd" name="AddSiblings" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="44174e42-6de1-4716-80cf-7ed29c919c09" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -640,6 +637,16 @@
     <packageHasNamedElement>
       <referencedType Id="23369c1d-085c-4578-aae7-e9a36d609d15" name="Timer" isAbstract="false" isLeaf="false" cachedFullName="Timer">
         <elementDefinition Id="49bf2a14-6718-441f-9286-17d1f6197bd0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="216b6e6a-d6a8-40a8-aa28-bf04af2227ed" name="List&lt;Spot&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;Spot&gt;">
+        <elementDefinition Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b9f4e88e-097d-4aa4-8cba-0f96731a3508" name="List&lt;Spot&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;Spot&gt;">
+        <elementDefinition Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

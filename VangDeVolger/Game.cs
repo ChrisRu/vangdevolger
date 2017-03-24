@@ -12,8 +12,8 @@ namespace VangDeVolger
         public SoundPlayer SoundPlayer { get; set; }
         public int EnemyMoveInterval = 500;
         private bool _soundPlaying;
-        private readonly int _size = 16;
-        private readonly int _scale = 32;
+        private int _size = 16;
+        private int _scale = 32;
 
         /// <summary>
         /// Initialize game
@@ -61,8 +61,51 @@ namespace VangDeVolger
             MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to get score:\n\tCapture red birds by moving blocks.\n\nPick up items for temporary boosts and destroy eggs to prevent new birds from spawning.\n\nGood luck!", "How to play");
         }
 
+        private void UpdateScale(int scale)
+        {
+            _scale = scale;
+            for (int y = 0; y < GameLevel.Grid.GetLength(0); y++)
+            {
+                for (int x = 0; x < GameLevel.Grid.GetLength(1); x++)
+                {
+                    GameLevel.Grid[x, y].Scale = _scale;
+                    if (GameLevel.Grid[x, y].Element != null)
+                    {
+                        GameLevel.Grid[x, y].Element.Pb.Size = new Size(GameLevel.Grid[x, y].Scale, GameLevel.Grid[x, y].Scale);
+                        GameLevel.Grid[x, y].Element.Pb.Location = new Point(GameLevel.Grid[x, y].Scale * x, GameLevel.Grid[x, y].Scale * y + menuStrip1.Height);
+                    }
+                }
+            }
+            ClientSize = new Size(_size * _scale, _size * _scale + menuStrip1.Height);
+        }
+
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
+            // Ctrl + = = Zoom * 1.1
+            if (e.KeyValue == 187 && e.Modifiers == Keys.Control)
+            {
+                UpdateScale((int)(_scale * 1.1));
+            }
+
+            // Ctrl + - = Zoom / 1.1
+            if (e.KeyCode == Keys.OemMinus && e.Modifiers == Keys.Control)
+            {
+                UpdateScale((int)(_scale / 1.1));
+            }
+
+            // Ctrl + 0 = Reset Zoom
+            if (e.KeyCode == Keys.D0 && e.Modifiers == Keys.Control)
+            {
+                UpdateScale(32);
+            }
+
+            // Escape / Pause = Pause
+            if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Pause)
+            {
+                _togglePaused(!GameLevel.Paused);
+            }
+
+            // Further KeyCodes
             if (!GameLevel.Paused)
             {
                 GameLevel.Player.KeyDown(e);

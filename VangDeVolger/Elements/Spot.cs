@@ -7,7 +7,7 @@ namespace VangDeVolger.Elements
 {
     public class Spot
     {
-        public readonly int Scale;
+        public int Scale;
         public Element Element { get; set; }
         public Dictionary<Direction, Spot> Neighbors { get; set; } = new Dictionary<Direction, Spot>();
 

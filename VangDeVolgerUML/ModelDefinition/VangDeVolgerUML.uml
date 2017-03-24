@@ -1039,7 +1039,8 @@
         <ownedAttributesInternal>
           <property
             Id="8cd84af9-1914-4a87-9765-aa604877aa0f"
-            name="OpenSet"
+            name="openSet"
+            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1047,10 +1048,18 @@
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9"
+                LastKnownName="List&lt;Spot&gt;"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
           <property
             Id="bbe6ba85-b8a2-497f-95a1-a68ebcef3360"
-            name="ClosedSet"
+            name="closedSet"
+            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1058,10 +1067,18 @@
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9"
+                LastKnownName="List&lt;Spot&gt;"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
           <property
             Id="5333ab6c-bec8-4426-aeb5-2778f6f57c75"
-            name="To"
+            name="to"
+            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1069,7 +1086,14 @@
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="87c0b592-431b-4751-be24-d7c3423da607"
+                LastKnownName="Spot"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1083,38 +1107,6 @@
           <operation
             Id="9caf9e07-29ce-4163-9d94-8f20bea0b295"
             name="Heuristic"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="0408f566-113b-4ba8-98bf-002be008ad5d"
-            name="TransformBlocks"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="9e5a9800-e276-4812-a5ef-fab07089c6e0"
-            name="TransformBlock"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="c1d01fea-e501-409f-aa67-85fe6ac344ec"
-            name="AddSibling"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="44174e42-6de1-4716-80cf-7ed29c919c09"
-            name="AddSiblings"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -1516,6 +1508,11 @@
       <undefinedType
         Id="49bf2a14-6718-441f-9286-17d1f6197bd0"
         name="Timer" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9"
+        name="List&lt;Spot&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
