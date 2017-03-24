@@ -26,7 +26,7 @@ namespace VangDeVolger.Elements
         /// </summary>
         /// <param name="direction">Direction of movement</param>
         /// <returns>bool Can move</returns>
-        public abstract bool Move(Direction direction);
+        public abstract bool CanMove(Direction direction);
 
         /// <summary>
         /// Execute on KeyDown
@@ -35,6 +35,40 @@ namespace VangDeVolger.Elements
         public virtual void KeyDown(KeyEventArgs e)
         {
             return;
+        }
+
+        /// <summary>
+        /// Move from current spot to next spot
+        /// </summary>
+        /// <param name="direction">Direction of movement</param>
+        public void Move(Direction direction)
+        {
+            int x = 0;
+            int y = 0;
+            switch (direction)
+            {
+                case Direction.Up:
+                    y = -Parent.Scale;
+                    break;
+                case Direction.Down:
+                    y = Parent.Scale;
+                    break;
+                case Direction.Left:
+                    x = -Parent.Scale;
+                    break;
+                case Direction.Right:
+                    x = Parent.Scale;
+                    break;
+            }
+
+            // Move Picturebox
+            Pb.Location = Point.Add(Pb.Location, new Size(x, y));
+            // Move Element to Neighboor
+            Parent.Neighbors[direction].Element = this;
+            // Set Element of Spot to null
+            Parent.Element = null;
+            // Set Element Parent to Neighboor
+            Parent = Parent.Neighbors[direction];
         }
     }
 }

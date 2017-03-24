@@ -65,7 +65,6 @@
     <Compile Include="Elements\Birds\BirdPlayer.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="PathFinding\PathFinder.cs" />
-    <Compile Include="PathFinding\PathFinderElement.cs" />
     <Compile Include="ImageReader\ImageReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

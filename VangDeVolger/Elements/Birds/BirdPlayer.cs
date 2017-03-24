@@ -19,7 +19,7 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         /// <param name="direction">Direction of movement</param>
         /// <returns>bool Can move</returns>
-        public override bool Move(Direction direction)
+        public override bool CanMove(Direction direction)
         {
             ChangeDirection(direction);
 
@@ -30,12 +30,12 @@ namespace VangDeVolger.Elements.Birds
             }
             if (nextSpot.Element == null)
             {
-                Parent.MoveElement(direction);
+                Move(direction);
                 return true;
             }
-            if (nextSpot.Element.Move(direction))
+            if (nextSpot.Element.CanMove(direction))
             {
-                Parent.MoveElement(direction);
+                Move(direction);
                 return true;
             }
             return false;
@@ -65,7 +65,7 @@ namespace VangDeVolger.Elements.Birds
             }
             if (direction != null)
             {
-                Move((Direction)direction);
+                CanMove((Direction)direction);
             }
         }
     }

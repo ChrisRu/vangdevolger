@@ -16,7 +16,7 @@
         /// </summary>
         /// <param name="direction">Direction of movement</param>
         /// <returns>bool Can move</returns>
-        public override bool Move(Direction direction)
+        public override bool CanMove(Direction direction)
         {
             Spot nextSpot;
             if (!Parent.Neighbors.TryGetValue(direction, out nextSpot))
@@ -25,12 +25,12 @@
             }
             if (nextSpot.Element == null)
             {
-                Parent.MoveElement(direction);
+                Move(direction);
                 return true;
             }
-            if (nextSpot.Element.Move(direction))
+            if (nextSpot.Element.CanMove(direction))
             {
-                Parent.MoveElement(direction);
+                Move(direction);
                 return true;
             }
             return false;

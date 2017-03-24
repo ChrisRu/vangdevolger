@@ -38,7 +38,7 @@ namespace VangDeVolger.Elements.Birds
         /// Move Bird with controls
         /// </summary>
         /// <param name="direction">Direction of movement</param>
-        public override bool Move(Direction direction)
+        public override bool CanMove(Direction direction)
         {
             ChangeDirection(direction);
 

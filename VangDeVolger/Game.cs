@@ -63,7 +63,10 @@ namespace VangDeVolger
 
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
-            GameLevel.Player.KeyDown(e);
+            if (!GameLevel.Paused)
+            {
+                GameLevel.Player.KeyDown(e);
+            }
         }
 
         private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)

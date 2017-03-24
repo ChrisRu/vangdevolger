@@ -44,39 +44,5 @@ namespace VangDeVolger.Elements
                     break;
             }
         }
-
-        /// <summary>
-        /// Move from current spot to next spot
-        /// </summary>
-        /// <param name="direction">Direction of movement</param>
-        public void MoveElement(Direction direction)
-        {
-            int x = 0;
-            int y = 0;
-            switch (direction)
-            {
-                case Direction.Up:
-                    y = -Scale;
-                    break;
-                case Direction.Down:
-                    y = Scale;
-                    break;
-                case Direction.Left:
-                    x = -Scale;
-                    break;
-                case Direction.Right:
-                    x = Scale;
-                    break;
-            }
-
-            // Move Picturebox
-            Element.Pb.Location = Point.Add(Element.Pb.Location, new Size(x, y));
-            // Move Element to Neighboor
-            Neighbors[direction].Element = Element;
-            // Set Element Parent to Neighboor
-            Element.Parent = Neighbors[direction];
-            // Set Element of spot to null
-            Element = null;
-        }
     }
 }
