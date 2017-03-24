@@ -19,19 +19,13 @@
         public override bool CanMove(Direction direction)
         {
             Spot nextSpot;
-            if (!Parent.Neighbors.TryGetValue(direction, out nextSpot))
+            if (Parent.Neighbors.TryGetValue(direction, out nextSpot))
             {
-                return false;
-            }
-            if (nextSpot.Element == null)
-            {
-                Move(direction);
-                return true;
-            }
-            if (nextSpot.Element.CanMove(direction))
-            {
-                Move(direction);
-                return true;
+                if (nextSpot.Element == null || nextSpot.Element.CanMove(direction))
+                {
+                    Move(direction);
+                    return true;
+                }
             }
             return false;
         }
