@@ -1,4 +1,6 @@
-﻿namespace VangDeVolger.Elements.Birds
+﻿using System.Windows.Forms;
+
+namespace VangDeVolger.Elements.Birds
 {
     public class Player : Bird
     {
@@ -21,7 +23,8 @@
         {
             ChangeDirection(direction);
 
-            if (!Parent.Neighbors.TryGetValue(direction, out Spot nextSpot))
+            Spot nextSpot;
+            if (!Parent.Neighbors.TryGetValue(direction, out nextSpot))
             {
                 return false;
             }
@@ -36,6 +39,34 @@
                 return true;
             }
             return false;
+        }
+
+        /// <summary>
+        /// Execute on KeyDown event
+        /// </summary>
+        /// <param name="e"></param>
+        public override void KeyDown(KeyEventArgs e)
+        {
+            Direction? direction = null;
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    direction = Direction.Up;
+                    break;
+                case Keys.Down:
+                    direction = Direction.Down;
+                    break;
+                case Keys.Left:
+                    direction = Direction.Left;
+                    break;
+                case Keys.Right:
+                    direction = Direction.Right;
+                    break;
+            }
+            if (direction != null)
+            {
+                Move((Direction)direction);
+            }
         }
     }
 }

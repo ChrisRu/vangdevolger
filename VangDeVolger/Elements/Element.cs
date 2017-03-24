@@ -27,5 +27,14 @@ namespace VangDeVolger.Elements
         /// <param name="direction">Direction of movement</param>
         /// <returns>bool Can move</returns>
         public abstract bool Move(Direction direction);
+
+        /// <summary>
+        /// Execute on KeyDown
+        /// </summary>
+        /// <param name="e"></param>
+        public virtual void KeyDown(KeyEventArgs e)
+        {
+            return;
+        }
     }
 }

@@ -18,7 +18,8 @@
         /// <returns>bool Can move</returns>
         public override bool Move(Direction direction)
         {
-            if (!Parent.Neighbors.TryGetValue(direction, out Spot nextSpot))
+            Spot nextSpot;
+            if (!Parent.Neighbors.TryGetValue(direction, out nextSpot))
             {
                 return false;
             }

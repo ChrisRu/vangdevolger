@@ -76,36 +76,6 @@ namespace VangDeVolger
         }
 
         /// <summary>
-        /// Execute on KeyDown
-        /// </summary>
-        /// <param name="e">KeyData</param>
-        public void KeyDown(KeyEventArgs e)
-        {
-            if (Paused) return;
-
-            Direction? direction = null;
-            switch (e.KeyCode)
-            {
-                case Keys.Up:
-                    direction = Direction.Up;
-                    break;
-                case Keys.Down:
-                    direction = Direction.Down;
-                    break;
-                case Keys.Left:
-                    direction = Direction.Left;
-                    break;
-                case Keys.Right:
-                    direction = Direction.Right;
-                    break;
-            }
-            if (direction != null)
-            {
-                Player.Move((Direction) direction);
-            }
-        }
-
-        /// <summary>
         /// Add all Elements to Controls
         /// </summary>
         /// <param name="offsetTop">Offset on Top of View</param>

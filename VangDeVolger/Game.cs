@@ -8,12 +8,12 @@ namespace VangDeVolger
 {
     public partial class Game : Form
     {
-        private bool _soundPlaying;
-        private readonly int _size = 20;
-        private readonly int _scale = 32;
         public Level GameLevel { get; set; }
-        public SoundPlayer Snd { get; set; }
+        public SoundPlayer SoundPlayer { get; set; }
         public int EnemyMoveInterval = 500;
+        private bool _soundPlaying;
+        private readonly int _size = 16;
+        private readonly int _scale = 32;
 
         /// <summary>
         /// Initialize game
@@ -25,7 +25,7 @@ namespace VangDeVolger
             GameLevel = new Level(Controls, _size, _scale, menuStrip1.Height);
             ClientSize = new Size(_size * _scale, _size * _scale + menuStrip1.Height);
 
-            Snd = new SoundPlayer(Properties.Resources.LoopyMusic);
+            SoundPlayer = new SoundPlayer(Properties.Resources.LoopyMusic);
         }
 
 
@@ -36,7 +36,7 @@ namespace VangDeVolger
         /// <param name="e">Arguments given by form</param>
         private void Game_Load(object sender, EventArgs e)
         {
-            Snd.PlayLooping();
+            SoundPlayer.PlayLooping();
             _soundPlaying = true;
             musicToolStripMenuItem.Checked = true;
         }
@@ -63,7 +63,7 @@ namespace VangDeVolger
 
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
-            GameLevel.KeyDown(e);
+            GameLevel.Player.KeyDown(e);
         }
 
         private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -135,13 +135,13 @@ namespace VangDeVolger
             if (!play)
             {
                 _soundPlaying = false;
-                Snd.Stop();
+                SoundPlayer.Stop();
                 musicToolStripMenuItem.Checked = false;
             }
             else
             {
                 _soundPlaying = true;
-                Snd.PlayLooping();
+                SoundPlayer.PlayLooping();
                 musicToolStripMenuItem.Checked = true;
             }
         }
