@@ -272,17 +272,27 @@
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
-          <operation Id="26631146-e98f-4e8c-ae21-c2ceee43d7e2" name="Move" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="8ab886b3-f45d-4694-9330-dda90673d94f" />
+          <operation Id="67520829-dcee-4b4f-892c-27a2edc07d39" name="Move" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="fc68ee71-6616-4f0c-8a9e-8e9bf379957d" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="fc368cab-4858-41a8-95b3-6b8a770c8332" name="Direction" direction="In" isUnique="false">
-                  <elementDefinition Id="c35f1d0d-6cbd-47e1-8763-92988aaf2359" />
+                <parameter Id="038b481f-23ca-4ab1-b1a2-dde642a9c0c4" name="Direction" direction="In" isUnique="false">
+                  <elementDefinition Id="9528fa6a-691b-4a1a-a98a-21a0eb4fb677" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2f989d66-9864-4bdb-9bf4-7ec2fc21acc0" name="CanMove" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3cf5585c-edf1-48ff-8d4a-4e8b99370307" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ff2d33f5-6b15-4f05-b886-f66a2a508cfa" name="Direction" direction="In" isUnique="false">
+                  <elementDefinition Id="5f09fa1f-a1d9-4335-b050-18ce3a5daab3" />
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="6eebb955-2d97-4fed-9294-43a806317ebe" direction="Return" isUnique="false">
-                  <elementDefinition Id="37828547-80ba-4029-8b27-7fdccf29730c" />
+                <parameter Id="0c4e2478-2014-4f6e-bf42-c09433c8d59c" direction="Return" isUnique="false">
+                  <elementDefinition Id="418765ab-0bbf-4e65-bb65-1106b7c0f24d" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
                   </type_NamedElement>

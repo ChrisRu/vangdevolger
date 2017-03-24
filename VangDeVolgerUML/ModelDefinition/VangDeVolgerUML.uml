@@ -651,7 +651,7 @@
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="8ab886b3-f45d-4694-9330-dda90673d94f"
+            Id="fc68ee71-6616-4f0c-8a9e-8e9bf379957d"
             name="Move"
             isLeaf="false"
             isStatic="false"
@@ -661,14 +661,32 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="c35f1d0d-6cbd-47e1-8763-92988aaf2359"
+                  Id="9528fa6a-691b-4a1a-a98a-21a0eb4fb677"
+                  name="Direction"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="3cf5585c-edf1-48ff-8d4a-4e8b99370307"
+            name="CanMove"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5f09fa1f-a1d9-4335-b050-18ce3a5daab3"
                   name="Direction"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="37828547-80ba-4029-8b27-7fdccf29730c"
+                  Id="418765ab-0bbf-4e65-bb65-1106b7c0f24d"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>

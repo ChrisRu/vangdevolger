@@ -156,12 +156,14 @@ namespace VangDeVolger
                 GameLevel.Paused = false;
                 pauseToolStripMenuItem.Checked = false;
                 _toggleMusic(true);
+                BackColor = Color.White;
             }
             else
             {
                 GameLevel.Paused = true;
                 pauseToolStripMenuItem.Checked = true;
                 _toggleMusic(false);
+                BackColor = Color.DimGray;
             }
         }
     }
