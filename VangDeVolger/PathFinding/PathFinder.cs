@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
 
@@ -6,110 +7,76 @@ namespace VangDeVolger.PathFinding
 {
     public class PathFinder
     {
-        private readonly List<Spot> _openSet;
-        private readonly List<Spot> _closedSet;
-        private readonly Spot _to;
-
         /// <summary>
-        /// Initialize PathFinder Class
-        /// </summary>
-        /// <param name="grid">Current Grid of Elements</param>
-        /// <param name="from">Position of Enemy Bird</param>
-        /// <param name="to">Position of Player Bird</param>
-        public PathFinder(Spot[,] grid, Spot from, Spot to)
-        {
-            _openSet = new List<Spot>();
-            _closedSet = new List<Spot>();
-
-            foreach (Spot spot in grid)
-            {
-                if (to == spot)
-                {
-                    _to = spot;
-                }
-                else if (from == spot)
-                {
-                    _openSet.Add(spot);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Path Finding using the A* algorithm
+        /// Path Finding using the Dijkstra algorithm
         /// </summary>
         /// <returns>List with Optimal Path</returns>
-        public List<Spot> GetOptimalPath()
+        public List<Spot> GetOptimalPath(Spot from)
         {
-            List<Spot> path = new List<Spot>();
+            List<Spot> optimalPath = new List<Spot>();
 
-            while (_openSet.Count > 0)
+            from.PathCost = 0;
+            // Spots to be evaluated
+            List<Spot> openSet = new List<Spot> { from };
+            // Spots already evaluated
+            List<Spot> closedSet = new List<Spot>();
+
+            while (openSet.Count > 0)
             {
+                // current = Spot with lowest path cost
                 int winner = 0;
-                for (int i = 0; i < _openSet.Count; i++)
+                for (int i = 0; i < openSet.Count; i++)
                 {
-                    if (_openSet[i].F < _openSet[winner].F)
+                    if (openSet[i].PathCost < openSet[winner].PathCost)
                     {
                         winner = i;
                     }
                 }
+                Spot current = openSet[winner];
 
-                Spot current = _openSet[winner];
-
-                if (current == _to)
+                // Found path
+                if (current.Element is Player)
                 {
-                    // DONE
-
+                    optimalPath.Add(current);
                     Spot next = current;
-                    path.Add(next);
-                    
                     while (next.CameFromSpot != null)
                     {
-                        path.Add(next);
+                        optimalPath.Add(next.CameFromSpot);
                         next = next.CameFromSpot;
                     }
-
-                    return path;
+                    return optimalPath;
                 }
 
-                _openSet.Remove(current);
-                _closedSet.Add(current);
+                openSet.Remove(current);
+                closedSet.Add(current);
 
-                foreach (KeyValuePair<Direction, Spot> neighbor in current.Neighbors)
+                foreach (Spot neighbor in current.Neighbors.Values)
                 {
-                    Spot spot = neighbor.Value;
+                    // Ignore if already evaluated
+                    if (closedSet.Contains(neighbor)) continue;
 
-                    if (_closedSet.Contains(spot)) continue;
+                    // Ignore if invalid block to move to
+                    if (neighbor.Element != null && !(neighbor.Element is Bird)) continue;
 
-                    if (spot.Element != null && !(spot.Element is Bird)) continue;
+                    // cost + distance
+                    int newCost = current.PathCost + 1;
 
-                    int tempG = current.G + 1;
-
-                    if (_openSet.Contains(spot))
+                    // New node found
+                    if (!openSet.Contains(neighbor))
                     {
-                        if (tempG < spot.G)
-                        {
-                            spot.G = tempG;
-                        }
-                    }
-                    else
-                    {
-                        spot.G = tempG;
-                        _openSet.Add(spot);
+                        openSet.Add(neighbor);
                     }
 
-                    spot.H = Heuristic();
-                    spot.F = spot.G + spot.H;
-                    spot.CameFromSpot = current;
+                    // Ignore if not a better path
+                    else if (newCost >= neighbor.PathCost) continue;
+
+                    neighbor.PathCost = newCost;
+                    neighbor.CameFromSpot = current;
                 }
             }
-            // No solution
-            return path;
-        }
 
-        /// <summary>
-        /// Get Estimated Distance (Heuristic)
-        /// </summary>
-        /// <returns>Average block distance</returns>
-        private int Heuristic() => 32;
+            // No solution
+            return optimalPath;
+        }
     }
 }

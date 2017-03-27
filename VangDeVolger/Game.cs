@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using VangDeVolger.Elements;
+using VangDeVolger.PathFinding;
 
 namespace VangDeVolger
 {

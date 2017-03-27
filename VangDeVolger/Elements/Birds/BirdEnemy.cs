@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using VangDeVolger.PathFinding;
 
@@ -6,32 +8,28 @@ namespace VangDeVolger.Elements.Birds
 {
     public class Enemy : Bird
     {
-        public PathFinder PathFinder { get; set; }
-        public List<Spot> Path { get; set; }
-
-        public Timer Timer { get; set; }
+        private PathFinder _pathFinder;
+        private Timer _timer;
+        private int _moveTime;
+        public int MoveTime
+        {
+            get { return _moveTime; }
+            set {
+                _moveTime = value;
+                _timer.Interval = value;
+            }
+        }
 
         /// <summary>
         /// Initialize EnemyBird Class
         /// </summary>
         public Enemy(Spot parent) : base(parent)
         {
-            Timer = new Timer();
             ImageLeft = Properties.Resources.bird_red_left;
             ImageRight = Properties.Resources.bird_red_right;
             Pb.Image = ImageLeft;
             GoingRight = false;
-            
-            //PathFinder = new PathFinder(Level.Grid, new Coordinates(X, Y), new Coordinates(0, 0));
-            //Path = PathFinder.GetOptimalPath();
-            
-
-            Timer = new Timer
-            {
-                Interval = 500
-            };
-            //timer.Tick += _moveAlongPath;
-            Timer.Start();
+            _initMovement(500);
         }
 
         /// <summary>
@@ -41,44 +39,51 @@ namespace VangDeVolger.Elements.Birds
         public override bool CanMove(Direction direction)
         {
             ChangeDirection(direction);
-
             return false;
         }
-        /*
-        public Coordinates GetPlayerLocation()
+
+        /// <summary>
+        /// Initialize PathFinder Movement
+        /// </summary>
+        private void _initMovement(int time)
         {
-            foreach (Element element in Level.Grid)
+            _pathFinder = new PathFinder();
+            _timer = new Timer
             {
-                if (element is Player)
-                {
-                    return new Coordinates(element.X, element.Y);
-                }
-            }
-            return new Coordinates(0, 0);
+                Interval = time
+            };
+            _timer.Tick += _moveAlongPath;
+            _timer.Start();
+            MoveTime = time;
         }
 
+        /// <summary>
+        /// Move Enemy Along 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _moveAlongPath(object sender, EventArgs e)
         {
-            if (Level.Paused) return;
-
-            timer.EnemyMoveInterval = Game.interval;
-
-            PathFinder = new PathFinder(Level.Grid, new Coordinates(X, Y), GetPlayerLocation());
-            Path = PathFinder.GetOptimalPath();
-
-            if (Path.Count > 0)
+            List<Spot> path = _pathFinder.GetOptimalPath(Parent);
+            if (path.Count > 1)
             {
-                if (X > Path[Path.Count - 1].X)
+                // Move along path
+                Direction? direction = Parent.Neighbors.FirstOrDefault(neighboor => neighboor.Value == path[1]).Key;
+                if (direction != null)
                 {
-                    ChangeDirection(Direction.Left);
+                    Move((Direction) direction);
                 }
-                else if (X < Path[Path.Count - 1].X)
-                {
-                    ChangeDirection(Direction.Right);
-                }
-                Path.Remove(Path[Path.Count - 1]);
-                Level.MoveBlock(X, Y, Path[Path.Count - 1].X, Path[Path.Count - 1].Y);
             }
-        }*/
+            else
+            {
+                // Move randomly
+                Direction[] directions = (Direction[])Enum.GetValues(typeof(Direction));
+                Direction randomDirection = directions[new Random().Next(0, directions.Length)];
+                if (Parent.Neighbors[randomDirection]?.Element != null)
+                {
+                    Move(randomDirection);
+                }
+            }
+        }
     }
 }

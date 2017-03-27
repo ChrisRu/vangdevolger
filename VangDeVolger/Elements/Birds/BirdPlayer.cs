@@ -23,8 +23,7 @@ namespace VangDeVolger.Elements.Birds
         {
             ChangeDirection(direction);
 
-            Spot nextSpot;
-            if (Parent.Neighbors.TryGetValue(direction, out nextSpot))
+            if (Parent.Neighbors.TryGetValue(direction, out Spot nextSpot))
             {
                 if (nextSpot.Element == null || nextSpot.Element.CanMove(direction))
                 {

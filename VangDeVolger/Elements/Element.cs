@@ -37,6 +37,11 @@ namespace VangDeVolger.Elements
             return;
         }
 
+        public virtual void MoveToSpot(Spot spot)
+        {
+            return;
+        }
+
         /// <summary>
         /// Move from current spot to next spot
         /// </summary>

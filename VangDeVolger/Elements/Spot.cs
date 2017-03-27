@@ -9,12 +9,10 @@ namespace VangDeVolger.Elements
     {
         public int Scale;
         public Element Element { get; set; }
-        public Dictionary<Direction, Spot> Neighbors { get; set; } = new Dictionary<Direction, Spot>();
+        public Dictionary<Direction, Spot> Neighbors { get; set; }
 
         // PathFinder Properties
-        public int F { get; set; }
-        public int G { get; set; }
-        public int H { get; set; }
+        public int PathCost { get; set; }
         public Spot CameFromSpot { get; set; }
 
         /// <summary>
@@ -24,6 +22,12 @@ namespace VangDeVolger.Elements
         /// <param name="scale"></param>
         public Spot(ElementType blockType, int scale)
         {
+            Neighbors = new Dictionary<Direction, Spot>();
+
+            // Artificial infinity (grid will never be big enough)
+            PathCost = 1000000;
+            CameFromSpot = null;
+
             Scale = scale;
             switch (blockType)
             {

@@ -369,6 +369,18 @@
               <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
             </type_NamedElement>
           </property>
+          <property Id="fffd189f-7144-448a-b130-c1a67c6c5ae4" name="solidBlockPercentage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d61b0878-4164-42d1-b7d5-a0622bcaf249" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="83d11d91-fb83-4871-acde-9b2d278b31de" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="e32097ff-b4ed-48dc-a93e-00704ea17ee6" name="movableBlockPercentage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5020e7c9-687b-49d0-8b5a-009b97aa69f2" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="83d11d91-fb83-4871-acde-9b2d278b31de" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="6eb2cd41-4ba3-4add-bc55-37636d07fce4" name="GetRandomGrid" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
