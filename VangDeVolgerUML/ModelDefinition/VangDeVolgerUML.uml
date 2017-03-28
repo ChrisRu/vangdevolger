@@ -79,7 +79,7 @@
         <ownedAttributesInternal>
           <property
             Id="d65ff882-024f-4d44-acca-39a179719bb8"
-            name="SoundPlaying"
+            name="soundPlaying"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -226,7 +226,7 @@
       <class
         Id="da5c65cf-ff68-4778-842b-731916719147"
         name="Bird"
-        isAbstract="false"
+        isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
         <generalsInternal>
@@ -321,7 +321,7 @@
       <class
         Id="8279b917-5ffc-4085-8bec-d24a73c89076"
         name="Block"
-        isAbstract="false"
+        isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
         <generalsInternal>
@@ -338,6 +338,7 @@
           <property
             Id="c2f6ba2c-44da-48e7-976d-fe509d1b1063"
             name="Image"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -465,11 +466,86 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="1d674f96-1971-4003-8f95-62087387a22a"
+            name="MoveTime"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
+                LastKnownName="int"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="20b25236-6495-4a10-8dd6-f191fcfa5c8d"
+            name="pathFinder"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="bcfdaa8f-f04a-4897-8ed7-867d69a8317f"
+                LastKnownName="PathFinder"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="783aaa6d-c553-47d1-9039-531c92235027"
-            name="MoveAlongPath"
+            Id="ba17471b-eeb5-4fca-b7fe-1189371c394b"
+            name="CanMove"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5c9f88f3-c873-485e-8495-75b90d8b0a05"
+                  name="Direction"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a886c77a-7f37-4d79-b6d9-92b20d3cab9f"
+            name="initMovement"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f86c94ca-4aa3-43bc-9f5a-bf73b4626923"
+                  name="int"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="35e927a4-bd75-491e-acdf-9b5d6d9ef05d"
+            name="moveAlongPath"
+            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -533,6 +609,26 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="ada92fae-0d18-46f1-8aac-d5412246a269"
+            name="CanMove"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5574a1d8-163c-459a-9820-32b29146e239"
+                  name="Direction"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -552,6 +648,26 @@
               LastKnownLocation="VangDeVolgerUML.uml" />
           </generalization>
         </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="02df125a-c815-4aa2-99c4-9a53de83561f"
+            name="CanMove"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="01cd9bd3-045d-4d03-8af9-683593d1f73e"
+                  name="Direction"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -585,9 +701,18 @@
       <class
         Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
         name="Element"
-        isAbstract="false"
+        isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="fe622061-9bcf-4450-9069-2a3003db1932">
+            <enumerationMoniker
+              Id="a292210d-3a3f-4cc7-8c65-79d0632ccd32"
+              LastKnownName="Direction"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association
             Id="66cf5f69-cc63-4ada-91cf-ecff4acc61de"
@@ -648,6 +773,24 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="3faff07a-d100-498a-b5bf-4741e7647504"
+            name="Parent"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="87c0b592-431b-4751-be24-d7c3423da607"
+                LastKnownName="Spot"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -673,7 +816,7 @@
             name="CanMove"
             isLeaf="false"
             isStatic="false"
-            isAbstract="false"
+            isAbstract="true"
             concurrency="Sequential"
             isQuery="false">
             <ownedParameters>
@@ -699,6 +842,29 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="b1bc31e7-379a-451c-ab72-222274fa771f"
+            name="KeyDown"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a162dfaf-7447-4c97-879e-3b41597eb8da"
+                  name="e"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c9a15957-a2be-4666-b6cb-79fa72107b12"
+                  direction="Return" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -714,12 +880,12 @@
             Id="0ecb9f9e-97fa-499b-bb06-50459ecfc414"
             isDerived="false"
             sourceEndRoleName="Level"
-            targetEndRoleName="ImageReader"
+            targetEndRoleName="LevelReader"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
               Id="c9d5fdb6-04be-4607-8d89-a4a5cbcb0e19"
-              LastKnownName="ImageReader"
+              LastKnownName="LevelReader"
               LastKnownLocation="VangDeVolgerUML.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -738,7 +904,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="60b8e719-2b6b-4f1a-bdbe-b12e8e489df8"
-                  name="ImageReader"
+                  name="LevelReader"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -895,6 +1061,25 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="e529735f-c7c8-45f2-997c-ce48f5b2b2ba"
+            name="controls"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ed577ba6-6a71-4bec-a72c-42abf337c516"
+                LastKnownName="ControlCollection"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1020,6 +1205,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="b33cc771-4a9e-4270-b24b-02fc32a59b75">
+            <classMoniker
+              Id="87c0b592-431b-4751-be24-d7c3423da607"
+              LastKnownName="Spot"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association
             Id="47040c33-4a52-491a-8da8-cf1a397f0f02"
@@ -1074,82 +1268,56 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
-        <ownedAttributesInternal>
-          <property
-            Id="8cd84af9-1914-4a87-9765-aa604877aa0f"
-            name="openSet"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9"
-                LastKnownName="List&lt;Spot&gt;"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="bbe6ba85-b8a2-497f-95a1-a68ebcef3360"
-            name="closedSet"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9"
-                LastKnownName="List&lt;Spot&gt;"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="5333ab6c-bec8-4426-aeb5-2778f6f57c75"
-            name="to"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="87c0b592-431b-4751-be24-d7c3423da607"
-                LastKnownName="Spot"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
-            Id="b7a93a55-606a-4d7c-bce2-10de4003b58e"
+            Id="3e576616-4d58-4365-bb35-79b88dfdc2b1"
             name="GetOptimalPath"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dd1a00ed-fa3d-4d8a-8e12-c5b21122e495"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9"
+                      LastKnownName="List&lt;Spot&gt;"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
-            Id="9caf9e07-29ce-4163-9d94-8f20bea0b295"
-            name="Heuristic"
+            Id="0fd64871-71d0-486e-af99-001f9b12d5df"
+            name="reconstructPath"
+            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9fd4e304-5831-4b1f-960f-c77bd20b8704"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9"
+                      LastKnownName="List&lt;Spot&gt;"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1255,14 +1423,23 @@
     <packageHasNamedElement>
       <class
         Id="c9d5fdb6-04be-4607-8d89-a4a5cbcb0e19"
-        name="ImageReader"
+        name="LevelReader"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="c533df08-51b2-4652-aaed-bad68facde85">
+            <classMoniker
+              Id="87c0b592-431b-4751-be24-d7c3423da607"
+              LastKnownName="Spot"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </dependency>
+        </suppliersInternal>
         <ownedAttributesInternal>
           <property
             Id="2aeb36e0-0e9d-4e38-9e75-1a01a7fb585e"
-            name="ImageBItmap"
+            name="ImageBitmap"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1334,6 +1511,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="e6fb4114-b646-476d-8ad2-32a3f45e323c">
+            <enumerationMoniker
+              Id="a292210d-3a3f-4cc7-8c65-79d0632ccd32"
+              LastKnownName="Direction"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association
             Id="161aea1a-7ae0-4a1e-a889-e47923e7e454"
@@ -1413,60 +1599,6 @@
             </type_NamedElement>
           </property>
           <property
-            Id="e136238f-4c74-4569-843c-6df0a6cd8026"
-            name="F"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
-                LastKnownName="int"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="cd88b373-a921-469c-af7b-1e503db5ff6d"
-            name="G"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
-                LastKnownName="int"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="f168de46-05b1-4ea5-a1e3-3650baf5afed"
-            name="H"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
-                LastKnownName="int"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="d6c787b3-1eb0-4f30-a119-2f1df213e70e"
             name="CameFromSpot"
             isLeaf="false"
@@ -1484,27 +1616,43 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="a77b4b15-1ceb-49b9-9f5c-f5dd0a26d029"
-            name="MoveElement"
+          <property
+            Id="ea40957f-de45-4f85-868c-58e722a4578e"
+            name="PathCost"
             isLeaf="false"
             isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="37597984-6c8c-4ba8-8640-2cad81d28a39"
-                  name="Direction"
-                  direction="In"
-                  isUnique="false" />
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperationsInternal>
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
+                LastKnownName="int"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1eba1558-f3bf-4937-b366-95f6399da263"
+            name="Element"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
+                LastKnownName="Element"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -1551,6 +1699,11 @@
       <undefinedType
         Id="8b5c7ed8-d406-41d8-8315-bcd82511aee9"
         name="List&lt;Spot&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ed577ba6-6a71-4bec-a72c-42abf337c516"
+        name="ControlCollection" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

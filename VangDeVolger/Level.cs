@@ -13,7 +13,7 @@ namespace VangDeVolger
         public int Scale { get; set; }
         public int Size { get; set; }
         public bool Paused { get; set; }
-        public Control.ControlCollection Controls { get; set; }
+        private Control.ControlCollection _controls { get; set; }
         public Spot[,] Grid { get; set; }
 
         public Element Player =>
@@ -27,10 +27,10 @@ namespace VangDeVolger
         /// <param name="controls">Controls of the Form</param>
         /// <param name="size">Width of the Form</param>
         /// <param name="scale">Height of the Form</param>
-        /// <param name="offsetTop"></param>
+        /// <param name="offsetTop">Top Offset for Level</param>
         public Level(Control.ControlCollection controls, int size, int scale, int offsetTop)
         {
-            Controls = controls;
+            _controls = controls;
             Size = size;
             Scale = scale;
             Grid = GetRandomGrid(size, size);
@@ -116,7 +116,7 @@ namespace VangDeVolger
                     if (spot.Element != null)
                     {
                         spot.Element.Pb.Location = new Point(x * Scale, y * Scale + offsetTop);
-                        Controls.Add(spot.Element.Pb);
+                        _controls.Add(spot.Element.Pb);
                     }
                 }
             }
