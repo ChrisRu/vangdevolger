@@ -1080,6 +1080,24 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="f90dedda-9e3a-4490-817a-180fe7770bcf"
+            name="RandomElements"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="121fec1f-4db0-4d2f-a308-dc7494c9a047"
+                LastKnownName="Dictionary&lt;int, Type&gt;"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1704,6 +1722,11 @@
       <undefinedType
         Id="ed577ba6-6a71-4bec-a72c-42abf337c516"
         name="ControlCollection" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="121fec1f-4db0-4d2f-a308-dc7494c9a047"
+        name="Dictionary&lt;int, Type&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

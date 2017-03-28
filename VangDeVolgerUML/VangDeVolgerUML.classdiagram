@@ -470,6 +470,12 @@
               <referencedTypeMoniker Id="aae078f2-ed6c-462b-9f23-acf87f502a33" LastKnownName="ControlCollection" />
             </type_NamedElement>
           </property>
+          <property Id="72cb6c01-d9a2-4b5a-97c8-ba914211e73d" name="RandomElements" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f90dedda-9e3a-4490-817a-180fe7770bcf" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="740df88a-3a9e-4cc9-aeff-c0494f6c644d" LastKnownName="Dictionary&lt;int, Type&gt;" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="6eb2cd41-4ba3-4add-bc55-37636d07fce4" name="GetRandomGrid" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -741,6 +747,11 @@
     <packageHasNamedElement>
       <referencedType Id="93a62dea-d03f-44a6-91a2-cb44dbac67f7" name="PathFinder" isAbstract="false" isLeaf="false" cachedFullName="VangDeVolgerUML::PathFinder">
         <elementDefinition Id="bcfdaa8f-f04a-4897-8ed7-867d69a8317f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="740df88a-3a9e-4cc9-aeff-c0494f6c644d" name="Dictionary&lt;int, Type&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;int, Type&gt;">
+        <elementDefinition Id="121fec1f-4db0-4d2f-a308-dc7494c9a047" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

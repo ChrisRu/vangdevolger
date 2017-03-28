@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,8 +14,10 @@ namespace VangDeVolger
         public int Scale { get; set; }
         public int Size { get; set; }
         public bool Paused { get; set; }
-        private Control.ControlCollection _controls { get; set; }
+        private Control.ControlCollection Controls { get; }
         public Spot[,] Grid { get; set; }
+
+        public Dictionary<int, Type> RandomElements { get; }
 
         public Element Player =>
             (from Spot spot in Grid where spot.Element is Player select spot.Element).FirstOrDefault();
@@ -30,9 +33,15 @@ namespace VangDeVolger
         /// <param name="offsetTop">Top Offset for Level</param>
         public Level(Control.ControlCollection controls, int size, int scale, int offsetTop)
         {
-            _controls = controls;
+            Controls = controls;
             Size = size;
             Scale = scale;
+            RandomElements = new Dictionary<int, Type>
+            {
+                {5, typeof(BlockSolid)},
+                {20, typeof(BlockMovable)},
+            };
+
             Grid = GetRandomGrid(size, size);
 
             // Add Birds and allow them to move
@@ -62,24 +71,30 @@ namespace VangDeVolger
             {
                 for (int x = 0; x < sizeX; x++)
                 {
-                    int randomNumber = random.Next(0, 100);
-
-                    if (randomNumber < 5)
-                    {
-                        spots[x, y] = new Spot(new BlockSolid(), Scale);
-                    }
-                    else if (randomNumber < 25)
-                    {
-                        spots[x, y] = new Spot(new BlockMovable(), Scale);
-                    }
-                    else
-                    {
-                        spots[x, y] = new Spot(null, Scale);
-                    }
+                    spots[x, y] = new Spot(GetRandomElement(random.Next(0, 100)), Scale);
                 }
             }
 
             return spots;
+        }
+
+        /// <summary>
+        /// Get Random Element
+        /// </summary>
+        /// <param name="randomPercentage">Random number as percentage</param>
+        /// <returns></returns>
+        public Element GetRandomElement(int randomPercentage)
+        {
+            int percentage = 0;
+            foreach (KeyValuePair<int, Type> type in RandomElements)
+            {
+                percentage += type.Key;
+                if (randomPercentage < percentage)
+                {
+                    return (Element)Activator.CreateInstance(type.Value);
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -116,7 +131,7 @@ namespace VangDeVolger
                     if (spot.Element != null)
                     {
                         spot.Element.Pb.Location = new Point(x * Scale, y * Scale + offsetTop);
-                        _controls.Add(spot.Element.Pb);
+                        Controls.Add(spot.Element.Pb);
                     }
                 }
             }
