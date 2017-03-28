@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
@@ -8,13 +9,31 @@ namespace VangDeVolger.PathFinding
     public class PathFinder
     {
         /// <summary>
+        /// Reconstruct path from current to end
+        /// </summary>
+        /// <param name="current">End position</param>
+        /// <returns>List with spots in Optimal Path</returns>
+        private List<Spot> _reconstructPath(Spot current)
+        {
+            List<Spot> path = new List<Spot> { current };
+            Spot next = current;
+            while (next.CameFromSpot != null)
+            {
+                next = next.CameFromSpot;
+                if (path.Contains(next)) break;
+                path.Add(next);
+            }
+            path.Reverse();
+            path.RemoveAt(0);
+            return path;
+        }
+
+        /// <summary>
         /// Path Finding using the Dijkstra algorithm
         /// </summary>
         /// <returns>List with Optimal Path</returns>
-        public List<Spot> GetOptimalPath(Spot from)
+        public List<Spot> GetOptimalPath(Spot from, Type to)
         {
-            List<Spot> optimalPath = new List<Spot>();
-
             from.PathCost = 0;
             // Spots to be evaluated
             List<Spot> openSet = new List<Spot> { from };
@@ -35,16 +54,9 @@ namespace VangDeVolger.PathFinding
                 Spot current = openSet[winner];
 
                 // Found path
-                if (current.Element is Player)
+                if (current.Element != null && current.Element.GetType() == to)
                 {
-                    optimalPath.Add(current);
-                    Spot next = current;
-                    while (next.CameFromSpot != null)
-                    {
-                        optimalPath.Add(next.CameFromSpot);
-                        next = next.CameFromSpot;
-                    }
-                    return optimalPath;
+                    return _reconstructPath(current);
                 }
 
                 openSet.Remove(current);
@@ -61,6 +73,7 @@ namespace VangDeVolger.PathFinding
                     // cost + distance
                     int newCost = current.PathCost + 1;
 
+
                     // New node found
                     if (!openSet.Contains(neighbor))
                     {
@@ -76,7 +89,7 @@ namespace VangDeVolger.PathFinding
             }
 
             // No solution
-            return optimalPath;
+            return null;
         }
     }
 }

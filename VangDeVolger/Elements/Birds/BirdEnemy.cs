@@ -14,7 +14,8 @@ namespace VangDeVolger.Elements.Birds
         public int MoveTime
         {
             get { return _moveTime; }
-            set {
+            set
+            {
                 _moveTime = value;
                 _timer.Interval = value;
             }
@@ -64,24 +65,31 @@ namespace VangDeVolger.Elements.Birds
         /// <param name="e"></param>
         private void _moveAlongPath(object sender, EventArgs e)
         {
-            List<Spot> path = _pathFinder.GetOptimalPath(Parent);
-            if (path.Count > 1)
+            List<Spot> path = _pathFinder.GetOptimalPath(Parent, typeof(Player));
+            // Move Along Path
+            if (path != null)
             {
-                // Move along path
-                Direction? direction = Parent.Neighbors.FirstOrDefault(neighboor => neighboor.Value == path[1]).Key;
-                if (direction != null)
+                Direction direction = path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
+                if (Parent.Neighbors[direction].Element is Player)
                 {
-                    Move((Direction) direction);
+                    MessageBox.Show("Game Over");
                 }
+                Move(direction);
             }
+            // No path
             else
             {
+                List<Direction> directions = new List<Direction>(Parent.Neighbors.Keys.Where(x => Parent.Neighbors[x].Element == null));
                 // Move randomly
-                Direction[] directions = (Direction[])Enum.GetValues(typeof(Direction));
-                Direction randomDirection = directions[new Random().Next(0, directions.Length)];
-                if (Parent.Neighbors[randomDirection]?.Element != null)
+                if (directions.Count > 0)
                 {
+                    Direction randomDirection = directions.OrderBy(x => Guid.NewGuid()).First();
                     Move(randomDirection);
+                }
+                // Trapped
+                else
+                {
+                    MessageBox.Show("Trapped");
                 }
             }
         }

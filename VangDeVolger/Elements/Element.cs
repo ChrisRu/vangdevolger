@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using VangDeVolger.Elements.Birds;
 
 namespace VangDeVolger.Elements
 {
@@ -48,6 +49,8 @@ namespace VangDeVolger.Elements
         /// <param name="direction">Direction of movement</param>
         public void Move(Direction direction)
         {
+            if (Parent.Neighbors[direction].Element != null) return;
+
             int x = 0;
             int y = 0;
             switch (direction)
