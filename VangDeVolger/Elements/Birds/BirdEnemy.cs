@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using VangDeVolger.PathFinding;
 
 namespace VangDeVolger.Elements.Birds
 {
@@ -24,7 +23,7 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize EnemyBird Class
         /// </summary>
-        public Enemy(Spot parent) : base(parent)
+        public Enemy()
         {
             ImageLeft = Properties.Resources.bird_red_left;
             ImageRight = Properties.Resources.bird_red_right;

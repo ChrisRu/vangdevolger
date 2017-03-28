@@ -2,8 +2,6 @@
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
-using VangDeVolger.Elements;
-using VangDeVolger.PathFinding;
 
 namespace VangDeVolger
 {
@@ -62,6 +60,10 @@ namespace VangDeVolger
             MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to get score:\n\tCapture red birds by moving blocks.\n\nPick up items for temporary boosts and destroy eggs to prevent new birds from spawning.\n\nGood luck!", "How to play");
         }
 
+        /// <summary>
+        /// Change Scale for Game
+        /// </summary>
+        /// <param name="scale">int scale (default 32)</param>
         private void UpdateScale(int scale)
         {
             _scale = scale;
@@ -106,7 +108,7 @@ namespace VangDeVolger
                 _togglePaused(!GameLevel.Paused);
             }
 
-            // Further KeyCodes
+            // Player Movement
             if (!GameLevel.Paused)
             {
                 GameLevel.Player.KeyDown(e);
@@ -177,6 +179,10 @@ namespace VangDeVolger
             _toggleMusic(!_soundPlaying);
         }
 
+        /// <summary>
+        /// Toggle Music Playing
+        /// </summary>
+        /// <param name="play">bool to play</param>
         private void _toggleMusic(bool play)
         {
             if (!play)
@@ -193,6 +199,10 @@ namespace VangDeVolger
             }
         }
 
+        /// <summary>
+        /// Toggle Pause for the game
+        /// </summary>
+        /// <param name="play">bool to pause</param>
         private void _togglePaused(bool play)
         {
             if (!play)

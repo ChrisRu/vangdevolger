@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
+using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger
 {
@@ -34,8 +35,14 @@ namespace VangDeVolger
             Scale = scale;
             Grid = GetRandomGrid(size, size);
 
-            Grid[0, 0] = new Spot(ElementType.Player, Scale);
-            Grid[size - 1, size - 1] = new Spot(ElementType.Enemy, Scale);
+            // Add Birds and allow them to move
+            Grid[0, 0] = new Spot(new Player(), Scale);
+            Grid[1, 0] = new Spot(null, Scale);
+            Grid[0, 1] = new Spot(null, Scale);
+
+            Grid[size - 1, size - 1] = new Spot(new Enemy(), Scale);
+            Grid[size - 1, size - 2] = new Spot(null, Scale);
+            Grid[size - 2, size - 1] = new Spot(null, Scale);
 
             Render(offsetTop);
         }
@@ -59,15 +66,15 @@ namespace VangDeVolger
 
                     if (randomNumber < 5)
                     {
-                        spots[x, y] = new Spot(ElementType.Solid, Scale);
+                        spots[x, y] = new Spot(new BlockSolid(), Scale);
                     }
                     else if (randomNumber < 25)
                     {
-                        spots[x, y] = new Spot(ElementType.Movable, Scale);
+                        spots[x, y] = new Spot(new BlockMovable(), Scale);
                     }
                     else
                     {
-                        spots[x, y] = new Spot(ElementType.None, Scale);
+                        spots[x, y] = new Spot(null, Scale);
                     }
                 }
             }

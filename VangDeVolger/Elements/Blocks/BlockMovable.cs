@@ -5,8 +5,7 @@
         /// <summary>
         /// Initialize BlockMovable class
         /// </summary>
-        /// <param name="parent">Parent Spot</param>
-        public BlockMovable(Spot parent) : base(parent)
+        public BlockMovable()
         {
             Image = Properties.Resources.tree;
             Pb.Image = Image;

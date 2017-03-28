@@ -11,7 +11,7 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize Bird Class
         /// </summary>
-        protected Bird(Spot parent) : base(parent)
+        protected Bird()
         {
             GoingRight = true;
         }

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
 
-namespace VangDeVolger.PathFinding
+namespace VangDeVolger
 {
     public class PathFinder
     {

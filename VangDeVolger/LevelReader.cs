@@ -1,13 +1,13 @@
 ﻿using System.Drawing;
-using VangDeVolger.Elements;
+using VangDeVolger.Elements.Blocks;
 
-namespace VangDeVolger.ImageReader
+namespace VangDeVolger
 {
-    internal class ImageReader
+    internal class LevelReader
     {
         public Bitmap ImageBitmap;
 
-        public ImageReader(Image image)
+        public LevelReader(Image image)
         {
             ImageBitmap = new Bitmap(image);
         }
@@ -30,7 +30,7 @@ namespace VangDeVolger.ImageReader
                             break;
                         // Black
                         case "ff000000":
-                            grid[x, y] = new Spot(ElementType.Solid, 32);
+                            grid[x, y] = new Spot(new BlockSolid(), 32);
                             break;
                     }
                 }

@@ -47,14 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ElementType.cs" />
     <Compile Include="Elements\Birds\Bird.cs" />
     <Compile Include="Elements\Blocks\Block.cs" />
     <Compile Include="Elements\Birds\BirdEnemy.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Elements\Blocks\BlockSolid.cs" />
     <Compile Include="Elements\Element.cs" />
-    <Compile Include="Elements\Spot.cs" />
+    <Compile Include="Spot.cs" />
     <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,8 +63,8 @@
     <Compile Include="Elements\Blocks\BlockMovable.cs" />
     <Compile Include="Elements\Birds\BirdPlayer.cs" />
     <Compile Include="Level.cs" />
-    <Compile Include="PathFinding\PathFinder.cs" />
-    <Compile Include="ImageReader\ImageReader.cs" />
+    <Compile Include="PathFinder.cs" />
+    <Compile Include="LevelReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Game.resx">

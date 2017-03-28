@@ -7,7 +7,7 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize PlayerBird Class
         /// </summary>
-        public Player(Spot parent) : base(parent)
+        public Player()
         {
             ImageLeft = Properties.Resources.bird_green_left;
             ImageRight = Properties.Resources.bird_green_right;

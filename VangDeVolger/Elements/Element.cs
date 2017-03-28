@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
-using VangDeVolger.Elements.Birds;
 
 namespace VangDeVolger.Elements
 {
@@ -12,12 +11,10 @@ namespace VangDeVolger.Elements
         /// <summary>
         /// Initialize Element Class
         /// </summary>
-        protected Element(Spot parent)
+        protected Element()
         {
-            Parent = parent;
             Pb = new PictureBox
             {
-                Size = new Size(parent.Scale, parent.Scale),
                 SizeMode = PictureBoxSizeMode.Zoom
             };
         }
