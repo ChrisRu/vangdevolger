@@ -1336,6 +1336,30 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="b8241e1a-b13a-4825-9265-0d5f44106fcf"
+            name="GetNextDirection"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a6291567-e5f0-464a-9e4f-edea7baaa70b"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="a292210d-3a3f-4cc7-8c65-79d0632ccd32"
+                      LastKnownName="Direction"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>

@@ -584,6 +584,19 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="aa4dde15-9403-4b18-809d-d5de0d9544f7" name="GetNextDirection" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b8241e1a-b13a-4825-9265-0d5f44106fcf" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f1f7db9c-2642-45e7-91df-d6341a1c650b" direction="Return" isUnique="false">
+                  <elementDefinition Id="a6291567-e5f0-464a-9e4f-edea7baaa70b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="291f51bb-deeb-4c8f-9327-eb5950da4ea9" LastKnownName="Direction" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -752,6 +765,11 @@
     <packageHasNamedElement>
       <referencedType Id="740df88a-3a9e-4cc9-aeff-c0494f6c644d" name="Dictionary&lt;int, Type&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;int, Type&gt;">
         <elementDefinition Id="121fec1f-4db0-4d2f-a308-dc7494c9a047" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="291f51bb-deeb-4c8f-9327-eb5950da4ea9" name="Direction" isAbstract="false" isLeaf="false" cachedFullName="VangDeVolgerUML::Direction">
+        <elementDefinition Id="a292210d-3a3f-4cc7-8c65-79d0632ccd32" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
