@@ -71,6 +71,7 @@ namespace VangDeVolger.Elements.Birds
                 Direction direction = path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
                 if (Parent.Neighbors[direction].Element is Player)
                 {
+                    _timer.Stop();
                     MessageBox.Show("Game Over");
                 }
                 ChangeDirection(direction);
@@ -90,6 +91,7 @@ namespace VangDeVolger.Elements.Birds
                 // Trapped
                 else
                 {
+                    _timer.Stop();
                     MessageBox.Show("Trapped");
                 }
             }
