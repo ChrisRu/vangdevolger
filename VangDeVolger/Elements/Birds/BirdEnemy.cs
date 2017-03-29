@@ -64,36 +64,21 @@ namespace VangDeVolger.Elements.Birds
         /// <param name="e"></param>
         private void _moveAlongPath(object sender, EventArgs e)
         {
-            List<Spot> path = _pathFinder.GetOptimalPath(Parent, typeof(Player));
-            // Move Along Path
-            if (path != null)
+            Direction? direction = _pathFinder.GetNextDirection(Parent, typeof(Player), true);
+            if (direction == null)
             {
-                Direction direction = path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
-                if (Parent.Neighbors[direction].Element is Player)
-                {
-                    _timer.Stop();
-                    MessageBox.Show("Game Over");
-                }
-                ChangeDirection(direction);
-                Move(direction);
+                _timer.Stop();
+                MessageBox.Show("Trapped!");
             }
-            // No path
             else
             {
-                List<Direction> directions = new List<Direction>(Parent.Neighbors.Keys.Where(x => Parent.Neighbors[x].Element == null));
-                // Move randomly
-                if (directions.Count > 0)
-                {
-                    Direction randomDirection = directions.OrderBy(x => Guid.NewGuid()).First();
-                    ChangeDirection(randomDirection);
-                    Move(randomDirection);
-                }
-                // Trapped
-                else
+                if (Parent.Neighbors[(Direction) direction].Element is Player)
                 {
                     _timer.Stop();
-                    MessageBox.Show("Trapped");
+                    MessageBox.Show("Game Over!");
                 }
+                ChangeDirection((Direction)direction);
+                Move((Direction)direction);
             }
         }
     }

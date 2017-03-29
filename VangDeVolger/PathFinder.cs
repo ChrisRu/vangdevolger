@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using VangDeVolger.Elements.Birds;
 
 namespace VangDeVolger
@@ -27,8 +28,42 @@ namespace VangDeVolger
         }
 
         /// <summary>
+        /// Get Next Direction
+        /// </summary>
+        /// <param name="from">Spot to move from</param>
+        /// <param name="to">Closest type to move to</param>
+        /// <paran name="randomMove">Return Random Move if no path</paran>
+        /// <returns></returns>
+        public Direction? GetNextDirection(Spot from, Type to, bool randomMove = false)
+        {
+            List<Spot> path = GetOptimalPath(from, to);
+            if (path != null)
+            {
+                return path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
+            }
+            else if (randomMove)
+            {
+                // Random Move
+                List<Direction> directions = new List<Direction>(from.Neighbors.Keys.Where(key => from.Neighbors[key].Element == null));
+                if (directions.Count > 0)
+                {
+                    return directions.OrderBy(x => Guid.NewGuid()).First();
+                }
+                else
+                {
+                    return null;
+                }
+            } else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Path Finding using the Dijkstra algorithm
         /// </summary>
+        /// <param name="from">Spot to move from</param>
+        /// <param name="to">Closest type to move to</param>
         /// <returns>List with Optimal Path</returns>
         public List<Spot> GetOptimalPath(Spot from, Type to)
         {

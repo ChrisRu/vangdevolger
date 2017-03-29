@@ -26,7 +26,7 @@ namespace VangDeVolger.Elements.Birds
             {
                 GoingRight = false;
             }
-            if (direction == Direction.Right)
+            else if (direction == Direction.Right)
             {
                 GoingRight = true;
             }
