@@ -73,6 +73,7 @@ namespace VangDeVolger.Elements.Birds
                 {
                     MessageBox.Show("Game Over");
                 }
+                ChangeDirection(direction);
                 Move(direction);
             }
             // No path
@@ -83,6 +84,7 @@ namespace VangDeVolger.Elements.Birds
                 if (directions.Count > 0)
                 {
                     Direction randomDirection = directions.OrderBy(x => Guid.NewGuid()).First();
+                    ChangeDirection(randomDirection);
                     Move(randomDirection);
                 }
                 // Trapped
