@@ -28,12 +28,7 @@ namespace VangDeVolger
                 Element.Pb.Size = new Size(scale, scale);
             }
             Scale = scale;
-
             Neighbors = new Dictionary<Direction, Spot>();
-
-            // Artificial infinity (grid will never be big enough)
-            PathCost = 1000000;
-            CameFromSpot = null;
         }
     }
 }

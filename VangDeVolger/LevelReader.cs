@@ -20,22 +20,27 @@ namespace VangDeVolger
             {
                 for (int x = 0; x < ImageBitmap.Width; x++)
                 {
-                    Color pixelColor = ImageBitmap.GetPixel(x, y);
-
-                    switch (pixelColor.Name)
-                    {
-                        // White
-                        case "000000":
-                            grid[x, y] = null;
-                            break;
-                        // Black
-                        case "ff000000":
-                            grid[x, y] = new Spot(new BlockSolid(), 32);
-                            break;
-                    }
+                    grid[x, y] = _colorToSpot(ImageBitmap.GetPixel(x, y));
                 }
             }
+
             return grid;
+        }
+
+        private Spot _colorToSpot(Color color)
+        {
+            switch (color.Name)
+            {
+                // White
+                case "000000":
+                    return new Spot(null, 32);
+                // Black
+                case "ff000000":
+                    return new Spot(new BlockSolid(), 32);
+                // Other colors
+                default:
+                    return new Spot(null, 32);
+            }
         }
     }
 }

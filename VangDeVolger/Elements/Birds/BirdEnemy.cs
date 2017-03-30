@@ -6,28 +6,9 @@ namespace VangDeVolger.Elements.Birds
     public class Enemy : Bird
     {
         private PathFinder _pathFinder;
-        private Timer _timer;
+        public Timer MoveTimer;
 
         public int PrevTime;
-        private int _moveTime;
-        public int MoveTime
-        {
-            get { return _moveTime; }
-            set
-            {
-                PrevTime = _moveTime;
-                if (value == -1)
-                {
-                    _timer.Stop();
-                }
-                else
-                {
-                    _moveTime = value;
-                    _timer.Interval = value;
-                    _timer.Start();
-                }
-            }
-        }
 
         /// <summary>
         /// Initialize EnemyBird Class
@@ -57,12 +38,12 @@ namespace VangDeVolger.Elements.Birds
         private void _initMovement(int time)
         {
             _pathFinder = new PathFinder();
-            _timer = new Timer
+            MoveTimer = new Timer
             {
                 Interval = time
             };
-            _timer.Tick += _moveAlongPath;
-            MoveTime = time;
+            MoveTimer.Tick += _moveAlongPath;
+            MoveTimer.Start();
         }
 
         /// <summary>

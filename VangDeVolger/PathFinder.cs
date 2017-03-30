@@ -61,30 +61,19 @@ namespace VangDeVolger
         /// <returns>List with Optimal Path</returns>
         public List<Spot> GetOptimalPath(Spot from, Type to)
         {
-            from.PathCost = 0;
             // Spots to be evaluated
             List<Spot> openSet = new List<Spot> { from };
+
             // Spots already evaluated
             List<Spot> closedSet = new List<Spot>();
 
             while (openSet.Count > 0)
             {
-                // current = Spot with lowest path cost
-                int winner = 0;
-                for (int i = 0; i < openSet.Count; i++)
-                {
-                    if (openSet[i].PathCost < openSet[winner].PathCost)
-                    {
-                        winner = i;
-                    }
-                }
-                Spot current = openSet[winner];
+                // Spot with lowest path cost
+                Spot current = openSet.Aggregate((agg, next) => next.PathCost < agg.PathCost ? next : agg);
 
                 // Found path
-                if (current.Element != null && current.Element.GetType() == to)
-                {
-                    return _reconstructPath(current);
-                }
+                if (current.Element?.GetType() == to) return _reconstructPath(current);
 
                 openSet.Remove(current);
                 closedSet.Add(current);
@@ -99,7 +88,6 @@ namespace VangDeVolger
 
                     // cost + distance
                     int newCost = current.PathCost + 1;
-
 
                     // New node found
                     if (!openSet.Contains(neighbor))

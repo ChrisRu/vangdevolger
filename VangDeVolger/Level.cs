@@ -21,13 +21,13 @@ namespace VangDeVolger
             get { return _paused; }
             set {
                 _paused = value;
-                if (_paused)
+                if (value)
                 {
-                    ((Enemy) Enemy).MoveTime = -1;
+                    ((Enemy) Enemy).MoveTimer.Stop();
                 }
                 else
                 {
-                    ((Enemy)Enemy).MoveTime = ((Enemy)Enemy).PrevTime;
+                    ((Enemy) Enemy).MoveTimer.Start();
                 }
             }
         }
