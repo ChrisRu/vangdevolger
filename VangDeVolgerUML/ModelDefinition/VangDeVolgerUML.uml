@@ -1544,7 +1544,33 @@
             isDerived="false"
             isDerivedUnion="false"
             aggregation="None"
-            isComposite="false" />
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="54310399-edf2-4348-b8b2-f7d6519b7c54"
+                LastKnownName="bitmap"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="decc871c-ba11-481f-9d4e-0a69400bb561"
+            name="random"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b9cc5cbb-491f-4e51-b9d3-e7b1b7671171"
+                LastKnownName="Random"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -1573,6 +1599,56 @@
                       name="Upper"
                       value="," />
                   </upperValueInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="87c0b592-431b-4751-be24-d7c3423da607"
+                      LastKnownName="Spot"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="502e87cc-a2e6-45d1-9e9a-c0017c5e86da"
+            name="getRandomElement"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9011d02e-2b52-459f-b2e8-9114b72cc149"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
+                      LastKnownName="Element"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e260ae2d-bbc5-4e72-808f-dfc7e62ff71b"
+            name="colorToSpot"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="15d4d8d8-12ce-4c34-b1da-47606f90daf7"
+                  direction="Return"
+                  isUnique="false">
                   <type_NamedElement>
                     <classMoniker
                       Id="87c0b592-431b-4751-be24-d7c3423da607"
@@ -1811,6 +1887,16 @@
       <undefinedType
         Id="6f59686d-c15a-4d35-928a-547cfa7d6bcc"
         name="color" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b9cc5cbb-491f-4e51-b9d3-e7b1b7671171"
+        name="Random" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="54310399-edf2-4348-b8b2-f7d6519b7c54"
+        name="bitmap" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

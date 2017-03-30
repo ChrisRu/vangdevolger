@@ -59,6 +59,7 @@ namespace VangDeVolger
             };
 
             Grid = GetRandomGrid(size, size);
+            //Grid = new LevelReader(Properties.Resources.maze).GetGrid();
 
             // Add Birds and allow them to move
             Grid[0, 0] = new Spot(new Player(), Scale);

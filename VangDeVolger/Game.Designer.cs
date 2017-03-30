@@ -208,7 +208,6 @@
         private System.Windows.Forms.ToolStripMenuItem musicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

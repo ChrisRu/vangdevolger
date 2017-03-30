@@ -630,6 +630,15 @@
         <ownedAttributesInternal>
           <property Id="e49493b5-4017-45e9-834c-8b48e70e3d27" name="ImageBitmap" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="2aeb36e0-0e9d-4e38-9e75-1a01a7fb585e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="dc1cfeee-50db-4acd-87bd-4ee5473e2e1d" LastKnownName="bitmap" />
+            </type_NamedElement>
+          </property>
+          <property Id="8f468110-97c7-48a3-877c-80a7144b998b" name="random" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="decc871c-ba11-481f-9d4e-0a69400bb561" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9779cefa-ef60-499a-a0cc-320e6b74adb0" LastKnownName="Random" />
+            </type_NamedElement>
           </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
@@ -649,6 +658,32 @@
                     </literalString>
                   </upperValueInternal>
                   <elementDefinition Id="8432966f-9ff7-42d9-8d58-d34d641be31b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c81a23e6-65ea-4288-8e34-ddb5c3bafbb1" LastKnownName="Spot" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="128ae0a1-f24d-447b-a73e-36ae06caa839" name="getRandomElement" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="502e87cc-a2e6-45d1-9e9a-c0017c5e86da" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="eaea542a-1c4a-4f44-9892-1bfe65a0c4d9" direction="Return" isUnique="false">
+                  <elementDefinition Id="9011d02e-2b52-459f-b2e8-9114b72cc149" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="717ae14c-5efe-407c-96d8-c66c5b27974c" LastKnownName="Element" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="74105720-ff75-4f8b-b0ae-9c7c96b45b6e" name="colorToSpot" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e260ae2d-bbc5-4e72-808f-dfc7e62ff71b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dae06259-79a3-42c3-90b1-6c470754a4e3" direction="Return" isUnique="false">
+                  <elementDefinition Id="15d4d8d8-12ce-4c34-b1da-47606f90daf7" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="c81a23e6-65ea-4288-8e34-ddb5c3bafbb1" LastKnownName="Spot" />
                   </type_NamedElement>
@@ -793,6 +828,16 @@
     <packageHasNamedElement>
       <referencedType Id="b50eb07f-05c3-453e-857c-ec44476e7dc1" name="color" isAbstract="false" isLeaf="false" cachedFullName="color">
         <elementDefinition Id="6f59686d-c15a-4d35-928a-547cfa7d6bcc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="9779cefa-ef60-499a-a0cc-320e6b74adb0" name="Random" isAbstract="false" isLeaf="false" cachedFullName="Random">
+        <elementDefinition Id="b9cc5cbb-491f-4e51-b9d3-e7b1b7671171" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="dc1cfeee-50db-4acd-87bd-4ee5473e2e1d" name="bitmap" isAbstract="false" isLeaf="false" cachedFullName="bitmap">
+        <elementDefinition Id="54310399-edf2-4348-b8b2-f7d6519b7c54" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

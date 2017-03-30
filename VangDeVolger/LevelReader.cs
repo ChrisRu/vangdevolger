@@ -1,4 +1,6 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using VangDeVolger.Elements;
 using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger
@@ -6,10 +8,12 @@ namespace VangDeVolger
     internal class LevelReader
     {
         public Bitmap ImageBitmap;
+        private readonly Random _random;
 
         public LevelReader(Image image)
         {
             ImageBitmap = new Bitmap(image);
+            _random = new Random();
         }
 
         public Spot[,] GetGrid()
@@ -32,14 +36,23 @@ namespace VangDeVolger
             switch (color.Name)
             {
                 // White
-                case "000000":
+                case "ffffffff":
                     return new Spot(null, 32);
-                // Black
-                case "ff000000":
-                    return new Spot(new BlockSolid(), 32);
                 // Other colors
                 default:
-                    return new Spot(null, 32);
+                    return new Spot(_getRandomElement(), 32);
+            }
+        }
+
+        private Element _getRandomElement()
+        {
+            int randomNumber = _random.Next(2);
+            switch (randomNumber)
+            {
+                case 0:
+                    return new BlockMovable();
+                default:
+                    return new BlockSolid();
             }
         }
     }
