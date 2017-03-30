@@ -1,19 +1,22 @@
-﻿using System.Drawing;
-
+﻿
 namespace VangDeVolger.Elements.Birds
 {
+    using System.Drawing;
+
     public abstract class Bird : Element
     {
         protected Image ImageLeft { get; set; }
+
         protected Image ImageRight { get; set; }
+
         protected bool GoingRight { get; set; }
 
         /// <summary>
-        /// Initialize Bird Class
+        /// Initialize new Bird Class
         /// </summary>
         protected Bird()
         {
-            GoingRight = true;
+            this.GoingRight = true;
         }
 
         /// <summary>
@@ -22,24 +25,15 @@ namespace VangDeVolger.Elements.Birds
         /// <param name="direction">Facing Direction</param>
         public void ChangeDirection(Direction direction)
         {
-            if (direction == Direction.Left)
+            if (direction == Direction.Left && this.Pb.Image == this.ImageRight)
             {
-                GoingRight = false;
+                this.Pb.Image = this.ImageLeft;
+                this.Pb.Invalidate();
             }
-            else if (direction == Direction.Right)
+            else if (direction == Direction.Right && this.Pb.Image == this.ImageLeft)
             {
-                GoingRight = true;
-            }
-
-            if (GoingRight && Pb.Image == ImageLeft)
-            {
-                Pb.Image = ImageRight;
-                Pb.Invalidate();
-            }
-            else if (!GoingRight && Pb.Image == ImageRight)
-            {
-                Pb.Image = ImageLeft;
-                Pb.Invalidate();
+                this.Pb.Image = ImageRight;
+                this.Pb.Invalidate();
             }
         }
     }

@@ -1,29 +1,30 @@
-﻿namespace VangDeVolger.Elements.Blocks
+﻿
+namespace VangDeVolger.Elements.Blocks
 {
     public class BlockMovable : Block
     {
         /// <summary>
-        /// Initialize BlockMovable class
+        /// Initialize new BlockMovable class
         /// </summary>
         public BlockMovable()
         {
-            Image = Properties.Resources.movable;
-            Pb.Image = Image;
+            this.Image = Properties.Resources.movable;
+            this.Pb.Image = this.Image;
         }
 
         /// <summary>
         /// Execute on collision with other object
         /// </summary>
         /// <param name="direction">Direction of movement</param>
-        /// <returns>bool Can move</returns>
+        /// <returns>Element can move</returns>
         public override bool CanMove(Direction direction)
         {
             Spot nextSpot;
-            if (Parent.Neighbors.TryGetValue(direction, out nextSpot))
+            if (this.Parent.Neighbors.TryGetValue(direction, out nextSpot))
             {
                 if (nextSpot.Element == null || nextSpot.Element.CanMove(direction))
                 {
-                    Move(direction);
+                    this.Move(direction);
                     return true;
                 }
             }

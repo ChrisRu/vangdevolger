@@ -1,34 +1,35 @@
-﻿using System.Windows.Forms;
-
+﻿
 namespace VangDeVolger.Elements.Birds
 {
+    using System.Windows.Forms;
+
     public class Player : Bird
     {
         /// <summary>
-        /// Initialize PlayerBird Class
+        /// Initialize new Player Class
         /// </summary>
         public Player()
         {
-            ImageLeft = Properties.Resources.bird_blue_left;
-            ImageRight = Properties.Resources.bird_blue_right;
-            Pb.Image = ImageRight;
+            this.ImageLeft = Properties.Resources.bird_blue_left;
+            this.ImageRight = Properties.Resources.bird_blue_right;
+            this.Pb.Image = this.ImageRight;
         }
 
         /// <summary>
         /// Move Player towards direction
         /// </summary>
         /// <param name="direction">Direction of movement</param>
-        /// <returns>bool Can move</returns>
+        /// <returns>Element can move</returns>
         public override bool CanMove(Direction direction)
         {
-            ChangeDirection(direction);
+            this.ChangeDirection(direction);
 
             Spot nextSpot;
-            if (Parent.Neighbors.TryGetValue(direction, out nextSpot))
+            if (this.Parent.Neighbors.TryGetValue(direction, out nextSpot))
             {
                 if (nextSpot.Element == null || nextSpot.Element.CanMove(direction))
                 {
-                    Move(direction);
+                    this.Move(direction);
                     return true;
                 }
             }
@@ -38,7 +39,7 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Execute on KeyDown event
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">KeyEvent Arguments</param>
         public override void KeyDown(KeyEventArgs e)
         {
             Direction? direction = null;
@@ -59,7 +60,7 @@ namespace VangDeVolger.Elements.Birds
             }
             if (direction != null)
             {
-                CanMove((Direction) direction);
+                this.CanMove((Direction)direction);
             }
         }
     }

@@ -1,19 +1,21 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
+﻿
 namespace VangDeVolger.Elements
 {
+    using System.Drawing;
+    using System.Windows.Forms;
+
     public abstract class Element
     {
         public Spot Parent { get; set; }
+
         public PictureBox Pb { get; set; }
 
         /// <summary>
-        /// Initialize Element Class
+        /// Initialize new Element Class
         /// </summary>
         protected Element()
         {
-            Pb = new PictureBox
+            this.Pb = new PictureBox
             {
                 SizeMode = PictureBoxSizeMode.Zoom
             };
@@ -23,14 +25,16 @@ namespace VangDeVolger.Elements
         /// Move towards direction
         /// </summary>
         /// <param name="direction">Direction of movement</param>
-        /// <returns>bool Can move</returns>
+        /// <returns>Element can move</returns>
         public abstract bool CanMove(Direction direction);
 
         /// <summary>
         /// Execute on KeyDown
         /// </summary>
-        /// <param name="e"></param>
-        public virtual void KeyDown(KeyEventArgs e) { }
+        /// <param name="e">KeyEvent Arguments</param>
+        public virtual void KeyDown(KeyEventArgs e)
+        {
+        }
 
         /// <summary>
         /// Move from current spot to next spot
@@ -45,27 +49,30 @@ namespace VangDeVolger.Elements
             switch (direction)
             {
                 case Direction.Up:
-                    y = -Parent.Scale;
+                    y = -this.Parent.Scale;
                     break;
                 case Direction.Down:
-                    y = Parent.Scale;
+                    y = this.Parent.Scale;
                     break;
                 case Direction.Left:
-                    x = -Parent.Scale;
+                    x = -this.Parent.Scale;
                     break;
                 case Direction.Right:
-                    x = Parent.Scale;
+                    x = this.Parent.Scale;
                     break;
             }
 
             // Move Picturebox
-            Pb.Location = Point.Add(Pb.Location, new Size(x, y));
+            this.Pb.Location = Point.Add(this.Pb.Location, new Size(x, y));
+
             // Move Element to Neighboor
-            Parent.Neighbors[direction].Element = this;
+            this.Parent.Neighbors[direction].Element = this;
+
             // Set Element of Spot to null
-            Parent.Element = null;
+            this.Parent.Element = null;
+
             // Set Element Parent to Neighboor
-            Parent = Parent.Neighbors[direction];
+            this.Parent = this.Parent.Neighbors[direction];
         }
     }
 }

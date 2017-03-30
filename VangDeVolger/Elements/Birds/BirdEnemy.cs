@@ -1,34 +1,37 @@
-﻿using System;
-using System.Windows.Forms;
-
+﻿
 namespace VangDeVolger.Elements.Birds
 {
+    using System;
+    using System.Windows.Forms;
+
     public class Enemy : Bird
     {
-        private PathFinder _pathFinder;
-        public Timer MoveTimer;
+        public Timer MoveTimer { get; set; }
 
-        public int PrevTime;
+        public int PrevTime { get; set; }
+
+        private PathFinder _pathFinder { get; set; }
 
         /// <summary>
-        /// Initialize EnemyBird Class
+        /// Initialize new Enemy Class
         /// </summary>
         public Enemy()
         {
-            ImageLeft = Properties.Resources.bird_red_left;
-            ImageRight = Properties.Resources.bird_red_right;
-            Pb.Image = ImageLeft;
-            GoingRight = false;
-            _initMovement(500);
+            this.ImageLeft = Properties.Resources.bird_red_left;
+            this.ImageRight = Properties.Resources.bird_red_right;
+            this.Pb.Image = this.ImageLeft;
+            this.GoingRight = false;
+            this._initMovement(500);
         }
 
         /// <summary>
         /// Move Bird with controls
         /// </summary>
         /// <param name="direction">Direction of movement</param>
+        /// <returns>Element can move</returns>
         public override bool CanMove(Direction direction)
         {
-            ChangeDirection(direction);
+            this.ChangeDirection(direction);
             return false;
         }
 
@@ -37,13 +40,13 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         private void _initMovement(int time)
         {
-            _pathFinder = new PathFinder();
-            MoveTimer = new Timer
+            this._pathFinder = new PathFinder();
+            this.MoveTimer = new Timer
             {
                 Interval = time
             };
-            MoveTimer.Tick += _moveAlongPath;
-            MoveTimer.Start();
+            this.MoveTimer.Tick += this._moveAlongPath;
+            this.MoveTimer.Start();
         }
 
         /// <summary>

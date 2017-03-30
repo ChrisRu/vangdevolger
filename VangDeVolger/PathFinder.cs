@@ -1,42 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using VangDeVolger.Elements.Birds;
-
+﻿
 namespace VangDeVolger
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using VangDeVolger.Elements.Birds;
+
     public class PathFinder
     {
-        /// <summary>
-        /// Reconstruct path from current to end
-        /// </summary>
-        /// <param name="current">End position</param>
-        /// <returns>List with spots in Optimal Path</returns>
-        private List<Spot> _reconstructPath(Spot current)
-        {
-            List<Spot> path = new List<Spot> { current };
-            Spot next = current;
-            while (next.CameFromSpot != null)
-            {
-                next = next.CameFromSpot;
-                if (path.Contains(next)) break;
-                path.Add(next);
-            }
-            path.Reverse();
-            path.RemoveAt(0);
-            return path;
-        }
-
         /// <summary>
         /// Get Next Direction
         /// </summary>
         /// <param name="from">Spot to move from</param>
-        /// <param name="to">Closest type to move to</param>
-        /// <param name="randomMove">Return Random Move if no path</param>
-        /// <returns></returns>
+        /// <param name="to">(Nearest) Type to move to</param>
+        /// <param name="randomMove">Random Move if no path</param>
+        /// <returns>Next Direction from path</returns>
         public Direction? GetNextDirection(Spot from, Type to, bool randomMove = false)
         {
-            List<Spot> path = GetOptimalPath(from, to);
+            List<Spot> path = this.GetOptimalPath(from, to);
             if (path != null)
             {
                 return path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
@@ -57,7 +39,7 @@ namespace VangDeVolger
         /// Path Finding using the Dijkstra algorithm
         /// </summary>
         /// <param name="from">Spot to move from</param>
-        /// <param name="to">Closest type to move to</param>
+        /// <param name="to">(Nearest) Type to move to</param>
         /// <returns>List with Optimal Path</returns>
         public List<Spot> GetOptimalPath(Spot from, Type to)
         {
@@ -94,10 +76,9 @@ namespace VangDeVolger
                     {
                         openSet.Add(neighbor);
                     }
-
-                    // Ignore if not a better path
                     else if (newCost >= neighbor.PathCost) continue;
-
+                    
+                    // Better path found
                     neighbor.PathCost = newCost;
                     neighbor.CameFromSpot = current;
                 }
@@ -105,6 +86,26 @@ namespace VangDeVolger
 
             // No solution
             return null;
+        }
+
+        /// <summary>
+        /// Reconstruct path from current to end
+        /// </summary>
+        /// <param name="current">End position</param>
+        /// <returns>List with spots in Optimal Path</returns>
+        private List<Spot> _reconstructPath(Spot current)
+        {
+            List<Spot> path = new List<Spot> { current };
+            Spot next = current;
+            while (next.CameFromSpot != null)
+            {
+                next = next.CameFromSpot;
+                if (path.Contains(next)) break;
+                path.Add(next);
+            }
+            path.Reverse();
+            path.RemoveAt(0);
+            return path;
         }
     }
 }

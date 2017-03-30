@@ -289,6 +289,7 @@
           <property
             Id="086b0cb6-b150-42d0-a880-371c37e95657"
             name="ImageLeft"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -307,6 +308,7 @@
           <property
             Id="75f939a2-b5d2-4d2b-ba5a-f2dd033b53d2"
             name="ImageRight"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -325,6 +327,7 @@
           <property
             Id="c8feb7e8-1b75-4a83-9316-2688890cc4b1"
             name="GoingRight"
+            visibility="Protected"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
