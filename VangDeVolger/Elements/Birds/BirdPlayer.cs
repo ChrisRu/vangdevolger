@@ -59,7 +59,7 @@ namespace VangDeVolger.Elements.Birds
             }
             if (direction != null)
             {
-                CanMove((Direction)direction);
+                CanMove((Direction) direction);
             }
         }
     }

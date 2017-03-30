@@ -1,6 +1,6 @@
 ﻿namespace VangDeVolger
 {
-    partial class Game
+    sealed partial class Game
     {
         /// <summary>
         /// Required designer variable.

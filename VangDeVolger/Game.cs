@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using VangDeVolger.Elements.Birds;
-using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger
 {
@@ -14,7 +13,7 @@ namespace VangDeVolger
         private bool _soundPlaying;
         private int _size = 16;
         private int _scale = 32;
-        private Color _backColor = Color.FromArgb(162, 255, 162);
+        private readonly Color _backColor = Color.FromArgb(162, 255, 162);
 
         /// <summary>
         /// Initialize game
@@ -175,6 +174,7 @@ namespace VangDeVolger
 
             string gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Set a grid size:", "Grid size", "16");
             int gridSize;
+
             try
             {
                 gridSize = Convert.ToInt32(gridSizeInput);
@@ -245,10 +245,7 @@ namespace VangDeVolger
 
         private void ThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
-            {
-                BackColor = colorDialog1.Color;
-            }
+            if (colorDialog1.ShowDialog() == DialogResult.OK) BackColor = colorDialog1.Color;
         }
     }
 }

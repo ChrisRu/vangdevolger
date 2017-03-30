@@ -30,10 +30,7 @@ namespace VangDeVolger.Elements
         /// Execute on KeyDown
         /// </summary>
         /// <param name="e"></param>
-        public virtual void KeyDown(KeyEventArgs e)
-        {
-            return;
-        }
+        public virtual void KeyDown(KeyEventArgs e) { }
 
         /// <summary>
         /// Move from current spot to next spot
