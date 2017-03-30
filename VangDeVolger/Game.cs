@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using VangDeVolger.Elements.Birds;
 
 namespace VangDeVolger
 {
@@ -9,7 +10,6 @@ namespace VangDeVolger
     {
         public Level GameLevel { get; set; }
         public SoundPlayer SoundPlayer { get; set; }
-        public int EnemyMoveInterval = 500;
         private bool _soundPlaying;
         private int _size = 16;
         private int _scale = 32;
@@ -20,6 +20,7 @@ namespace VangDeVolger
         public Game()
         {
             InitializeComponent();
+            mediumToolStripMenuItem1.Checked = true;
 
             GameLevel = new Level(Controls, _size, _scale, menuStrip1.Height);
             ClientSize = new Size(_size * _scale, _size * _scale + menuStrip1.Height);
@@ -122,17 +123,29 @@ namespace VangDeVolger
 
         private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            EnemyMoveInterval = 700;
+            Enemy enemy = (Enemy) GameLevel.Enemy;
+            enemy.MoveTime = 700;
+            easyToolStripMenuItem1.Checked = true;
+            mediumToolStripMenuItem1.Checked = false;
+            hardToolStripMenuItem1.Checked = false;
         }
 
         private void MediumToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            EnemyMoveInterval = 500;
+            Enemy enemy = (Enemy)GameLevel.Enemy;
+            enemy.MoveTime = 500;
+            easyToolStripMenuItem1.Checked = false;
+            mediumToolStripMenuItem1.Checked = true;
+            hardToolStripMenuItem1.Checked = false;
         }
 
         private void HardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            EnemyMoveInterval = 300;
+            Enemy enemy = (Enemy)GameLevel.Enemy;
+            enemy.MoveTime = 300;
+            easyToolStripMenuItem1.Checked = false;
+            mediumToolStripMenuItem1.Checked = false;
+            hardToolStripMenuItem1.Checked = true;
         }
 
         private void Game_Resize(object sender, EventArgs e)

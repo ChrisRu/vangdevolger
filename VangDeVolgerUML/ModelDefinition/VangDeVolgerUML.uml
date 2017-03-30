@@ -193,15 +193,6 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="54ccae06-e94c-4a8b-8807-7d5ddf3d23a2"
-            name="restart"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
             Id="944b3e8e-69c1-44c8-9381-d8969f579260"
             name="KeyDown"
             isLeaf="false"
@@ -219,6 +210,42 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="5e93e645-1ddb-4a92-ba9d-3d36106beb48"
+            name="restartGame"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="934f75eb-d7b3-4b0e-88c2-92d7881ca554"
+            name="hardMode_Clidk"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="8c193d44-682f-4c1f-96ed-cf7a6f7b6d8c"
+            name="easyMode_Click"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1e9ac7c5-3ac3-429d-9956-5d46923d4b54"
+            name="mediumMode_Click"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
