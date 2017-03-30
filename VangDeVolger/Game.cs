@@ -227,20 +227,10 @@ namespace VangDeVolger
         /// <param name="play">bool to pause</param>
         private void _togglePaused(bool play)
         {
-            if (!play)
-            {
-                GameLevel.Paused = false;
-                pauseToolStripMenuItem.Checked = false;
-                _toggleMusic(true);
-                BackColor = _backColor;
-            }
-            else
-            {
-                GameLevel.Paused = true;
-                pauseToolStripMenuItem.Checked = true;
-                _toggleMusic(false);
-                BackColor = Color.DimGray;
-            }
+            GameLevel.Paused = play;
+            pauseToolStripMenuItem.Checked = play;
+            _toggleMusic(!play);
+            BackColor = !play ? _backColor : Color.DimGray;
         }
 
         private void ThemeToolStripMenuItem_Click(object sender, EventArgs e)
