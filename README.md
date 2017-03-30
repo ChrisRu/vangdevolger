@@ -11,4 +11,4 @@ Verder staan op het veld random blokken (ca. 5% of in te stellen) waar niet door
 ### Extra punten:
 * [ ] 2 of meer zelfbedachte interessante spelitems
 * [x] Pathfinding voor de vijand
-* [ ] Mooie afwerking
+* [x] Mooie afwerking
