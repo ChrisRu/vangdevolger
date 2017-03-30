@@ -32,7 +32,7 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="from">Spot to move from</param>
         /// <param name="to">Closest type to move to</param>
-        /// <paran name="randomMove">Return Random Move if no path</paran>
+        /// <param name="randomMove">Return Random Move if no path</param>
         /// <returns></returns>
         public Direction? GetNextDirection(Spot from, Type to, bool randomMove = false)
         {
@@ -43,20 +43,14 @@ namespace VangDeVolger
             }
             else if (randomMove)
             {
-                // Random Move
                 List<Direction> directions = new List<Direction>(from.Neighbors.Keys.Where(key => from.Neighbors[key].Element == null));
                 if (directions.Count > 0)
                 {
                     return directions.OrderBy(x => Guid.NewGuid()).First();
                 }
-                else
-                {
-                    return null;
-                }
-            } else
-            {
-                return null;
             }
+
+            return null;
         }
 
         /// <summary>

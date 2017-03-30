@@ -82,6 +82,11 @@ namespace VangDeVolger
             ClientSize = new Size(_size * _scale, _size * _scale + menuStrip1.Height);
         }
 
+        /// <summary>
+        /// Execute on Form KeyUp
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
             // Ctrl + = = Zoom * 1.1
@@ -139,16 +144,20 @@ namespace VangDeVolger
             }
         }
 
-        private void PauseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _togglePaused(!GameLevel.Paused);
-        }
+        private void PauseToolStripMenuItem_Click(object sender, EventArgs e) => _togglePaused(!GameLevel.Paused);
 
-        private void RestartToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RestartToolStripMenuItem_Click(object sender, EventArgs e) => _restartGame();
+
+        private void MusicToolStripMenuItem_Click(object sender, EventArgs e) => _toggleMusic(!_soundPlaying);
+
+        /// <summary>
+        /// Restart game and ask for new gridSize
+        /// </summary>
+        private void _restartGame()
         {
             _togglePaused(true);
 
-            var gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Set a grid size:", "Grid size", "16");
+            string gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Set a grid size:", "Grid size", "16");
             int gridSize;
             try
             {
@@ -168,15 +177,12 @@ namespace VangDeVolger
                 }
             }
 
+            _size = gridSize;
+
             GameLevel = new Level(Controls, gridSize, _scale, menuStrip1.Height);
             ClientSize = new Size(gridSize * _scale, gridSize * _scale + menuStrip1.Height);
 
             _togglePaused(false);
-        }
-
-        private void MusicToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _toggleMusic(!_soundPlaying);
         }
 
         /// <summary>
