@@ -7,7 +7,7 @@
         /// </summary>
         public BlockSolid()
         {
-            Image = Properties.Resources.solid;
+            Image = Properties.Resources.new_solid;
             Pb.Image = Image;
         }
 

@@ -10,6 +10,7 @@ namespace VangDeVolger.Elements.Birds
         private PathFinder _pathFinder;
         private Timer _timer;
         private int _moveTime;
+
         public int MoveTime
         {
             get { return _moveTime; }
@@ -68,17 +69,44 @@ namespace VangDeVolger.Elements.Birds
             if (direction == null)
             {
                 _timer.Stop();
-                MessageBox.Show("Trapped!");
+
+                DialogResult result = MessageBox.Show("You win!\nStart a new game?",
+                "Notification",
+                MessageBoxButtons.YesNo);
+
+                if(result == DialogResult.Yes)
+                {
+                    //start a new game
+                }else
+                {
+                    // close the game
+                    System.Windows.Forms.Application.Exit();
+                }
+
             }
             else
             {
                 if (Parent.Neighbors[(Direction) direction].Element is Player)
                 {
                     _timer.Stop();
-                    MessageBox.Show("Game Over!");
+
+                 DialogResult result = MessageBox.Show("You lose!\nStart a new game?",
+                 "Notification",
+                 MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        //start a new game
+                    }
+                    else
+                    {
+                        // close the game
+                        System.Windows.Forms.Application.Exit();
+                    }
+
                 }
-                ChangeDirection((Direction)direction);
-                Move((Direction)direction);
+                    ChangeDirection((Direction)direction);
+                    Move((Direction)direction);
             }
         }
     }

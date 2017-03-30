@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using VangDeVolger.Elements.Birds;
+using VangDeVolger.Elements.Blocks;
 
 namespace VangDeVolger
 {
@@ -48,7 +49,7 @@ namespace VangDeVolger
         /// <param name="e">Arguments given by form</param>
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Vang De Vogel is made by:\n\nLeon Hubert\nChristian Ruigrok", "About");
+            MessageBox.Show("Vang De Volger is made by:\n\nLeon Hubert\nChristian Ruigrok", "About");
         }
 
         /// <summary>
@@ -58,7 +59,7 @@ namespace VangDeVolger
         /// <param name="e">Arguments given by form</param>
         private void HowToPlayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to get score:\n\tCapture red birds by moving blocks.\n\nPick up items for temporary boosts and destroy eggs to prevent new birds from spawning.\n\nGood luck!", "How to play");
+            MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to win:\n\tCapture the red bird by moving blocks.\n\nGood luck!", "How to play");
         }
 
         /// <summary>
@@ -237,6 +238,14 @@ namespace VangDeVolger
                 pauseToolStripMenuItem.Checked = true;
                 _toggleMusic(false);
                 BackColor = Color.DimGray;
+            }
+        }
+
+        private void themeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                BackColor = colorDialog1.Color;
             }
         }
     }
