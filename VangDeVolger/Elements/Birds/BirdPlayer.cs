@@ -28,10 +28,6 @@ namespace VangDeVolger.Elements.Birds
             {
                 if (nextSpot.Element == null || nextSpot.Element.CanMove(direction))
                 {
-                    if (Parent.Neighbors[direction].Element is Enemy)
-                    {
-                        MessageBox.Show("GameOver");
-                    }
                     Move(direction);
                     return true;
                 }
