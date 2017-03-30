@@ -14,6 +14,7 @@ namespace VangDeVolger
         private bool _soundPlaying;
         private int _size = 16;
         private int _scale = 32;
+        private Color _backColor = Color.FromArgb(162, 255, 162);
 
         /// <summary>
         /// Initialize game
@@ -21,6 +22,7 @@ namespace VangDeVolger
         public Game()
         {
             InitializeComponent();
+            BackColor = _backColor;
             mediumToolStripMenuItem1.Checked = true;
 
             GameLevel = new Level(Controls, _size, _scale, menuStrip1.Height);
@@ -230,7 +232,7 @@ namespace VangDeVolger
                 GameLevel.Paused = false;
                 pauseToolStripMenuItem.Checked = false;
                 _toggleMusic(true);
-                BackColor = Color.White;
+                BackColor = _backColor;
             }
             else
             {
@@ -241,7 +243,7 @@ namespace VangDeVolger
             }
         }
 
-        private void themeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {

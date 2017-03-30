@@ -9,8 +9,8 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         public Player()
         {
-            ImageLeft = Properties.Resources.bird_green_left;
-            ImageRight = Properties.Resources.bird_green_right;
+            ImageLeft = Properties.Resources.bird_blue_left;
+            ImageRight = Properties.Resources.bird_blue_right;
             Pb.Image = ImageRight;
         }
 

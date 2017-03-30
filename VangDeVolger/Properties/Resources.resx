@@ -142,9 +142,6 @@
   <data name="solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tree" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ClockTick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ClockTick.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -166,10 +163,13 @@
   <data name="maze2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maze2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="new_movable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new_leaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bird_blue_left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bird_blue_left.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="new_solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new_tree2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bird_blue_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bird_blue_right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="movable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\leaf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

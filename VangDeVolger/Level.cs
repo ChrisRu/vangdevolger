@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using VangDeVolger.Elements;
 using VangDeVolger.Elements.Birds;
@@ -13,7 +14,24 @@ namespace VangDeVolger
     {
         public int Scale { get; set; }
         public int Size { get; set; }
-        public bool Paused { get; set; }
+
+        private bool _paused;
+        public bool Paused
+        {
+            get { return _paused; }
+            set {
+                _paused = value;
+                if (_paused)
+                {
+                    ((Enemy) Enemy).MoveTime = -1;
+                }
+                else
+                {
+                    ((Enemy)Enemy).MoveTime = ((Enemy)Enemy).PrevTime;
+                }
+            }
+        }
+
         private Control.ControlCollection Controls { get; }
         public Spot[,] Grid { get; set; }
 

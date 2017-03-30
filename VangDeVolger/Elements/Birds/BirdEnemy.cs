@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace VangDeVolger.Elements.Birds
@@ -9,15 +7,25 @@ namespace VangDeVolger.Elements.Birds
     {
         private PathFinder _pathFinder;
         private Timer _timer;
-        private int _moveTime;
 
+        public int PrevTime;
+        private int _moveTime;
         public int MoveTime
         {
             get { return _moveTime; }
             set
             {
-                _moveTime = value;
-                _timer.Interval = value;
+                PrevTime = _moveTime;
+                if (value == -1)
+                {
+                    _timer.Stop();
+                }
+                else
+                {
+                    _moveTime = value;
+                    _timer.Interval = value;
+                    _timer.Start();
+                }
             }
         }
 
@@ -54,7 +62,6 @@ namespace VangDeVolger.Elements.Birds
                 Interval = time
             };
             _timer.Tick += _moveAlongPath;
-            _timer.Start();
             MoveTime = time;
         }
 
@@ -68,45 +75,35 @@ namespace VangDeVolger.Elements.Birds
             Direction? direction = _pathFinder.GetNextDirection(Parent, typeof(Player), true);
             if (direction == null)
             {
-                _timer.Stop();
-
-                DialogResult result = MessageBox.Show("You win!\nStart a new game?",
-                "Notification",
-                MessageBoxButtons.YesNo);
-
-                if(result == DialogResult.Yes)
-                {
-                    //start a new game
-                }else
-                {
-                    // close the game
-                    System.Windows.Forms.Application.Exit();
-                }
-
+                _startNewGame();
             }
             else
             {
                 if (Parent.Neighbors[(Direction) direction].Element is Player)
                 {
-                    _timer.Stop();
-
-                 DialogResult result = MessageBox.Show("You lose!\nStart a new game?",
-                 "Notification",
-                 MessageBoxButtons.YesNo);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        //start a new game
-                    }
-                    else
-                    {
-                        // close the game
-                        System.Windows.Forms.Application.Exit();
-                    }
-
+                    _startNewGame();
                 }
-                    ChangeDirection((Direction)direction);
-                    Move((Direction)direction);
+                ChangeDirection((Direction) direction);
+                Move((Direction) direction);
+            }
+        }
+
+        /// <summary>
+        /// Ask to start new game or not
+        /// </summary>
+        private void _startNewGame()
+        {
+            _timer.Stop();
+
+            DialogResult result = MessageBox.Show("You lose!\nStart a new game?", "Notification", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                //start a new game
+            }
+            else
+            {
+                // close the game
+                Application.Exit();
             }
         }
     }

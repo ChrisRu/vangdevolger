@@ -22,7 +22,7 @@ namespace VangDeVolger.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace VangDeVolger.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("VangDeVolger.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace VangDeVolger.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,27 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bird_green_left {
+        public static System.Drawing.Bitmap bird_blue_left {
+            get {
+                object obj = ResourceManager.GetObject("bird_blue_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap bird_blue_right {
+            get {
+                object obj = ResourceManager.GetObject("bird_blue_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap bird_green_left {
             get {
                 object obj = ResourceManager.GetObject("bird_green_left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +93,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bird_green_right {
+        public static System.Drawing.Bitmap bird_green_right {
             get {
                 object obj = ResourceManager.GetObject("bird_green_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +103,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bird_red_left {
+        public static System.Drawing.Bitmap bird_red_left {
             get {
                 object obj = ResourceManager.GetObject("bird_red_left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +113,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bird_red_right {
+        public static System.Drawing.Bitmap bird_red_right {
             get {
                 object obj = ResourceManager.GetObject("bird_red_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +123,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clock {
+        public static System.Drawing.Bitmap clock {
             get {
                 object obj = ResourceManager.GetObject("clock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +133,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream ClockTick {
+        public static System.IO.UnmanagedMemoryStream ClockTick {
             get {
                 return ResourceManager.GetStream("ClockTick", resourceCulture);
             }
@@ -122,7 +142,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap egg {
+        public static System.Drawing.Bitmap egg {
             get {
                 object obj = ResourceManager.GetObject("egg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -132,7 +152,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream EggCrack {
+        public static System.IO.UnmanagedMemoryStream EggCrack {
             get {
                 return ResourceManager.GetStream("EggCrack", resourceCulture);
             }
@@ -141,7 +161,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream GameOver {
+        public static System.IO.UnmanagedMemoryStream GameOver {
             get {
                 return ResourceManager.GetStream("GameOver", resourceCulture);
             }
@@ -150,7 +170,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Heart {
+        public static System.IO.UnmanagedMemoryStream Heart {
             get {
                 return ResourceManager.GetStream("Heart", resourceCulture);
             }
@@ -159,7 +179,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream LoopyMusic {
+        public static System.IO.UnmanagedMemoryStream LoopyMusic {
             get {
                 return ResourceManager.GetStream("LoopyMusic", resourceCulture);
             }
@@ -168,7 +188,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap maze {
+        public static System.Drawing.Bitmap maze {
             get {
                 object obj = ResourceManager.GetObject("maze", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -178,7 +198,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap maze2 {
+        public static System.Drawing.Bitmap maze2 {
             get {
                 object obj = ResourceManager.GetObject("maze2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -188,9 +208,9 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_movable {
+        public static System.Drawing.Bitmap movable {
             get {
-                object obj = ResourceManager.GetObject("new_movable", resourceCulture);
+                object obj = ResourceManager.GetObject("movable", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -198,17 +218,7 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_solid {
-            get {
-                object obj = ResourceManager.GetObject("new_solid", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redbull {
+        public static System.Drawing.Bitmap redbull {
             get {
                 object obj = ResourceManager.GetObject("redbull", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -218,19 +228,9 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap solid {
+        public static System.Drawing.Bitmap solid {
             get {
                 object obj = ResourceManager.GetObject("solid", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap tree {
-            get {
-                object obj = ResourceManager.GetObject("tree", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

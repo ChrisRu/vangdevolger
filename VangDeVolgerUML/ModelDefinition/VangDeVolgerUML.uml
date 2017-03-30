@@ -152,6 +152,25 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="31d36727-2a86-4bbe-b70a-39e5525d2b50"
+            name="backColor"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="6f59686d-c15a-4d35-928a-547cfa7d6bcc"
+                LastKnownName="color"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -572,6 +591,15 @@
           <operation
             Id="35e927a4-bd75-491e-acdf-9b5d6d9ef05d"
             name="moveAlongPath"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="506903c3-74bb-4c17-bdae-58b7e8d3324b"
+            name="startNewGame"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -1778,6 +1806,11 @@
       <undefinedType
         Id="121fec1f-4db0-4d2f-a308-dc7494c9a047"
         name="Dictionary&lt;int, Type&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6f59686d-c15a-4d35-928a-547cfa7d6bcc"
+        name="color" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

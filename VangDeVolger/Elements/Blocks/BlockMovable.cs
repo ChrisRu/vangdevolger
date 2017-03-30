@@ -7,7 +7,7 @@
         /// </summary>
         public BlockMovable()
         {
-            Image = Properties.Resources.new_movable;
+            Image = Properties.Resources.movable;
             Pb.Image = Image;
         }
 

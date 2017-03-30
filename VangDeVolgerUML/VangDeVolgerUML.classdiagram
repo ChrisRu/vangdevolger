@@ -53,6 +53,12 @@
               <referencedTypeMoniker Id="8b760a78-3503-4bac-81cc-16c99de8e5e8" LastKnownName="SoundPlayer" />
             </type_NamedElement>
           </property>
+          <property Id="b3961496-88bb-478e-ae8b-0bfb7a809251" name="backColor" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="31d36727-2a86-4bbe-b70a-39e5525d2b50" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b50eb07f-05c3-453e-857c-ec44476e7dc1" LastKnownName="color" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="5c567dba-d94d-4cbd-8e29-7cf286e379be" name="toggleMusic" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -252,6 +258,9 @@
           </operation>
           <operation Id="772c143a-71c1-4e40-a00b-6ab656b827ed" name="moveAlongPath" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="35e927a4-bd75-491e-acdf-9b5d6d9ef05d" />
+          </operation>
+          <operation Id="490f711e-778b-45ef-ad40-21ae79c2b583" name="startNewGame" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="506903c3-74bb-4c17-bdae-58b7e8d3324b" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -779,6 +788,11 @@
     <packageHasNamedElement>
       <referencedType Id="291f51bb-deeb-4c8f-9327-eb5950da4ea9" name="Direction" isAbstract="false" isLeaf="false" cachedFullName="VangDeVolgerUML::Direction">
         <elementDefinition Id="a292210d-3a3f-4cc7-8c65-79d0632ccd32" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b50eb07f-05c3-453e-857c-ec44476e7dc1" name="color" isAbstract="false" isLeaf="false" cachedFullName="color">
+        <elementDefinition Id="6f59686d-c15a-4d35-928a-547cfa7d6bcc" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

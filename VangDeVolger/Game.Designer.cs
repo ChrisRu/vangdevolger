@@ -38,10 +38,10 @@
             this.mediumToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.musicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.howToPlayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -99,7 +99,7 @@
             this.mediumToolStripMenuItem1,
             this.hardToolStripMenuItem1});
             this.modeToolStripMenuItem1.Name = "modeToolStripMenuItem1";
-            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(106, 22);
+            this.modeToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
             this.modeToolStripMenuItem1.Text = "Mode";
             // 
             // easyToolStripMenuItem1
@@ -126,9 +126,16 @@
             // musicToolStripMenuItem
             // 
             this.musicToolStripMenuItem.Name = "musicToolStripMenuItem";
-            this.musicToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.musicToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.musicToolStripMenuItem.Text = "Music";
             this.musicToolStripMenuItem.Click += new System.EventHandler(this.MusicToolStripMenuItem_Click);
+            // 
+            // themeToolStripMenuItem
+            // 
+            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.themeToolStripMenuItem.Text = "Set backcolor";
+            this.themeToolStripMenuItem.Click += new System.EventHandler(this.ThemeToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -153,13 +160,6 @@
             this.howToPlayToolStripMenuItem.Text = "How to play";
             this.howToPlayToolStripMenuItem.Click += new System.EventHandler(this.HowToPlayToolStripMenuItem_Click);
             // 
-            // themeToolStripMenuItem
-            // 
-            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.themeToolStripMenuItem.Text = "Set backcolor";
-            this.themeToolStripMenuItem.Click += new System.EventHandler(this.themeToolStripMenuItem_Click);
-            // 
             // colorDialog1
             // 
             this.colorDialog1.AnyColor = true;
@@ -168,7 +168,7 @@
             // Game
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.Snow;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(255)))), ((int)(((byte)(162)))));
             this.ClientSize = new System.Drawing.Size(509, 513);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
