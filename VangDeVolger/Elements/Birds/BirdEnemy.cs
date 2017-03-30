@@ -56,13 +56,13 @@ namespace VangDeVolger.Elements.Birds
             Direction? direction = _pathFinder.GetNextDirection(Parent, typeof(Player), true);
             if (direction == null)
             {
-                _startNewGame();
+                _startNewGame("You won!\nStart a new game?", "Victory!");
             }
             else
             {
                 if (Parent.Neighbors[(Direction) direction].Element is Player)
                 {
-                    _startNewGame();
+                    _startNewGame("You lost!\nTry again?","Game Over");
                 }
                 ChangeDirection((Direction) direction);
                 Move((Direction) direction);
@@ -72,11 +72,11 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Ask to start new game or not
         /// </summary>
-        private void _startNewGame()
+        private void _startNewGame(string message, string title)
         {
             MoveTimer.Stop();
 
-            DialogResult result = MessageBox.Show("You lose!\nStart a new game?", "Game Over", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 //start a new game

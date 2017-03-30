@@ -21,8 +21,6 @@ namespace VangDeVolger
         public Game()
         {
             InitializeComponent();
-            BackColor = _backColor;
-            mediumToolStripMenuItem1.Checked = true;
 
             GameLevel = new Level(Controls, _size, _scale, menuStrip1.Height);
             ClientSize = new Size(_size * _scale, _size * _scale + menuStrip1.Height);
@@ -38,9 +36,11 @@ namespace VangDeVolger
         /// <param name="e">Arguments given by form</param>
         private void Game_Load(object sender, EventArgs e)
         {
+            BackColor = _backColor;
             SoundPlayer.PlayLooping();
             _soundPlaying = true;
             musicToolStripMenuItem.Checked = true;
+            mediumToolStripMenuItem1.Checked = true;
         }
 
         /// <summary>
@@ -207,18 +207,9 @@ namespace VangDeVolger
         /// <param name="play">bool to play</param>
         private void _toggleMusic(bool play)
         {
-            if (!play)
-            {
-                _soundPlaying = false;
-                SoundPlayer.Stop();
-                musicToolStripMenuItem.Checked = false;
-            }
-            else
-            {
-                _soundPlaying = true;
-                SoundPlayer.PlayLooping();
-                musicToolStripMenuItem.Checked = true;
-            }
+            _soundPlaying = play;
+            musicToolStripMenuItem.Checked = play;
+            (play ? (Action) SoundPlayer.PlayLooping : SoundPlayer.Stop)();
         }
 
         /// <summary>
@@ -229,7 +220,6 @@ namespace VangDeVolger
         {
             GameLevel.Paused = play;
             pauseToolStripMenuItem.Checked = play;
-            _toggleMusic(!play);
             BackColor = !play ? _backColor : Color.DimGray;
         }
 
