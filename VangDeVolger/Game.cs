@@ -127,7 +127,7 @@ namespace VangDeVolger
         private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Enemy enemy = (Enemy) GameLevel.Enemy;
-            enemy.MoveTime = 700;
+            enemy.MoveTimer.Interval = 700;
             easyToolStripMenuItem1.Checked = true;
             mediumToolStripMenuItem1.Checked = false;
             hardToolStripMenuItem1.Checked = false;
@@ -136,7 +136,7 @@ namespace VangDeVolger
         private void MediumToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Enemy enemy = (Enemy)GameLevel.Enemy;
-            enemy.MoveTime = 500;
+            enemy.MoveTimer.Interval = 500;
             easyToolStripMenuItem1.Checked = false;
             mediumToolStripMenuItem1.Checked = true;
             hardToolStripMenuItem1.Checked = false;
@@ -145,7 +145,7 @@ namespace VangDeVolger
         private void HardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Enemy enemy = (Enemy)GameLevel.Enemy;
-            enemy.MoveTime = 300;
+            enemy.MoveTimer.Interval = 300;
             easyToolStripMenuItem1.Checked = false;
             mediumToolStripMenuItem1.Checked = false;
             hardToolStripMenuItem1.Checked = true;

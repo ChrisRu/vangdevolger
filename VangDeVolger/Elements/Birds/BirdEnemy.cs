@@ -74,7 +74,7 @@ namespace VangDeVolger.Elements.Birds
         /// </summary>
         private void _startNewGame()
         {
-            _timer.Stop();
+            MoveTimer.Stop();
 
             DialogResult result = MessageBox.Show("You lose!\nStart a new game?", "Game Over", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
