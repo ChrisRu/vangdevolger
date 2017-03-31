@@ -50,27 +50,7 @@ namespace VangDeVolger
             this.musicToolStripMenuItem.Checked = true;
             this.mediumToolStripMenuItem1.Checked = true;
 
-            this.GameLevel.Enemy.GameEnd += this.StartNewGame;
-        }
-
-        /// <summary>
-        /// Show About Messagebox
-        /// </summary>
-        /// <param name="sender">The form</param>
-        /// <param name="e">Arguments given by form</param>
-        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Vang De Vogel is made by:\n\nLeon Hubert\nChristian Ruigrok", "About");
-        }
-
-        /// <summary>
-        /// Show How To Play Messagebox
-        /// </summary>
-        /// <param name="sender">The form</param>
-        /// <param name="e">Arguments given by form</param>
-        private void HowToPlayToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to win:\n\tCapture the red bird by moving blocks.\n\nGood luck!", "How to play");
+            this.GameLevel.Enemy.GameEnd += this._startNewGame;
         }
 
         /// <summary>
@@ -169,12 +149,6 @@ namespace VangDeVolger
             }
         }
 
-        private void PauseToolStripMenuItem_Click(object sender, EventArgs e) => this._togglePaused(!this.GameLevel.Paused);
-
-        private void RestartToolStripMenuItem_Click(object sender, EventArgs e) => this._restartGame();
-
-        private void MusicToolStripMenuItem_Click(object sender, EventArgs e) => this._toggleMusic(!this._soundPlaying);
-
         /// <summary>
         /// Restart game and ask for new gridSize
         /// </summary>
@@ -210,13 +184,13 @@ namespace VangDeVolger
 
             this._togglePaused(false);
 
-            this.GameLevel.Enemy.GameEnd += this.StartNewGame;
+            this.GameLevel.Enemy.GameEnd += this._startNewGame;
         }
 
         /// <summary>
         /// Toggle Music Playing
         /// </summary>
-        /// <param name="play">bool to play</param>
+        /// <param name="play">Turn music on</param>
         private void _toggleMusic(bool play)
         {
             this._soundPlaying = play;
@@ -227,38 +201,42 @@ namespace VangDeVolger
         /// <summary>
         /// Toggle Pause for the game
         /// </summary>
-        /// <param name="play">bool to pause</param>
+        /// <param name="play">Pause Game</param>
         private void _togglePaused(bool play)
         {
             this.GameLevel.Paused = play;
             this.pauseToolStripMenuItem.Checked = play;
             this.BackColor = !play ? this._backColor : Color.DimGray;
 
-            if(this.GameLevel.Paused)
-            {
-                this.Text = "Vang de Vogel (paused)";
-            }
-            else
-            {
-                this.Text = "Vang de Vogel";
-            }
+            this.Text = this.GameLevel.Paused ? "Vang de Vogel (paused)" : "Vang de Vogel";
         }
 
-        private void ThemeToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Change Color of Background
+        /// </summary>
+        private void _changeBackgroundColor()
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            bool currentlyPaused = this.GameLevel.Paused;
+            this._togglePaused(true);
+
+            DialogResult result = this.colorDialog1.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                BackColor = colorDialog1.Color;
-                _backColor = colorDialog1.Color;
+                this.BackColor = this.colorDialog1.Color;
+                this._backColor = this.colorDialog1.Color;
+            }
+
+            if (!currentlyPaused)
+            {
+                this._togglePaused(false);
             }
         }
 
         /// <summary>
         /// Ask to start new game or not
         /// </summary>
-        /// <param name="sender">Enemy instance</param>
-        /// <param name="e">Event Arguments with possible Victory</param>
-        public void StartNewGame(bool victory)
+        /// <param name="victory">Has won</param>
+        private void _startNewGame(bool victory)
         {
             string message;
             string title;
@@ -280,7 +258,7 @@ namespace VangDeVolger
             DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                _toggleMusic(true);
+                this._toggleMusic(true);
                 this._restartGame();
             }
             else
@@ -288,5 +266,36 @@ namespace VangDeVolger
                 Application.Exit();
             }
         }
+
+        private void ThemeToolStripMenuItem_Click(object sender, EventArgs e) => this._changeBackgroundColor();
+        
+        private void PauseToolStripMenuItem_Click(object sender, EventArgs e) => this._togglePaused(!this.GameLevel.Paused);
+
+        private void RestartToolStripMenuItem_Click(object sender, EventArgs e) => this._restartGame();
+
+        private void MusicToolStripMenuItem_Click(object sender, EventArgs e) => this._toggleMusic(!this._soundPlaying);
+        
+        /// <summary>
+        /// Show About Message Box
+        /// </summary>
+        /// <param name="sender">The form</param>
+        /// <param name="e">Arguments given by form</param>
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this._togglePaused(true);
+            MessageBox.Show("Vang De Vogel is made by:\n\nLeon Hubert\nChristian Ruigrok", "About");
+        }
+
+        /// <summary>
+        /// Show How To Play Message Box
+        /// </summary>
+        /// <param name="sender">The form</param>
+        /// <param name="e">Arguments given by form</param>
+        private void HowToPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this._togglePaused(true);
+            MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to win:\n\tCapture the red bird by moving blocks.\n\nGood luck!", "How to play");
+        }
+
     }
 }
