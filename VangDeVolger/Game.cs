@@ -13,6 +13,7 @@ namespace VangDeVolger
         public Level GameLevel { get; set; }
 
         public SoundPlayer SoundPlayer { get; set; }
+        public SoundPlayer SoundEffectPlayer { get; set; }
 
         private bool _soundPlaying;
 
@@ -254,11 +255,15 @@ namespace VangDeVolger
             string title;
             if (victory)
             {
+                this.SoundEffectPlayer = new SoundPlayer(Properties.Resources.yay);
+                this.SoundEffectPlayer.Play();
                 message = "You won!\nPlay again?";
                 title = "Victory!";
             }
             else
             {
+                this.SoundEffectPlayer = new SoundPlayer(Properties.Resources.fail);
+                this.SoundEffectPlayer.Play();
                 message = "You lost!\nTry again?";
                 title = "Game Over";
             }
@@ -266,6 +271,7 @@ namespace VangDeVolger
             DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
+                _toggleMusic(true);
                 this._restartGame();
             }
             else

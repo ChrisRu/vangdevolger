@@ -152,6 +152,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Sad Trombone - Gaming Sound Effect %28HD%29.wav" />
+    <None Include="Resources\Children Yay! - Sound Effect.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -161,6 +161,15 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        public static System.IO.UnmanagedMemoryStream fail {
+            get {
+                return ResourceManager.GetStream("fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         public static System.IO.UnmanagedMemoryStream GameOver {
             get {
                 return ResourceManager.GetStream("GameOver", resourceCulture);
@@ -232,6 +241,15 @@ namespace VangDeVolger.Properties {
             get {
                 object obj = ResourceManager.GetObject("solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream yay {
+            get {
+                return ResourceManager.GetStream("yay", resourceCulture);
             }
         }
     }
