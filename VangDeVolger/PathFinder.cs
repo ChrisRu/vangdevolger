@@ -22,7 +22,7 @@ namespace VangDeVolger
         public Direction? GetNextDirection(Spot from, Type to, bool randomMove = false)
         {
             List<Spot> path = this.GetOptimalPath(from, to);
-            if (path != null)
+            if (path != null && path.Count > 1)
             {
                 return path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
             }

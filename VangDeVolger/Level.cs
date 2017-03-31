@@ -33,11 +33,11 @@ namespace VangDeVolger
                 this._paused = value;
                 if (value)
                 {
-                    ((Enemy)this.Enemy).MoveTimer.Stop();
+                    this.Enemy.MoveTimer.Stop();
                 }
                 else
                 {
-                    ((Enemy)this.Enemy).MoveTimer.Start();
+                    this.Enemy.MoveTimer.Start();
                 }
             }
         }

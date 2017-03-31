@@ -56,7 +56,6 @@
     <Compile Include="Direction.cs" />
     <Compile Include="Elements\Blocks\BlockSolid.cs" />
     <Compile Include="Elements\Element.cs" />
-    <Compile Include="EndGameEventArgs.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

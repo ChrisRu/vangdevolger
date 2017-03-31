@@ -208,6 +208,8 @@ namespace VangDeVolger
             this.ClientSize = new Size(gridSize * this._scale, (gridSize * this._scale) + this.menuStrip1.Height);
 
             this._togglePaused(false);
+
+            this.GameLevel.Enemy.GameEnd += this.StartNewGame;
         }
 
         /// <summary>
