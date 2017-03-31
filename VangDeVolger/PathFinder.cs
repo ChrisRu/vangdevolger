@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace VangDeVolger
 {
     using System;
@@ -24,9 +26,17 @@ namespace VangDeVolger
             List<Spot> path = this.GetOptimalPath(from, to);
             if (path != null && path.Count > 1)
             {
-                return path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
+                var direction = path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
+                if (from.Neighbors[direction].Element != null)
+                {
+                    randomMove = true;
+                }
+                else
+                {
+                    return direction;
+                }
             }
-            else if (randomMove)
+            if (randomMove)
             {
                 List<Direction> directions = new List<Direction>(from.Neighbors.Keys.Where(key => from.Neighbors[key].Element == null));
                 if (directions.Count > 0)
@@ -55,7 +65,15 @@ namespace VangDeVolger
             while (openSet.Count > 0)
             {
                 // Spot with lowest path cost
-                Spot current = openSet.Aggregate((agg, next) => next.PathCost < agg.PathCost ? next : agg);
+                int winner = 0;
+                for (int i = 0; i < openSet.Count; i++)
+                {
+                    if (openSet[i].PathCost < openSet[winner].PathCost)
+                    {
+                        winner = i;
+                    }
+                }
+                Spot current = openSet[winner];
 
                 // Found path
                 if (current.Element?.GetType() == to)

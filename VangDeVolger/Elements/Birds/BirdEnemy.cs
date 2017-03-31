@@ -2,6 +2,8 @@
 namespace VangDeVolger.Elements.Birds
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Windows.Forms;
 
     /// <summary>
@@ -68,21 +70,34 @@ namespace VangDeVolger.Elements.Birds
         /// <param name="e">Event Arguments</param>
         private void _moveAlongPath(object sender, EventArgs e)
         {
-            Direction? direction = this._pathFinder.GetNextDirection(this.Parent, typeof(Player), true);
-            if (direction == null)
+            Direction? nullDirection = this._pathFinder.GetNextDirection(this.Parent, typeof(Player), true);
+            if (nullDirection == null)
             {
                 this.MoveTimer.Stop();
                 this.GameEnd(true);
             }
             else
             {
-                if (this.Parent.Neighbors[(Direction)direction].Element is Player)
+                Direction direction = (Direction)nullDirection;
+                if (this.Parent.Neighbors[direction].Element is Player)
                 {
                     this.MoveTimer.Stop();
                     this.GameEnd(false);
                 }
-                this.ChangeDirection((Direction)direction);
-                this.Move((Direction)direction);
+                this.ChangeDirection(direction);
+
+                if (this.Parent.Neighbors[direction].Element == null)
+                {
+                    this.Move(direction);
+                }
+                else
+                {
+                    List<Direction> directions = new List<Direction>(this.Parent.Neighbors.Keys.Where(key => this.Parent.Neighbors[key].Element == null));
+                    if (directions.Count > 0)
+                    {
+                        this.Move(directions.OrderBy(x => Guid.NewGuid()).First());
+                    }
+                }
             }
         }
     }
