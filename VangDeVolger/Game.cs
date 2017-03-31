@@ -13,7 +13,6 @@ namespace VangDeVolger
         public Level GameLevel { get; set; }
 
         public SoundPlayer SoundPlayer { get; set; }
-        public SoundPlayer SoundEffectPlayer { get; set; }
 
         private bool _soundPlaying;
 
@@ -33,7 +32,6 @@ namespace VangDeVolger
             this._backColor = Color.FromArgb(162, 255, 162);
             this.GameLevel = new Level(this.Controls, this._size, this._scale, this.menuStrip1.Height);
             this.ClientSize = new Size(this._size * this._scale, (this._size * this._scale) + this.menuStrip1.Height);
-
             this.SoundPlayer = new SoundPlayer(Properties.Resources.LoopyMusic);
         }
 
@@ -78,7 +76,7 @@ namespace VangDeVolger
         /// <summary>
         /// Execute on Form KeyUp
         /// </summary>
-        /// <param name="sender">Form</param>
+        /// <param name="sender">The form</param>
         /// <param name="e">KeyEvent Arguments</param>
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
@@ -242,15 +240,13 @@ namespace VangDeVolger
             string title;
             if (victory)
             {
-                this.SoundEffectPlayer = new SoundPlayer(Properties.Resources.yay);
-                this.SoundEffectPlayer.Play();
+                new SoundPlayer(Properties.Resources.yay).Play();
                 message = "You won!\nPlay again?";
                 title = "Victory!";
             }
             else
             {
-                this.SoundEffectPlayer = new SoundPlayer(Properties.Resources.fail);
-                this.SoundEffectPlayer.Play();
+                new SoundPlayer(Properties.Resources.fail).Play();
                 message = "You lost!\nTry again?";
                 title = "Game Over";
             }
