@@ -1,33 +1,40 @@
-﻿using System;
-using System.Drawing;
-using System.Media;
-using System.Windows.Forms;
-using VangDeVolger.Elements.Birds;
-
+﻿
 namespace VangDeVolger
 {
+    using System;
+    using System.Drawing;
+    using System.Media;
+    using System.Windows.Forms;
+
+    using Elements.Birds;
+
     public partial class Game : Form
     {
         public Level GameLevel { get; set; }
+
         public SoundPlayer SoundPlayer { get; set; }
+
         private bool _soundPlaying;
+
         private int _size = 16;
+
         private int _scale = 32;
-        private readonly Color _backColor = Color.FromArgb(162, 255, 162);
+
+        private readonly Color _backColor;
 
         /// <summary>
         /// Initialize game
         /// </summary>
         public Game()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
-            GameLevel = new Level(Controls, _size, _scale, menuStrip1.Height);
-            ClientSize = new Size(_size * _scale, _size * _scale + menuStrip1.Height);
+            this._backColor = Color.FromArgb(162, 255, 162);
+            this.GameLevel = new Level(this.Controls, this._size, this._scale, this.menuStrip1.Height);
+            this.ClientSize = new Size(this._size * this._scale, (this._size * this._scale) + this.menuStrip1.Height);
 
-            SoundPlayer = new SoundPlayer(Properties.Resources.LoopyMusic);
+            this.SoundPlayer = new SoundPlayer(Properties.Resources.LoopyMusic);
         }
-
 
         /// <summary>
         /// Execute code when form has loaded
@@ -36,11 +43,13 @@ namespace VangDeVolger
         /// <param name="e">Arguments given by form</param>
         private void Game_Load(object sender, EventArgs e)
         {
-            BackColor = _backColor;
-            SoundPlayer.PlayLooping();
-            _soundPlaying = true;
-            musicToolStripMenuItem.Checked = true;
-            mediumToolStripMenuItem1.Checked = true;
+            this.BackColor = this._backColor;
+            this.SoundPlayer.PlayLooping();
+            this._soundPlaying = true;
+            this.musicToolStripMenuItem.Checked = true;
+            this.mediumToolStripMenuItem1.Checked = true;
+
+            ((Enemy)this.GameLevel.Enemy).GameEnd += this.StartNewGame;
         }
 
         /// <summary>
@@ -66,111 +75,111 @@ namespace VangDeVolger
         /// <summary>
         /// Change Scale for Game
         /// </summary>
-        /// <param name="scale">int scale (default 32)</param>
+        /// <param name="scale">Game scale (default 32)</param>
         private void UpdateScale(int scale)
         {
-            _scale = scale;
-            for (int y = 0; y < GameLevel.Grid.GetLength(0); y++)
+            this._scale = scale;
+            for (int y = 0; y < this.GameLevel.Grid.GetLength(0); y++)
             {
-                for (int x = 0; x < GameLevel.Grid.GetLength(1); x++)
+                for (int x = 0; x < this.GameLevel.Grid.GetLength(1); x++)
                 {
-                    GameLevel.Grid[x, y].Scale = _scale;
-                    if (GameLevel.Grid[x, y].Element != null)
+                    this.GameLevel.Grid[x, y].Scale = this._scale;
+                    if (this.GameLevel.Grid[x, y].Element != null)
                     {
-                        GameLevel.Grid[x, y].Element.Pb.Size = new Size(GameLevel.Grid[x, y].Scale, GameLevel.Grid[x, y].Scale);
-                        GameLevel.Grid[x, y].Element.Pb.Location = new Point(GameLevel.Grid[x, y].Scale * x, GameLevel.Grid[x, y].Scale * y + menuStrip1.Height);
+                        this.GameLevel.Grid[x, y].Element.Pb.Size = new Size(this.GameLevel.Grid[x, y].Scale, this.GameLevel.Grid[x, y].Scale);
+                        this.GameLevel.Grid[x, y].Element.Pb.Location = new Point(this.GameLevel.Grid[x, y].Scale * x, (this.GameLevel.Grid[x, y].Scale * y) + this.menuStrip1.Height);
                     }
                 }
             }
-            ClientSize = new Size(_size * _scale, _size * _scale + menuStrip1.Height);
+            this.ClientSize = new Size(this._size * this._scale, (this._size * this._scale) + this.menuStrip1.Height);
         }
 
         /// <summary>
         /// Execute on Form KeyUp
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Form</param>
+        /// <param name="e">KeyEvent Arguments</param>
         private void Game_KeyUp(object sender, KeyEventArgs e)
         {
             // Ctrl + = = Zoom * 1.1
             if (e.KeyValue == 187 && e.Modifiers == Keys.Control)
             {
-                UpdateScale((int)(_scale * 1.1));
+                this.UpdateScale((int)(this._scale * 1.1));
             }
 
             // Ctrl + - = Zoom / 1.1
             if (e.KeyCode == Keys.OemMinus && e.Modifiers == Keys.Control)
             {
-                UpdateScale((int)(_scale / 1.1));
+                this.UpdateScale((int)(this._scale / 1.1));
             }
 
             // Ctrl + 0 = Reset Zoom
             if (e.KeyCode == Keys.D0 && e.Modifiers == Keys.Control)
             {
-                UpdateScale(32);
+                this.UpdateScale(32);
             }
 
             // Escape / Pause = Pause
             if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Pause)
             {
-                _togglePaused(!GameLevel.Paused);
+                this._togglePaused(!this.GameLevel.Paused);
             }
 
             // Player Movement
-            if (!GameLevel.Paused)
+            if (!this.GameLevel.Paused)
             {
-                GameLevel.Player.KeyDown(e);
+                this.GameLevel.Player.KeyDown(e);
             }
         }
 
         private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Enemy enemy = (Enemy) GameLevel.Enemy;
+            Enemy enemy = (Enemy)this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 700;
-            easyToolStripMenuItem1.Checked = true;
-            mediumToolStripMenuItem1.Checked = false;
-            hardToolStripMenuItem1.Checked = false;
+            this.easyToolStripMenuItem1.Checked = true;
+            this.mediumToolStripMenuItem1.Checked = false;
+            this.hardToolStripMenuItem1.Checked = false;
         }
 
         private void MediumToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Enemy enemy = (Enemy)GameLevel.Enemy;
+            Enemy enemy = (Enemy)this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 500;
-            easyToolStripMenuItem1.Checked = false;
-            mediumToolStripMenuItem1.Checked = true;
-            hardToolStripMenuItem1.Checked = false;
+            this.easyToolStripMenuItem1.Checked = false;
+            this.mediumToolStripMenuItem1.Checked = true;
+            this.hardToolStripMenuItem1.Checked = false;
         }
 
         private void HardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Enemy enemy = (Enemy)GameLevel.Enemy;
+            Enemy enemy = (Enemy)this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 300;
-            easyToolStripMenuItem1.Checked = false;
-            mediumToolStripMenuItem1.Checked = false;
-            hardToolStripMenuItem1.Checked = true;
+            this.easyToolStripMenuItem1.Checked = false;
+            this.mediumToolStripMenuItem1.Checked = false;
+            this.hardToolStripMenuItem1.Checked = true;
         }
 
         private void Game_Resize(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Minimized)
+            if (this.WindowState == FormWindowState.Minimized)
             {
-                _togglePaused(false);
-                _toggleMusic(false);
+                this._togglePaused(false);
+                this._toggleMusic(false);
             }
         }
 
-        private void PauseToolStripMenuItem_Click(object sender, EventArgs e) => _togglePaused(!GameLevel.Paused);
+        private void PauseToolStripMenuItem_Click(object sender, EventArgs e) => this._togglePaused(!this.GameLevel.Paused);
 
-        private void RestartToolStripMenuItem_Click(object sender, EventArgs e) => _restartGame();
+        private void RestartToolStripMenuItem_Click(object sender, EventArgs e) => this._restartGame();
 
-        private void MusicToolStripMenuItem_Click(object sender, EventArgs e) => _toggleMusic(!_soundPlaying);
+        private void MusicToolStripMenuItem_Click(object sender, EventArgs e) => this._toggleMusic(!this._soundPlaying);
 
         /// <summary>
         /// Restart game and ask for new gridSize
         /// </summary>
         private void _restartGame()
         {
-            _togglePaused(true);
+            this._togglePaused(true);
 
             string gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Set a grid size:", "Grid size", "16");
             int gridSize;
@@ -182,23 +191,23 @@ namespace VangDeVolger
             catch (Exception error)
             {
                 Console.Write(error);
-                gridSize = _size;
+                gridSize = this._size;
             }
 
-            foreach (Spot spot in GameLevel.Grid)
+            foreach (Spot spot in this.GameLevel.Grid)
             {
                 if (spot.Element?.Pb != null)
                 {
-                    Controls.Remove(spot.Element.Pb);
+                    this.Controls.Remove(spot.Element.Pb);
                 }
             }
 
-            _size = gridSize;
+            this._size = gridSize;
 
-            GameLevel = new Level(Controls, gridSize, _scale, menuStrip1.Height);
-            ClientSize = new Size(gridSize * _scale, gridSize * _scale + menuStrip1.Height);
+            this.GameLevel = new Level(this.Controls, gridSize, this._scale, this.menuStrip1.Height);
+            this.ClientSize = new Size(gridSize * this._scale, (gridSize * this._scale) + this.menuStrip1.Height);
 
-            _togglePaused(false);
+            this._togglePaused(false);
         }
 
         /// <summary>
@@ -207,9 +216,9 @@ namespace VangDeVolger
         /// <param name="play">bool to play</param>
         private void _toggleMusic(bool play)
         {
-            _soundPlaying = play;
-            musicToolStripMenuItem.Checked = play;
-            (play ? (Action) SoundPlayer.PlayLooping : SoundPlayer.Stop)();
+            this._soundPlaying = play;
+            this.musicToolStripMenuItem.Checked = play;
+            (play ? (Action) this.SoundPlayer.PlayLooping : this.SoundPlayer.Stop)();
         }
 
         /// <summary>
@@ -218,14 +227,45 @@ namespace VangDeVolger
         /// <param name="play">bool to pause</param>
         private void _togglePaused(bool play)
         {
-            GameLevel.Paused = play;
-            pauseToolStripMenuItem.Checked = play;
-            BackColor = !play ? _backColor : Color.DimGray;
+            this.GameLevel.Paused = play;
+            this.pauseToolStripMenuItem.Checked = play;
+            this.BackColor = !play ? this._backColor : Color.DimGray;
         }
 
         private void ThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK) BackColor = colorDialog1.Color;
+        }
+
+        /// <summary>
+        /// Ask to start new game or not
+        /// </summary>
+        /// <param name="sender">Enemy instance</param>
+        /// <param name="e">Event Arguments with possible Victory</param>
+        public void StartNewGame(bool victory)
+        {
+            string message;
+            string title;
+            if (victory)
+            {
+                message = "You won!\nPlay again?";
+                title = "Victory!";
+            }
+            else
+            {
+                message = "You lost!\nTry again?";
+                title = "Game Over";
+            }
+
+            DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                this._restartGame();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

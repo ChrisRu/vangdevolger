@@ -4,11 +4,15 @@ namespace VangDeVolger.Elements.Birds
     using System;
     using System.Windows.Forms;
 
+    public delegate void GameEnd(bool victory);
+
     public class Enemy : Bird
     {
         public Timer MoveTimer { get; set; }
 
         public int PrevTime { get; set; }
+
+        public event GameEnd GameEnd;
 
         private PathFinder _pathFinder { get; set; }
 
@@ -38,6 +42,7 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Initialize PathFinder Movement
         /// </summary>
+        /// <param name="time">Interval of enemy move</param>
         private void _initMovement(int time)
         {
             this._pathFinder = new PathFinder();
@@ -56,38 +61,21 @@ namespace VangDeVolger.Elements.Birds
         /// <param name="e"></param>
         private void _moveAlongPath(object sender, EventArgs e)
         {
-            Direction? direction = _pathFinder.GetNextDirection(Parent, typeof(Player), true);
+            Direction? direction = this._pathFinder.GetNextDirection(this.Parent, typeof(Player), true);
             if (direction == null)
             {
-                _startNewGame("You won!\nStart a new game?", "Victory!");
+                this.MoveTimer.Stop();
+                this.GameEnd(true);
             }
             else
             {
-                if (Parent.Neighbors[(Direction) direction].Element is Player)
+                if (this.Parent.Neighbors[(Direction) direction].Element is Player)
                 {
-                    _startNewGame("You lost!\nTry again?","Game Over");
+                    this.MoveTimer.Stop();
+                    this.GameEnd(false);
                 }
-                ChangeDirection((Direction) direction);
-                Move((Direction) direction);
-            }
-        }
-
-        /// <summary>
-        /// Ask to start new game or not
-        /// </summary>
-        private void _startNewGame(string message, string title)
-        {
-            MoveTimer.Stop();
-
-            DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                //start a new game
-            }
-            else
-            {
-                // close the game
-                Application.Exit();
+                this.ChangeDirection((Direction) direction);
+                this.Move((Direction) direction);
             }
         }
     }

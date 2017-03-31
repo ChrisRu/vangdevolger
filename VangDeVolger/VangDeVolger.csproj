@@ -56,6 +56,7 @@
     <Compile Include="Direction.cs" />
     <Compile Include="Elements\Blocks\BlockSolid.cs" />
     <Compile Include="Elements\Element.cs" />
+    <Compile Include="EndGameEventArgs.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -118,9 +119,6 @@
     <None Include="Resources\egg.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tree.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\redbull.png" />
   </ItemGroup>
   <ItemGroup>
@@ -143,15 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\maze2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\new_solid.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\new_leaf.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\new_tree2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\leaf.png" />

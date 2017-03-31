@@ -7,9 +7,9 @@ namespace VangDeVolger
     using System.Linq;
     using System.Windows.Forms;
 
-    using VangDeVolger.Elements;
-    using VangDeVolger.Elements.Birds;
-    using VangDeVolger.Elements.Blocks;
+    using Elements;
+    using Elements.Birds;
+    using Elements.Blocks;
 
     public class Level
     {
