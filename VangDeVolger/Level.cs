@@ -46,9 +46,9 @@ namespace VangDeVolger
 
         public Dictionary<int, Type> RandomElements { get; }
 
-        public Element Player => (from Spot spot in Grid where spot.Element is Player select spot.Element).FirstOrDefault();
+        public Player Player => (Player)(from Spot spot in Grid where spot.Element is Player select spot.Element).FirstOrDefault();
 
-        public Element Enemy => (from Spot spot in Grid where spot.Element is Enemy select spot.Element).FirstOrDefault();
+        public Enemy Enemy => (Enemy)(from Spot spot in Grid where spot.Element is Enemy select spot.Element).FirstOrDefault();
 
         private Control.ControlCollection Controls { get; }
 

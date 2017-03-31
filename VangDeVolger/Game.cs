@@ -23,7 +23,7 @@ namespace VangDeVolger
         private readonly Color _backColor;
 
         /// <summary>
-        /// Initialize game
+        /// Game Class initializes VangDeVolger Game
         /// </summary>
         public Game()
         {
@@ -49,7 +49,7 @@ namespace VangDeVolger
             this.musicToolStripMenuItem.Checked = true;
             this.mediumToolStripMenuItem1.Checked = true;
 
-            ((Enemy)this.GameLevel.Enemy).GameEnd += this.StartNewGame;
+            this.GameLevel.Enemy.GameEnd += this.StartNewGame;
         }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace VangDeVolger
 
         private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Enemy enemy = (Enemy)this.GameLevel.Enemy;
+            Enemy enemy = this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 700;
             this.easyToolStripMenuItem1.Checked = true;
             this.mediumToolStripMenuItem1.Checked = false;
@@ -143,7 +143,7 @@ namespace VangDeVolger
 
         private void MediumToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Enemy enemy = (Enemy)this.GameLevel.Enemy;
+            Enemy enemy = this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 500;
             this.easyToolStripMenuItem1.Checked = false;
             this.mediumToolStripMenuItem1.Checked = true;
@@ -152,7 +152,7 @@ namespace VangDeVolger
 
         private void HardToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Enemy enemy = (Enemy)this.GameLevel.Enemy;
+            Enemy enemy = this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 300;
             this.easyToolStripMenuItem1.Checked = false;
             this.mediumToolStripMenuItem1.Checked = false;
@@ -218,7 +218,7 @@ namespace VangDeVolger
         {
             this._soundPlaying = play;
             this.musicToolStripMenuItem.Checked = play;
-            (play ? (Action) this.SoundPlayer.PlayLooping : this.SoundPlayer.Stop)();
+            (play ? (Action)this.SoundPlayer.PlayLooping : this.SoundPlayer.Stop)();
         }
 
         /// <summary>

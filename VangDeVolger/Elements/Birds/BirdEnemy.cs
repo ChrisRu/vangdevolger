@@ -64,8 +64,8 @@ namespace VangDeVolger.Elements.Birds
         /// <summary>
         /// Move Enemy Along 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Timer</param>
+        /// <param name="e">Event Arguments</param>
         private void _moveAlongPath(object sender, EventArgs e)
         {
             Direction? direction = this._pathFinder.GetNextDirection(this.Parent, typeof(Player), true);
@@ -76,13 +76,13 @@ namespace VangDeVolger.Elements.Birds
             }
             else
             {
-                if (this.Parent.Neighbors[(Direction) direction].Element is Player)
+                if (this.Parent.Neighbors[(Direction)direction].Element is Player)
                 {
                     this.MoveTimer.Stop();
                     this.GameEnd(false);
                 }
-                this.ChangeDirection((Direction) direction);
-                this.Move((Direction) direction);
+                this.ChangeDirection((Direction)direction);
+                this.Move((Direction)direction);
             }
         }
     }
