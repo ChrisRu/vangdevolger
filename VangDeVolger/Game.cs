@@ -20,7 +20,7 @@ namespace VangDeVolger
 
         private int _scale = 32;
 
-        private readonly Color _backColor;
+        private Color _backColor;
 
         /// <summary>
         /// Game Class initializes VangDeVolger Game
@@ -236,7 +236,11 @@ namespace VangDeVolger
 
         private void ThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() == DialogResult.OK) BackColor = colorDialog1.Color;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                BackColor = colorDialog1.Color;
+                _backColor = colorDialog1.Color;
+            }
         }
 
         /// <summary>
