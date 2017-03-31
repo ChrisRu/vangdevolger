@@ -60,7 +60,7 @@ namespace VangDeVolger
         /// <param name="e">Arguments given by form</param>
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Vang De Volger is made by:\n\nLeon Hubert\nChristian Ruigrok", "About");
+            MessageBox.Show("Vang De Vogel is made by:\n\nLeon Hubert\nChristian Ruigrok", "About");
         }
 
         /// <summary>
@@ -233,6 +233,15 @@ namespace VangDeVolger
             this.GameLevel.Paused = play;
             this.pauseToolStripMenuItem.Checked = play;
             this.BackColor = !play ? this._backColor : Color.DimGray;
+
+            if(this.GameLevel.Paused)
+            {
+                this.Text = "Vang de Vogel (paused)";
+            }
+            else
+            {
+                this.Text = "Vang de Vogel";
+            }
         }
 
         private void ThemeToolStripMenuItem_Click(object sender, EventArgs e)
