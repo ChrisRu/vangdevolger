@@ -3,14 +3,18 @@ namespace VangDeVolger
 {
     using System.Collections.Generic;
     using System.Drawing;
-    using VangDeVolger.Elements;
 
+    using Elements;
+
+    /// <summary>
+    /// Spot Class to sit inside the Level Grid
+    /// </summary>
     public class Spot
     {
-        public int Scale { get; set; }
-
         public Element Element { get; set; }
 
+        public int Scale { get; set; }
+        
         public Dictionary<Direction, Spot> Neighbors { get; set; }
 
         // PathFinder Properties

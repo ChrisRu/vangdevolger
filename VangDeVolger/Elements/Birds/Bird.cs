@@ -3,6 +3,9 @@ namespace VangDeVolger.Elements.Birds
 {
     using System.Drawing;
 
+    /// <summary>
+    /// Bird (Abstract) Class to sit inside Spot
+    /// </summary>
     public abstract class Bird : Element
     {
         protected Image ImageLeft { get; set; }

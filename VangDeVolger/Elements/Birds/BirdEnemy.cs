@@ -4,8 +4,15 @@ namespace VangDeVolger.Elements.Birds
     using System;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Execute on Game End to push an event to the Game Class
+    /// </summary>
+    /// <param name="victory">Has won</param>
     public delegate void GameEnd(bool victory);
 
+    /// <summary>
+    /// Enemy Class to follow Player in Grid
+    /// </summary>
     public class Enemy : Bird
     {
         public Timer MoveTimer { get; set; }

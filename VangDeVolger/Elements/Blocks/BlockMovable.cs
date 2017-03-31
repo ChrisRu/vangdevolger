@@ -1,6 +1,9 @@
 ﻿
 namespace VangDeVolger.Elements.Blocks
 {
+    /// <summary>
+    /// Movable Block to sit inside Spot, can be pushed around by Player
+    /// </summary>
     public class BlockMovable : Block
     {
         /// <summary>

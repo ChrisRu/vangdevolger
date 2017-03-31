@@ -4,9 +4,12 @@ namespace VangDeVolger
     using System;
     using System.Drawing;
 
-    using VangDeVolger.Elements;
-    using VangDeVolger.Elements.Blocks;
+    using Elements;
+    using Elements.Blocks;
 
+    /// <summary>
+    /// LevelReader class to read images and convert pixels to elements on the grid
+    /// </summary>
     public class LevelReader
     {
         public Bitmap ImageBitmap;
@@ -51,10 +54,9 @@ namespace VangDeVolger
         {
             switch (color.Name)
             {
-                // White
                 case "ffffffff":
+                    // White
                     return new Spot(null, 32);
-                // Other colors
                 default:
                     return new Spot(this._getRandomElement(), 32);
             }

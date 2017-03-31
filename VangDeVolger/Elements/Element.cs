@@ -4,6 +4,9 @@ namespace VangDeVolger.Elements
     using System.Drawing;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Element (Abstract) Class to sit inside Spot
+    /// </summary>
     public abstract class Element
     {
         public Spot Parent { get; set; }

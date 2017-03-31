@@ -3,6 +3,9 @@ namespace VangDeVolger.Elements.Birds
 {
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Player Class to trap Enemy in Grid
+    /// </summary>
     public class Player : Bird
     {
         /// <summary>

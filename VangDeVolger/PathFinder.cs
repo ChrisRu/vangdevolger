@@ -5,8 +5,11 @@ namespace VangDeVolger
     using System.Collections.Generic;
     using System.Linq;
 
-    using VangDeVolger.Elements.Birds;
+    using Elements.Birds;
 
+    /// <summary>
+    /// PathFinder Class to get the optimal path from a to b on the grid
+    /// </summary>
     public class PathFinder
     {
         /// <summary>
@@ -55,7 +58,10 @@ namespace VangDeVolger
                 Spot current = openSet.Aggregate((agg, next) => next.PathCost < agg.PathCost ? next : agg);
 
                 // Found path
-                if (current.Element?.GetType() == to) return _reconstructPath(current);
+                if (current.Element?.GetType() == to)
+                {
+                    return _reconstructPath(current);
+                }
 
                 openSet.Remove(current);
                 closedSet.Add(current);
@@ -93,7 +99,7 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="current">End position</param>
         /// <returns>List with spots in Optimal Path</returns>
-        private List<Spot> _reconstructPath(Spot current)
+        private static List<Spot> _reconstructPath(Spot current)
         {
             List<Spot> path = new List<Spot> { current };
             Spot next = current;

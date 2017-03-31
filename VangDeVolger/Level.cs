@@ -11,6 +11,9 @@ namespace VangDeVolger
     using Elements.Birds;
     using Elements.Blocks;
 
+    /// <summary>
+    /// Level Class to create the Game Level containing all elements
+    /// </summary>
     public class Level
     {
         public int Scale { get; set; }
