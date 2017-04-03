@@ -344,6 +344,16 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="fe0db9d0-21d4-4951-bb23-c02ef2ed4e98" name="Element" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="e93d579b-159f-4868-970e-c587bc671490" name="Lower" value="0">
+                      <elementDefinition Id="89b5a3c4-45f9-4ecb-951f-09dff0faf5f3" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="3a3f9733-9a2d-4f35-a11c-9fb8f6010cdb" name="Upper" value="1">
+                      <elementDefinition Id="de641fcf-216c-484e-943a-f527b571c508" />
+                    </literalString>
+                  </upperValueInternal>
                   <elementDefinition Id="249736b9-49f3-47e2-8bfa-920ea0371449" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -481,18 +491,6 @@
             <elementDefinition Id="d6ecc5e3-a862-4efa-a2e6-c425af5fe15f" />
             <type_NamedElement>
               <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
-            </type_NamedElement>
-          </property>
-          <property Id="fffd189f-7144-448a-b130-c1a67c6c5ae4" name="solidBlockPercentage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="d61b0878-4164-42d1-b7d5-a0622bcaf249" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="83d11d91-fb83-4871-acde-9b2d278b31de" LastKnownName="int" />
-            </type_NamedElement>
-          </property>
-          <property Id="e32097ff-b4ed-48dc-a93e-00704ea17ee6" name="movableBlockPercentage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="5020e7c9-687b-49d0-8b5a-009b97aa69f2" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="83d11d91-fb83-4871-acde-9b2d278b31de" LastKnownName="int" />
             </type_NamedElement>
           </property>
           <property Id="07f2f545-d059-4d07-b8a3-853c399483c2" name="controls" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -747,6 +745,16 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd Id="38656ee5-5da4-4a60-ae8b-7f6c710f05b6" name="Element" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="43320147-f863-4ccc-bc4d-c1e2225fdc37" name="Lower" value="0">
+                      <elementDefinition Id="25ae0604-5d0e-4662-9089-2b103d362764" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="9e22ed2d-a548-4b9d-a3cc-a3c7a1dcd75e" name="Upper" value="1">
+                      <elementDefinition Id="c9178400-ae0b-4697-87f1-76f27146e77c" />
+                    </literalString>
+                  </upperValueInternal>
                   <elementDefinition Id="5cae45fa-a3d1-4972-9b69-93af3ac11369" />
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -839,12 +847,6 @@
             <elementDefinition Id="ea40957f-de45-4f85-868c-58e722a4578e" />
             <type_NamedElement>
               <referencedTypeMoniker Id="83d11d91-fb83-4871-acde-9b2d278b31de" LastKnownName="int" />
-            </type_NamedElement>
-          </property>
-          <property Id="626ecf20-a77c-4fac-993d-ce8fd9c45660" name="Element" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="1eba1558-f3bf-4937-b366-95f6399da263" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="717ae14c-5efe-407c-96d8-c66c5b27974c" LastKnownName="Element" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>

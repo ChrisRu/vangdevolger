@@ -820,7 +820,20 @@
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="false"
-                  isNavigableOwned="false" />
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="89b5a3c4-45f9-4ecb-951f-09dff0faf5f3"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="de641fcf-216c-484e-943a-f527b571c508"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -1103,44 +1116,6 @@
               <undefinedTypeMoniker
                 Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
                 LastKnownName="bool"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="d61b0878-4164-42d1-b7d5-a0622bcaf249"
-            name="solidBlockPercentage"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
-                LastKnownName="int"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="5020e7c9-687b-49d0-8b5a-009b97aa69f2"
-            name="movableBlockPercentage"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
-                LastKnownName="int"
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
@@ -1764,7 +1739,20 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="25ae0604-5d0e-4662-9089-2b103d362764"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c9178400-ae0b-4697-87f1-76f27146e77c"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -1956,24 +1944,6 @@
               <undefinedTypeMoniker
                 Id="f7145978-a015-4f10-acfb-ba321c3c529a"
                 LastKnownName="int"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="1eba1558-f3bf-4937-b366-95f6399da263"
-            name="Element"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <classMoniker
-                Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
-                LastKnownName="Element"
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
