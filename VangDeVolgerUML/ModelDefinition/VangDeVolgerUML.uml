@@ -25,6 +25,22 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="bb93904b-bb80-4e00-8ded-d0b37ca1a79a">
+            <classMoniker
+              Id="474c8cf6-c0f9-4a79-afe2-9517b7d8e034"
+              LastKnownName="Enemy"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </dependency>
+          <dependency
+            Id="2d5e85eb-07de-45e5-95da-7746f184965c">
+            <classMoniker
+              Id="e08acf9d-6eea-40c2-b113-51335856ce76"
+              LastKnownName="Player"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </dependency>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="99751e21-86b1-41b1-867d-11424f60d80f"
@@ -259,6 +275,15 @@
           <operation
             Id="1e9ac7c5-3ac3-429d-9956-5d46923d4b54"
             name="mediumMode_Click"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="f28e811e-5e7b-4457-8bad-a579696089f8"
+            name="startNewGame"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -1660,6 +1685,13 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3f8319ad-5223-46f8-935b-cdea2bc7410e"
+                  name="Color"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
         </ownedOperationsInternal>
@@ -1736,6 +1768,123 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="2dc7cba3-fc0d-4a20-aa28-47573901a037"
+            isDerived="false"
+            sourceEndRoleName="Spot"
+            targetEndRoleName="Neighbor"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="87c0b592-431b-4751-be24-d7c3423da607"
+              LastKnownName="Spot"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="550b0c7c-c369-46b3-aa52-35a78efec815"
+                  name="Spot"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="848bcc88-10bb-499e-b1c8-9e6fef3fbd1e"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="21701075-a922-4adf-825b-c819fbe12dea"
+                      name="Upper"
+                      value="4" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f0bd5f17-2e30-43cd-82e4-184250d3e333"
+                  name="Neighbor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="33d17bd3-586c-4d7b-a9b2-1e489ba863b8"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="8d2fab76-8da6-47e0-9206-4b4f9fc7ae86"
+                      name="Upper"
+                      value="4" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="37b1fb8c-e6a0-4126-b4b6-73d526f4aa1e"
+            isDerived="false"
+            sourceEndRoleName="Spot"
+            targetEndRoleName="CameFromSpot"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="87c0b592-431b-4751-be24-d7c3423da607"
+              LastKnownName="Spot"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="363a4a3e-6554-4178-9908-10b609d4cfa7"
+                  name="Spot"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="58568989-91a2-4cbd-969f-8f7fd841ac57"
+                  name="CameFromSpot"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="c1aa4726-1a8a-4e56-b960-7b7a5918cf41"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a49818f9-db5d-4299-8507-c50be1ae5c7b"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -1758,7 +1907,7 @@
           </property>
           <property
             Id="0b922183-3096-4900-ba55-dec7a56b9d34"
-            name="Neighbors"
+            name="Neighbours"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"

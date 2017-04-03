@@ -27,7 +27,7 @@ namespace VangDeVolger
             if (path != null && path.Count > 1)
             {
                 var direction = path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
-                if (from.Neighbors[direction].Element != null)
+                if (from.Neighbors[direction].Element != null && !(from.Neighbors[direction].Element is Player))
                 {
                     randomMove = true;
                 }
