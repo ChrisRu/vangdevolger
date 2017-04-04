@@ -29,8 +29,10 @@ namespace VangDeVolger
                 {
                     List<Direction> directions = new List<Direction>(
                         from.Neighbors.Keys
-                            .Where(key => from.Neighbors[key].Element == null
-                                          && key != path[1].Neighbors.FirstOrDefault(key2 => key2.Value == path[0]).Key)
+                            .Where(
+                                key => from.Neighbors[key].Element == null
+                                && key != path[1].Neighbors.FirstOrDefault(key2 => key2.Value == path[0]).Key
+                            )
                     );
 
                     if (directions.Count > 0)
@@ -108,7 +110,7 @@ namespace VangDeVolger
                         openSet.Add(neighbor);
                     }
                     else if (newCost >= neighbor.PathCost) continue;
-                    
+
                     // Better path found
                     neighbor.PathCost = newCost;
                     neighbor.CameFromSpot = current;
