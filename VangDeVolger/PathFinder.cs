@@ -1,6 +1,4 @@
 ﻿
-using System.Windows.Forms;
-
 namespace VangDeVolger
 {
     using System;
@@ -26,10 +24,19 @@ namespace VangDeVolger
             List<Spot> path = this.GetOptimalPath(from, to);
             if (path != null && path.Count > 1)
             {
-                var direction = path[0].Neighbors.FirstOrDefault(x => x.Value == path[1]).Key;
-                if (from.Neighbors[direction].Element != null && !(from.Neighbors[direction].Element is Player))
+                Direction direction = path[0].Neighbors.FirstOrDefault(key => key.Value == path[1]).Key;
+                if (from.Neighbors[direction].Element != null && from.Neighbors[direction].Element.GetType() != to)
                 {
-                    randomMove = true;
+                    List<Direction> directions = new List<Direction>(
+                        from.Neighbors.Keys
+                            .Where(key => from.Neighbors[key].Element == null
+                                          && key != path[1].Neighbors.FirstOrDefault(key2 => key2.Value == path[0]).Key)
+                    );
+
+                    if (directions.Count > 0)
+                    {
+                        return directions.OrderBy(x => Guid.NewGuid()).First();
+                    }
                 }
                 else
                 {
