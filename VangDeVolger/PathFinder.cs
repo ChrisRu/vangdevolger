@@ -29,8 +29,8 @@ namespace VangDeVolger
                 {
                     List<Direction> directions = new List<Direction>(
                         from.Neighbors.Keys
-                            .Where(
-                                key => from.Neighbors[key].Element == null
+                            .Where(key =>
+                                from.Neighbors[key].Element == null
                                 && key != path[1].Neighbors.FirstOrDefault(key2 => key2.Value == path[0]).Key
                             )
                     );
