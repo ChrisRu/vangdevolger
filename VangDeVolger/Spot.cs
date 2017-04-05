@@ -11,9 +11,6 @@ namespace VangDeVolger
     /// </summary>
     public class Spot
     {
-        public int X;
-        public int Y;
-
         public Element Element { get; set; }
 
         public int Scale { get; set; }

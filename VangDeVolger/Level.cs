@@ -101,11 +101,7 @@ namespace VangDeVolger
             {
                 for (int x = 0; x < sizeX; x++)
                 {
-                    spots[x, y] = new Spot(this.GetRandomElement(random.Next(0, 100)), this.Scale)
-                    {
-                        X = x,
-                        Y = y
-                    };
+                    spots[x, y] = new Spot(this.GetRandomElement(random.Next(0, 100)), this.Scale);
                 }
             }
 
