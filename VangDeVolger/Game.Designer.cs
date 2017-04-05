@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.pornToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RestartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +54,7 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pornToolStripMenuItem,
+            this.GameToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -63,14 +63,14 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // pornToolStripMenuItem
+            // GameToolStripMenuItem
             // 
-            this.pornToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pauseToolStripMenuItem,
             this.RestartToolStripMenuItem});
-            this.pornToolStripMenuItem.Name = "pornToolStripMenuItem";
-            this.pornToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
-            this.pornToolStripMenuItem.Text = "Game";
+            this.GameToolStripMenuItem.Name = "GameToolStripMenuItem";
+            this.GameToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.GameToolStripMenuItem.Text = "Game";
             // 
             // pauseToolStripMenuItem
             // 
@@ -222,7 +222,7 @@
 
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem pornToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem GameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RestartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modeToolStripMenuItem1;
