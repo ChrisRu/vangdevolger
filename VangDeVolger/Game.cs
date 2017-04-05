@@ -154,16 +154,21 @@ namespace VangDeVolger
         {
             this._togglePaused(true);
 
-            string gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Set a grid size:", "Grid size", "16");
+            string gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Zet een speelveld grootte (between 6 and 32):", "Speelveld groote", this._size.ToString());
             int gridSize;
 
             try
             {
                 gridSize = Convert.ToInt32(gridSizeInput);
+                
+                if (gridSize > 32 || gridSize < 6)
+                {
+                    throw new Exception("Nummer niet tussen 6 en 32");
+                }
             }
             catch (Exception error)
             {
-                Console.Write(error);
+                MessageBox.Show(error.Message);
                 gridSize = this._size;
             }
 
