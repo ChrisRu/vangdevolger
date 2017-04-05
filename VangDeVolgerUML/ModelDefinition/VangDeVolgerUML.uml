@@ -229,7 +229,8 @@
           </operation>
           <operation
             Id="944b3e8e-69c1-44c8-9381-d8969f579260"
-            name="KeyDown"
+            name="gameKeyUp"
+            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -238,8 +239,15 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="4e664954-64f9-457c-8022-fd099e4ac6cc"
-                  name="e"
+                  Id="a7de86b8-1c32-4cd3-9f27-40ab5e3624f1"
+                  name="object"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a3231453-8b4f-4c6c-9e3d-567a94d2a1de"
+                  name="KeyEventArgs"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>
@@ -256,34 +264,148 @@
             isQuery="false" />
           <operation
             Id="934f75eb-d7b3-4b0e-88c2-92d7881ca554"
-            name="hardMode_Clidk"
+            name="ModeEasyClick"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0360c1eb-c25e-41d5-a16f-bd41d6969e70"
+                  name="object"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aa4d1f69-52e5-4957-84d1-ff19c751df7d"
+                  name="EventArgs"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="8c193d44-682f-4c1f-96ed-cf7a6f7b6d8c"
-            name="easyMode_Click"
+            name="ModeHardClick"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f686a6e1-b83d-437c-bf54-6ec765bc2db5"
+                  name="object"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6e87b84f-5e4c-41d6-9190-bc474fd0af00"
+                  name="EventArgs"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="1e9ac7c5-3ac3-429d-9956-5d46923d4b54"
-            name="mediumMode_Click"
+            name="ModeMediumClick"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7ea67c6a-e2e4-4ddb-9d3c-983dde6a6504"
+                  name="object"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8f0f42dc-0b46-46ab-92ca-f0ec0e3c54d9"
+                  name="EventArgs"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
           <operation
             Id="f28e811e-5e7b-4457-8bad-a579696089f8"
             name="startNewGame"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="0cb066a3-d411-4af8-a092-be12b988dfd0"
+            name="gameLoad"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="98b300a0-2a4f-49f7-8b57-1ee5fb67be8c"
+            name="updateScale"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0c1e101c-40dc-405e-8a1d-ca06262e11d1"
+                  name="int"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c9b62627-1b50-4d6e-be3a-0ee94382756e"
+            name="formResize"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="39089801-e6f4-43b6-8c8e-e828c471235a"
+                  name="object"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fb40c303-6de0-4c8b-bbd2-bced9a3aa63b"
+                  name="EventArgs"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="0e43d66d-063a-43f5-bfb6-2a43159ecde0"
+            name="changeBackgroundColor"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -460,6 +582,37 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="8b49fe75-85e9-49c3-aca3-3048fc38d0ef"
+            name="CanMove"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e47dced8-b392-49e7-a912-a34e4d12989a"
+                  name="Direction"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4adaff78-a4b0-4a9c-a5ba-0e7cde802d2a"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
+                      LastKnownName="bool"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -541,24 +694,6 @@
             </type_NamedElement>
           </property>
           <property
-            Id="1d674f96-1971-4003-8f95-62087387a22a"
-            name="MoveTime"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
-                LastKnownName="int"
-                LastKnownLocation="VangDeVolgerUML.uml" />
-            </type_NamedElement>
-          </property>
-          <property
             Id="20b25236-6495-4a10-8dd6-f191fcfa5c8d"
             name="pathFinder"
             visibility="Private"
@@ -577,6 +712,24 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="86e11143-69a4-41f8-9412-a3d741c3dbaa"
+            name="GameEnd"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ad3b53fb-321c-496b-83d8-e532c3379e84"
+                LastKnownName="event GameEnd"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -590,10 +743,23 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="5c9f88f3-c873-485e-8495-75b90d8b0a05"
+                  Id="06678213-2698-4fff-a178-5d33025b8292"
                   name="Direction"
                   direction="In"
                   isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ace257ed-c7aa-4a15-bfe4-9c2daa47d25c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
+                      LastKnownName="bool"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -619,15 +785,6 @@
           <operation
             Id="35e927a4-bd75-491e-acdf-9b5d6d9ef05d"
             name="moveAlongPath"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="506903c3-74bb-4c17-bdae-58b7e8d3324b"
-            name="startNewGame"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -704,10 +861,23 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="5574a1d8-163c-459a-9820-32b29146e239"
+                  Id="7104b925-c930-4858-837f-f3fa914ab116"
                   name="Direction"
                   direction="In"
                   isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a058b7af-5fc2-4055-a13d-34eabc8d6acc"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
+                      LastKnownName="bool"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -743,10 +913,23 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="01cd9bd3-045d-4d03-8af9-683593d1f73e"
+                  Id="ac72099d-c253-4d8b-aa58-6fe390355790"
                   name="Direction"
                   direction="In"
                   isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3afc57e4-cf93-436f-ac7c-adb1524f79bc"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
+                      LastKnownName="bool"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -1226,6 +1409,37 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="b3dc1509-8282-4424-8f58-058d17b478e4"
+            name="GetRandomElement"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="400a62d2-4490-4d86-9035-79e2d1c1fdef"
+                  name="int"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0819b76f-5457-4c72-9c7c-b50652c9df7d"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
+                      LastKnownName="Element"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -1367,6 +1581,27 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0b8d2865-8b92-4ca2-94ff-edd3ef9c6fa7"
+                  name="Spot"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5d8645e7-0799-4d3f-aa2c-c76d00739bdb"
+                  name="Type"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1e4749c8-5e01-41bd-860e-4e02b8d3b085"
+                  name="bool"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
           <operation
@@ -1392,6 +1627,13 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="82098062-d263-42d1-ac73-bfcd3423d087"
+                  name="Spot"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
           <operation
@@ -1415,6 +1657,27 @@
                       LastKnownLocation="VangDeVolgerUML.uml" />
                   </type_NamedElement>
                 </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ad2b776f-da20-4911-9152-19a0bc516f2f"
+                  name="Spot"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d3d8c55e-62fb-41d9-b982-3921a29335ef"
+                  name="Type"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="29c0c696-1397-4c43-a414-638da3db06bd"
+                  name="bool"
+                  direction="In"
+                  isUnique="false" />
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -2019,6 +2282,11 @@
       <undefinedType
         Id="54310399-edf2-4348-b8b2-f7d6519b7c54"
         name="bitmap" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ad3b53fb-321c-496b-83d8-e532c3379e84"
+        name="event GameEnd" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

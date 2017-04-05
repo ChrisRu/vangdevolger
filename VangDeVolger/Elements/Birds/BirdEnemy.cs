@@ -19,8 +19,6 @@ namespace VangDeVolger.Elements.Birds
     {
         public Timer MoveTimer { get; set; }
 
-        public int PrevTime { get; set; }
-
         public event GameEnd GameEnd;
 
         private PathFinder _pathFinder { get; set; }

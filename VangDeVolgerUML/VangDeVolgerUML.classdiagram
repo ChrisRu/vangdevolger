@@ -91,12 +91,17 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="c02c8a27-fc6e-4910-b467-c8bb5354a9fb" name="KeyDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="c02c8a27-fc6e-4910-b467-c8bb5354a9fb" name="gameKeyUp" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="944b3e8e-69c1-44c8-9381-d8969f579260" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="79605f2c-95d6-49c0-9f45-ded98dcabec8" name="e" direction="In" isUnique="false">
-                  <elementDefinition Id="4e664954-64f9-457c-8022-fd099e4ac6cc" />
+                <parameter Id="2b362fbc-1671-420b-afc5-148f339e1576" name="object" direction="In" isUnique="false">
+                  <elementDefinition Id="a7de86b8-1c32-4cd3-9f27-40ab5e3624f1" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="11085a44-880d-42fe-9979-1411e5d0c9dc" name="KeyEventArgs" direction="In" isUnique="false">
+                  <elementDefinition Id="a3231453-8b4f-4c6c-9e3d-567a94d2a1de" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -104,17 +109,84 @@
           <operation Id="56851af1-bd25-4ac5-b6c7-b9323a5e5201" name="restartGame" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="5e93e645-1ddb-4a92-ba9d-3d36106beb48" />
           </operation>
-          <operation Id="cbc114ed-6335-4842-b183-a02a0488d6ec" name="hardMode_Clidk" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="cbc114ed-6335-4842-b183-a02a0488d6ec" name="ModeEasyClick" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="934f75eb-d7b3-4b0e-88c2-92d7881ca554" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="02afa678-b5a4-4038-9ac0-da74129dee4b" name="object" direction="In" isUnique="false">
+                  <elementDefinition Id="0360c1eb-c25e-41d5-a16f-bd41d6969e70" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c01b0aa7-5acf-4677-9dc7-27cb76f4d48b" name="EventArgs" direction="In" isUnique="false">
+                  <elementDefinition Id="aa4d1f69-52e5-4957-84d1-ff19c751df7d" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
-          <operation Id="9a01d3a8-4e17-402e-ae3c-c5c49c62785a" name="easyMode_Click" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="9a01d3a8-4e17-402e-ae3c-c5c49c62785a" name="ModeHardClick" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="8c193d44-682f-4c1f-96ed-cf7a6f7b6d8c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ac190f02-626f-40c0-a359-aff9a03cd41d" name="object" direction="In" isUnique="false">
+                  <elementDefinition Id="f686a6e1-b83d-437c-bf54-6ec765bc2db5" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b0fd7640-2c97-4612-b889-83e1c8ea2655" name="EventArgs" direction="In" isUnique="false">
+                  <elementDefinition Id="6e87b84f-5e4c-41d6-9190-bc474fd0af00" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
-          <operation Id="40933668-7195-44dc-99cc-2f6c964ecb32" name="mediumMode_Click" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="40933668-7195-44dc-99cc-2f6c964ecb32" name="ModeMediumClick" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="1e9ac7c5-3ac3-429d-9956-5d46923d4b54" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f946dd73-f55a-42f2-818a-929ff80fae8f" name="object" direction="In" isUnique="false">
+                  <elementDefinition Id="7ea67c6a-e2e4-4ddb-9d3c-983dde6a6504" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="debadfe2-efa8-4136-84e3-827218271eb2" name="EventArgs" direction="In" isUnique="false">
+                  <elementDefinition Id="8f0f42dc-0b46-46ab-92ca-f0ec0e3c54d9" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="a2d988b1-c9c2-4468-b86a-d2fbaa38eda9" name="startNewGame" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="f28e811e-5e7b-4457-8bad-a579696089f8" />
+          </operation>
+          <operation Id="95bfc3ce-22ad-43eb-bb07-6a9880fddbf1" name="gameLoad" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0cb066a3-d411-4af8-a092-be12b988dfd0" />
+          </operation>
+          <operation Id="032a57fb-4a4a-4f50-9662-a6321b65fd23" name="updateScale" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="98b300a0-2a4f-49f7-8b57-1ee5fb67be8c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3373ed5a-0ad0-4b95-8a7b-929771071b3f" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="0c1e101c-40dc-405e-8a1d-ca06262e11d1" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="fd249c49-d2c5-4c66-b9ea-f8b5f5f933ba" name="formResize" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c9b62627-1b50-4d6e-be3a-0ee94382756e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c854df7b-14c7-49c1-bb52-7b3a08b64146" name="object" direction="In" isUnique="false">
+                  <elementDefinition Id="39089801-e6f4-43b6-8c8e-e828c471235a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="da4de1a4-7264-42c1-bc73-2bdd779eaf6a" name="EventArgs" direction="In" isUnique="false">
+                  <elementDefinition Id="fb40c303-6de0-4c8b-bbd2-bced9a3aa63b" />
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="4be54aef-08f1-4896-8ed8-f4e375cede93" name="changeBackgroundColor" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0e43d66d-063a-43f5-bfb6-2a43159ecde0" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -198,6 +270,24 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="4a649d71-6e08-488b-b775-e6b11aba8bca" name="CanMove" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8b49fe75-85e9-49c3-aca3-3048fc38d0ef" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cc374179-3fdf-4f15-a7f0-8a03e3eb7f06" name="Direction" direction="In" isUnique="false">
+                  <elementDefinition Id="e47dced8-b392-49e7-a912-a34e4d12989a" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a13723f2-1df2-417d-a854-b82393b6d174" direction="Return" isUnique="false">
+                  <elementDefinition Id="4adaff78-a4b0-4a9c-a5ba-0e7cde802d2a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -235,16 +325,16 @@
               <referencedTypeMoniker Id="23369c1d-085c-4578-aae7-e9a36d609d15" LastKnownName="Timer" />
             </type_NamedElement>
           </property>
-          <property Id="34764a78-8273-4aa0-948b-708d3439e183" name="MoveTime" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="1d674f96-1971-4003-8f95-62087387a22a" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="83d11d91-fb83-4871-acde-9b2d278b31de" LastKnownName="int" />
-            </type_NamedElement>
-          </property>
           <property Id="e889b9a3-7e6a-44c1-ac3b-45375889450e" name="pathFinder" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="20b25236-6495-4a10-8dd6-f191fcfa5c8d" />
             <type_NamedElement>
               <referencedTypeMoniker Id="93a62dea-d03f-44a6-91a2-cb44dbac67f7" LastKnownName="PathFinder" />
+            </type_NamedElement>
+          </property>
+          <property Id="c0fe50b4-6920-4a48-9a8b-a476eec94f36" name="GameEnd" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="86e11143-69a4-41f8-9412-a3d741c3dbaa" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e050aef5-0bd7-4d5b-a1cd-b11c8f23bfbf" LastKnownName="event GameEnd" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -253,8 +343,16 @@
             <elementDefinition Id="ba17471b-eeb5-4fca-b7fe-1189371c394b" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="5ecd5af9-5a69-48f6-bbf6-325a9807efff" name="Direction" direction="In" isUnique="false">
-                  <elementDefinition Id="5c9f88f3-c873-485e-8495-75b90d8b0a05" />
+                <parameter Id="5802a679-597a-416d-8936-80e7702ba350" name="Direction" direction="In" isUnique="false">
+                  <elementDefinition Id="06678213-2698-4fff-a178-5d33025b8292" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a2564169-2a6c-4975-847d-08513427b322" direction="Return" isUnique="false">
+                  <elementDefinition Id="ace257ed-c7aa-4a15-bfe4-9c2daa47d25c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -271,9 +369,6 @@
           </operation>
           <operation Id="772c143a-71c1-4e40-a00b-6ab656b827ed" name="moveAlongPath" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="35e927a4-bd75-491e-acdf-9b5d6d9ef05d" />
-          </operation>
-          <operation Id="490f711e-778b-45ef-ad40-21ae79c2b583" name="startNewGame" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="506903c3-74bb-4c17-bdae-58b7e8d3324b" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -292,8 +387,16 @@
             <elementDefinition Id="ada92fae-0d18-46f1-8aac-d5412246a269" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="fbe2cf09-8467-414e-aa72-93d9a45f0202" name="Direction" direction="In" isUnique="false">
-                  <elementDefinition Id="5574a1d8-163c-459a-9820-32b29146e239" />
+                <parameter Id="b0dc7836-5101-40f8-bcf6-0b658d3b5a37" name="Direction" direction="In" isUnique="false">
+                  <elementDefinition Id="7104b925-c930-4858-837f-f3fa914ab116" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8fad156b-a5b1-4cdb-87eb-4c669c3900dc" direction="Return" isUnique="false">
+                  <elementDefinition Id="a058b7af-5fc2-4055-a13d-34eabc8d6acc" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -315,8 +418,16 @@
             <elementDefinition Id="02df125a-c815-4aa2-99c4-9a53de83561f" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="93d8358c-64d0-4436-8cd6-fcd843f01674" name="Direction" direction="In" isUnique="false">
-                  <elementDefinition Id="01cd9bd3-045d-4d03-8af9-683593d1f73e" />
+                <parameter Id="9638fb85-94b2-4677-87c7-4d5a16519856" name="Direction" direction="In" isUnique="false">
+                  <elementDefinition Id="ac72099d-c253-4d8b-aa58-6fe390355790" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="18ebf0a4-d3b3-464d-9ee7-97fda97ab0a2" direction="Return" isUnique="false">
+                  <elementDefinition Id="3afc57e4-cf93-436f-ac7c-adb1524f79bc" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -550,6 +661,24 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="faf6e85c-7f6f-490a-93ff-38ce5382f899" name="GetRandomElement" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b3dc1509-8282-4424-8f58-058d17b478e4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7a74c162-584f-4ea2-a72e-996b6b675fbd" name="int" direction="In" isUnique="false">
+                  <elementDefinition Id="400a62d2-4490-4d86-9035-79e2d1c1fdef" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cd320480-9fe4-4a8b-9827-2b1e16f3e7bc" direction="Return" isUnique="false">
+                  <elementDefinition Id="0819b76f-5457-4c72-9c7c-b50652c9df7d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="717ae14c-5efe-407c-96d8-c66c5b27974c" LastKnownName="Element" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -598,6 +727,21 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="70c3d07f-ee6b-40d7-b6c1-c02d0a9babb4" name="Spot" direction="In" isUnique="false">
+                  <elementDefinition Id="0b8d2865-8b92-4ca2-94ff-edd3ef9c6fa7" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="692804c7-8d8f-4cd2-a29a-af9ac38a849d" name="Type" direction="In" isUnique="false">
+                  <elementDefinition Id="5d8645e7-0799-4d3f-aa2c-c76d00739bdb" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="552b4e58-bb11-4966-81f0-a37d492e8880" name="bool" direction="In" isUnique="false">
+                  <elementDefinition Id="1e4749c8-5e01-41bd-860e-4e02b8d3b085" />
+                </parameter>
+              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
           <operation Id="ea2bad92-5d3e-49aa-965b-e339230e52c5" name="reconstructPath" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -611,6 +755,11 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="93a3daf0-19e0-4205-9809-96b67e7a9236" name="Spot" direction="In" isUnique="false">
+                  <elementDefinition Id="82098062-d263-42d1-ac73-bfcd3423d087" />
+                </parameter>
+              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
           <operation Id="aa4dde15-9403-4b18-809d-d5de0d9544f7" name="GetNextDirection" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -622,6 +771,21 @@
                   <type_NamedElement>
                     <referencedTypeMoniker Id="291f51bb-deeb-4c8f-9327-eb5950da4ea9" LastKnownName="Direction" />
                   </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="df6854bb-912a-4055-a970-7440cf6ee6df" name="Spot" direction="In" isUnique="false">
+                  <elementDefinition Id="ad2b776f-da20-4911-9152-19a0bc516f2f" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="86e2969e-9eff-4be5-9483-e91e0d043b20" name="Type" direction="In" isUnique="false">
+                  <elementDefinition Id="d3d8c55e-62fb-41d9-b982-3921a29335ef" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="77852cdd-26db-4cc6-ac2b-410757501254" name="bool" direction="In" isUnique="false">
+                  <elementDefinition Id="29c0c696-1397-4c43-a414-638da3db06bd" />
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -930,6 +1094,11 @@
     <packageHasNamedElement>
       <referencedType Id="894c1029-3e67-4510-aeb1-d1b30a728153" name="Dictionary&lt;Direction, Spot&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;Direction, Spot&gt;">
         <elementDefinition Id="246e8a65-7b1c-4a45-8a26-026424a9773d" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e050aef5-0bd7-4d5b-a1cd-b11c8f23bfbf" name="event GameEnd" isAbstract="false" isLeaf="false" cachedFullName="event GameEnd">
+        <elementDefinition Id="ad3b53fb-321c-496b-83d8-e532c3379e84" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

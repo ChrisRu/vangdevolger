@@ -126,7 +126,7 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="current">End position</param>
         /// <returns>List with spots in Optimal Path</returns>
-        private static List<Spot> _reconstructPath(Spot current)
+        private List<Spot> _reconstructPath(Spot current)
         {
             List<Spot> path = new List<Spot> { current };
             Spot next = current;

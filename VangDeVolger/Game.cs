@@ -2,6 +2,7 @@
 namespace VangDeVolger
 {
     using System;
+    using System.Linq;
     using System.Drawing;
     using System.Media;
     using System.Windows.Forms;
@@ -22,6 +23,8 @@ namespace VangDeVolger
 
         private Color _backColor;
 
+        public Player Player => (Player)(from Spot spot in GameLevel.Grid where spot.Element is Player select spot.Element).FirstOrDefault();
+
         /// <summary>
         /// Game Class initializes VangDeVolger Game
         /// </summary>
@@ -40,7 +43,7 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="sender">The form</param>
         /// <param name="e">Arguments given by form</param>
-        private void Game_Load(object sender, EventArgs e)
+        private void GameLoad(object sender, EventArgs e)
         {
             this.BackColor = this._backColor;
             this.SoundPlayer.PlayLooping();
@@ -78,7 +81,7 @@ namespace VangDeVolger
         /// </summary>
         /// <param name="sender">The form</param>
         /// <param name="e">KeyEvent Arguments</param>
-        private void Game_KeyUp(object sender, KeyEventArgs e)
+        private void GameKeyUp(object sender, KeyEventArgs e)
         {
             // Ctrl + = = Zoom * 1.1
             if (e.KeyValue == 187 && e.Modifiers == Keys.Control)
@@ -107,11 +110,11 @@ namespace VangDeVolger
             // Player Movement
             if (!this.GameLevel.Paused)
             {
-                this.GameLevel.Player.KeyDown(e);
+                this.Player.KeyDown(e);
             }
         }
 
-        private void EasyToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ModeEasyClick(object sender, EventArgs e)
         {
             Enemy enemy = this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 700;
@@ -120,7 +123,7 @@ namespace VangDeVolger
             this.hardToolStripMenuItem1.Checked = false;
         }
 
-        private void MediumToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ModeMediumClick(object sender, EventArgs e)
         {
             Enemy enemy = this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 500;
@@ -129,7 +132,7 @@ namespace VangDeVolger
             this.hardToolStripMenuItem1.Checked = false;
         }
 
-        private void HardToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ModeHardClick(object sender, EventArgs e)
         {
             Enemy enemy = this.GameLevel.Enemy;
             enemy.MoveTimer.Interval = 300;
@@ -138,7 +141,7 @@ namespace VangDeVolger
             this.hardToolStripMenuItem1.Checked = true;
         }
 
-        private void Game_Resize(object sender, EventArgs e)
+        private void FormResize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
             {

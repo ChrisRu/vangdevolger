@@ -112,21 +112,21 @@
             this.easyToolStripMenuItem1.Name = "easyToolStripMenuItem1";
             this.easyToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
             this.easyToolStripMenuItem1.Text = "Easy";
-            this.easyToolStripMenuItem1.Click += new System.EventHandler(this.EasyToolStripMenuItem1_Click);
+            this.easyToolStripMenuItem1.Click += new System.EventHandler(this.ModeEasyClick);
             // 
             // mediumToolStripMenuItem1
             // 
             this.mediumToolStripMenuItem1.Name = "mediumToolStripMenuItem1";
             this.mediumToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
             this.mediumToolStripMenuItem1.Text = "Medium";
-            this.mediumToolStripMenuItem1.Click += new System.EventHandler(this.MediumToolStripMenuItem1_Click);
+            this.mediumToolStripMenuItem1.Click += new System.EventHandler(this.ModeMediumClick);
             // 
             // hardToolStripMenuItem1
             // 
             this.hardToolStripMenuItem1.Name = "hardToolStripMenuItem1";
             this.hardToolStripMenuItem1.Size = new System.Drawing.Size(139, 26);
             this.hardToolStripMenuItem1.Text = "Hard";
-            this.hardToolStripMenuItem1.Click += new System.EventHandler(this.HardToolStripMenuItem1_Click);
+            this.hardToolStripMenuItem1.Click += new System.EventHandler(this.ModeHardClick);
             // 
             // musicToolStripMenuItem
             // 
@@ -210,9 +210,9 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vang de Vogel";
-            this.Load += new System.EventHandler(this.Game_Load);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Game_KeyUp);
-            this.Resize += new System.EventHandler(this.Game_Resize);
+            this.Load += new System.EventHandler(this.GameLoad);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameKeyUp);
+            this.Resize += new System.EventHandler(this.FormResize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
