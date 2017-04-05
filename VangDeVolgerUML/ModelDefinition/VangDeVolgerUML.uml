@@ -326,14 +326,14 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="7ea67c6a-e2e4-4ddb-9d3c-983dde6a6504"
+                  Id="a0dc6731-8ff8-4d2b-ad9e-1f1dc45b05c5"
                   name="object"
                   direction="In"
                   isUnique="false" />
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="8f0f42dc-0b46-46ab-92ca-f0ec0e3c54d9"
+                  Id="fa781bd3-2d73-4e2b-be91-d6df08a70026"
                   name="EventArgs"
                   direction="In"
                   isUnique="false" />
@@ -1968,62 +1968,10 @@
         </suppliersInternal>
         <targetEnds>
           <association
-            Id="161aea1a-7ae0-4a1e-a889-e47923e7e454"
-            isDerived="false"
-            sourceEndRoleName="Spot"
-            targetEndRoleName="Element"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
-              LastKnownName="Element"
-              LastKnownLocation="VangDeVolgerUML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="08751764-d3ea-4ac0-af1a-371a1011eaf3"
-                  name="Spot"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="5cae45fa-a3d1-4972-9b69-93af3ac11369"
-                  name="Element"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="25ae0604-5d0e-4662-9089-2b103d362764"
-                      name="Lower"
-                      value="0" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="c9178400-ae0b-4697-87f1-76f27146e77c"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="2dc7cba3-fc0d-4a20-aa28-47573901a037"
             isDerived="false"
             sourceEndRoleName="Spot"
-            targetEndRoleName="Neighbor"
+            targetEndRoleName="Neighbour"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -2060,7 +2008,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="f0bd5f17-2e30-43cd-82e4-184250d3e333"
-                  name="Neighbor"
+                  name="Neighbour"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -2129,6 +2077,58 @@
                   <upperValueInternal>
                     <literalString
                       Id="a49818f9-db5d-4299-8507-c50be1ae5c7b"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f1b96853-caf7-4344-b264-b34d5d45e900"
+            isDerived="false"
+            sourceEndRoleName="Spot"
+            targetEndRoleName="Element"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="5c4db02e-e6f1-493d-9f2f-79c88d3d2448"
+              LastKnownName="Element"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7f0ec81b-9caa-417e-b6c7-2bf1dd10915b"
+                  name="Spot"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61b1cb9d-810b-4f19-90e1-cbf18a599558"
+                  name="Element"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a888361f-b577-4cb6-a610-f1f99ddcbfe0"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="4bd90300-f29e-4a7e-b774-6b7ea65da4ea"
                       name="Upper"
                       value="1" />
                   </upperValueInternal>

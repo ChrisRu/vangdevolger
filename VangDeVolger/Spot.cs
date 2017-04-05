@@ -15,7 +15,7 @@ namespace VangDeVolger
 
         public int Scale { get; set; }
         
-        public Dictionary<Direction, Spot> Neighbors { get; set; }
+        public Dictionary<Direction, Spot> Neighbours { get; set; }
 
         // PathFinder Properties
         public int PathCost { get; set; }
@@ -31,7 +31,7 @@ namespace VangDeVolger
         {
             this.Element = element;
             this.Scale = scale;
-            this.Neighbors = new Dictionary<Direction, Spot>();
+            this.Neighbours = new Dictionary<Direction, Spot>();
 
             if (element != null)
             {

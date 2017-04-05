@@ -141,19 +141,19 @@ namespace VangDeVolger
                     // Set neighbors
                     if (y > 0)
                     {
-                        spot.Neighbors.Add(Direction.Up, this.Grid[x, y - 1]);
+                        spot.Neighbours.Add(Direction.Up, this.Grid[x, y - 1]);
                     }
                     if (y < this.Grid.GetLength(0) - 1)
                     {
-                        spot.Neighbors.Add(Direction.Down, this.Grid[x, y + 1]);
+                        spot.Neighbours.Add(Direction.Down, this.Grid[x, y + 1]);
                     }
                     if (x > 0)
                     {
-                        spot.Neighbors.Add(Direction.Left, this.Grid[x - 1, y]);
+                        spot.Neighbours.Add(Direction.Left, this.Grid[x - 1, y]);
                     }
                     if (x < this.Grid.GetLength(1) - 1)
                     {
-                        spot.Neighbors.Add(Direction.Right, this.Grid[x + 1, y]);
+                        spot.Neighbours.Add(Direction.Right, this.Grid[x + 1, y]);
                     }
 
                     // Add elements to Controls

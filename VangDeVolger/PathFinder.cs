@@ -24,14 +24,14 @@ namespace VangDeVolger
             List<Spot> path = this.GetOptimalPath(from, to);
             if (path != null && path.Count > 1)
             {
-                Direction direction = path[0].Neighbors.FirstOrDefault(key => key.Value == path[1]).Key;
-                if (from.Neighbors[direction].Element != null && from.Neighbors[direction].Element.GetType() != to)
+                Direction direction = path[0].Neighbours.FirstOrDefault(key => key.Value == path[1]).Key;
+                if (from.Neighbours[direction].Element != null && from.Neighbours[direction].Element.GetType() != to)
                 {
                     List<Direction> directions = new List<Direction>(
-                        from.Neighbors.Keys
+                        from.Neighbours.Keys
                             .Where(key =>
-                                from.Neighbors[key].Element == null
-                                && key != path[1].Neighbors.FirstOrDefault(key2 => key2.Value == path[0]).Key
+                                from.Neighbours[key].Element == null
+                                && key != path[1].Neighbours.FirstOrDefault(key2 => key2.Value == path[0]).Key
                             )
                     );
 
@@ -47,7 +47,7 @@ namespace VangDeVolger
             }
             if (randomMove)
             {
-                List<Direction> directions = new List<Direction>(from.Neighbors.Keys.Where(key => from.Neighbors[key].Element == null));
+                List<Direction> directions = new List<Direction>(from.Neighbours.Keys.Where(key => from.Neighbours[key].Element == null));
                 if (directions.Count > 0)
                 {
                     return directions.OrderBy(x => Guid.NewGuid()).First();
@@ -93,7 +93,7 @@ namespace VangDeVolger
                 openSet.Remove(current);
                 closedSet.Add(current);
 
-                foreach (Spot neighbor in current.Neighbors.Values)
+                foreach (Spot neighbor in current.Neighbours.Values)
                 {
                     // Ignore if already evaluated
                     if (closedSet.Contains(neighbor)) continue;

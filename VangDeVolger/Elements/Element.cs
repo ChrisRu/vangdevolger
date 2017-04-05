@@ -45,7 +45,7 @@ namespace VangDeVolger.Elements
         /// <param name="direction">Direction of movement</param>
         public void Move(Direction direction)
         {
-            if (Parent.Neighbors[direction].Element != null) return;
+            if (Parent.Neighbours[direction].Element != null) return;
 
             int x = 0;
             int y = 0;
@@ -69,13 +69,13 @@ namespace VangDeVolger.Elements
             this.Pb.Location = Point.Add(this.Pb.Location, new Size(x, y));
 
             // Move Element to Neighboor
-            this.Parent.Neighbors[direction].Element = this;
+            this.Parent.Neighbours[direction].Element = this;
 
             // Set Element of Spot to null
             this.Parent.Element = null;
 
             // Set Element Parent to Neighboor
-            this.Parent = this.Parent.Neighbors[direction];
+            this.Parent = this.Parent.Neighbours[direction];
         }
     }
 }

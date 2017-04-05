@@ -77,20 +77,20 @@ namespace VangDeVolger.Elements.Birds
             else
             {
                 Direction direction = (Direction)nullDirection;
-                if (this.Parent.Neighbors[direction].Element is Player)
+                if (this.Parent.Neighbours[direction].Element is Player)
                 {
                     this.MoveTimer.Stop();
                     this.GameEnd(false);
                 }
                 this.ChangeDirection(direction);
 
-                if (this.Parent.Neighbors[direction].Element == null)
+                if (this.Parent.Neighbours[direction].Element == null)
                 {
                     this.Move(direction);
                 }
                 else
                 {
-                    List<Direction> directions = new List<Direction>(this.Parent.Neighbors.Keys.Where(key => this.Parent.Neighbors[key].Element == null));
+                    List<Direction> directions = new List<Direction>(this.Parent.Neighbours.Keys.Where(key => this.Parent.Neighbours[key].Element == null));
                     if (directions.Count > 0)
                     {
                         this.Move(directions.OrderBy(x => Guid.NewGuid()).First());

@@ -23,7 +23,7 @@ namespace VangDeVolger.Elements.Blocks
         public override bool CanMove(Direction direction)
         {
             Spot nextSpot;
-            if (this.Parent.Neighbors.TryGetValue(direction, out nextSpot))
+            if (this.Parent.Neighbours.TryGetValue(direction, out nextSpot))
             {
                 if (nextSpot.Element == null || nextSpot.Element.CanMove(direction))
                 {
