@@ -293,5 +293,14 @@ namespace VangDeVolger
             MessageBox.Show("Movement: \n\tPress the arrow keys.\n\nHow to win:\n\tCapture the red bird by moving blocks.\n\nGood luck!", "How to play");
         }
 
+        private void inToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.UpdateScale((int)(this._scale * 1.1));
+        }
+
+        private void outToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.UpdateScale((int)(this._scale / 1.1));
+        }
     }
 }
