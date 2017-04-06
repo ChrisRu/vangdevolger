@@ -648,7 +648,7 @@
           <property Id="72cb6c01-d9a2-4b5a-97c8-ba914211e73d" name="RandomElements" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="f90dedda-9e3a-4490-817a-180fe7770bcf" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="740df88a-3a9e-4cc9-aeff-c0494f6c644d" LastKnownName="Dictionary&lt;int, Type&gt;" />
+              <referencedTypeMoniker Id="1e3aac4c-b1e2-46bf-8466-22c79b2f0db3" LastKnownName="Dictionary&lt;Type, int&gt;" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -1087,11 +1087,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="740df88a-3a9e-4cc9-aeff-c0494f6c644d" name="Dictionary&lt;int, Type&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;int, Type&gt;">
-        <elementDefinition Id="121fec1f-4db0-4d2f-a308-dc7494c9a047" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="291f51bb-deeb-4c8f-9327-eb5950da4ea9" name="Direction" isAbstract="false" isLeaf="false" cachedFullName="VangDeVolgerUML::Direction">
         <elementDefinition Id="a292210d-3a3f-4cc7-8c65-79d0632ccd32" />
       </referencedType>
@@ -1213,6 +1208,11 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="1e3aac4c-b1e2-46bf-8466-22c79b2f0db3" name="Dictionary&lt;Type, int&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;Type, int&gt;">
+        <elementDefinition Id="6caca7ff-e37c-4df8-8913-29e8a7552513" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="0ef1a277-d60d-4d99-8751-736f2dcfc4ff" name="VangDeVolgerUML">
     <elementDefinition Id="4f049a9b-ebc7-4e76-a813-3f5ab3654274" />

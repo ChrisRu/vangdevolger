@@ -1436,8 +1436,8 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="121fec1f-4db0-4d2f-a308-dc7494c9a047"
-                LastKnownName="Dictionary&lt;int, Type&gt;"
+                Id="6caca7ff-e37c-4df8-8913-29e8a7552513"
+                LastKnownName="Dictionary&lt;Type, int&gt;"
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
@@ -2498,6 +2498,11 @@
           </operation>
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6caca7ff-e37c-4df8-8913-29e8a7552513"
+        name="Dictionary&lt;Type, int&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -37,7 +37,7 @@ namespace VangDeVolger
         
         public Spot[,] Grid { get; set; }
 
-        public Dictionary<int, Type> RandomElements { get; }
+        public Dictionary<Type, int> RandomElements { get; }
 
         public Enemy Enemy => (Enemy)(from Spot spot in Grid where spot.Element is Enemy select spot.Element).FirstOrDefault();
 
@@ -54,11 +54,12 @@ namespace VangDeVolger
         {
             this.Size = size;
             this.Scale = scale;
-            this.RandomElements = new Dictionary<int, Type>
+            this.RandomElements = new Dictionary<Type, int>
             {
-                { 1, typeof(BlockSnowFlake) },
-                { 5, typeof(BlockSolid) },
-                { 20, typeof(BlockMovable) }
+                { typeof(BlockSnowFlake), 1 },
+                { typeof(BlockGrass), 1 },
+                { typeof(BlockSolid), 5 },
+                { typeof(BlockMovable), 20 }
             };
 
             this.Grid = this.GetRandomGrid(size, size);
@@ -73,8 +74,6 @@ namespace VangDeVolger
             this.Grid[size - 1, size - 1] = new Spot(new Enemy(), this.Scale);
             this.Grid[size - 1, size - 2] = new Spot(null, this.Scale);
             this.Grid[size - 2, size - 1] = new Spot(null, this.Scale);
-
-            this.Grid[5, 5] = new Spot(new BlockGrass(), this.Scale);
 
             if (controls != null)
             {
@@ -113,12 +112,12 @@ namespace VangDeVolger
         public Element GetRandomElement(int randomPercentage)
         {
             int percentage = 0;
-            foreach (KeyValuePair<int, Type> type in this.RandomElements)
+            foreach (KeyValuePair<Type, int> type in this.RandomElements)
             {
-                percentage += type.Key;
+                percentage += type.Value;
                 if (randomPercentage < percentage)
                 {
-                    return (Element)Activator.CreateInstance(type.Value);
+                    return (Element)Activator.CreateInstance(type.Key);
                 }
             }
 
