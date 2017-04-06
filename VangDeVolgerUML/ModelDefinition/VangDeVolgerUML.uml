@@ -750,6 +750,44 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="27d85c07-af47-412a-a40a-9a455506e0b7"
+            name="resetFreeze"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
+                LastKnownName="bool"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5fd45af3-6221-4d6b-a903-725aaea328a5"
+            name="freezeTime"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="f7145978-a015-4f10-acfb-ba321c3c529a"
+                LastKnownName="int"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation

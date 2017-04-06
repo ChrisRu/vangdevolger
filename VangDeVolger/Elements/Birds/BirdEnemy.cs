@@ -25,6 +25,8 @@ namespace VangDeVolger.Elements.Birds
 
         private int _freezeTime { get; set; }
 
+        private bool _resetFreeze { get; set; }
+
         /// <summary>
         /// Initialize new Enemy Class
         /// </summary>
@@ -59,7 +61,7 @@ namespace VangDeVolger.Elements.Birds
             Timer timer = new Timer { Interval = this._freezeTime };
             timer.Tick += (s, e) =>
             {
-                this.MoveTimer.Start();
+                this._resetFreeze = true;
                 this.Pb.Image = this.GoingRight ? this.ImageRight : this.ImageLeft;
                 timer.Stop();
             };
@@ -88,6 +90,12 @@ namespace VangDeVolger.Elements.Birds
         /// <param name="e">Event Arguments</param>
         private void _moveAlongPath(object sender, EventArgs e)
         {
+            if (this._resetFreeze)
+            {
+                this.MoveTimer.Start();
+                this._resetFreeze = false;
+            }
+
             Direction? nullDirection = this._pathFinder.GetNextDirection(this.Parent, typeof(Player), true);
             if (nullDirection == null)
             {

@@ -192,6 +192,7 @@ namespace VangDeVolger
             this._togglePaused(false);
 
             this.GameLevel.Enemy.GameEnd += this._startNewGame;
+            this.Player.FreezeEnemy += this.GameLevel.Enemy.Freeze;
         }
 
         /// <summary>

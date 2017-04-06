@@ -345,6 +345,18 @@
               <referencedTypeMoniker Id="e050aef5-0bd7-4d5b-a1cd-b11c8f23bfbf" LastKnownName="event GameEnd" />
             </type_NamedElement>
           </property>
+          <property Id="b852dce2-4fa1-496a-b385-6db6ef2c02dc" name="resetFreeze" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="27d85c07-af47-412a-a40a-9a455506e0b7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+          <property Id="687c61c7-f886-4995-9593-7a8f3000bed2" name="freezeTime" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5fd45af3-6221-4d6b-a903-725aaea328a5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="83d11d91-fb83-4871-acde-9b2d278b31de" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="e563eace-aa15-4e36-b19c-bb4f1dbdfc5d" name="CanMove" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
