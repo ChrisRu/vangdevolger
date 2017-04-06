@@ -35,7 +35,7 @@ namespace VangDeVolger.Elements.Birds
             }
             else if (direction == Direction.Right && this.Pb.Image == this.ImageLeft)
             {
-                this.Pb.Image = ImageRight;
+                this.Pb.Image = this.ImageRight;
                 this.Pb.Invalidate();
             }
         }

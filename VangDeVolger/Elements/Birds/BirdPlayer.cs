@@ -1,13 +1,20 @@
 ﻿
+
+
 namespace VangDeVolger.Elements.Birds
 {
+    using Blocks;
     using System.Windows.Forms;
+
+    public delegate void FreezeEnemy();
 
     /// <summary>
     /// Player Class to trap Enemy in Grid
     /// </summary>
     public class Player : Bird
     {
+        public event FreezeEnemy FreezeEnemy; 
+
         /// <summary>
         /// Initialize new Player Class
         /// </summary>
@@ -32,6 +39,15 @@ namespace VangDeVolger.Elements.Birds
             {
                 if (nextSpot.Element == null || nextSpot.Element.CanMove(direction))
                 {
+                    this.Move(direction);
+                    return true;
+                }
+
+                if (nextSpot.Element.GetType() == typeof(BlockSnowFlake))
+                {
+                    nextSpot.Element.Pb.Dispose();
+                    nextSpot.Element = null;
+                    this.FreezeEnemy();
                     this.Move(direction);
                     return true;
                 }

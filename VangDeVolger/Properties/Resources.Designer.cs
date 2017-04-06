@@ -83,6 +83,16 @@ namespace VangDeVolger.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap bird_frozen {
+            get {
+                object obj = ResourceManager.GetObject("bird_frozen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap bird_red_left {
             get {
                 object obj = ResourceManager.GetObject("bird_red_left", resourceCulture);
@@ -144,6 +154,16 @@ namespace VangDeVolger.Properties {
         public static System.Drawing.Bitmap movable {
             get {
                 object obj = ResourceManager.GetObject("movable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap snowflake {
+            get {
+                object obj = ResourceManager.GetObject("snowflake", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

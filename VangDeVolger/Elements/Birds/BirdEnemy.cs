@@ -23,6 +23,8 @@ namespace VangDeVolger.Elements.Birds
 
         private PathFinder _pathFinder { get; set; }
 
+        private int _freezeTime { get; set; }
+
         /// <summary>
         /// Initialize new Enemy Class
         /// </summary>
@@ -33,6 +35,7 @@ namespace VangDeVolger.Elements.Birds
             this.Pb.Image = this.ImageLeft;
             this.GoingRight = false;
             this._initMovement(500);
+            this._freezeTime = 3000;
         }
 
         /// <summary>
@@ -44,6 +47,23 @@ namespace VangDeVolger.Elements.Birds
         {
             this.ChangeDirection(direction);
             return false;
+        }
+
+        /// <summary>
+        /// Freeze Enemy for 500 milliseconds
+        /// </summary>
+        public void Freeze()
+        {
+            this.MoveTimer.Stop();
+            this.Pb.Image = Properties.Resources.bird_frozen;
+            Timer timer = new Timer { Interval = this._freezeTime };
+            timer.Tick += (s, e) =>
+            {
+                this.MoveTimer.Start();
+                this.Pb.Image = this.GoingRight ? this.ImageRight : this.ImageLeft;
+                timer.Stop();
+            };
+            timer.Start();
         }
 
         /// <summary>

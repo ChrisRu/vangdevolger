@@ -63,6 +63,7 @@ namespace VangDeVolger
             this.Scale = scale;
             this.RandomElements = new Dictionary<int, Type>
             {
+                { 1, typeof(BlockSnowFlake) },
                 { 5, typeof(BlockSolid) },
                 { 20, typeof(BlockMovable) }
             };

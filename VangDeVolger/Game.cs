@@ -52,6 +52,7 @@ namespace VangDeVolger
             this.mediumToolStripMenuItem1.Checked = true;
 
             this.GameLevel.Enemy.GameEnd += this._startNewGame;
+            this.Player.FreezeEnemy += this.GameLevel.Enemy.Freeze;
         }
 
         /// <summary>

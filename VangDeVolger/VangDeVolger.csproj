@@ -54,6 +54,7 @@
     <Compile Include="Elements\Blocks\Block.cs" />
     <Compile Include="Elements\Birds\BirdEnemy.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="Elements\Blocks\BlockSnowFlake.cs" />
     <Compile Include="Elements\Blocks\BlockSolid.cs" />
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -97,16 +98,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\clock.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\solid.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bird_green_left.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bird_green_right.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bird_red_left.gif" />
@@ -115,25 +107,7 @@
     <None Include="Resources\bird_red_right.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\egg.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\redbull.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GameOver.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Heart.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\LoopyMusic.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EggCrack.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ClockTick.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\maze.png" />
@@ -152,8 +126,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <None Include="Resources\Sad Trombone - Gaming Sound Effect %28HD%29.wav" />
-    <None Include="Resources\Children Yay! - Sound Effect.wav" />
+    <None Include="Resources\snowflake.png" />
+    <None Include="Resources\bird_frozen.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
