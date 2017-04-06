@@ -259,6 +259,14 @@
             <elementDefinition Id="ebdda16b-3d2e-49d4-874c-061cc2ae4be8" />
           </generalization>
         </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="12e9d99a-666b-4d84-9fb8-4822f1e17f2f" name="FreezeEnemy" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="16a8ed80-5c0e-438e-9cbd-c2bd39d433e5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="858acae1-f4aa-4c26-bf5e-4272aaf803ff" LastKnownName="event FreezeEnemy" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="1c8654fa-9e26-4ec2-9a3a-e308b56f0092" name="KeyDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="20ae7c3a-9211-44bd-890c-6beba044f82a" />
@@ -369,6 +377,9 @@
           </operation>
           <operation Id="772c143a-71c1-4e40-a00b-6ab656b827ed" name="moveAlongPath" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="35e927a4-bd75-491e-acdf-9b5d6d9ef05d" />
+          </operation>
+          <operation Id="63ac6bfb-baf4-4c95-bb3e-c0fc4c8adb6c" name="Freeze" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4ef8efaa-1630-483f-9f24-678e73a2b77b" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1101,6 +1112,47 @@
         <elementDefinition Id="ad3b53fb-321c-496b-83d8-e532c3379e84" />
       </referencedType>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="858acae1-f4aa-4c26-bf5e-4272aaf803ff" name="event FreezeEnemy" isAbstract="false" isLeaf="false" cachedFullName="event FreezeEnemy">
+        <elementDefinition Id="fb6b2312-8b56-4684-b53d-6e94ee12df23" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="30262f43-b8da-472c-81bd-9143ef97ebea" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b4ecd605-95f6-47d6-8af3-31f85f4e2905" name="BlockSnowFlake" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8d20b085-5c4a-4e05-b3e6-c22b947a2780" />
+        <generalsInternal>
+          <generalization Id="9bed4dbd-24ac-4779-9827-335c0b54187e" isSubstitutable="false">
+            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
+            <elementDefinition Id="13ca1b0c-22e2-4300-854a-8d2fb60cfe11" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="763fb630-dde3-4fc4-b02c-70fe5b1d513c" name="CanMove" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="84be00e9-8e48-4e0a-bd73-7bb8da5d5fec" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="62306e01-dbf0-485d-a59d-018b1aafd42e" name="Direction" direction="In" isUnique="false">
+                  <elementDefinition Id="157c7511-a685-45a6-bd67-d7977e7b81d6" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c4288711-cb9e-4170-b920-b2be70304526" direction="Return" isUnique="false">
+                  <elementDefinition Id="8eb91809-f2bc-44f6-833b-264b3a83d079" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="30262f43-b8da-472c-81bd-9143ef97ebea" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="0ef1a277-d60d-4d99-8751-736f2dcfc4ff" name="VangDeVolgerUML">
     <elementDefinition Id="4f049a9b-ebc7-4e76-a813-3f5ab3654274" />
