@@ -59,7 +59,6 @@ namespace VangDeVolger
         /// <param name="offsetTop">Top Offset for Level</param>
         public Level(Control.ControlCollection controls, int size, int scale, int offsetTop)
         {
-            this.Controls = controls;
             this.Size = size;
             this.Scale = scale;
             this.RandomElements = new Dictionary<int, Type>
@@ -81,7 +80,11 @@ namespace VangDeVolger
             this.Grid[size - 1, size - 2] = new Spot(null, this.Scale);
             this.Grid[size - 2, size - 1] = new Spot(null, this.Scale);
 
-            this.Render(offsetTop);
+            if (controls != null)
+            {
+                this.Controls = controls;
+                this.Render(offsetTop);
+            }
         }
 
         /// <summary>
