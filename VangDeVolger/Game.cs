@@ -158,7 +158,7 @@ namespace VangDeVolger
         {
             this._togglePaused(true);
 
-            string gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Zet een speelveld grootte (between 6 and 32):", "Speelveld groote", this._size.ToString());
+            string gridSizeInput = Microsoft.VisualBasic.Interaction.InputBox("Set a playing field size (between 6 and 32):", "Playing field size", this._size.ToString());
             int gridSize;
 
             try
@@ -167,7 +167,7 @@ namespace VangDeVolger
                 
                 if (gridSize > 32 || gridSize < 6)
                 {
-                    throw new Exception("Nummer niet tussen 6 en 32");
+                    throw new Exception("Given number is not between 32 and 6");
                 }
             }
             catch (Exception error)
