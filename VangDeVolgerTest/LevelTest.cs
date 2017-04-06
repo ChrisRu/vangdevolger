@@ -28,7 +28,7 @@ namespace VangDeVolgerTest
         public void TestPauseEnemy2()
         {
             Level level = new Level(null, 16, 16, 0) { Paused = true };
-            Assert.IsFalse(level.Enemy.MoveTimer.Enabled, "Enemy doesn't stop executing move method");
+            Assert.IsTrue(level.Enemy.MoveTimer.Enabled, "Enemy doesn't stop executing move method");
         }
 
         // Level.GetRandomGrid
@@ -65,9 +65,9 @@ namespace VangDeVolgerTest
         {
             Level level = new Level(null, 16, 16, 0);
             Element element = level.GetRandomElement(10);
-            foreach (KeyValuePair<int, Type> randType in level.RandomElements)
+            foreach (KeyValuePair<Type, int> randType in level.RandomElements)
             {
-                if (element == null || randType.Value == element.GetType())
+                if (element == null || randType.Key == element.GetType())
                 {
                     Assert.IsTrue(true);
                     return;
@@ -81,9 +81,9 @@ namespace VangDeVolgerTest
         {
             Level level = new Level(null, 16, 16, 0);
             Element element = level.GetRandomElement(100);
-            foreach (KeyValuePair<int, Type> randType in level.RandomElements)
+            foreach (KeyValuePair<Type, int> randType in level.RandomElements)
             {
-                if (element == null || randType.Value == element.GetType())
+                if (element == null || randType.Key == element.GetType())
                 {
                     Assert.IsTrue(true);
                     return;
