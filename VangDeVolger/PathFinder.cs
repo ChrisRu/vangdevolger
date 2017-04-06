@@ -101,6 +101,9 @@ namespace VangDeVolger
                     // Ignore if invalid block to move to
                     if (neighbor.Element != null && !(neighbor.Element is Bird)) continue;
 
+                    // Ignore if sitting in grass
+                    if (neighbor.Element is Player && ((Player)neighbor.Element).InGrass) continue;
+
                     // cost + distance
                     int newCost = current.PathCost + 1;
 

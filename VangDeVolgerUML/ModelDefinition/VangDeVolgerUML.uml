@@ -582,6 +582,24 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="6066157f-5e70-4c63-bb4e-5aa1dac06c09"
+            name="InGrass"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
+                LastKnownName="bool"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -2414,6 +2432,58 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="8eb91809-f2bc-44f6-833b-264b3a83d079"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
+                      LastKnownName="bool"
+                      LastKnownLocation="VangDeVolgerUML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="80590c4d-9de3-4f72-93ab-666427d5ee90"
+        name="BlockGrass"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="3dd518a5-627b-4a03-a83a-77b3b8c2ab78"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8279b917-5ffc-4085-8bec-d24a73c89076"
+              LastKnownName="Block"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="024a358a-a194-48ed-91ae-8c9fb0d3ed42"
+            name="CanMove"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f0ca7ad2-22ea-44df-97e3-593919dc681d"
+                  name="Direction"
+                  direction="In"
+                  isUnique="false" />
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d2baec8e-1314-4acb-b19e-ddb504c8f2d2"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>

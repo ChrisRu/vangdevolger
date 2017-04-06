@@ -54,6 +54,7 @@
     <Compile Include="Elements\Blocks\Block.cs" />
     <Compile Include="Elements\Birds\BirdEnemy.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="Elements\Blocks\BlockGrass.cs" />
     <Compile Include="Elements\Blocks\BlockSnowFlake.cs" />
     <Compile Include="Elements\Blocks\BlockSolid.cs" />
     <Compile Include="Elements\Element.cs" />
@@ -126,6 +127,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\grass_bird.gif" />
+    <None Include="Resources\grass.png" />
     <None Include="Resources\snowflake.png" />
     <None Include="Resources\bird_frozen.gif" />
   </ItemGroup>

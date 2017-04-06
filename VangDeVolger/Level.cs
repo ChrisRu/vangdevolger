@@ -74,6 +74,8 @@ namespace VangDeVolger
             this.Grid[size - 1, size - 2] = new Spot(null, this.Scale);
             this.Grid[size - 2, size - 1] = new Spot(null, this.Scale);
 
+            this.Grid[5, 5] = new Spot(new BlockGrass(), this.Scale);
+
             if (controls != null)
             {
                 this.Controls = controls;

@@ -13,7 +13,9 @@ namespace VangDeVolger.Elements.Birds
     /// </summary>
     public class Player : Bird
     {
-        public event FreezeEnemy FreezeEnemy; 
+        public event FreezeEnemy FreezeEnemy;
+
+        public bool InGrass { get; set; }
 
         /// <summary>
         /// Initialize new Player Class
@@ -37,9 +39,19 @@ namespace VangDeVolger.Elements.Birds
             Spot nextSpot;
             if (this.Parent.Neighbours.TryGetValue(direction, out nextSpot))
             {
+
                 if (nextSpot.Element == null || nextSpot.Element.CanMove(direction))
                 {
+                    Spot parent = this.Parent;                   
                     this.Move(direction);
+
+                    if (this.InGrass)
+                    {
+                        this.Pb.Image = this.ImageLeft;
+                        this.InGrass = false;
+                        parent.Element = new BlockGrass();
+                    }
+
                     return true;
                 }
 
@@ -50,6 +62,14 @@ namespace VangDeVolger.Elements.Birds
                     this.FreezeEnemy();
                     this.Move(direction);
                     return true;
+                }
+
+                if (nextSpot.Element.GetType() == typeof(BlockGrass))
+                {
+                    nextSpot.Element = null;
+                    this.Pb.Image = Properties.Resources.grass_bird;
+                    this.Move(direction);
+                    this.InGrass = true;
                 }
             }
             return false;

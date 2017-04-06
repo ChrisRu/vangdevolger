@@ -266,6 +266,12 @@
               <referencedTypeMoniker Id="858acae1-f4aa-4c26-bf5e-4272aaf803ff" LastKnownName="event FreezeEnemy" />
             </type_NamedElement>
           </property>
+          <property Id="659f7c1c-4754-475f-9bf3-3da39d2679d6" name="InGrass" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6066157f-5e70-4c63-bb4e-5aa1dac06c09" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="1c8654fa-9e26-4ec2-9a3a-e308b56f0092" name="KeyDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -1163,6 +1169,42 @@
                   <elementDefinition Id="8eb91809-f2bc-44f6-833b-264b3a83d079" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="30262f43-b8da-472c-81bd-9143ef97ebea" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="437abfb2-3361-4c2b-90d2-c99112820a1e" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="46ead814-1bb2-40be-9689-1ee1c4ae9a97" name="BlockGrass" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="80590c4d-9de3-4f72-93ab-666427d5ee90" />
+        <generalsInternal>
+          <generalization Id="1b916967-6cad-4597-be2d-7b6d521fe5be" isSubstitutable="false">
+            <classMoniker Id="2cde27ee-e9d3-4a24-8d88-a920d24960c2" LastKnownName="Block" />
+            <elementDefinition Id="3dd518a5-627b-4a03-a83a-77b3b8c2ab78" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation Id="e37c677a-72e5-4f82-bfc4-78800fa97c86" name="CanMove" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="024a358a-a194-48ed-91ae-8c9fb0d3ed42" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="385387a7-2356-432c-8938-d942ae1981a0" name="Direction" direction="In" isUnique="false">
+                  <elementDefinition Id="f0ca7ad2-22ea-44df-97e3-593919dc681d" />
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="23462287-97cb-428c-8ebf-81eeaea996c1" direction="Return" isUnique="false">
+                  <elementDefinition Id="d2baec8e-1314-4acb-b19e-ddb504c8f2d2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="437abfb2-3361-4c2b-90d2-c99112820a1e" LastKnownName="bool" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
