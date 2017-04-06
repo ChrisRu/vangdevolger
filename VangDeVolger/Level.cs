@@ -163,7 +163,7 @@ namespace VangDeVolger
                     if (spot.Element != null)
                     {
                         spot.Element.Pb.Location = new Point(x * this.Scale, (y * this.Scale) + offsetTop);
-                        this.Controls.Add(spot.Element.Pb);
+                        this.Controls?.Add(spot.Element.Pb);
                     }
                 }
             }

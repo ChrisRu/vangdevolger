@@ -53,7 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="LevelTest.cs" />
-    <Compile Include="PlayerTest.cs" />
+    <Compile Include="PathFinderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

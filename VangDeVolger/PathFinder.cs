@@ -87,7 +87,7 @@ namespace VangDeVolger
                 // Found path
                 if (current.Element?.GetType() == to)
                 {
-                    return _reconstructPath(current);
+                    return this._reconstructPath(current);
                 }
 
                 openSet.Remove(current);

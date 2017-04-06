@@ -4,7 +4,7 @@ namespace VangDeVolger.Elements.Blocks
     /// <summary>
     /// Solid Block to sit inside Spot, blocks the Player's movement
     /// </summary>
-    internal class BlockSolid : Block
+    public class BlockSolid : Block
     {
         /// <summary>
         /// Initialize new BlockSolid Class
