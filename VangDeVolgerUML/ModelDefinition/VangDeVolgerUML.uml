@@ -788,6 +788,24 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="ae02a534-2ca7-46c0-acf3-a61c0533c53c"
+            name="Paused"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="0edd770e-6c0f-4dbe-b728-4063cf13ca91"
+                LastKnownName="bool"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation

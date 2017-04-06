@@ -31,14 +31,7 @@ namespace VangDeVolger
             set
             {
                 this._paused = value;
-                if (value)
-                {
-                    this.Enemy.MoveTimer.Stop();
-                }
-                else
-                {
-                    this.Enemy.MoveTimer.Start();
-                }
+                this.Enemy.Paused = value;
             }
         }
         
