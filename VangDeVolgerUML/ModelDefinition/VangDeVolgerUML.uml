@@ -1275,6 +1275,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="2eed5d29-d8dc-4a9c-aa97-287910af2fc6">
+            <classMoniker
+              Id="474c8cf6-c0f9-4a79-afe2-9517b7d8e034"
+              LastKnownName="Enemy"
+              LastKnownLocation="VangDeVolgerUML.uml" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association
             Id="0ecb9f9e-97fa-499b-bb06-50459ecfc414"

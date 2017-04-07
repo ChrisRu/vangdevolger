@@ -582,6 +582,12 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="b1110110-e6b0-40b8-9aea-951919bdd478" name="Level" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="7556f8fd-0a80-46f0-800f-0485bce193fa" />
+        <suppliersInternal>
+          <dependency Id="ef0c10a6-0f97-4334-9e43-79029da8c215">
+            <classMoniker Id="3f638dee-7516-4db6-9056-89d0240dcad9" LastKnownName="Enemy" />
+            <elementDefinition Id="2eed5d29-d8dc-4a9c-aa97-287910af2fc6" />
+          </dependency>
+        </suppliersInternal>
         <targetEnds>
           <association Id="85d09ee7-e29c-49a8-a4e3-0a6eb69411a3" isDerived="false" sourceEndRoleName="Level" targetEndRoleName="LevelReader" isLeaf="false" isAbstract="false">
             <classMoniker Id="cef00ce6-bffe-43da-9e80-17c849d76466" LastKnownName="LevelReader" />
