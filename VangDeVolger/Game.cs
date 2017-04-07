@@ -2,11 +2,10 @@
 namespace VangDeVolger
 {
     using System;
-    using System.Linq;
     using System.Drawing;
+    using System.Linq;
     using System.Media;
     using System.Windows.Forms;
-
     using Elements.Birds;
 
     public partial class Game : Form
@@ -15,13 +14,13 @@ namespace VangDeVolger
 
         public SoundPlayer SoundPlayer { get; set; }
 
-        private bool _soundPlaying;
+        private bool _soundPlaying { get; set; }
 
         private int _size = 16;
 
         private int _scale = 32;
 
-        private Color _backColor;
+        private Color _backColor { get; set; }
 
         public Player Player => (Player)(from Spot spot in GameLevel.Grid where spot.Element is Player select spot.Element).FirstOrDefault();
 

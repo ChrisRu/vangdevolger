@@ -17,6 +17,8 @@ namespace VangDeVolger.Elements.Birds
 
         public bool InGrass { get; set; }
 
+        private PictureBox TemporaryGrass { get; set; }
+
         /// <summary>
         /// Initialize new Player Class
         /// </summary>
@@ -49,7 +51,8 @@ namespace VangDeVolger.Elements.Birds
                     {
                         this.Pb.Image = this.ImageLeft;
                         this.InGrass = false;
-                        parent.Element = new BlockGrass();
+                        parent.Element = new BlockGrass { Pb = this.TemporaryGrass };
+                        this.TemporaryGrass = null;
                     }
 
                     return true;
@@ -66,6 +69,7 @@ namespace VangDeVolger.Elements.Birds
 
                 if (nextSpot.Element.GetType() == typeof(BlockGrass))
                 {
+                    this.TemporaryGrass = nextSpot.Element.Pb;
                     nextSpot.Element = null;
                     this.Pb.Image = Properties.Resources.grass_bird;
                     this.Move(direction);

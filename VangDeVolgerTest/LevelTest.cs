@@ -21,14 +21,14 @@ namespace VangDeVolgerTest
         public void TestPauseEnemy1()
         {
             Level level = new Level(null, 16, 16, 0) { Paused = false };
-            Assert.IsTrue(level.Enemy.MoveTimer.Enabled, "Enemy doesn't execute move method");
+            Assert.IsFalse(level.Enemy.Paused, "Enemy doesn't start executing move method");
         }
 
         [TestMethod]
         public void TestPauseEnemy2()
         {
             Level level = new Level(null, 16, 16, 0) { Paused = true };
-            Assert.IsTrue(level.Enemy.MoveTimer.Enabled, "Enemy doesn't stop executing move method");
+            Assert.IsTrue(level.Enemy.Paused, "Enemy doesn't stop executing move method");
         }
 
         // Level.GetRandomGrid

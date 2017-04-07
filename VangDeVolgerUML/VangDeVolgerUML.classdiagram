@@ -272,6 +272,12 @@
               <referencedTypeMoniker Id="fc3b713a-475d-417f-befa-a5b7400b472b" LastKnownName="bool" />
             </type_NamedElement>
           </property>
+          <property Id="000b0023-fd58-43a2-85c4-cb87f0e254ef" name="temporaryGrass" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="7e9146d7-1ed8-4a62-837a-4cf719ad4ac5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d5b4e28a-915c-4439-9ad6-921be261222f" LastKnownName="PictureBox" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="1c8654fa-9e26-4ec2-9a3a-e308b56f0092" name="KeyDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -1211,6 +1217,11 @@
     <packageHasNamedElement>
       <referencedType Id="1e3aac4c-b1e2-46bf-8466-22c79b2f0db3" name="Dictionary&lt;Type, int&gt;" isAbstract="false" isLeaf="false" cachedFullName="Dictionary&lt;Type, int&gt;">
         <elementDefinition Id="6caca7ff-e37c-4df8-8913-29e8a7552513" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d5b4e28a-915c-4439-9ad6-921be261222f" name="PictureBox" isAbstract="false" isLeaf="false" cachedFullName="PictureBox">
+        <elementDefinition Id="f9558971-8ee6-49b7-9ea7-9a246af434f5" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

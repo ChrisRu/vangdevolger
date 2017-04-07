@@ -600,6 +600,25 @@
                 LastKnownLocation="VangDeVolgerUML.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="7e9146d7-1ed8-4a62-837a-4cf719ad4ac5"
+            name="temporaryGrass"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="f9558971-8ee6-49b7-9ea7-9a246af434f5"
+                LastKnownName="PictureBox"
+                LastKnownLocation="VangDeVolgerUML.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
@@ -2503,6 +2522,11 @@
       <undefinedType
         Id="6caca7ff-e37c-4df8-8913-29e8a7552513"
         name="Dictionary&lt;Type, int&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="f9558971-8ee6-49b7-9ea7-9a246af434f5"
+        name="PictureBox" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
