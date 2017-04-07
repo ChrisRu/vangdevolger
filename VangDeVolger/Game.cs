@@ -263,7 +263,7 @@ namespace VangDeVolger
             DialogResult result = MessageBox.Show(message, title, MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                this._toggleMusic(true);
+                this._toggleMusic(this._soundPlaying);
                 this._restartGame();
             }
             else
