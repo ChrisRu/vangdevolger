@@ -28,15 +28,23 @@ namespace VangDeVolger.Elements.Birds
         /// <param name="direction">Facing Direction</param>
         public void ChangeDirection(Direction direction)
         {
-            if (direction == Direction.Left && this.Pb.Image == this.ImageRight)
+            if (direction == Direction.Left)
             {
-                this.Pb.Image = this.ImageLeft;
-                this.Pb.Invalidate();
+                this.GoingRight = false;
+                if (this.Pb.Image == this.ImageRight)
+                {
+                    this.Pb.Image = this.ImageLeft;
+                    this.Pb.Invalidate();
+                }
             }
-            else if (direction == Direction.Right && this.Pb.Image == this.ImageLeft)
+            else if (direction == Direction.Right)
             {
-                this.Pb.Image = this.ImageRight;
-                this.Pb.Invalidate();
+                this.GoingRight = true;
+                if (this.Pb.Image == this.ImageLeft)
+                {
+                    this.Pb.Image = this.ImageRight;
+                    this.Pb.Invalidate();
+                }
             }
         }
     }

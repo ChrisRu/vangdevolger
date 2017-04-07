@@ -49,7 +49,7 @@ namespace VangDeVolger.Elements.Birds
 
                     if (this.InGrass)
                     {
-                        this.Pb.Image = this.ImageLeft;
+                        this.Pb.Image = this.GoingRight ? this.ImageRight : this.ImageLeft;
                         this.InGrass = false;
                         parent.Element = new BlockGrass { Pb = this.TemporaryGrass };
                         this.TemporaryGrass = null;
