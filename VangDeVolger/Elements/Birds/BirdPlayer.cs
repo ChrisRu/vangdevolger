@@ -63,7 +63,18 @@ namespace VangDeVolger.Elements.Birds
                     nextSpot.Element.Pb.Dispose();
                     nextSpot.Element = null;
                     this.FreezeEnemy();
+
+                    Spot parent = this.Parent;
                     this.Move(direction);
+
+                    if (this.InGrass)
+                    {
+                        this.Pb.Image = this.GoingRight ? this.ImageRight : this.ImageLeft;
+                        this.InGrass = false;
+                        parent.Element = new BlockGrass { Pb = this.TemporaryGrass };
+                        this.TemporaryGrass = null;
+                    }
+
                     return true;
                 }
 
